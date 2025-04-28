@@ -2,5 +2,5 @@
 name: Custom subissue template
 about: Describe this issue template's purpose here.
 issue type: 'task'
-project: 'Project #4'
+project: '[ScrumBoard @Getting Real]'
 ---
