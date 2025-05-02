@@ -14,7 +14,7 @@ namespace CarlssonsWPF.Data.FileRepositories
         static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         static string folder = Path.Combine(projectPath, "Data");
         static string subFolder = Path.Combine(folder, "SavedFiles");
-        
+        static string directory = Path.GetDirectoryName(subFolder);
 
         protected readonly string _filePath;
         protected List<T> _entities;
@@ -22,19 +22,7 @@ namespace CarlssonsWPF.Data.FileRepositories
         public FileRepository(string filePath)
         {
             _filePath = filePath;
-            string directory = Path.GetDirectoryName(_filePath);
-            string subFOlder = Path.Combine(subFolder, _filePath);
-            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
 
-            // Create file if it doesn't exist
-            if (!File.Exists(subFOlder))
-            {
-                // Create an empty JSON array
-                File.WriteAllText(subFOlder, "[]");
-            }
             LoadData();
         }
 

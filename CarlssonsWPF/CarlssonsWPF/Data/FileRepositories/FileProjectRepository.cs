@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,26 @@ namespace CarlssonsWPF.Data.FileRepositories
 {
     public class ProjectFileRepository : FileRepository<Project>, IProjectRepository
     {
-        public ProjectFileRepository() : base("projects.json") { }
+        public static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        public static string folder = Path.Combine(projectPath, "Data");
+        public static string subFolder = Path.Combine(folder, "SavedFiles");
+        public static string filePath = Path.Combine(subFolder, "projects.json");
+
+
+        public ProjectFileRepository() : base("projects.json") 
+        {
+            string folderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "Data", "SavedFiles");
+            string directory = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+            }
+        }
 
         public override Project GetById(object id)
         {

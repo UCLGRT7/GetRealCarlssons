@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,21 @@ namespace CarlssonsWPF.Data.FileRepositories
 {
     public class ServicesFileRepository : FileRepository<Services>, IServicesRepository
     {
-        public ServicesFileRepository() : base("services.json") { }
+        public ServicesFileRepository() : base("services.json") 
+        {
+            string folderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "Data", "SavedFiles");
+            string filePath = Path.Combine(folderPath, "services.json");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+            }
+        }
 
         public override Services GetById(object id)
         {
