@@ -19,6 +19,7 @@ namespace CarlssonsWPF
     {
         public MainWindow()
         {
+
             InitializeComponent();
             DataContext = new MainViewModel();
         }

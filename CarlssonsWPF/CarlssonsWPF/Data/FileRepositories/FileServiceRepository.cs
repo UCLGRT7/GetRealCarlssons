@@ -9,21 +9,29 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class ServicesFileRepository : FileRepository<Services>, IServicesRepository
+    public class FileServiceRepository : FileRepository<Services>, IServicesRepository
     {
-        public ServicesFileRepository() : base("services.json") 
-        {
-            string folderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "Data", "SavedFiles");
-            string filePath = Path.Combine(folderPath, "services.json");
+        private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static string folder = Path.Combine(projectPath, "Data");
+        private static string subFolder = Path.Combine(folder, "SavedFiles");
+        private static string serviceFilePath = Path.Combine(subFolder, "services.json");
+        public string FilePath { get; set; }
 
-            if (!Directory.Exists(folderPath))
+        public FileServiceRepository(string? filePath = null) : base("services.json") 
+        {
+            FilePath = filePath ?? serviceFilePath;
+
+            string directory = Path.GetDirectoryName(FilePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
             {
-                Directory.CreateDirectory(folderPath);
+                Directory.CreateDirectory(directory);
             }
 
-            if (!File.Exists(filePath))
+            // Create file if it doesn't exist
+            if (!File.Exists(FilePath))
             {
-                File.WriteAllText(filePath, "[]");
+                // Create an empty JSON array
+                File.WriteAllText(FilePath, "[]");
             }
         }
 

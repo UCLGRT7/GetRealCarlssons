@@ -11,18 +11,15 @@ namespace CarlssonsWPF.Data.FileRepositories
 {
     public abstract class FileRepository<T> : IRepository<T> where T : class
     {
-        static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        static string folder = Path.Combine(projectPath, "Data");
-        static string subFolder = Path.Combine(folder, "SavedFiles");
-        static string directory = Path.GetDirectoryName(subFolder);
 
         protected readonly string _filePath;
         protected List<T> _entities;
+        public string FilePath { get; set; }
 
         public FileRepository(string filePath)
         {
-            _filePath = filePath;
-
+            //_filePath = filePath;
+            
             LoadData();
         }
 

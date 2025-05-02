@@ -8,7 +8,7 @@ using CarlssonsWPF.Data.FileRepositories;
 
 namespace CarlssonsWPF.Data.UnitOfWork
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         ICustomerRepository Customers { get; }
         IProjectRepository Projects { get; }

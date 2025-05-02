@@ -9,26 +9,29 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class ProjectFileRepository : FileRepository<Project>, IProjectRepository
+    public class FileProjectRepository : FileRepository<Project>, IProjectRepository
     {
-        public static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        public static string folder = Path.Combine(projectPath, "Data");
-        public static string subFolder = Path.Combine(folder, "SavedFiles");
-        public static string filePath = Path.Combine(subFolder, "projects.json");
+        private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static string folder = Path.Combine(projectPath, "Data");
+        private static string subFolder = Path.Combine(folder, "SavedFiles");
+        private static string projectFilePath = Path.Combine(subFolder, "projects.json");
+        public string FilePath { get; set; }
 
-
-        public ProjectFileRepository() : base("projects.json") 
+        public FileProjectRepository(string? filePath = null) : base("projects.json") 
         {
-            string folderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "Data", "SavedFiles");
-            string directory = Path.GetDirectoryName(filePath);
-            if (!Directory.Exists(directory))
+            FilePath = filePath ?? projectFilePath;
+
+            string directory = Path.GetDirectoryName(FilePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
 
-            if (!File.Exists(filePath))
+            // Create file if it doesn't exist
+            if (!File.Exists(FilePath))
             {
-                File.WriteAllText(filePath, "[]");
+                // Create an empty JSON array
+                File.WriteAllText(FilePath, "[]");
             }
         }
 

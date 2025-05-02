@@ -10,17 +10,17 @@ namespace CarlssonsWPF.Data.UnitOfWork
 {
     public class FileUnitOfWork : IUnitOfWork
     {
-        private readonly CustomerFileRepository _customerRepository;
-        private readonly ProjectFileRepository _projectRepository;
-        private readonly ContractFileRepository _contractRepository;
-        private readonly ServicesFileRepository _servicesRepository;
+        private readonly FileCustomerRepository _customerRepository;
+        private readonly FileProjectRepository _projectRepository;
+        private readonly FileContractRepository _contractRepository;
+        private readonly FileServiceRepository _servicesRepository;
 
         public FileUnitOfWork()
         {
-            _customerRepository = new CustomerFileRepository();
-            _projectRepository = new ProjectFileRepository();
-            _contractRepository = new ContractFileRepository();
-            _servicesRepository = new ServicesFileRepository();
+            _customerRepository = new FileCustomerRepository();
+            _projectRepository = new FileProjectRepository();
+            _contractRepository = new FileContractRepository();
+            _servicesRepository = new FileServiceRepository();
         }
 
         public ICustomerRepository Customers => _customerRepository;
@@ -36,9 +36,5 @@ namespace CarlssonsWPF.Data.UnitOfWork
             _servicesRepository.Save();
         }
 
-        public void Dispose()
-        {
-            // Release resources if needed
-        }
     }
 }

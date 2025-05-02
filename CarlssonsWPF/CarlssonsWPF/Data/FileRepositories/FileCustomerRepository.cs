@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,31 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class CustomerFileRepository : FileRepository<Customer>, ICustomerRepository
+    public class FileCustomerRepository : FileRepository<Customer>, ICustomerRepository
     {
-        public CustomerFileRepository() : base("customers.json") { }
+        private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static string folder = Path.Combine(projectPath, "Data");
+        private static string subFolder = Path.Combine(folder, "SavedFiles");
+        private static string customersFilePath = Path.Combine(subFolder, "customers.json");
+        public string FilePath { get; set; }
+
+        public FileCustomerRepository(string? filePath = null) : base("customers.json")
+        {
+            FilePath = filePath ?? customersFilePath;
+
+            string directory = Path.GetDirectoryName(FilePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Create file if it doesn't exist
+            if (!File.Exists(FilePath))
+            {
+                // Create an empty JSON array
+                File.WriteAllText(FilePath, "[]");
+            }
+        }
 
         public override Customer GetById(object id)
         {

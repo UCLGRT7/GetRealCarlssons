@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,32 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class ContractFileRepository : FileRepository<Contract>, IContractRepository
+    public class FileContractRepository : FileRepository<Contract>, IContractRepository
     {
-        public ContractFileRepository() : base("contracts.json") { }
+        private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static string folder = Path.Combine(projectPath, "Data");
+        private static string subFolder = Path.Combine(folder, "SavedFiles");
+        private static string contractFilePath = Path.Combine(subFolder, "contracts.json");
+        public string FilePath { get; set; }
+
+
+        public FileContractRepository(string? filePath = null) : base("contracts.json") 
+        {
+            FilePath = filePath ?? contractFilePath;
+
+            string directory = Path.GetDirectoryName(FilePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Create file if it doesn't exist
+            if (!File.Exists(FilePath))
+            {
+                // Create an empty JSON array
+                File.WriteAllText(FilePath, "[]");
+            }
+        }
 
         public override Contract GetById(object id)
         {
