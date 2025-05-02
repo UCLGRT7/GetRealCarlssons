@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class FileCustomerRepository : FileRepository<Customer>, ICustomerRepository
+    public class FileCustomerRepository :  ICustomerRepository
     {
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");
         private static string subFolder = Path.Combine(folder, "SavedFiles");
-        private static string customersFilePath = Path.Combine(subFolder, "customers.json");
+        private static string customerFilePath = Path.Combine(subFolder, "customers.json");
         public string FilePath { get; set; }
 
-        public FileCustomerRepository(string? filePath = null) : base("customers.json")
+        public FileCustomerRepository(string? filePath = null)
         {
-            FilePath = filePath ?? customersFilePath;
+            FilePath = filePath ?? customerFilePath;
 
+            // Create directory if it doesn't exist
             string directory = Path.GetDirectoryName(FilePath);
             if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
             {
@@ -35,39 +37,117 @@ namespace CarlssonsWPF.Data.FileRepositories
             }
         }
 
-        public override Customer GetById(object id)
+        public Customer GetByName(string name)
         {
-            string customerId = id.ToString();
-            return _entities.FirstOrDefault(c => c.Name == customerId); 
+            return GetAll().FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public Customer GetByEmail(string email)
         {
-            return _entities.FirstOrDefault(c => c.Email == email);
+            return GetAll().FirstOrDefault(c => c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
         }
 
-        public IEnumerable<Customer> GetByName(string name)
+        public IEnumerable<Customer> GetAll()
         {
-            return _entities.Where(c => c.Name.Contains(name));
-        }
+            List<Customer> customers = new List<Customer>();
 
-        public override void Delete(object id)
-        {
-            string customerId = id.ToString();
-            var customer = GetById(customerId);
-            if (customer != null)
+            try
             {
-                _entities.Remove(customer);
+                if (new FileInfo(FilePath).Length > 0)
+                {
+                    string jsonContent = File.ReadAllText(FilePath);
+
+                    // If the file isn't empty, deserialize it
+                    if (!string.IsNullOrWhiteSpace(jsonContent))
+                    {
+                        customers = JsonSerializer.Deserialize<List<Customer>>(jsonContent) ?? new List<Customer>();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading customer file: {ex.Message}");
+            }
+
+            return customers;
+        }
+
+        public void Add(Customer customer)
+        {
+            // If customer already exists, update it instead
+            if (GetByName(customer.Name) != null)
+            {
+                Update(customer);
+                return;
+            }
+
+            try
+            {
+                // Get all existing customers
+                var customers = GetAll().ToList();
+
+                // Add the new customer
+                customers.Add(customer);
+
+                // Save all customers back to file
+                SaveCustomersToFile(customers);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding customer: {ex.Message}");
             }
         }
 
-        public override void Update(Customer entity)
+        public void Update(Customer customer)
         {
-            var existingCustomer = GetById(entity.Name);
-            if (existingCustomer != null)
+            // Get all customers
+            var customers = GetAll().ToList();
+
+            // Find the index of the customer to update
+            var existingIndex = customers.FindIndex(c => c.Name == customer.Name);
+
+            // Update the customer if found
+            if (existingIndex != -1)
             {
-                int index = _entities.IndexOf(existingCustomer);
-                _entities[index] = entity;
+                customers[existingIndex] = customer;
+                SaveCustomersToFile(customers);
+            }
+        }
+
+        public void Delete(int invoiceNumber)
+        {
+            // Note: Interface specifies invoiceNumber, but Customer uses Name as ID.
+            // Assuming this is a typo in the interface; not implementing as it doesn't align with Customer's identifier.
+            throw new NotImplementedException("Delete by invoiceNumber is not applicable for Customer. Use Name instead.");
+        }
+
+        public void Delete(string name)
+        {
+            var customers = GetAll().ToList();
+            customers.RemoveAll(c => c.Name == name);
+            SaveCustomersToFile(customers);
+        }
+
+
+        private void SaveCustomersToFile(IEnumerable<Customer> customers)
+        {
+            try
+            {
+                // Configure JSON serialization options
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true // Makes the JSON file more readable
+                };
+
+                // Serialize the customer list to JSON
+                string jsonString = JsonSerializer.Serialize(customers, options);
+
+                // Write to file
+                File.WriteAllText(FilePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving customers: {ex.Message}");
             }
         }
     }

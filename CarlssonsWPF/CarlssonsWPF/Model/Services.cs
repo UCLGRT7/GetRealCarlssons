@@ -8,16 +8,26 @@ namespace CarlssonsWPF.Model
 {
     public class Services
     {
+        public int Id { get; set; }
         public string ServiceType { get; set; }
         public int Complexity { get; set; }
 
-        //Liste til at se hvilke projekter der bruger de enkelte services
-        public List<string> ProjectIds { get; set; } = new List<string>();
-
-        public Services(string serviceType, int complexity)
+        public override string ToString()
         {
-            ServiceType = serviceType;
-            Complexity = complexity;
+            return $"{Id},{ServiceType},{Complexity}";
+        }
+
+        public static Services FromString(string input)
+        {
+            string[] parts = input.Split(',');
+            if (parts.Length < 3)
+                throw new FormatException("Invalid service data format");
+            return new Services
+            {
+                Id = int.Parse(parts[0]),
+                ServiceType = parts[1],
+                Complexity = int.Parse(parts[2])
+            };
         }
     }
 }

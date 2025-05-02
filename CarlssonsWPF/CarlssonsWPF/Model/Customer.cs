@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
@@ -12,16 +13,26 @@ namespace CarlssonsWPF.Model
         public string Address { get; set; }
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
+        [JsonIgnore]
+        public List<Project> Projects { get; set; } = new List<Project>();
 
-        // Liste af projekter til den enkelte kunde
-        public List<string> ProjectIds { get; set; } = new List<string>();
-
-        public Customer(string name, string address, string email, int phoneNumber)
+        public override string ToString()
         {
-            Name = name;
-            Address = address;
-            Email = email;
-            PhoneNumber = phoneNumber;
+            return $"{Name},{Address},{Email},{PhoneNumber}";
+        }
+
+        public static Customer FromString(string input)
+        {
+            string[] parts = input.Split(',');
+            if (parts.Length < 4)
+                throw new FormatException("Invalid customer data format");
+            return new Customer
+            {
+                Name = parts[0],
+                Address = parts[1],
+                Email = parts[2],
+                PhoneNumber = int.Parse(parts[3])
+            };
         }
     }
 }

@@ -7,9 +7,15 @@ using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel.IRepositories
 {
-    public interface IServicesRepository : IRepository<Services>
+    public interface IServiceRepository 
     {
+        Services GetById(int id);
+        IEnumerable<Services> GetAll();
         IEnumerable<Services> GetByServiceType(string serviceType);
         IEnumerable<Services> GetByComplexity(int complexity);
+        void Add(Services service);
+        void Update(Services service);
+        void Delete(int id);
+
     }
 }

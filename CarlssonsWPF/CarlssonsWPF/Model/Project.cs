@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
@@ -13,25 +14,31 @@ namespace CarlssonsWPF.Model
         public DateTime DateOfDelivery { get; set; }
         public double PriceEstimate { get; set; }
         public int Scale { get; set; }
+        public string CustomerName { get; set; } // Reference to Customer
+        [JsonIgnore]
+        public List<Contract> Contracts { get; set; } = new List<Contract>();
+        [JsonIgnore]
+        public List<Services> Services { get; set; } = new List<Services>();
 
-        // Added to support the Customer relationship
-        public string CustomerId { get; set; }
-
-        // Added to support the Contract relationship
-        public int ContractId { get; set; }
-
-        // Liste til at Project kan bruge Services
-        public List<string> ServiceTypes { get; set; } = new List<string>();
-
-        public Project(string caseNumber, string addressOfDelivery, DateTime dateOfDelivery,
-                       double priceEstimate, int scale, string customerId)
+        public override string ToString()
         {
-            CaseNumber = caseNumber;
-            AddressOfDelivery = addressOfDelivery;
-            DateOfDelivery = dateOfDelivery;
-            PriceEstimate = priceEstimate;
-            Scale = scale;
-            CustomerId = customerId;
+            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName}";
+        }
+
+        public static Project FromString(string input)
+        {
+            string[] parts = input.Split(',');
+            if (parts.Length < 6)
+                throw new FormatException("Invalid project data format");
+            return new Project
+            {
+                CaseNumber = parts[0],
+                AddressOfDelivery = parts[1],
+                DateOfDelivery = DateTime.Parse(parts[2]),
+                PriceEstimate = double.Parse(parts[3]),
+                Scale = int.Parse(parts[4]),
+                CustomerName = parts[5]
+            };
         }
     }
 }

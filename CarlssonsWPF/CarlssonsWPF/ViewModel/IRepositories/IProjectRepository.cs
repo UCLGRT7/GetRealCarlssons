@@ -7,11 +7,16 @@ using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel.IRepositories
 {
-    public interface IProjectRepository : IRepository<Project>
+    public interface IProjectRepository
     {
         Project GetByCaseNumber(string caseNumber);
+        IEnumerable<Project> GetAll();
+        IEnumerable<Project> GetByCustomerId(string customerName);
         IEnumerable<Project> GetByAddress(string address);
         IEnumerable<Project> GetByScale(int scale);
-        IEnumerable<Project> GetByCustomerId(string customerId);
+        void Add(Project project);
+        void Update(Project project);
+        void Delete(string caseNumber);
+
     }
 }
