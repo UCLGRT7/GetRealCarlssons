@@ -15,6 +15,7 @@ namespace CarlssonsWPF.Model
         public double PriceEstimate { get; set; }
         public int Scale { get; set; }
         public string CustomerName { get; set; } // Reference to Customer
+        public string Status { get; set; }
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
@@ -37,7 +38,8 @@ namespace CarlssonsWPF.Model
                 DateOfDelivery = DateTime.Parse(parts[2]),
                 PriceEstimate = double.Parse(parts[3]),
                 Scale = int.Parse(parts[4]),
-                CustomerName = parts[5]
+                CustomerName = parts[5],
+                Status = parts[6]
             };
         }
     }
