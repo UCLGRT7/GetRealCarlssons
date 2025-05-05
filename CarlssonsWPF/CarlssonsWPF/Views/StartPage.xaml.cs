@@ -12,27 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Projekt;
 
-namespace CarlssonsWPF.Views.Projekt
+namespace CarlssonsWPF.Views
 {
     /// <summary>
-    /// Interaction logic for ProjektMainWindow.xaml
+    /// Interaction logic for StartPage.xaml
     /// </summary>
-    public partial class ProjektMainWindow : Page
+    public partial class StartPage : Page
     {
-        public ProjektMainWindow()
+        public StartPage()
         {
             InitializeComponent();
-
-
-            //ProjektMainPageViewModel projektMainWindowViewModel = new ProjektMainPageViewModel();
-            //DataContext = projektMainWindowViewModel;
         }
-
-        private void startPage_Click(object sender, RoutedEventArgs e)
+        private void project_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StartPage());
+
+            NavigationService.Navigate(new ProjektMainWindow());
         }
     }
 }

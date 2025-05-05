@@ -23,13 +23,13 @@ namespace CarlssonsWPF.Model
 
         public override string ToString()
         {
-            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName}";
+            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName},{Status}";
         }
 
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 6)
+            if (parts.Length < 7)
                 throw new FormatException("Invalid project data format");
             return new Project
             {

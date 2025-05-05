@@ -9,20 +9,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Projekt;
 
-namespace CarlssonsWPF
+namespace CarlssonsWPF.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// <summary>  
+    /// Interaction logic for MainWindow.xaml  
+    /// </summary>  
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-
             InitializeComponent();
-            MainViewModel mainViewModel = new MainViewModel();
-            DataContext = mainViewModel;
+            //StartPageViewModel mainWindowViewModel = new StartPageViewModel();  
+            //DataContext = mainWindowViewModel;  
+            MainFrame.Navigate(new StartPage());
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }
