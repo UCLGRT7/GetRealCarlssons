@@ -6,11 +6,10 @@
        xmlns:local="clr-namespace:CarlssonsWPF"
        mc:Ignorable="d"
        Title="MainWindow" Height="720" Width="1280">
-    <Grid>
+    <Grid Height="704" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280">
+        <Border BorderBrush="Black" BorderThickness="1"/>
         <Frame x:Name="MainFrame"
-               NavigationUIVisibility="Hidden"
-               HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch" />
+               NavigationUIVisibility="Hidden" Margin="10,10,10,10" />
 
     </Grid>
 </Window>

@@ -1,25 +1,41 @@
 ﻿<Page x:Class="CarlssonsWPF.Views.Projekt.ProjektMainWindow"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
-      mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="ProjektMainWindow">
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+     xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+     mc:Ignorable="d" 
+     d:DesignHeight="720" d:DesignWidth="1280"
+     Title="ProjektMainWindow">
 
-    <Grid>
+    <Grid Margin="10" ShowGridLines="True">
 
+        <Grid ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" />
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Opret" Width="80" Height="50"/>
+
+            </StackPanel>
+            <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
 
         <Label Content="This is my project test landing page" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="Start" Click="startPage_Click" HorizontalAlignment="Left" Margin="211,569,0,0" VerticalAlignment="Top"/>
-
-
-
-
+        <Button Content="Start" Click="startPage_Click" Margin="0,0,0,10" Grid.Row="2" Grid.Column="1" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Page>

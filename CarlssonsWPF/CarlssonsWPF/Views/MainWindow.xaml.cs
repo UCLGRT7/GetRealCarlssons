@@ -21,9 +21,7 @@ namespace CarlssonsWPF.Views
         public MainWindow()
         {
             InitializeComponent();
-            //StartPageViewModel mainWindowViewModel = new StartPageViewModel();  
-            //DataContext = mainWindowViewModel;  
-            MainFrame.Navigate(new StartPage());
+            MainFrame.Navigate(new StartPage(MainFrame));
         }
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)

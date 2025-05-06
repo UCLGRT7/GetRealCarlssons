@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "CaseNumber": "8888",
+        "AddressOfDelivery": "HejVej",
+        "DateOfDelivery": "2025-05-05T21:34:57.5313523+02:00",
+        "PriceEstimate": 100000,
+        "Scale": 8,
+        "CustomerName": "Alex"
+    }
+]

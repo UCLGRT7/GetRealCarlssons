@@ -21,10 +21,11 @@ namespace CarlssonsWPF.Views.Projekt
     /// </summary>
     public partial class ProjektMainWindow : Page
     {
-        public ProjektMainWindow()
+        private Frame _frame;
+        public ProjektMainWindow(Frame frame)
         {
             InitializeComponent();
-
+            _frame = frame;
 
             //ProjektMainPageViewModel projektMainWindowViewModel = new ProjektMainPageViewModel();
             //DataContext = projektMainWindowViewModel;
@@ -32,7 +33,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void startPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StartPage());
+            _frame.Navigate(new StartPage(_frame));
         }
     }
 }

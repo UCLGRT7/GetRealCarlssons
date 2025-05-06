@@ -21,14 +21,17 @@ namespace CarlssonsWPF.Views
     /// </summary>
     public partial class StartPage : Page
     {
-        public StartPage()
+        private Frame _frame;
+        public StartPage(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
         }
         private void project_Click(object sender, RoutedEventArgs e)
         {
 
-            NavigationService.Navigate(new ProjektMainWindow());
+            
+            _frame.Navigate(new ProjektMainWindow(_frame));
         }
     }
 }
