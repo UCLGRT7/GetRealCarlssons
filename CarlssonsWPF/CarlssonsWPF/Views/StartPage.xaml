@@ -8,7 +8,7 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="StartPage">
 
-    
+
     <Grid Margin="10,10,10,10" ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -22,7 +22,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Testing StartPage page" HorizontalAlignment="Center" Margin="0,109,0,0" VerticalAlignment="Top"/>
-        <Button Content="Projekter" Click="project_Click" Margin="0,0,0,10" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1"  Width="150" Height="50"/>
+        <Button Content="Kunder" Click="customer_Click" Margin="0,79,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"  Width="150" Height="50" Grid.Column="1"/>
+        <Button Content="Projekter" Click="project_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"  Width="150" Height="50"/>
 
     </Grid>
 </Page>
