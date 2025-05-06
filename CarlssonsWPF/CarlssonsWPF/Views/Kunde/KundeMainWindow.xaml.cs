@@ -25,5 +25,21 @@ namespace CarlssonsWPF.Views.Kunde
             InitializeComponent();
             _frame = frame;
         }
+
+        //private void customer_Click(object sender, RoutedEventArgs e)
+        //{
+
+
+        //    _frame.Navigate(new KundeMainWindow(_frame));
+        //}
+
+        private void HomescreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new StartPage(_frame));
+        }
+        private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
