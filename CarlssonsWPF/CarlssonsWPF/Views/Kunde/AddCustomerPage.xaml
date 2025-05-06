@@ -47,7 +47,7 @@
 
         <UniformGrid Grid.Row="2" Columns="2" Margin="10,10,10,0" Height="50" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Button Content="Tilbage" Width="120" Height="50" HorizontalAlignment="Right" Margin="0 0 5 0" Click="BackFromAddCustomer_Click"/>
-            <Button Content="Opret" Width="120" Height="50" HorizontalAlignment="left" Margin="5 0 0 0" Command="{Binding AddCustomerCommand}"/>
+            <Button Content="Opret" Width="120" Height="50" HorizontalAlignment="left" Margin="5 0 0 0" Click="AddCustomerAndGoToSpec_click"/>
         </UniformGrid>
 
         

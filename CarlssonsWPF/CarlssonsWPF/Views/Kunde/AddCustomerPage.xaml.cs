@@ -44,10 +44,12 @@ namespace CarlssonsWPF.Views.Kunde
             _frame.Navigate(new KundeMainWindow(_frame));
         }
 
-        private void AddCustomerAndReturn()
+        private void AddCustomerAndGoToSpec_click(object sender, RoutedEventArgs e)
         {
             _customerViewModel.AddCustomer(); // kald metoden direkte
-            _frame.Navigate(new KundeMainWindow(_frame));
+
+            var addedCustomer = _customerViewModel.customers.Last();
+            _frame.Navigate(new CustomerSpecPage(_frame, addedCustomer));
         }
     }
 }

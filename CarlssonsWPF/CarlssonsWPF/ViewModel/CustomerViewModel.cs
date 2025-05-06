@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
@@ -14,10 +15,12 @@ namespace CarlssonsWPF.ViewModel
     class CustomerViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public Customer SelectedCustomer { get; set; }
 
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
+
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
@@ -128,8 +131,7 @@ namespace CarlssonsWPF.ViewModel
             _customerRepository.Add(customer); // Gem til fil
             customers.Add(customer);           // Vis i UI
 
-            Console.WriteLine($"Kunde gemt: {Name}");
-
+            MessageBox.Show($"Kunde '{customer.Name}' tilføjet", "Success");
         }
         public void AddCustomer(Customer customer)
         {

@@ -1,34 +1,34 @@
 [
-  {
-    "Name": "32",
-    "Address": "2",
-    "Email": "2",
-    "PhoneNumber": 20,
-    "PostalCode": 20,
-    "City": "2"
-  },
-  {
-    "Name": "dawdwa",
-    "Address": "dwad",
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 23,
-    "City": null
-  },
-  {
-    "Name": "Daniel",
-    "Address": "Salling",
-    "Email": "Daniel@hotmail.com",
-    "PhoneNumber": 12345678,
-    "PostalCode": 2720,
-    "City": "Vanl\u00F8se"
-  },
-  {
-    "Name": null,
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
-  }
+    {
+        "Name": "Sandra",
+        "Address": "23e",
+        "Email": "sandra@example.com",
+        "PhoneNumber": 12345678,
+        "PostalCode": 2100,
+        "City": "København"
+    },
+    {
+        "Name": "Jonas",
+        "Address": "Testvej 1",
+        "Email": "jonas@mail.com",
+        "PhoneNumber": 87654321,
+        "PostalCode": 8000,
+        "City": "Aarhus"
+    },
+    {
+        "Name": "Maria",
+        "Address": "Park Allé 45",
+        "Email": "maria@test.dk",
+        "PhoneNumber": 44556677,
+        "PostalCode": 9000,
+        "City": "Aalborg"
+    },
+    {
+        "Name": "Lars",
+        "Address": "Havnevej 10",
+        "Email": "lars@firma.dk",
+        "PhoneNumber": 99887766,
+        "PostalCode": 5000,
+        "City": "Odense"
+    }
 ]

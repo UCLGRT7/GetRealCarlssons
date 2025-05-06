@@ -61,5 +61,13 @@ namespace CarlssonsWPF.Views.Kunde
                 }), System.Windows.Threading.DispatcherPriority.Background);
             }
         }
+        private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CustomerDataGrid.SelectedItem is Customer selectedCustomer)
+            {
+                _frame.Navigate(new CustomerSpecPage(_frame, selectedCustomer));
+            }
+        }
+
     }
 }
