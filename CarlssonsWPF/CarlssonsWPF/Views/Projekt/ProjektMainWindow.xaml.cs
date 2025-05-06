@@ -25,10 +25,8 @@ namespace CarlssonsWPF.Views.Projekt
         public ProjektMainWindow(Frame frame)
         {
             InitializeComponent();
+            DataContext = new ProjektMainPageViewModel();
             _frame = frame;
-
-            //ProjektMainPageViewModel projektMainWindowViewModel = new ProjektMainPageViewModel();
-            //DataContext = projektMainWindowViewModel;
         }
 
         private void startPage_Click(object sender, RoutedEventArgs e)
