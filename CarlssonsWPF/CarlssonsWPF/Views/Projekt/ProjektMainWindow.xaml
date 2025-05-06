@@ -19,8 +19,9 @@
 
             <TextBlock Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="104" />
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,45,0,10" Width="120">
-                <Button Content="Opret" Width="120" Height="50"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,45,0,10" Width="280">
+                <Button Content="Opret" Width="120" Height="50" Margin="10,0,10,0"/>
+                <Button Content="Opret" Width="120" Height="50" Margin="10,0,10,0" />
 
             </StackPanel>
             <Grid Grid.Row="1" Margin="20,10" ShowGridLines="True">

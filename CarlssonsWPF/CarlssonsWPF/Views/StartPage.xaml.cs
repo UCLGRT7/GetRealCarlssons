@@ -33,5 +33,12 @@ namespace CarlssonsWPF.Views
             
             _frame.Navigate(new ProjektMainWindow(_frame));
         }
+
+        private void customer_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            //_frame.Navigate(new KundeMainWindow(_frame));
+        }
     }
 }
