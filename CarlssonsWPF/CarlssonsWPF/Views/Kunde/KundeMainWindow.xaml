@@ -22,6 +22,9 @@
       Name="CustomerDataGrid"
       Margin="10"
       VerticalAlignment="Stretch"
+                  ItemsSource="{Binding customers}"
+                    AutoGenerateColumns="true"
+                
      />
 
 
@@ -34,7 +37,7 @@
         </UniformGrid>
 
         <UniformGrid Grid.Row="2" Columns="1" Margin="5" Height="50" VerticalAlignment="Bottom">
-            <Button Content="Opret" Width="120" Height="50" HorizontalAlignment="Stretch" Click="AddCustomerButton_Click" />
+            <Button Content="Start" Width="120" Height="50" HorizontalAlignment="Stretch" Click="HomescreenButton_Click" />
 
 
 

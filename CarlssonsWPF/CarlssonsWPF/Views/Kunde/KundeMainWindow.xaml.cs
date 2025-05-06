@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Kunde
 {
@@ -19,19 +21,17 @@ namespace CarlssonsWPF.Views.Kunde
 
     public partial class KundeMainWindow : Page
     {
+        private CustomerViewModel viewModel;
+
         private Frame _frame;
         public KundeMainWindow(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
+            viewModel = new CustomerViewModel();
+            DataContext = viewModel;
         }
 
-        //private void customer_Click(object sender, RoutedEventArgs e)
-        //{
-
-
-        //    _frame.Navigate(new KundeMainWindow(_frame));
-        //}
 
         private void HomescreenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -39,7 +39,27 @@ namespace CarlssonsWPF.Views.Kunde
         }
         private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            _frame.Navigate(new AddCustomerPage(_frame));
+        }
+        private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            if (e.EditAction == DataGridEditAction.Commit)
+            {
+                // Vent til redigeringen er færdig, før vi tilføjer
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    var nyKunde = e.Row.Item as Customer;
+
+                    if (nyKunde != null && !string.IsNullOrWhiteSpace(nyKunde.Name))
+                    {
+                        // Undgå duplikater (valgfrit tjek på navn)
+                        if (viewModel.customers.All(c => c.Name != nyKunde.Name))
+                        {
+                            viewModel.AddCustomer(nyKunde);
+                        }
+                    }
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
     }
 }
