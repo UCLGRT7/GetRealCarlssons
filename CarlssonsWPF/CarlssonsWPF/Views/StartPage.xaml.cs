@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Views.Kunde;
 using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views
@@ -38,7 +39,7 @@ namespace CarlssonsWPF.Views
         {
 
 
-            //_frame.Navigate(new KundeMainWindow(_frame));
+            _frame.Navigate(new KundeMainWindow(_frame));
         }
     }
 }

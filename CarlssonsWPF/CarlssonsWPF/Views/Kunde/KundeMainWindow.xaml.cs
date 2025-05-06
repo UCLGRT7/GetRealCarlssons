@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    /// <summary>
-    /// Interaction logic for KundeMainWindow.xaml
-    /// </summary>
+    
+
     public partial class KundeMainWindow : Page
     {
-        public KundeMainWindow()
+        private Frame _frame;
+        public KundeMainWindow(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
         }
     }
 }
