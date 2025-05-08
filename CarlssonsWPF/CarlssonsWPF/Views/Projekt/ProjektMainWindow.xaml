@@ -20,7 +20,7 @@
             <TextBlock Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="104" />
 
             <!-- DataGrid for Data -->
-            <DataGrid Grid.Row="1" ItemsSource="{Binding ProjectGridItems}" AutoGenerateColumns="False" 
+            <DataGrid Grid.Row="1" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
                  Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -30,12 +30,12 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
                     <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified}" Width="*" />
-                    <DataGridTextColumn Header="Date of Del" Binding="{Binding DeliveryDate, StringFormat=\{0:d\}}" Width="*" />
+                    <DataGridTextColumn Header="Date of Del" Binding="{Binding DateOfDelivery, StringFormat=\{0:d\}}" Width="*" />
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
-                    <DataGridTextColumn Header="Godkendt" Binding="{Binding Approved}" Width="*" />
-                    <DataGridTextColumn Header="Betalt" Binding="{Binding Paid}" Width="*" />
+                    <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
+                    <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
 

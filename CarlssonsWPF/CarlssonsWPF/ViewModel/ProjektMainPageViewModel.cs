@@ -16,13 +16,30 @@ namespace CarlssonsWPF.ViewModel
 {
     public class ProjektMainPageViewModel
     {
-        
-        public ObservableCollection<CombinedProjectData> ProjectGridItems { get; set; } = new ObservableCollection<CombinedProjectData>();
+        private readonly ProjectViewService _projectViewService;
+        private ObservableCollection<CombinedProjectData> _combinedProjectData;
+
+        //public ObservableCollection<CombinedProjectData> CombinedData { get; set; } = new ObservableCollection<CombinedProjectData>();
 
         public ProjektMainPageViewModel()
         {
-
+            _projectViewService = new ProjectViewService();
+            CombinedProjects = _projectViewService.GetCombinedProjectModels();
             
+        }
+        public ObservableCollection<CombinedProjectData> CombinedProjects
+        {
+            get => _combinedProjectData;
+            set
+            {
+                _combinedProjectData = value;
+                OnPropertyChanged(nameof(CombinedProjects));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }

@@ -12,7 +12,7 @@ namespace CarlssonsWPF.Model
         private Project project;
 
         public int InvoiceNumber { get; set; }
-        public DateTime OfferSent { get; set; }
+        public DateTime? OfferSent { get; set; }
         public DateTime? PaymentReceivedDate { get; set; }
         public DateTime? OfferConfirmed { get; set; }
         public double Price { get; set; }
