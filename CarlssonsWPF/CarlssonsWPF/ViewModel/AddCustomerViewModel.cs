@@ -131,7 +131,7 @@ namespace CarlssonsWPF.ViewModel
             _customerRepository.Add(customer); // Gem til fil
             customers.Add(customer);           // Vis i UI
 
-            MessageBox.Show($"Kunde '{customer.Name}' tilføjet", "Success");
+            MessageBox.Show($"Kunde '{customer.Name}' tilføjet.", "Success");
         }
         public void AddCustomer(Customer customer)
         {
