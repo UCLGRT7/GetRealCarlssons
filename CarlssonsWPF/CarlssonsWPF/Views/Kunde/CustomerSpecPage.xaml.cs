@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 
 
 namespace CarlssonsWPF.Views.Kunde
@@ -27,7 +28,8 @@ namespace CarlssonsWPF.Views.Kunde
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = selectedCustomer;
+            DataContext = new CustomerSpecViewModel(selectedCustomer);
+
         }
         private void BackFromCustomerSpec_click(object sender, RoutedEventArgs e)
         {
