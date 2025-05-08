@@ -23,7 +23,8 @@ namespace CarlssonsWPF.Views.Kunde
     public partial class AddCustomerPage : Page
     {
         private Frame _frame;
-        private CustomerViewModel _customerViewModel; // Add a private instance of CustomerViewModel  
+      
+        private AddCustomerViewModel _addCustomerViewModel; // Add a private instance of AddCustomerViewModel
 
 
 
@@ -32,9 +33,9 @@ namespace CarlssonsWPF.Views.Kunde
         {
             InitializeComponent();
             _frame = frame;
-            _customerViewModel = new CustomerViewModel(); // Initialize the CustomerViewModel instance  
+            _addCustomerViewModel = new AddCustomerViewModel(); // Initialize the CustomerViewModel instance  
            
-            DataContext = _customerViewModel;
+            DataContext = _addCustomerViewModel;
 
         }
 
@@ -46,9 +47,9 @@ namespace CarlssonsWPF.Views.Kunde
 
         private void AddCustomerAndGoToSpec_click(object sender, RoutedEventArgs e)
         {
-            _customerViewModel.AddCustomer(); // kald metoden direkte
+            _addCustomerViewModel.AddCustomer(); // kald metoden direkte
 
-            var addedCustomer = _customerViewModel.customers.Last();
+            var addedCustomer = _addCustomerViewModel.customers.Last();
             _frame.Navigate(new CustomerSpecPage(_frame, addedCustomer));
         }
     }

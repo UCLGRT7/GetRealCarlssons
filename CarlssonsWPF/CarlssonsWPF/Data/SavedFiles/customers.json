@@ -1,34 +1,42 @@
 [
-    {
-        "Name": "Sandra",
-        "Address": "23e",
-        "Email": "sandra@example.com",
-        "PhoneNumber": 12345678,
-        "PostalCode": 2100,
-        "City": "København"
-    },
-    {
-        "Name": "Jonas",
-        "Address": "Testvej 1",
-        "Email": "jonas@mail.com",
-        "PhoneNumber": 87654321,
-        "PostalCode": 8000,
-        "City": "Aarhus"
-    },
-    {
-        "Name": "Maria",
-        "Address": "Park Allé 45",
-        "Email": "maria@test.dk",
-        "PhoneNumber": 44556677,
-        "PostalCode": 9000,
-        "City": "Aalborg"
-    },
-    {
-        "Name": "Lars",
-        "Address": "Havnevej 10",
-        "Email": "lars@firma.dk",
-        "PhoneNumber": 99887766,
-        "PostalCode": 5000,
-        "City": "Odense"
-    }
+  {
+    "Name": "Sandra",
+    "Address": "23e",
+    "Email": "sandra@example.com",
+    "PhoneNumber": 12345678,
+    "PostalCode": 2100,
+    "City": "K\u00F8benhavn"
+  },
+  {
+    "Name": "Jonas",
+    "Address": "Testvej 1",
+    "Email": "jonas@mail.com",
+    "PhoneNumber": 87654321,
+    "PostalCode": 8000,
+    "City": "Aarhus"
+  },
+  {
+    "Name": "Maria",
+    "Address": "Park All\u00E9 45",
+    "Email": "maria@test.dk",
+    "PhoneNumber": 44556677,
+    "PostalCode": 9000,
+    "City": "Aalborg"
+  },
+  {
+    "Name": "Lars",
+    "Address": "Havnevej 10",
+    "Email": "lars@firma.dk",
+    "PhoneNumber": 99887766,
+    "PostalCode": 5000,
+    "City": "Odense"
+  },
+  {
+    "Name": null,
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  }
 ]

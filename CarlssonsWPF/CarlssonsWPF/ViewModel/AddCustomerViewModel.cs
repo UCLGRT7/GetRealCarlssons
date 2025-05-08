@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,34 +13,19 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-    class CustomerViewModel : INotifyPropertyChanged
+    class AddCustomerViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
         public Customer SelectedCustomer { get; set; }
 
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
 
-
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
 
-        public CustomerViewModel()
-        {
-            _customerRepository = new FileCustomerRepository();
-            _projectRepository = new FileProjectRepository();
-            _contractRepository = new FileContractRepository();
-
-            // Indlæs eksisterende kunder
-            foreach (var customer in _customerRepository.GetAll())
-            {
-                customers.Add(customer);
-            }
-
-        }
-
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private string? _name;
         private string? _address;
@@ -103,15 +89,54 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-      
-
-
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-       
-    }
+        public AddCustomerViewModel()
+        {
+            _customerRepository = new FileCustomerRepository();
+            _projectRepository = new FileProjectRepository();
+            _contractRepository = new FileContractRepository();
 
+            // Indlæs eksisterende kunder
+            foreach (var customer in _customerRepository.GetAll())
+            {
+                customers.Add(customer);
+            }
+
+        }
+
+        public RelayCommand AddCustomerCommand => new RelayCommand(execute => AddCustomer());
+
+
+        public void AddCustomer()
+        {
+            if (!int.TryParse(PhoneNumber, out int parsedPhone))
+                parsedPhone = 0;
+
+            if (!int.TryParse(PostalCode, out int parsedPostal))
+                parsedPostal = 0;
+            var customer = new Customer
+            {
+                Name = Name,
+                Address = Address,
+                PostalCode = parsedPostal,
+                City = City,
+                PhoneNumber = parsedPhone,
+                Email = Email
+            };
+
+            _customerRepository.Add(customer); // Gem til fil
+            customers.Add(customer);           // Vis i UI
+
+            MessageBox.Show($"Kunde '{customer.Name}' tilføjet", "Success");
+        }
+        public void AddCustomer(Customer customer)
+        {
+            _customerRepository.Add(customer);
+            customers.Add(customer);
+        }
+    }
 }

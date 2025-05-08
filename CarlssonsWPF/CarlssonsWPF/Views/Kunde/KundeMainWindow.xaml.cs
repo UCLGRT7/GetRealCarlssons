@@ -21,15 +21,16 @@ namespace CarlssonsWPF.Views.Kunde
 
     public partial class KundeMainWindow : Page
     {
-        private CustomerViewModel viewModel;
+        private CustomerViewModel customerViewModel;
+        private AddCustomerViewModel addCustomerViewModel;
 
         private Frame _frame;
         public KundeMainWindow(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            viewModel = new CustomerViewModel();
-            DataContext = viewModel;
+            addCustomerViewModel = new AddCustomerViewModel();
+            DataContext = addCustomerViewModel;
         }
 
 
@@ -53,9 +54,9 @@ namespace CarlssonsWPF.Views.Kunde
                     if (nyKunde != null && !string.IsNullOrWhiteSpace(nyKunde.Name))
                     {
                         // Undgå duplikater (valgfrit tjek på navn)
-                        if (viewModel.customers.All(c => c.Name != nyKunde.Name))
+                        if (addCustomerViewModel.customers.All(c => c.Name != nyKunde.Name))
                         {
-                            viewModel.AddCustomer(nyKunde);
+                            addCustomerViewModel.AddCustomer(nyKunde);
                         }
                     }
                 }), System.Windows.Threading.DispatcherPriority.Background);
