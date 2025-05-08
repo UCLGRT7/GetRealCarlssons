@@ -9,6 +9,7 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.Windows;
+using System.Windows.Navigation;
 
 
 namespace CarlssonsWPF.ViewModel
@@ -142,7 +143,8 @@ namespace CarlssonsWPF.ViewModel
               
             }
 
-            MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
     }
 }

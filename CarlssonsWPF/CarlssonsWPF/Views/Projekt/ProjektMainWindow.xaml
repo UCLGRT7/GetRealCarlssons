@@ -18,11 +18,22 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            
 
             <TextBlock Grid.Row="0" Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="104" />
-            <StackPanel Grid.Row="1">
-                <Button Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
-            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Opret" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="1"/>
+                <Button Content="Søg" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="2"/>
+
+            </Grid>
+
+
             <!-- DataGrid for Data -->
             <DataGrid Grid.Row="2" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
                  Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
@@ -43,8 +54,19 @@
                 </DataGrid.Columns>
             </DataGrid>
 
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Reminders" Click="reminders_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="1"/>
+                <Button Content="Kunder" Click="customer_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="2"/>
 
-            <Button Content="Start" Click="startPage_Click" Grid.Row="3" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+            </Grid>
+
+            <Button Content="Start" Click="startPage_Click" Grid.Row="4" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
         </Grid>
     </Grid>
 </Page>

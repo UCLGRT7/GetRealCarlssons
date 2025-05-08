@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Kunde;
 
 namespace CarlssonsWPF.Views.Projekt
 {
@@ -33,6 +34,16 @@ namespace CarlssonsWPF.Views.Projekt
         private void startPage_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new StartPage(_frame));
+        }
+
+        private void customer_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new KundeMainWindow(_frame));
+        }
+
+        private void reminders_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

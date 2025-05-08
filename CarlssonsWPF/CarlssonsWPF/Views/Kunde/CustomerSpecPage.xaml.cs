@@ -34,6 +34,7 @@ namespace CarlssonsWPF.Views.Kunde
         private void BackFromCustomerSpec_click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new KundeMainWindow(_frame));
+
         }
     }
 }
