@@ -12,34 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CarlssonsWPF.Views.Kunde;
 using CarlssonsWPF.Views.Projekt;
 
-namespace CarlssonsWPF.Views
+
+namespace CarlssonsWPF.Views.Kunde
 {
-    /// <summary>
-    /// Interaction logic for StartPage.xaml
-    /// </summary>
-    public partial class StartPage : Page
+    public partial class SearchResults : Page
     {
         private Frame _frame;
-        public StartPage(Frame frame)
+        public SearchResults(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-        }
-        private void project_Click(object sender, RoutedEventArgs e)
-        {
-
-            
-            _frame.Navigate(new ProjektMainWindow(_frame));
+            //FetchData(searchTerm);
         }
 
-        private void customer_Click(object sender, RoutedEventArgs e)
+        private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
-
-
-            _frame.Navigate(new KundeMainWindow(_frame));
+            //_frame.Navigate(new KundeSearch(_frame));
         }
     }
 }

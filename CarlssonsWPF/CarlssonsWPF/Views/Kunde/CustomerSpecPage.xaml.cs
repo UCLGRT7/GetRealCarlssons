@@ -12,33 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CarlssonsWPF.Views.Kunde;
-using CarlssonsWPF.Views.Projekt;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 
-namespace CarlssonsWPF.Views
+
+namespace CarlssonsWPF.Views.Kunde
 {
     /// <summary>
-    /// Interaction logic for StartPage.xaml
+    /// Interaction logic for CustomerSpecPage.xaml
     /// </summary>
-    public partial class StartPage : Page
+    public partial class CustomerSpecPage : Page
     {
         private Frame _frame;
-        public StartPage(Frame frame)
+        public CustomerSpecPage(Frame frame, Customer selectedCustomer)
         {
             InitializeComponent();
             _frame = frame;
+            DataContext = new CustomerSpecViewModel(selectedCustomer);
+
         }
-        private void project_Click(object sender, RoutedEventArgs e)
+        private void BackFromCustomerSpec_click(object sender, RoutedEventArgs e)
         {
-
-            
-            _frame.Navigate(new ProjektMainWindow(_frame));
-        }
-
-        private void customer_Click(object sender, RoutedEventArgs e)
-        {
-
-
             _frame.Navigate(new KundeMainWindow(_frame));
         }
     }

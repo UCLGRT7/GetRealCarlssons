@@ -1,8 +1,47 @@
 [
-    {
-        "Name": "Alex",
-        "Address": "Testvej",
-        "Email": "test",
-        "PhoneNumber": 123
-    }
+  {
+    "Id": "89346b03-84e5-4de5-ae55-cd1081acc55c",
+    "Name": "213123",
+    "Address": "3323",
+    "Email": "3",
+    "PhoneNumber": 2322,
+    "PostalCode": 23,
+    "City": "3"
+  },
+  {
+    "Id": "c4bf0d6b-a7a6-48c7-a03a-caadc89b1815",
+    "Name": "Daniel blomst",
+    "Address": "Sallingvej",
+    "Email": "Dni",
+    "PhoneNumber": 29023323,
+    "PostalCode": 123123,
+    "City": "Vanl\u00F8se"
+  },
+  {
+    "Id": "2dd6bcb8-244c-49d5-91aa-4580dd762ef7",
+    "Name": "Alex Holmbo",
+    "Address": "awdawdawdawdadadawdadadwad",
+    "Email": "dwadawdawdawawdwadadawdawdawdawdaw",
+    "PhoneNumber": 0,
+    "PostalCode": 1233,
+    "City": "dawdwadadwdawdaw"
+  },
+  {
+    "Id": "9e9f0ec1-4718-469d-995c-1d5487b3c62c",
+    "Name": "Daniel Kargaard R\u00F8rlund",
+    "Address": "Salling",
+    "Email": "Daniel@hotmail.com",
+    "PhoneNumber": 12312312,
+    "PostalCode": 2720,
+    "City": "vanl\u00F8se"
+  },
+  {
+    "Id": "def360cc-44c1-4c85-be26-ca32489912b6",
+    "Name": null,
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  }
 ]

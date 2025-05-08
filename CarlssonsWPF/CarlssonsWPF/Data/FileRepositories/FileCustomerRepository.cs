@@ -104,7 +104,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             var customers = GetAll().ToList();
 
             // Find the index of the customer to update
-            var existingIndex = customers.FindIndex(c => c.Name == customer.Name);
+            var existingIndex = customers.FindIndex(c => c.Id == customer.Id);
 
             // Update the customer if found
             if (existingIndex != -1)
