@@ -25,7 +25,7 @@ namespace CarlssonsWPF.Views.Kunde
             _frame = frame;
         }
 
-        private void SearchResults_Click(object sender, RoutedEventArgs e)
+        private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new SearchResults(_frame));
         }

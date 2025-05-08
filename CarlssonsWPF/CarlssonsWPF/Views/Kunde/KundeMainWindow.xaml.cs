@@ -42,6 +42,10 @@ namespace CarlssonsWPF.Views.Kunde
         {
             _frame.Navigate(new AddCustomerPage(_frame));
         }
+        private void KundeSearch_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new KundeSearch(_frame));
+        }
         private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             if (e.EditAction == DataGridEditAction.Commit)
