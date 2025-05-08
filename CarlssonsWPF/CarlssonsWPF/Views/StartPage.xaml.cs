@@ -20,6 +20,7 @@ namespace CarlssonsWPF.Views
 
     public partial class StartPage : Page
     {
+        
         private Frame _frame;
         public StartPage(Frame frame)
         {

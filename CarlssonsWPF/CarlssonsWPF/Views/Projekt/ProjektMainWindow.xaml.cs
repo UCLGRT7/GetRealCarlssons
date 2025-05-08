@@ -19,13 +19,15 @@ namespace CarlssonsWPF.Views.Projekt
 
     public partial class ProjektMainWindow : Page
     {
+        private ProjektMainPageViewModel projektMainPageViewModel;
         private Frame _frame;
 
         public ProjektMainWindow(Frame frame) 
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = new ProjektMainPageViewModel();
+            projektMainPageViewModel = new ProjektMainPageViewModel();
+            DataContext = projektMainPageViewModel;
         }
 
         private void startPage_Click(object sender, RoutedEventArgs e)
