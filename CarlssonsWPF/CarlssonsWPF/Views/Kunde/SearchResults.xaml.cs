@@ -24,12 +24,12 @@ namespace CarlssonsWPF.Views.Kunde
         {
             InitializeComponent();
             _frame = frame;
-            FetchData(searchTerm);
+            //FetchData(searchTerm);
         }
 
         private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new KundeSearch(_frame));
+            //_frame.Navigate(new KundeSearch(_frame));
         }
     }
 }
