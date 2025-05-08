@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Name": null,
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  }
+]

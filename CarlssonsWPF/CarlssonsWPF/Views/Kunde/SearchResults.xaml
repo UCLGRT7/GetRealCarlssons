@@ -19,7 +19,7 @@
         <TextBlock Text="Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
 
         <UniformGrid Grid.Row="2" Columns="1" Margin="10" Height="50" VerticalAlignment="Top">
-            <Button Content="Tilbage" Click="KundeSeaarch_Click" Width="120" Height="50" HorizontalAlignment="center" />
+            <Button Content="Tilbage" Click="KundeSearch_Click" Width="120" Height="50" HorizontalAlignment="center" />
 
         </UniformGrid>
 
