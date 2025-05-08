@@ -21,7 +21,7 @@
 
             <TextBlock Grid.Row="0" Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="104" />
             <StackPanel Grid.Row="1">
-                <Button />
+                <Button Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
             </StackPanel>
             <!-- DataGrid for Data -->
             <DataGrid Grid.Row="2" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
