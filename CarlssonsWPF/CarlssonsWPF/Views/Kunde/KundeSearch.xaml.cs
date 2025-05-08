@@ -12,11 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    
-
     public partial class KundeSearch : Page
     {
         private Frame _frame;
