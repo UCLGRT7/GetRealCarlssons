@@ -3,7 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-     xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+     xmlns:local="clr-namespace:CarlssonsWPF.ViewModel"
      mc:Ignorable="d" 
      d:DesignHeight="720" d:DesignWidth="1280"
      Title="ProjektMainWindow">
@@ -20,8 +20,8 @@
             <TextBlock Text="Projekter" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="104" />
 
             <!-- DataGrid for Data -->
-            <DataGrid Grid.Row="1" ItemsSource="{Binding Cases}" AutoGenerateColumns="False" 
-                 Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column">
+            <DataGrid Grid.Row="1" ItemsSource="{Binding ProjectGridItems}" AutoGenerateColumns="False" 
+                 Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="FontSize" Value="18"/>
@@ -29,10 +29,10 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" />
+                    <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
                     <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified}" Width="*" />
-                    <DataGridTextColumn Header="Date of Del" Binding="{Binding DeliveryDate}" Width="*" />
+                    <DataGridTextColumn Header="Date of Del" Binding="{Binding DeliveryDate, StringFormat=\{0:d\}}" Width="*" />
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
                     <DataGridTextColumn Header="Godkendt" Binding="{Binding Approved}" Width="*" />
                     <DataGridTextColumn Header="Betalt" Binding="{Binding Paid}" Width="*" />

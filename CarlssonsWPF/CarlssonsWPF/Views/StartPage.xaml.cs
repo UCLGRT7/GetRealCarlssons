@@ -16,9 +16,7 @@ using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views
 {
-    /// <summary>
-    /// Interaction logic for StartPage.xaml
-    /// </summary>
+
     public partial class StartPage : Page
     {
         private Frame _frame;
@@ -30,8 +28,9 @@ namespace CarlssonsWPF.Views
         private void project_Click(object sender, RoutedEventArgs e)
         {
 
-            
+
             _frame.Navigate(new ProjektMainWindow(_frame));
+
         }
 
         private void customer_Click(object sender, RoutedEventArgs e)

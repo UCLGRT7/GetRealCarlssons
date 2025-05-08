@@ -97,6 +97,7 @@ namespace CarlssonsWPF.Data.FileRepositories
                 var projects = GetAll().ToList();
 
                 // Add the new project
+                project.LastModified = DateTime.Now;
                 projects.Add(project);
 
                 // Save all projects back to file
@@ -120,6 +121,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             if (existingIndex != -1)
             {
                 projects[existingIndex] = project;
+                project.LastModified = DateTime.Now;
                 SaveProjectsToFile(projects);
             }
         }

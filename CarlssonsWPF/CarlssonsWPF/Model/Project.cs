@@ -16,6 +16,9 @@ namespace CarlssonsWPF.Model
         public int Scale { get; set; }
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
+        public DateTime LastModified { get; set; }
+
+
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
@@ -23,13 +26,13 @@ namespace CarlssonsWPF.Model
 
         public override string ToString()
         {
-            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName},{Status}";
+            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName},{Status},{LastModified}";
         }
 
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 7)
+            if (parts.Length < 8)
                 throw new FormatException("Invalid project data format");
             return new Project
             {
@@ -39,7 +42,8 @@ namespace CarlssonsWPF.Model
                 PriceEstimate = double.Parse(parts[3]),
                 Scale = int.Parse(parts[4]),
                 CustomerName = parts[5],
-                Status = parts[6]
+                Status = parts[6],
+                LastModified = DateTime.Parse(parts[7])
             };
         }
     }

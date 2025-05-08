@@ -16,17 +16,16 @@ using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for ProjektMainWindow.xaml
-    /// </summary>
+
     public partial class ProjektMainWindow : Page
     {
         private Frame _frame;
-        public ProjektMainWindow(Frame frame)
+
+        public ProjektMainWindow(Frame frame) 
         {
             InitializeComponent();
-            DataContext = new ProjektMainPageViewModel();
             _frame = frame;
+            DataContext = new ProjektMainPageViewModel();
         }
 
         private void startPage_Click(object sender, RoutedEventArgs e)

@@ -8,19 +8,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views
 {
-    /// <summary>  
-    /// Interaction logic for MainWindow.xaml  
-    /// </summary>  
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            //_frame = new Frame(); // Initialize the _frame field to avoid null reference  
             MainFrame.Navigate(new StartPage(MainFrame));
         }
 
