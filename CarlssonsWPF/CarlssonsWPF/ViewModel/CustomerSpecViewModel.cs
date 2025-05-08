@@ -41,6 +41,7 @@ namespace CarlssonsWPF.ViewModel
         private string? _phoneNumber;
         private string? _postalCode;
         private string? _city;
+        public int SelectedCustomerIndex { get; set; }
 
         public string? Name
         {
@@ -104,6 +105,9 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
 
             SelectedCustomer = selectedCustomer;
+            SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
+
+
             Name = selectedCustomer.Name;
             Address = selectedCustomer.Address;
             Email = selectedCustomer.Email;
