@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Kunde\" />
+  </ItemGroup>
+
+<ItemGroup><Compile Include="App.xaml.cs" /><Compile Include="AssemblyInfo.cs" /><Compile Include="Data/FileRepositories/FileContractRepository.cs" /><Compile Include="Data/FileRepositories/FileCustomerRepository.cs" /><Compile Include="Data/FileRepositories/FileProjectRepository.cs" /><Compile Include="Data/FileRepositories/FileServiceRepository.cs" /><Compile Include="Model/CombinedProjectData.cs" /><Compile Include="Model/Contract.cs" /><Compile Include="Model/Customer.cs" /><Compile Include="Model/Project.cs" /><Compile Include="Model/ProjectViewService.cs" /><Compile Include="Model/Services.cs" /><Compile Include="ViewModel/IRepositories/IContractRepository.cs" /><Compile Include="ViewModel/IRepositories/ICustomerRepository.cs" /><Compile Include="ViewModel/IRepositories/IProjectRepository.cs" /><Compile Include="ViewModel/IRepositories/IServiceRepository.cs" /><Compile Include="ViewModel/ProjektMainPageViewModel.cs" /><Compile Include="ViewModel/StartPageViewModel.cs" /><Compile Include="Views/MainWindow.xaml.cs" /><Compile Include="Views/Projekt/ProjektMainWindow.xaml.cs" /><Compile Include="Views/StartPage.xaml.cs" /></ItemGroup><ItemGroup><Page Include="App.xaml" /><Page Include="Views/MainWindow.xaml" /><Page Include="Views/Projekt/ProjektMainWindow.xaml" /><Page Include="Views/StartPage.xaml" /></ItemGroup></Project>
