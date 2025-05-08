@@ -22,17 +22,26 @@
       Name="CustomerDataGrid"
       Margin="10"
       VerticalAlignment="Stretch"
+                  ItemsSource="{Binding customers}"
+                    AutoGenerateColumns="true"
+                  MouseDoubleClick="CustomerDataGrid_MouseDoubleClick"
+                
      />
 
-        <!--Nederste bjælke med 2 knapper i-->
+
         <UniformGrid Grid.Row="2" Columns="2" Margin="10" Height="50" VerticalAlignment="Top">
             <Button Content="Opret" Width="120" Height="50" HorizontalAlignment="Right" Margin="0 0 5 0" Click="AddCustomerButton_Click" />
-            <Button Content="Søg" Click="KundeSearch_Click" Width="120" Height="50" HorizontalAlignment="left" Margin="5 0 0 0" />
+            <Button Content="Søg" Width="120" Height="50" HorizontalAlignment="left" Margin="5 0 0 0" />
+
+
+
         </UniformGrid>
 
-        <!--Nederste bjælke med 1 knap i-->
         <UniformGrid Grid.Row="2" Columns="1" Margin="5" Height="50" VerticalAlignment="Bottom">
-            <Button Content="Tilbage" Click="StartPage_Click" Width="120" Height="50" HorizontalAlignment="Stretch" />
+            <Button Content="Start" Width="120" Height="50" HorizontalAlignment="Stretch" Click="HomescreenButton_Click" />
+
+
+
         </UniformGrid>
 
 

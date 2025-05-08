@@ -12,18 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CarlssonsWPF.Views.Projekt;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Kunde
 {
+    
+
     public partial class KundeMainWindow : Page
     {
+        private CustomerViewModel customerViewModel;
+        private AddCustomerViewModel addCustomerViewModel;
+
         private Frame _frame;
         public KundeMainWindow(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
+            addCustomerViewModel = new AddCustomerViewModel();
+            DataContext = addCustomerViewModel;
         }
+
 
         private void HomescreenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -31,11 +40,35 @@ namespace CarlssonsWPF.Views.Kunde
         }
         private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
         {
-            //_frame.Navigate(new AddCustomer???(_frame));
+            _frame.Navigate(new AddCustomerPage(_frame));
         }
-        private void KundeSearch_Click(object sender, RoutedEventArgs e)
+        private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            _frame.Navigate(new KundeSearch(_frame));
+            if (e.EditAction == DataGridEditAction.Commit)
+            {
+                // Vent til redigeringen er færdig, før vi tilføjer
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    var nyKunde = e.Row.Item as Customer;
+
+                    if (nyKunde != null && !string.IsNullOrWhiteSpace(nyKunde.Name))
+                    {
+                        // Undgå duplikater (valgfrit tjek på navn)
+                        if (addCustomerViewModel.customers.All(c => c.Name != nyKunde.Name))
+                        {
+                            addCustomerViewModel.AddCustomer(nyKunde);
+                        }
+                    }
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
+        private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CustomerDataGrid.SelectedItem is Customer selectedCustomer)
+            {
+                _frame.Navigate(new CustomerSpecPage(_frame, selectedCustomer));
+            }
+        }
+
     }
 }
