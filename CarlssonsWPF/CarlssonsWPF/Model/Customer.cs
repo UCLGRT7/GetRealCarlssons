@@ -9,29 +9,37 @@ namespace CarlssonsWPF.Model
 {
     public class Customer
     {
+
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
+        public int PostalCode { get; set; }
+        public string City { get; set; }
+
         [JsonIgnore]
         public List<Project> Projects { get; set; } = new List<Project>();
 
         public override string ToString()
         {
-            return $"{Name},{Address},{Email},{PhoneNumber}";
+            return $"{Id}{Name},{Address},{Email},{PhoneNumber},{PostalCode},{City}";
         }
 
         public static Customer FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 4)
+            if (parts.Length < 7)
                 throw new FormatException("Invalid customer data format");
             return new Customer
             {
-                Name = parts[0],
-                Address = parts[1],
-                Email = parts[2],
-                PhoneNumber = int.Parse(parts[3])
+                Id = parts[0] != null ? Guid.Parse(parts[0]) : Guid.NewGuid(),
+                Name = parts[1],
+                Address = parts[2],
+                Email = parts[3],
+                PhoneNumber = int.Parse(parts[4]),
+                PostalCode = int.Parse(parts[5]),
+                City = parts[6]
             };
         }
     }

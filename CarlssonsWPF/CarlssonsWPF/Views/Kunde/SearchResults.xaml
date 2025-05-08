@@ -1,0 +1,35 @@
+﻿<Page x:Class="CarlssonsWPF.Views.Kunde.SearchResults"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarlssonsWPF.Views.Kunde"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="SearchResults">
+
+    <Grid Background="#f0f0f0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="58*"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
+
+        <UniformGrid Grid.Row="2" Columns="1" Margin="10" Height="50" VerticalAlignment="Top">
+            <Button Content="Tilbage" Click="KundeSearch_Click" Width="120" Height="50" HorizontalAlignment="center" />
+
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2" Columns="1" Margin="5" Height="50" VerticalAlignment="Bottom"/>
+
+
+        <Rectangle HorizontalAlignment="Center" Height="310" Margin="0,60,0,0" Grid.Row="1" Fill="LightGoldenrodYellow" Opacity="0.8" VerticalAlignment="Top" Width="500"/>
+
+        <DataGrid x:Name="ResultsGrid" />
+
+
+    </Grid>
+</Page>
