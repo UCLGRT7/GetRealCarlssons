@@ -16,23 +16,15 @@ using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    public partial class KundeMainWindow : Page
+    public partial class SearchResults : Page
     {
         private Frame _frame;
-        public KundeMainWindow(Frame frame)
+        public SearchResults(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
         }
 
-        private void HomescreenButton_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Navigate(new StartPage(_frame));
-        }
-        private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
-        {
-            //_frame.Navigate(new AddCustomer???(_frame));
-        }
         private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new KundeSearch(_frame));
