@@ -47,6 +47,9 @@
             <!--E-mail-->
             <TextBlock HorizontalAlignment="Left" Margin="450,300,0,0" Grid.Row="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Margin="580,300,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        
+
+
+            <DataGrid x:Name="ResultsGrid" />
+
     </Grid>
 </Page>
