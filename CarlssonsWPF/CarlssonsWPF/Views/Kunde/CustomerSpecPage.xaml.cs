@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Model;
 
+
 namespace CarlssonsWPF.Views.Kunde
 {
     /// <summary>

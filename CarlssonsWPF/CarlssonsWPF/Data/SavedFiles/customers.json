@@ -1,10 +1,18 @@
 [
   {
-    "Name": null,
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
+    "Name": "213123",
+    "Address": "3323",
+    "Email": "3",
+    "PhoneNumber": 2322,
+    "PostalCode": 23,
+    "City": "3"
+  },
+  {
+    "Name": "Daniel",
+    "Address": "awdaw",
+    "Email": "Dni",
+    "PhoneNumber": 29023323,
+    "PostalCode": 2720,
+    "City": "Vanl\u00F8se"
   }
 ]

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Views.Projekt;
 
+
 namespace CarlssonsWPF.Views.Kunde
 {
     public partial class SearchResults : Page
