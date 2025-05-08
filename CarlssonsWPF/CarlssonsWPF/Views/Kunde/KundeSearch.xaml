@@ -31,22 +31,22 @@
 
             <!--Navn-->
             <TextBlock HorizontalAlignment="Left" Margin="450,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,100,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="580,100,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
             <!--Adresse-->
             <TextBlock HorizontalAlignment="Left" Margin="450,140,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,140,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="580,140,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
             <!--Postnummer-->
             <TextBlock HorizontalAlignment="Left" Margin="450,180,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,180,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="Postnummer" HorizontalAlignment="Left" Margin="580,180,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
             <!--By-->
             <TextBlock HorizontalAlignment="Left" Margin="450,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,220,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="By" HorizontalAlignment="Left" Margin="580,220,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
             <!--Tlfnummer-->
             <TextBlock HorizontalAlignment="Left" Margin="450,260,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,260,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="Tlfnummer" HorizontalAlignment="Left" Margin="580,260,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
             <!--E-mail-->
             <TextBlock HorizontalAlignment="Left" Margin="450,300,0,0" Grid.Row="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="580,300,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="580,300,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
 
             <DataGrid x:Name="ResultsGrid" />

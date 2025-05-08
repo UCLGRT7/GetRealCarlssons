@@ -24,6 +24,7 @@ namespace CarlssonsWPF.Views.Kunde
         {
             InitializeComponent();
             _frame = frame;
+            FetchData(searchTerm);
         }
 
         private void KundeSearch_Click(object sender, RoutedEventArgs e)

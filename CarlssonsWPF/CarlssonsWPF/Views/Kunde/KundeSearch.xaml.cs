@@ -19,13 +19,16 @@ using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    class CustomerSpecViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public partial class KundeSearch : Page
+    public partial class KundeSearch : Page
     {
         private Frame _frame;
+        private TextBox _Navn;
+        private TextBox _Adresse;
+        private TextBox _Postnummer;
+        private TextBox _By;
+        private TextBox _Tlfnummer;
+        private TextBox _Email;
+
         public KundeSearch(Frame frame)
         {
             InitializeComponent();
@@ -34,15 +37,44 @@ namespace CarlssonsWPF.Views.Kunde
 
         private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new SearchResults(_frame));
-            string searchTerm = SearchBox.Text;
-            FetchData(searchTerm);     
+            if (_Navn != null && _Adresse != null && _Postnummer != null && _By != null && _Tlfnummer != null && _Email != null)
+            {
+                string searchTerm = _Navn.Text;
+                string searchTerm2 = _Adresse.Text;
+                string searchTerm3 = _Postnummer.Text;
+                string searchTerm4 = _By.Text;
+                string searchTerm5 = _Tlfnummer.Text;
+                string searchTerm6 = _Email.Text;
 
+                // Så alle søgefelter er udfyldt
+                if (!string.IsNullOrWhiteSpace(searchTerm) &&
+                    !string.IsNullOrWhiteSpace(searchTerm2) &&
+                    !string.IsNullOrWhiteSpace(searchTerm3) &&
+                    !string.IsNullOrWhiteSpace(searchTerm4) &&
+                    !string.IsNullOrWhiteSpace(searchTerm5) &&
+                    !string.IsNullOrWhiteSpace(searchTerm6))
+                {
+                    _frame.Navigate(new KundeSearch(_frame));
+                }
+                else
+                {
+                    MessageBox.Show("Indtast tekst");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Søgefeltet er ikke initialiseret.");
+            }
         }
+
+        private void FetchData(string searchTerm)
+        {
+            throw new NotImplementedException();
+        }
+
         private void KundeMainWindow_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new KundeMainWindow(_frame));
         }
-
     }
 }
