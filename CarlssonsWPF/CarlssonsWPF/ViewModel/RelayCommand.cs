@@ -14,6 +14,8 @@ namespace CarlssonsWPF.ViewModel
         private readonly object? _canShowWindowCommand;
         private readonly Action? cancel; // Made nullable to resolve CS8618
 
+        public object CanShowWindowCommand => _canShowWindowCommand;
+
         public event EventHandler? CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
