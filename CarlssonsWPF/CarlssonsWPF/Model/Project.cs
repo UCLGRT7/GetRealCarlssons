@@ -17,6 +17,7 @@ namespace CarlssonsWPF.Model
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
         public DateTime LastModified { get; set; }
+        public double Price { get; set; }
 
 
         [JsonIgnore]
@@ -43,7 +44,8 @@ namespace CarlssonsWPF.Model
                 Scope = int.Parse(parts[4]),
                 CustomerName = parts[5],
                 Status = parts[6],
-                LastModified = DateTime.Parse(parts[7])
+                LastModified = DateTime.Parse(parts[7]),
+                Price = double.Parse(parts[8])
             };
         }
     }

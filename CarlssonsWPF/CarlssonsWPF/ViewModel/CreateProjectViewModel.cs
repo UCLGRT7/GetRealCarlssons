@@ -18,7 +18,7 @@ namespace CarlssonsWPF.ViewModel
         public string SelectedCustomer { get; set; }
         public string CaseNumber { get; set; }
         public string Address { get; set; }
-        public string Deadline { get; set; }
+        public DateTime Deadline { get; set; }
         public int Scope { get; set; }
 
         public string OfferSent { get; set; }
