@@ -42,9 +42,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
                 <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
-                <DataGridTextColumn Header="Ændret" Binding="{Binding OfferSentDate}" Width="*" />
-                <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="*" />
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
+                <DataGridTextColumn Header="Tilbud sendt" Binding="{Binding OfferSentDate}" Width="*" />
+                <DataGridTextColumn Header="Dage" Binding="{Binding DaysPassed, StringFormat={}{0:D2}}" Width="*" />
                 <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
                 <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
             </DataGrid.Columns>

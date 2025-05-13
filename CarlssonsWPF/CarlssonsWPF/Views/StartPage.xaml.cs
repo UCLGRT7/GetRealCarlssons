@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Views.Kunde;
 using CarlssonsWPF.Views.Projekt;
@@ -26,11 +27,13 @@ namespace CarlssonsWPF.Views
     {
   
         private Frame _frame;
+        private StartPageViewModel _viewModel;
         public StartPage(Frame frame)
         {
-            
             InitializeComponent();
             _frame = frame;
+            _viewModel = new StartPageViewModel();
+            DataContext = _viewModel;
         }
         private void project_Click(object sender, RoutedEventArgs e)
         {

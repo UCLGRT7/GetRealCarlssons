@@ -74,7 +74,7 @@ namespace CarlssonsWPF.Model
                             CaseNumber = project.CaseNumber,
                             CustomerName = project.CustomerName,
                             OfferSentDate = contract.OfferSent,
-                            Deadline = project.Deadline,
+                            DaysPassed = (int)timeSinceOffer.TotalDays,
                             OfferConfirmed = contract.OfferConfirmed.HasValue ? "Yes" : "No",
                             IsPaymentRecieved = contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
                         };

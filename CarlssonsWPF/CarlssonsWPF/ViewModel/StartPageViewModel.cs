@@ -13,16 +13,16 @@ namespace CarlssonsWPF.ViewModel
 {
     public class StartPageViewModel
     {
-        private readonly Reminders14DaysExeededViewService _reminders14DaysExeededViewService;
-        private ObservableCollection<Reminders14DaysExeededData> _reminders14DaysExeededData;
+        private readonly ReminderViewService _reminderViewService;
+        private ObservableCollection<RemindersData> _reminders14DaysExeededData;
 
         public StartPageViewModel()
         {
-            _reminders14DaysExeededViewService = new Reminders14DaysExeededViewService();
-            Reminders14DaysExeededDatas = _reminders14DaysExeededViewService.GetExeededby14Days();
+            _reminderViewService = new ReminderViewService();
+            Reminders14DaysExeededDatas = _reminderViewService.GetExeededby14Days();
         }
 
-        public ObservableCollection<Reminders14DaysExeededData> Reminders14DaysExeededDatas
+        public ObservableCollection<RemindersData> Reminders14DaysExeededDatas
         {
             get => _reminders14DaysExeededData;
             set
