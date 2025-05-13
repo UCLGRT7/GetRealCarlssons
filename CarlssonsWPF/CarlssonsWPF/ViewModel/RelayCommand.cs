@@ -13,6 +13,7 @@ namespace CarlssonsWPF.ViewModel
         private readonly ICommand? _showWindowCommand;
         private readonly object? _canShowWindowCommand;
         private readonly Action? cancel; // Made nullable to resolve CS8618
+        private Action<string> search;
 
         public object CanShowWindowCommand => _canShowWindowCommand;
 
@@ -39,6 +40,11 @@ namespace CarlssonsWPF.ViewModel
         public RelayCommand(Action cancel)
         {
             this.cancel = cancel;
+        }
+
+        public RelayCommand(Action<string> search)
+        {
+            this.search = search;
         }
 
         public bool CanExecute(object? parameter)

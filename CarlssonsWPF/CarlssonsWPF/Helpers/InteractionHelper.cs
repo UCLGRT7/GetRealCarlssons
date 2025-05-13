@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using CarlssonsWPF.ViewModel;
 
-namespace GetRealCarlssons.Helpers
+namespace CarlssonsWPF.Helpers
 {
     public static class InteractionHelper
     {

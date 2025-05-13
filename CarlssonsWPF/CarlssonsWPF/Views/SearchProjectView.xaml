@@ -1,8 +1,8 @@
 
-<Window x:Class="GetRealCarlssons.Views.SearchProjectView"
+<Window x:Class="CarlssonsWPF.Views.SearchProjectView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:GetRealCarlssons.Views"
+        xmlns:local="clr-namespace:CarlssonsWPF.Views"
         Title="Søg Projekt" Height="600" Width="800">
     <ScrollViewer>
         <StackPanel Margin="20">

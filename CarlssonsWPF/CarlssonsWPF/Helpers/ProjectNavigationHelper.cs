@@ -1,15 +1,16 @@
 
 using System.Windows;
 using System.Windows.Input;
-using GetRealCarlssons.Models;
-using GetRealCarlssons.Views;
-using GetRealCarlssons.ViewModel;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.Views;
+using CarlssonsWPF.ViewModel;
 using System.Windows.Controls;
 
-namespace GetRealCarlssons.Helpers
+namespace CarlssonsWPF.Helpers
 {
     public static class ProjectNavigationHelper
     {
+
         public static void AttachDoubleClick(ListBox listBox)
         {
             listBox.MouseDoubleClick += (s, e) =>

@@ -1,5 +1,5 @@
 
-<Window x:Class="GetRealCarlssons.Views.CreateProjectView"
+<Window x:Class="CarlssonsWPF.Views.CreateProjectView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Opret Projekt" Height="600" Width="800">

@@ -4,16 +4,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.Services;
+using CarlssonsWPF.Service;
 using CarlssonsWPF.ViewModel;
-using GetRealCarlssons.Models;
+using CarlssonsWPF.Model;
 
-namespace GetRealCarlssons.ViewModel
+namespace CarlssonsWPF.ViewModel
 {
     public class CreateProjectViewModel : BaseViewModel
     {
         public ObservableCollection<string> Customers { get; set; }
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
+        public ObservableCollection<Services> Services { get; set; } = new();
 
         public string SelectedCustomer { get; set; }
         public string CaseNumber { get; set; }
@@ -37,7 +37,7 @@ namespace GetRealCarlssons.ViewModel
 
             for (int i = 0; i < 5; i++)
             {
-                Services.Add(new ServiceEntry());
+                Services.Add(new Services());
             }
 
             CreateProjectCommand = new RelayCommand(CreateProject);
@@ -48,9 +48,9 @@ namespace GetRealCarlssons.ViewModel
         {
             var project = new Project
             {
-                Name = SelectedCustomer,
+                CustomerName = SelectedCustomer,
                 CaseNumber = CaseNumber,
-                Address = Address,
+                ProjectAddress = Address,
                 Deadline = Deadline,
                 Scope = Scope,
                 Services = Services.ToList(),

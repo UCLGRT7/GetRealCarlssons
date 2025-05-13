@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace GetRealCarlssons.ViewModel
+namespace CarlssonsWPF.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

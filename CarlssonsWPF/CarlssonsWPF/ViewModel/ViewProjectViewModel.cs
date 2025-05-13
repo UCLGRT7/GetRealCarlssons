@@ -1,5 +1,5 @@
-using GetRealCarlssons.Models;
-using GetRealCarlssons.ViewModel;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.ViewModel
 {

@@ -3,10 +3,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using CarlssonsWPF.Services;
-using GetRealCarlssons.Models;
-using GetRealCarlssons.ViewModel;
-using GetRealCarlssons.Views;
+using CarlssonsWPF.Service;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -17,7 +17,7 @@ namespace CarlssonsWPF.ViewModel
         public string Scope { get; set; }
         public string Deadline { get; set; }
 
-        public ObservableCollection<ServiceEntry> Services { get; set; } = [];
+        public ObservableCollection<Services> Services { get; set; } = [];
         public ObservableCollection<Project> SearchResults { get; set; } = [];
 
         public Project SelectedProject { get; set; }
@@ -30,7 +30,7 @@ namespace CarlssonsWPF.ViewModel
         {
             for (int i = 0; i < 5; i++)
             {
-                Services.Add(new ServiceEntry());
+                Services.Add(new Services());
             }
 
             SearchCommand = new RelayCommand(Search);
@@ -43,7 +43,12 @@ namespace CarlssonsWPF.ViewModel
             throw new NotImplementedException();
         }
 
-        private void Search()
+        private void Search(string deadline)
+        {
+            Search(Deadline);
+        }
+
+        private void Search(DateTime deadline)
         {
             var projects = FileService.Load<Project>("Data/projects.json");
             var filtered = projects.AsEnumerable();
@@ -52,21 +57,21 @@ namespace CarlssonsWPF.ViewModel
                 filtered = filtered.Where(p => p.CaseNumber == CaseNumber);
 
             if (!string.IsNullOrWhiteSpace(Address))
-                filtered = filtered.Where(p => p.Address.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
+                filtered = filtered.Where(p => p.ProjectAddress.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
 
             if (!string.IsNullOrWhiteSpace(Scope) && int.TryParse(Scope, out int s))
                 filtered = filtered.Where(p => p.Scope == s);
 
             if (!string.IsNullOrWhiteSpace(Deadline))
-                filtered = filtered.Where(p => p.Deadline == Deadline);
+                filtered = filtered.Where(p => p.Deadline == deadline);
 
-            var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.Name)).ToList();
+            var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.ServiceType)).ToList();
 
             if (serviceFilter.Count != 0)
             {
                 filtered = filtered.Where(p =>
                     serviceFilter.All(sf =>
-                        p.Services.Any(ps => ps.Name == sf.Name && ps.Complexity == sf.Complexity)));
+                        p.Services.Any(ps => ps.ServiceType == sf.ServiceType && ps.Complexity == sf.Complexity)));
             }
 
             SearchResults.Clear();
