@@ -20,7 +20,7 @@
         <TextBlock Grid.Row="0" Text="Reminders" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
         <!-- DataGrid for Data -->
-        <DataGrid Grid.Row="1" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
+        <DataGrid Grid.Row="1" ItemsSource="{Binding ReminderDatas}" AutoGenerateColumns="False" 
      Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">

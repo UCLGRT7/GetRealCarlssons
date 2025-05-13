@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -13,8 +16,8 @@ namespace CarlssonsWPF.ViewModel
 
         public RemindersViewModel()
         {
-            _reminderViewService = new ReminderViewService(); // Initialize ReminderViewService
-            RemindersDatas = _reminderViewService.GetRemindersData(); // Fetch data from ReminderViewService
+            _reminderViewService = new ReminderViewService(); 
+            RemindersDatas = _reminderViewService.GetRemindersData();
         }
 
         public ObservableCollection<RemindersData> RemindersDatas
