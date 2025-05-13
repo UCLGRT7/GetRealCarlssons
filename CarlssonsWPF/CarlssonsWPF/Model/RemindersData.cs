@@ -12,7 +12,7 @@ namespace CarlssonsWPF.Model
         public string CustomerName { get; set; }
         public DateTime? OfferSentDate { get; set; }
         public DateTime? LastModified { get; set; }
-        public DateTime? DateOfDelivery { get; set; }
+        public DateTime? Deadline { get; set; }
         public DateTime? PaymentReceivedDate { get; set; }
         public string Status { get; set; }
         public string OfferConfirmed { get; set; }
