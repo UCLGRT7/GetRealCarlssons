@@ -21,9 +21,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Testing StartPage page" HorizontalAlignment="Center" Margin="0,109,0,0" VerticalAlignment="Top"/>
-        <Button Content="Kunder" Click="customer_Click" Margin="0,79,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"  Width="150" Height="50" Grid.Column="1"/>
-        <Button Content="Projekter" Click="project_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"  Width="150" Height="50"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Content="Kunder" Click="customer_Click" VerticalAlignment="Top" HorizontalAlignment="Center"  Width="150" Height="50" Grid.Row="1" Margin="10"/>
+            <Button Content="Projekter" Click="project_Click" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="150" Height="50" Grid.Row="2" Margin="10"/>
+            <Button Content="Reminder" Click="reminder_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Width="150" Height="50" Grid.Row="3" Margin="10"/>
+
+        </Grid>
 
     </Grid>
 </Page>

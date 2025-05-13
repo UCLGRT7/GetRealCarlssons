@@ -22,9 +22,9 @@ namespace CarlssonsWPF.Model
             _contractRepository = new FileContractRepository();
         }
 
-        public ObservableCollection<CombinedProjectData> GetCombinedProjectModels()
+        public ObservableCollection<RemindersData> GetRemindersData()
         {
-            var combinedList = new ObservableCollection<CombinedProjectData>();
+            var remindersList = new ObservableCollection<RemindersData>();
 
             var projects = _projectRepository.GetAll();
 
@@ -33,18 +33,19 @@ namespace CarlssonsWPF.Model
                 var customer = _customerRepository.GetByName(project.CustomerName);
                 var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
 
-                var viewModel = new CombinedProjectData
+                var viewModel = new RemindersData
                 {
                     CaseNumber = project.CaseNumber,
                     CustomerName = project.CustomerName,
                     OfferSentDate = contract?.OfferSent,
+                    DateOfDelivery = project.DateOfDelivery,
                     OfferConfirmed = contract != null && contract.OfferConfirmed.HasValue ? "Yes" : "No",
                     IsPaymentRecieved = contract != null && contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
                 };
 
-                combinedList.Add(viewModel);
+                remindersList.Add(viewModel);
             }
-            return combinedList;
+            return remindersList;
         }
     }
 
