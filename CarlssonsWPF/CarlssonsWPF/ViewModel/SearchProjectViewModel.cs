@@ -3,11 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using CarlssonsWPF.Services;
 using GetRealCarlssons.Models;
-using GetRealCarlssons.Services;
+using GetRealCarlssons.ViewModel;
 using GetRealCarlssons.Views;
 
-namespace GetRealCarlssons.ViewModels
+namespace CarlssonsWPF.ViewModel
 {
     public class SearchProjectViewModel : BaseViewModel
     {
@@ -16,8 +17,8 @@ namespace GetRealCarlssons.ViewModels
         public string Scope { get; set; }
         public string Deadline { get; set; }
 
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
-        public ObservableCollection<Project> SearchResults { get; set; } = new();
+        public ObservableCollection<ServiceEntry> Services { get; set; } = [];
+        public ObservableCollection<Project> SearchResults { get; set; } = [];
 
         public Project SelectedProject { get; set; }
 
@@ -37,6 +38,11 @@ namespace GetRealCarlssons.ViewModels
             OpenProjectCommand = new RelayCommand(OpenSelectedProject);
         }
 
+        private void Cancel()
+        {
+            throw new NotImplementedException();
+        }
+
         private void Search()
         {
             var projects = FileService.Load<Project>("Data/projects.json");
@@ -46,7 +52,7 @@ namespace GetRealCarlssons.ViewModels
                 filtered = filtered.Where(p => p.CaseNumber == CaseNumber);
 
             if (!string.IsNullOrWhiteSpace(Address))
-                filtered = filtered.Where(p => p.Address.ToLower().Contains(Address.ToLower()));
+                filtered = filtered.Where(p => p.Address.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
 
             if (!string.IsNullOrWhiteSpace(Scope) && int.TryParse(Scope, out int s))
                 filtered = filtered.Where(p => p.Scope == s);
@@ -56,7 +62,7 @@ namespace GetRealCarlssons.ViewModels
 
             var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.Name)).ToList();
 
-            if (serviceFilter.Any())
+            if (serviceFilter.Count != 0)
             {
                 filtered = filtered.Where(p =>
                     serviceFilter.All(sf =>
@@ -66,11 +72,6 @@ namespace GetRealCarlssons.ViewModels
             SearchResults.Clear();
             foreach (var p in filtered)
                 SearchResults.Add(p);
-        }
-
-        private void Cancel()
-        {
-            // Navigation tilbage til start
         }
 
         private void OpenSelectedProject()

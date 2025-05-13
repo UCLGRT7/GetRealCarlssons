@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace GetRealCarlssons.ViewModel
+namespace CarlssonsWPF.ViewModel
 {
     public class RelayCommand : ICommand
     {
@@ -10,8 +10,9 @@ namespace GetRealCarlssons.ViewModel
         private readonly Func<bool>? _canExecuteNoParam;
         private readonly Func<object?, bool>? _canExecuteWithParam;
 
-        private ICommand? _showWindowCommand;
-        private object? _canShowWindowCommand;
+        private readonly ICommand? _showWindowCommand;
+        private readonly object? _canShowWindowCommand;
+        private readonly Action? cancel; // Made nullable to resolve CS8618
 
         public event EventHandler? CanExecuteChanged
         {
@@ -31,6 +32,11 @@ namespace GetRealCarlssons.ViewModel
         {
             _showWindowCommand = showWindowCommand;
             _canShowWindowCommand = canShowWindowCommand;
+        }
+
+        public RelayCommand(Action cancel)
+        {
+            this.cancel = cancel;
         }
 
         public bool CanExecute(object? parameter)

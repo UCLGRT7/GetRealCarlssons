@@ -1,8 +1,7 @@
-
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace GetRealCarlssons.ViewModels
+namespace GetRealCarlssons.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
@@ -11,6 +10,11 @@ namespace GetRealCarlssons.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void Cancel()
+        {
+            // Navigation tilbage til start
         }
     }
 }

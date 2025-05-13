@@ -3,7 +3,8 @@ using System.Windows;
 using System.Windows.Input;
 using GetRealCarlssons.Models;
 using GetRealCarlssons.Views;
-using GetRealCarlssons.ViewModels;
+using GetRealCarlssons.ViewModel;
+using System.Windows.Controls;
 
 namespace GetRealCarlssons.Helpers
 {

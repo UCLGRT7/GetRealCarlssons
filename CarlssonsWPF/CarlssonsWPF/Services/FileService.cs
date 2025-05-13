@@ -1,9 +1,8 @@
 
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 
-namespace GetRealCarlssons.Services
+namespace CarlssonsWPF.Services
 {
     public static class FileService
     {
@@ -15,7 +14,7 @@ namespace GetRealCarlssons.Services
 
         public static List<T> Load<T>(string filePath)
         {
-            if (!File.Exists(filePath)) return new List<T>();
+            if (!File.Exists(filePath)) return [];
             var json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
         }

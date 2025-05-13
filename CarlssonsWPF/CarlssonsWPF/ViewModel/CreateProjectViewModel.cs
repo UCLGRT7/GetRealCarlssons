@@ -3,10 +3,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.Services;
+using CarlssonsWPF.ViewModel;
 using GetRealCarlssons.Models;
-using GetRealCarlssons.Services;
 
-namespace GetRealCarlssons.ViewModels
+namespace GetRealCarlssons.ViewModel
 {
     public class CreateProjectViewModel : BaseViewModel
     {
