@@ -46,8 +46,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
                     <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
-                    <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified}" Width="*" />
-                    <DataGridTextColumn Header="Date of Del" Binding="{Binding DateOfDelivery, StringFormat=\{0:d\}}" Width="*" />
+                    <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified, StringFormat=\{0:d\}}" Width="*" />
+                    <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="*" />
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
                     <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
                     <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />

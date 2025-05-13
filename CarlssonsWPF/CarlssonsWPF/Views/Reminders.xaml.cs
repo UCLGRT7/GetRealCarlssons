@@ -21,8 +21,8 @@ namespace CarlssonsWPF.Views
     //private ProjektMainPageViewModel projektMainPageViewModel;
     public partial class RemindersWindow : Page
     {
-        private RemindersViewModel remindersViewModel;
-        private Frame _frame;
+        private readonly RemindersViewModel remindersViewModel;
+        private readonly Frame _frame;
         public RemindersWindow(Frame frame)
         {
             InitializeComponent();

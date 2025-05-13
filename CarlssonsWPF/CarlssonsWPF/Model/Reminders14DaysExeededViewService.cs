@@ -9,52 +9,23 @@ using System.Collections.ObjectModel;
 
 namespace CarlssonsWPF.Model
 {
-    public class ReminderViewService
+    public class Reminders14DaysExeededViewService
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
 
-        public ReminderViewService()
+        public Reminders14DaysExeededViewService()
         {
             _customerRepository = new FileCustomerRepository();
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
         }
 
-        public ObservableCollection<RemindersData> GetRemindersData()
+       
+        public ObservableCollection<Reminders14DaysExeededData> GetExeededby14Days()
         {
-            var remindersList = new ObservableCollection<RemindersData>();
-
-            var projects = _projectRepository.GetAll();
-
-            foreach (var project in projects)
-            {
-                var customer = _customerRepository.GetByName(project.CustomerName);
-                var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
-                if (!contract.OfferConfirmed.HasValue || !contract.PaymentReceivedDate.HasValue)
-                {
-                    var viewModel = new RemindersData
-                    {
-                        CaseNumber = project.CaseNumber,
-                        CustomerName = project.CustomerName,
-                        OfferSentDate = contract?.OfferSent,
-                        Deadline = project.Deadline,
-                        OfferConfirmed = contract != null && contract.OfferConfirmed.HasValue ? "Yes" : "No",
-                        IsPaymentRecieved = contract != null && contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
-                    };
-
-                    remindersList.Add(viewModel);
-                }
-
-            }
-            return remindersList;
-        }
-
-
-        public ObservableCollection<RemindersData> GetExeededby14Days()
-        {
-            var exceededList = new ObservableCollection<RemindersData>();
+            var exceededList = new ObservableCollection<Reminders14DaysExeededData>();
 
             var projects = _projectRepository.GetAll();
 
@@ -69,12 +40,13 @@ namespace CarlssonsWPF.Model
 
                     if ((!contract.OfferConfirmed.HasValue || !contract.PaymentReceivedDate.HasValue) && timeSinceOffer.TotalDays > 14)
                     {
-                        var viewModel = new RemindersData
+                        var viewModel = new Reminders14DaysExeededData
                         {
                             CaseNumber = project.CaseNumber,
                             CustomerName = project.CustomerName,
                             OfferSentDate = contract.OfferSent,
                             Deadline = project.Deadline,
+                            DaysPassed = (int)timeSinceOffer.TotalDays,
                             OfferConfirmed = contract.OfferConfirmed.HasValue ? "Yes" : "No",
                             IsPaymentRecieved = contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
                         };

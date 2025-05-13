@@ -1,18 +1,18 @@
 [
   {
-    "CaseNumber": "8888",
-    "AddressOfDelivery": "HejVej",
-    "DateOfDelivery": "2025-05-10T21:34:57.5313523+02:00",
-    "PriceEstimate": 100000,
-    "Scale": 8,
-    "CustomerName": "Alex",
-    "Status": "Done",
-    "LastModified": "0001-01-01T00:00:00"
+     "CaseNumber": "8888",
+     "AddressOfDelivery": "HejVej",
+     "Deadline": "2025-05-10T21:34:57.5313523+02:00",
+     "PriceEstimate": 100000,
+     "Scale": 8,
+     "CustomerName": "Alex",
+     "Status": "Done",
+     "LastModified": "2025-05-09T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "1234",
     "AddressOfDelivery": "TestVej",
-    "DateOfDelivery": "2025-05-13T14:35:29.7609625+02:00",
+    "Deadline": "2025-05-13T14:35:29.7609625+02:00",
     "PriceEstimate": 5000,
     "Scale": 1,
     "CustomerName": "Valdemar",

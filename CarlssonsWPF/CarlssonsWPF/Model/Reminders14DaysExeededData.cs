@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
 {
-    public class RemindersData
+    public class Reminders14DaysExeededData
     {
         public string CaseNumber { get; set; }
         public string CustomerName { get; set; }
@@ -14,9 +14,9 @@ namespace CarlssonsWPF.Model
         public DateTime? LastModified { get; set; }
         public DateTime? Deadline { get; set; }
         public DateTime? PaymentReceivedDate { get; set; }
-        public string Status { get; set; }
         public string OfferConfirmed { get; set; }
         public string IsPaymentRecieved { get; set; }
+        public int DaysPassed { get; set; }
 
 
 

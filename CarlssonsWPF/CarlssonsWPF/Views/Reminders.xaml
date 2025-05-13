@@ -32,9 +32,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
                 <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
-                <DataGridTextColumn Header="Tilbud sendt" Binding="{Binding OfferSentDate}" Width="*" />
-                <DataGridTextColumn Header="Date of Del" Binding="{Binding DateOfDelivery, StringFormat=\{0:d\}}" Width="*" />
-                <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
+                <DataGridTextColumn Header="Tilbud sendt" Binding="{Binding OfferSentDate, StringFormat=\{0:d\}}" Width="*" />
+                <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="*" />
+                <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed }" Width="*" />
                 <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
