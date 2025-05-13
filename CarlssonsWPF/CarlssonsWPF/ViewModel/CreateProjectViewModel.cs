@@ -44,7 +44,7 @@ namespace CarlssonsWPF.ViewModel
             CancelCommand = new RelayCommand(Cancel);
         }
 
-        private void CreateProject()
+        public void CreateProject()
         {
             var project = new Project
             {
@@ -65,12 +65,12 @@ namespace CarlssonsWPF.ViewModel
             projects.Add(project);
             FileService.Save("Data/projects.json", projects);
 
-            var existingServices = FileService.Load<Service>("Data/services.json");
+            var existingServices = FileService.Load<Services>("Data/services.json");
             foreach (var s in Services)
             {
-                if (!existingServices.Any(es => es.Name == s.Name))
+                if (!existingServices.Any(es => es.ServiceType == s.ServiceType))
                 {
-                    existingServices.Add(new Service { Name = s.Name });
+                    existingServices.Add(new Services { ServiceType = s.ServiceType });
                 }
             }
             FileService.Save("Data/services.json", existingServices);
