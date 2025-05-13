@@ -33,7 +33,7 @@ namespace CarlssonsWPF.ViewModel
                 Services.Add(new Services());
             }
 
-            SearchCommand = new RelayCommand(Search);
+            //SearchCommand = new RelayCommand(Search);
             CancelCommand = new RelayCommand(Cancel);
             OpenProjectCommand = new RelayCommand(OpenSelectedProject);
         }
@@ -43,41 +43,41 @@ namespace CarlssonsWPF.ViewModel
             throw new NotImplementedException();
         }
 
-        private void Search(string deadline)
-        {
-            Search(Deadline);
-        }
+        //private void Search(string deadline)
+        //{
+        //    Search(Deadline);
+        //}
 
-        private void Search(DateTime deadline)
-        {
-            var projects = FileService.Load<Project>("Data/projects.json");
-            var filtered = projects.AsEnumerable();
+        //private void Search(DateTime deadline)
+        //{
+        //    var projects = FileService.Load<Project>("Data/projects.json");
+        //    var filtered = projects.AsEnumerable();
 
-            if (!string.IsNullOrWhiteSpace(CaseNumber))
-                filtered = filtered.Where(p => p.CaseNumber == CaseNumber);
+        //    if (!string.IsNullOrWhiteSpace(CaseNumber))
+        //        filtered = filtered.Where(p => p.CaseNumber == CaseNumber);
 
-            if (!string.IsNullOrWhiteSpace(Address))
-                filtered = filtered.Where(p => p.ProjectAddress.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
+        //    if (!string.IsNullOrWhiteSpace(Address))
+        //        filtered = filtered.Where(p => p.ProjectAddress.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
 
-            if (!string.IsNullOrWhiteSpace(Scope) && int.TryParse(Scope, out int s))
-                filtered = filtered.Where(p => p.Scope == s);
+        //    if (!string.IsNullOrWhiteSpace(Scope) && int.TryParse(Scope, out int s))
+        //        filtered = filtered.Where(p => p.Scope == s);
 
-            if (!string.IsNullOrWhiteSpace(Deadline))
-                filtered = filtered.Where(p => p.Deadline == deadline);
+        //    if (!string.IsNullOrWhiteSpace(Deadline))
+        //        filtered = filtered.Where(p => p.Deadline == deadline);
 
-            var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.ServiceType)).ToList();
+        //    var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.ServiceType)).ToList();
 
-            if (serviceFilter.Count != 0)
-            {
-                filtered = filtered.Where(p =>
-                    serviceFilter.All(sf =>
-                        p.Services.Any(ps => ps.ServiceType == sf.ServiceType && ps.Complexity == sf.Complexity)));
-            }
+        //    if (serviceFilter.Count != 0)
+        //    {
+        //        filtered = filtered.Where(p =>
+        //            serviceFilter.All(sf =>
+        //                p.Services.Any(ps => ps.ServiceType == sf.ServiceType && ps.Complexity == sf.Complexity)));
+        //    }
 
-            SearchResults.Clear();
-            foreach (var p in filtered)
-                SearchResults.Add(p);
-        }
+        //    SearchResults.Clear();
+        //    foreach (var p in filtered)
+        //        SearchResults.Add(p);
+        //}
 
         private void OpenSelectedProject()
         {

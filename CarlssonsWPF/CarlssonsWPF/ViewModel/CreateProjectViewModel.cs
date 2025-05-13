@@ -7,41 +7,73 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.Service;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel.IRepositories;
+using CarlssonsWPF.Data.FileRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
     public class CreateProjectViewModel : BaseViewModel
     {
-        public ObservableCollection<string> Customers { get; set; }
-        public ObservableCollection<Services> Services { get; set; } = new ObservableCollection<Services>();
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IProjectRepository _projectRepository;
+        private readonly IContractRepository _contractRepository;
+        private readonly IServiceRepository _serviceRepository;
 
-        public string SelectedCustomer { get; set; }
-        public string CaseNumber { get; set; }
-        public string Address { get; set; }
-        public DateTime Deadline { get; set; }
-        public int Scope { get; set; }
+        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
+        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
+        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
 
-        public string OfferSent { get; set; }
-        public string OfferApproved { get; set; }
-        public double Price { get; set; }
-        public string Paid { get; set; }
+        public string? SelectedCustomer { get; set; }
+        public string? CaseNumber { get; set; }
+        public string? Address { get; set; }
+        public DateTime? Deadline { get; set; }
+        public int? Scope { get; set; }
+
+        public DateTime? OfferSent { get; set; }
+        public DateTime? OfferConfirmed { get; set; }
+        public DateTime? PaymentRecieved { get; set; }
+        public double? Price { get; set; }
+        public string? Paid { get; set; }
 
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
         public CreateProjectViewModel()
         {
-            Customers = new ObservableCollection<string>(
-                FileService.Load<Customer>("Data/customers.json").Select(c => c.Name)
-            );
+            _customerRepository = new FileCustomerRepository();
+            _projectRepository = new FileProjectRepository();
+            _contractRepository = new FileContractRepository();
+            _serviceRepository = new FileServiceRepository();
 
-            for (int i = 0; i < 5; i++)
+            foreach (var customer in _customerRepository.GetAll())
             {
-                Services.Add(new Services());
+                customers.Add(customer);
+            }
+            foreach (var project in _projectRepository.GetAll())
+            {
+                projects.Add(project);
+            }
+            foreach (var contract in _contractRepository.GetAll())
+            {
+                contracts.Add(contract);
+            }
+            foreach (var service in _serviceRepository.GetAll())
+            {
+                services.Add(service);
             }
 
-            CreateProjectCommand = new RelayCommand(CreateProject);
-            CancelCommand = new RelayCommand(Cancel);
+            //var customers = new ObservableCollection<Customer>(
+            //    FileService.Load<Customer>("Data/customers.json").Select(c => c.Name)
+            //);
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    services.Add(new Services());
+            //}
+
+            //CreateProjectCommand = new RelayCommand(CreateProject);
+            //CancelCommand = new RelayCommand(Cancel);
         }
 
         public void CreateProject()
@@ -51,42 +83,39 @@ namespace CarlssonsWPF.ViewModel
                 CustomerName = SelectedCustomer,
                 CaseNumber = CaseNumber,
                 ProjectAddress = Address,
-                Deadline = Deadline,
-                Scope = Scope,
-                Services = Services.ToList(),
-                EstimatedPrice = Scope * Services.Sum(s => s.Complexity),
-                Price = Price,
-                Paid = Paid
+                Deadline = (DateTime)Deadline,
+                Scope = (int)Scope,
+                Services = services.ToList(),
+                EstimatedPrice = (double)(Scope * services.Sum(s => s.Complexity)),
+                Price = (double)Price
             };
 
-            var projects = FileService.Load<Project>("Data/projects.json");
+            _projectRepository.Add(project);
             projects.Add(project);
-            FileService.Save("Data/projects.json", projects);
+
 
             var contract = new Contract
             {
                 CaseNumber = CaseNumber,
-                OfferSent = DateTime.TryParse(OfferSent, out var offerSentDate) ? offerSentDate : (DateTime?)null,
-                OfferConfirmed = DateTime.TryParse(OfferApproved, out var offerConfirmedDate) ? offerConfirmedDate : (DateTime?)null,
-                PaymentReceivedDate = DateTime.TryParse(Paid, out var paidDate) ? paidDate : (DateTime?)null,
+                OfferSent = OfferSent,
+                OfferConfirmed = OfferConfirmed,
+                PaymentReceivedDate = PaymentRecieved,
                 Price = project.Price
             };
 
+            _contractRepository.Add(contract);
+            contracts.Add(contract);
 
-            var existingServices = FileService.Load<Services>("Data/services.json");
-            foreach (var s in Services)
-            {
-                if (!existingServices.Any(es => es.ServiceType == s.ServiceType))
-                {
-                    existingServices.Add(new Services { ServiceType = s.ServiceType });
-                }
-            }
-            FileService.Save("Data/services.json", existingServices);
+
+            //foreach (var s in services)
+            //{
+            //    if (!existingServices.Any(es => es.ServiceType == s.ServiceType))
+            //    {
+            //        existingServices.Add(new Services { ServiceType = s.ServiceType });
+            //    }
+            //}
+            //FileService.Save("Data/services.json", existingServices);
         }
 
-        private void Cancel()
-        {
-            // Navigation tilbage til MainViewModel (kan implementeres via event eller navigation service)
-        }
     }
 }
