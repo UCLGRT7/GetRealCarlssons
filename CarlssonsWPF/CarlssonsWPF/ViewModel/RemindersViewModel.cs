@@ -16,8 +16,8 @@ namespace CarlssonsWPF.ViewModel
 
         public RemindersViewModel()
         {
-            _reminderViewService = new ReminderViewService(); // Initialize ReminderViewService
-            RemindersDatas = _reminderViewService.GetRemindersData(); // Fetch data from ReminderViewService
+            _reminderViewService = new ReminderViewService(); 
+            RemindersDatas = _reminderViewService.GetRemindersData();
         }
 
         public ObservableCollection<RemindersData> RemindersDatas

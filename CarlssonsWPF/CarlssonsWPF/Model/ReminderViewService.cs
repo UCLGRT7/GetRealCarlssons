@@ -49,5 +49,5 @@ namespace CarlssonsWPF.Model
         }
     }
 
-    
+
 }
