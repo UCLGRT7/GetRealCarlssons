@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Data.FileRepositories;
+using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Views.Kunde;
 using CarlssonsWPF.Views.Projekt;
 
@@ -20,10 +24,11 @@ namespace CarlssonsWPF.Views
 
     public partial class StartPage : Page
     {
-        
+  
         private Frame _frame;
         public StartPage(Frame frame)
         {
+            
             InitializeComponent();
             _frame = frame;
         }

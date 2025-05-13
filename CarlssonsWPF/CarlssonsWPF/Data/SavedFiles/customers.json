@@ -34,5 +34,14 @@
     "PhoneNumber": 12312312,
     "PostalCode": 2720,
     "City": "vanl\u00F8se"
+  },
+  {
+    "Id": "14f4c5a2-c16e-4079-9ef4-71865b224091",
+    "Name": "Valdemar",
+    "Address": "TestVej",
+    "Email": "test",
+    "PhoneNumber": 12345678,
+    "PostalCode": 8000,
+    "City": "AA"
   }
 ]
