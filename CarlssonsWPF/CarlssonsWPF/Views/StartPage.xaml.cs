@@ -41,5 +41,10 @@ namespace CarlssonsWPF.Views
 
             _frame.Navigate(new KundeMainWindow(_frame));
         }
+
+        private void reminder_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new RemindersWindow(_frame));
+        }
     }
 }
