@@ -1,47 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace CarlssonsWPF.ViewModel
+namespace GetRealCarlssons.ViewModel
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
-        private ICommand? showWindowCommand;
-        private object canshowWindowCommand;
+        private readonly Action? _executeNoParam;
+        private readonly Action<object?>? _executeWithParam;
+        private readonly Func<bool>? _canExecuteNoParam;
+        private readonly Func<object?, bool>? _canExecuteWithParam;
+
+        private ICommand? _showWindowCommand;
+        private object? _canShowWindowCommand;
 
         public event EventHandler? CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        // Brug til: new RelayCommand(() => ...)
+        public RelayCommand(Action execute, Func<bool>? canExecute = null)
         {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            _executeNoParam = execute;
+            _canExecuteNoParam = canExecute;
         }
 
-        public RelayCommand(ICommand? showWindowCommand, object canshowWindowCommand)
+        // Brug til: visning af vindue m.m.
+        public RelayCommand(ICommand? showWindowCommand, object canShowWindowCommand)
         {
-            this.showWindowCommand = showWindowCommand;
-            this.canshowWindowCommand = canshowWindowCommand;
+            _showWindowCommand = showWindowCommand;
+            _canShowWindowCommand = canShowWindowCommand;
         }
 
         public bool CanExecute(object? parameter)
         {
-            return canExecute == null || canExecute(parameter);
+            if (_canExecuteWithParam != null)
+                return _canExecuteWithParam(parameter);
+            if (_canExecuteNoParam != null)
+                return _canExecuteNoParam();
+            return true;
         }
 
         public void Execute(object? parameter)
         {
-            execute(parameter);
+            if (_executeWithParam != null)
+                _executeWithParam(parameter);
+            else
+                _executeNoParam?.Invoke();
         }
-
-      
     }
 }
+
+
