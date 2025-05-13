@@ -13,7 +13,7 @@ namespace CarlssonsWPF.ViewModel
     public class CreateProjectViewModel : BaseViewModel
     {
         public ObservableCollection<string> Customers { get; set; }
-        public ObservableCollection<Services> Services { get; set; } = new();
+        public ObservableCollection<Services> Services { get; set; } = new ObservableCollection<Services>();
 
         public string SelectedCustomer { get; set; }
         public string CaseNumber { get; set; }
@@ -23,7 +23,7 @@ namespace CarlssonsWPF.ViewModel
 
         public string OfferSent { get; set; }
         public string OfferApproved { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Paid { get; set; }
 
         public ICommand CreateProjectCommand { get; set; }
@@ -54,8 +54,6 @@ namespace CarlssonsWPF.ViewModel
                 Deadline = Deadline,
                 Scope = Scope,
                 Services = Services.ToList(),
-                OfferSent = OfferSent,
-                OfferApproved = OfferApproved,
                 EstimatedPrice = Scope * Services.Sum(s => s.Complexity),
                 Price = Price,
                 Paid = Paid
@@ -64,6 +62,16 @@ namespace CarlssonsWPF.ViewModel
             var projects = FileService.Load<Project>("Data/projects.json");
             projects.Add(project);
             FileService.Save("Data/projects.json", projects);
+
+            var contract = new Contract
+            {
+                CaseNumber = CaseNumber,
+                OfferSent = DateTime.TryParse(OfferSent, out var offerSentDate) ? offerSentDate : (DateTime?)null,
+                OfferConfirmed = DateTime.TryParse(OfferApproved, out var offerConfirmedDate) ? offerConfirmedDate : (DateTime?)null,
+                PaymentReceivedDate = DateTime.TryParse(Paid, out var paidDate) ? paidDate : (DateTime?)null,
+                Price = project.Price
+            };
+
 
             var existingServices = FileService.Load<Services>("Data/services.json");
             foreach (var s in Services)

@@ -12,7 +12,7 @@ namespace CarlssonsWPF.Model
         public string CaseNumber { get; set; }
         public string ProjectAddress { get; set; }
         public DateTime Deadline { get; set; }
-        public double PriceEstimate { get; set; }
+        public double EstimatedPrice { get; set; }
         public int Scope { get; set; }
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
@@ -27,7 +27,7 @@ namespace CarlssonsWPF.Model
 
         public override string ToString()
         {
-            return $"{CaseNumber},{ProjectAddress},{Deadline:yyyy-MM-dd},{PriceEstimate},{Scope},{CustomerName},{Status},{LastModified}";
+            return $"{CaseNumber},{ProjectAddress},{Deadline:yyyy-MM-dd},{EstimatedPrice},{Scope},{CustomerName},{Status},{LastModified}";
         }
 
         public static Project FromString(string input)
@@ -40,7 +40,7 @@ namespace CarlssonsWPF.Model
                 CaseNumber = parts[0],
                 ProjectAddress = parts[1],
                 Deadline = DateTime.Parse(parts[2]),
-                PriceEstimate = double.Parse(parts[3]),
+                EstimatedPrice = double.Parse(parts[3]),
                 Scope = int.Parse(parts[4]),
                 CustomerName = parts[5],
                 Status = parts[6],
