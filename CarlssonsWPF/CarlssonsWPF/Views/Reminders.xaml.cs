@@ -14,26 +14,26 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Kunde;
+using CarlssonsWPF.Views.Projekt;
 
-namespace CarlssonsWPF.Views.Projekt
+namespace CarlssonsWPF.Views
 {
-
-    public partial class ProjektMainWindow : Page
+    //private ProjektMainPageViewModel projektMainPageViewModel;
+    public partial class RemindersWindow : Page
     {
-        private ProjektMainPageViewModel projektMainPageViewModel;
+        private RemindersViewModel remindersViewModel;
         private Frame _frame;
-
-        public ProjektMainWindow(Frame frame) 
+        public RemindersWindow(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            projektMainPageViewModel = new ProjektMainPageViewModel();
-            DataContext = projektMainPageViewModel;
+            remindersViewModel = new RemindersViewModel();
+            DataContext = remindersViewModel;
         }
 
-        private void startPage_Click(object sender, RoutedEventArgs e)
+        private void projects_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new StartPage(_frame));
+            _frame.Navigate(new ProjektMainWindow(_frame));
         }
 
         private void customer_Click(object sender, RoutedEventArgs e)
@@ -41,9 +41,11 @@ namespace CarlssonsWPF.Views.Projekt
             _frame.Navigate(new KundeMainWindow(_frame));
         }
 
-        private void reminders_Click(object sender, RoutedEventArgs e)
+        private void startPage_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new RemindersWindow(_frame));
+            _frame.Navigate(new StartPage(_frame));
         }
+
+
     }
 }

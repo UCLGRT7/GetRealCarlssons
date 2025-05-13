@@ -1,0 +1,55 @@
+﻿<Page x:Class="CarlssonsWPF.Views.RemindersWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarlssonsWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Reminders">
+
+    <Grid Margin="10" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Reminders" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+
+        <!-- DataGrid for Data -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
+     Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="18"/>
+                    <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
+                <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
+                <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified}" Width="*" />
+                <DataGridTextColumn Header="Date of Del" Binding="{Binding DateOfDelivery, StringFormat=\{0:d\}}" Width="*" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
+                <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
+                <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Projekter" Click="projects_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="1"/>
+            <Button Content="Kunder" Click="customer_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="2"/>
+        </Grid>
+
+        <Button Content="Start" Click="startPage_Click" Grid.Row="3" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+    </Grid>
+</Page>
