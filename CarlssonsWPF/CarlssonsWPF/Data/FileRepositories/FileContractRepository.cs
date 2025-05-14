@@ -122,6 +122,11 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveContractsToFile(contracts);
         }
 
+        public void SaveAllOnExit()
+        {
+            var contracts = GetAll().ToList();
+            SaveContractsToFile(contracts);
+        }
 
         private void SaveContractsToFile(IEnumerable<Contract> contracts)
         {

@@ -129,6 +129,11 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveCustomersToFile(customers);
         }
 
+        public void SaveAllOnExit()
+        {
+            var customers = GetAll().ToList();
+            SaveCustomersToFile(customers);
+        }
 
         private void SaveCustomersToFile(IEnumerable<Customer> customers)
         {

@@ -133,6 +133,12 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveProjectsToFile(projects);
         }
 
+        public void SaveAllOnExit()
+        {
+            var projects = GetAll().ToList();
+            SaveProjectsToFile(projects);
+        }
+
         private void SaveProjectsToFile(IEnumerable<Project> projects)
         {
             try

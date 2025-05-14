@@ -126,6 +126,11 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveServicesToFile(services);
         }
 
+        public void SaveAllOnExit()
+        {
+            var services = GetAll().ToList();
+            SaveServicesToFile(services);
+        }
 
         private void SaveServicesToFile(IEnumerable<Services> services)
         {

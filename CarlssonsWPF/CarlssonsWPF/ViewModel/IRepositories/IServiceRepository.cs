@@ -16,6 +16,7 @@ namespace CarlssonsWPF.ViewModel.IRepositories
         void Add(Services service);
         void Update(Services service);
         void Delete(int id);
+        void SaveAllOnExit();
 
     }
 }

@@ -17,6 +17,7 @@ namespace CarlssonsWPF.ViewModel.IRepositories
         void Add(Project project);
         void Update(Project project);
         void Delete(string caseNumber);
+        void SaveAllOnExit();
 
     }
 }
