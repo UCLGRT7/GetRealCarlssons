@@ -63,17 +63,6 @@ namespace CarlssonsWPF.ViewModel
                 services.Add(service);
             }
 
-            //var customers = new ObservableCollection<Customer>(
-            //    FileService.Load<Customer>("Data/customers.json").Select(c => c.Name)
-            //);
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    services.Add(new Services());
-            //}
-
-            //CreateProjectCommand = new RelayCommand(CreateProject);
-            //CancelCommand = new RelayCommand(Cancel);
         }
 
         public void CreateProject()

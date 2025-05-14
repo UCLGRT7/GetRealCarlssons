@@ -1,12 +1,40 @@
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class ViewProjectViewModel(Project project) : BaseViewModel
+    public class ViewProjectViewModel : INotifyPropertyChanged
     {
-        public Project Project { get; } = project;
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public Project SelectedProject { get; set; }
 
-        // Kan tilføjes: ICommand til Rediger og Tilbage, evt. med navigation
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IProjectRepository _projectRepository;
+        private readonly IContractRepository _contractRepository;
+
+        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
+        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
+        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+
+
+        public ViewProjectViewModel(Project project)
+        {
+            _customerRepository = new FileCustomerRepository();
+            _projectRepository = new FileProjectRepository();
+            _contractRepository = new FileContractRepository();
+
+
+        }
+
+
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

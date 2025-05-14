@@ -1,41 +1,51 @@
+﻿<Page x:Class="CarlssonsWPF.Views.Projekt.SearchProjectView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="SearchProjectView">
 
-<Window x:Class="CarlssonsWPF.Views.SearchProjectView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:CarlssonsWPF.Views"
-        Title="Søg Projekt" Height="600" Width="800">
-    <ScrollViewer>
-        <StackPanel Margin="20">
-            <TextBlock Text="Sagsnummer:" />
-            <TextBox Text="{Binding CaseNumber}" />
+    <Grid Margin="10">
 
-            <TextBlock Text="Projekt Addresse:" />
-            <TextBox Text="{Binding Address}" />
 
-            <TextBlock Text="Deadline:" />
-            <TextBox Text="{Binding Deadline}" />
 
-            <TextBlock Text="Omfang:" />
-            <TextBox Text="{Binding Scope}" />
+        <ScrollViewer>
+            <StackPanel Margin="20">
+                <TextBlock Text="Sagsnummer:" />
+                <TextBox Text="{Binding CaseNumber}" />
 
-            <TextBlock Text="Ydelser (navn og kompleks):" Margin="0,10,0,0"/>
-            <ItemsControl ItemsSource="{Binding Services}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox Width="200" Text="{Binding Name}" />
-                            <TextBox Width="50" Margin="10,0,0,0" Text="{Binding Complexity}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                <TextBlock Text="Projekt Addresse:" />
+                <TextBox Text="{Binding Address}" />
 
-            <Button Content="Søg" Command="{Binding SearchCommand}" Width="100" Margin="0,10,0,0"/>
-            <ListBox x:Name="ResultListBox" ItemsSource="{Binding SearchResults}" DisplayMemberPath="Name" Height="200" Margin="0,10,0,0"/>
+                <TextBlock Text="Deadline:" />
+                <TextBox Text="{Binding Deadline}" />
 
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <Button Content="Tilbage til start" Command="{Binding CancelCommand}" Width="150"/>
+                <TextBlock Text="Omfang:" />
+                <TextBox Text="{Binding Scope}" />
+
+                <TextBlock Text="Ydelser (navn og kompleks):" Margin="0,10,0,0"/>
+                <ItemsControl ItemsSource="{Binding Services}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Width="200" Text="{Binding Name}" />
+                                <TextBox Width="50" Margin="10,0,0,0" Text="{Binding Complexity}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Button Content="Søg" Command="{Binding SearchCommand}" Width="100" Margin="0,10,0,0"/>
+                <ListBox x:Name="ResultListBox" ItemsSource="{Binding SearchResults}" DisplayMemberPath="Name" Height="200" Margin="0,10,0,0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button Content="Tilbage til start" Command="{Binding CancelCommand}" Width="150"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
-</Window>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

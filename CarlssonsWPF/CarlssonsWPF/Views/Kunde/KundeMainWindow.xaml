@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Start" Width="150" Height="50" HorizontalAlignment="Stretch" Click="HomescreenButton_Click" Grid.Column="1" Margin="10"/>
+            <Button Content="Start" HorizontalAlignment="Stretch" Click="HomescreenButton_Click" Grid.Column="1" Margin="10" MinWidth="150" MinHeight="50"/>
 
 
         </Grid>

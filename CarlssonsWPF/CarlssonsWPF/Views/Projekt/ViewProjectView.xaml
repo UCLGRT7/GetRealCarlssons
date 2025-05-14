@@ -1,54 +1,65 @@
+﻿<Page x:Class="CarlssonsWPF.Views.Projekt.ViewProjectView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="ViewProjectView">
 
-<Window x:Class="CarlssonsWPF.Views.ViewProjectView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Projekt Detaljer" Height="600" Width="800">
-    <ScrollViewer>
-        <StackPanel Margin="20">
-            <TextBlock Text="{Binding Project.Name}" FontWeight="Bold" FontSize="18"/>
-            <TextBlock Text="Sagsnummer:" />
-            <TextBlock Text="{Binding Project.CaseNumber}" />
-            
-            <TextBlock Text="Adresse:" />
-            <TextBlock Text="{Binding Project.Address}" />
+    <Grid Margin="10">
 
-            <TextBlock Text="Deadline:" />
-            <TextBlock Text="{Binding Project.Deadline}" />
 
-            <TextBlock Text="Omfang:" />
-            <TextBlock Text="{Binding Project.Scope}" />
 
-            <TextBlock Text="Ydelser:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <ItemsControl ItemsSource="{Binding Project.Services}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" Width="200"/>
-                            <TextBlock Text="{Binding Complexity}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
 
-            <TextBlock Text="Tilbud Afsendt:" />
-            <TextBlock Text="{Binding Project.OfferSent}" />
+        <ScrollViewer>
+            <StackPanel Margin="20">
+                <TextBlock Text="{Binding Project.Name}" FontWeight="Bold" FontSize="18"/>
+                <TextBlock Text="Sagsnummer:" />
+                <TextBlock Text="{Binding Project.CaseNumber}" />
 
-            <TextBlock Text="Tilbud Godkendt:" />
-            <TextBlock Text="{Binding Project.OfferApproved}" />
+                <TextBlock Text="Adresse:" />
+                <TextBlock Text="{Binding Project.Address}" />
 
-            <TextBlock Text="Anslået Pris:" />
-            <TextBlock Text="{Binding Project.EstimatedPrice}" />
+                <TextBlock Text="Deadline:" />
+                <TextBlock Text="{Binding Project.Deadline}" />
 
-            <TextBlock Text="Pris:" />
-            <TextBlock Text="{Binding Project.Price}" />
+                <TextBlock Text="Omfang:" />
+                <TextBlock Text="{Binding Project.Scope}" />
 
-            <TextBlock Text="Betalt:" />
-            <TextBlock Text="{Binding Project.Paid}" />
+                <TextBlock Text="Ydelser:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <ItemsControl ItemsSource="{Binding Project.Services}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Width="200"/>
+                                <TextBlock Text="{Binding Complexity}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                <Button Content="Redigér" Width="100"/>
-                <Button Content="Tilbage" Width="100" Margin="10,0,0,0"/>
+                <TextBlock Text="Tilbud Afsendt:" />
+                <TextBlock Text="{Binding Project.OfferSent}" />
+
+                <TextBlock Text="Tilbud Godkendt:" />
+                <TextBlock Text="{Binding Project.OfferApproved}" />
+
+                <TextBlock Text="Anslået Pris:" />
+                <TextBlock Text="{Binding Project.EstimatedPrice}" />
+
+                <TextBlock Text="Pris:" />
+                <TextBlock Text="{Binding Project.Price}" />
+
+                <TextBlock Text="Betalt:" />
+                <TextBlock Text="{Binding Project.Paid}" />
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Button Content="Redigér" Width="100"/>
+                    <Button Content="Tilbage" Width="100" Margin="10,0,0,0"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
-</Window>
+        </ScrollViewer>
+    </Grid>
+</Page>

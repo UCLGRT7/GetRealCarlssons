@@ -18,7 +18,7 @@ using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views
 {
-    //private ProjektMainPageViewModel projektMainPageViewModel;
+    //private ProjektMainPageViewModel _projektMainPageViewModel;
     public partial class RemindersWindow : Page
     {
         private readonly RemindersViewModel remindersViewModel;

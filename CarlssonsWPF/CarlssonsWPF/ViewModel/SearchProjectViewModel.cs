@@ -7,6 +7,7 @@ using CarlssonsWPF.Service;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views;
+using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -35,7 +36,7 @@ namespace CarlssonsWPF.ViewModel
 
             //SearchCommand = new RelayCommand(Search);
             CancelCommand = new RelayCommand(Cancel);
-            OpenProjectCommand = new RelayCommand(OpenSelectedProject);
+            //OpenProjectCommand = new RelayCommand(OpenSelectedProject);
         }
 
         private void Cancel()
@@ -43,52 +44,16 @@ namespace CarlssonsWPF.ViewModel
             throw new NotImplementedException();
         }
 
-        //private void Search(string deadline)
+        //private void OpenSelectedProject()
         //{
-        //    Search(Deadline);
-        //}
-
-        //private void Search(DateTime deadline)
-        //{
-        //    var projects = FileService.Load<Project>("Data/projects.json");
-        //    var filtered = projects.AsEnumerable();
-
-        //    if (!string.IsNullOrWhiteSpace(CaseNumber))
-        //        filtered = filtered.Where(p => p.CaseNumber == CaseNumber);
-
-        //    if (!string.IsNullOrWhiteSpace(Address))
-        //        filtered = filtered.Where(p => p.ProjectAddress.Contains(Address, StringComparison.CurrentCultureIgnoreCase));
-
-        //    if (!string.IsNullOrWhiteSpace(Scope) && int.TryParse(Scope, out int s))
-        //        filtered = filtered.Where(p => p.Scope == s);
-
-        //    if (!string.IsNullOrWhiteSpace(Deadline))
-        //        filtered = filtered.Where(p => p.Deadline == deadline);
-
-        //    var serviceFilter = Services.Where(se => !string.IsNullOrWhiteSpace(se.ServiceType)).ToList();
-
-        //    if (serviceFilter.Count != 0)
+        //    if (SelectedProject != null)
         //    {
-        //        filtered = filtered.Where(p =>
-        //            serviceFilter.All(sf =>
-        //                p.Services.Any(ps => ps.ServiceType == sf.ServiceType && ps.Complexity == sf.Complexity)));
+        //        var view = new ViewProjectView
+        //        {
+        //            DataContext = new ViewProjectViewModel(SelectedProject)
+        //        };
+        //        view.Show();
         //    }
-
-        //    SearchResults.Clear();
-        //    foreach (var p in filtered)
-        //        SearchResults.Add(p);
         //}
-
-        private void OpenSelectedProject()
-        {
-            if (SelectedProject != null)
-            {
-                var view = new ViewProjectView
-                {
-                    DataContext = new ViewProjectViewModel(SelectedProject)
-                };
-                view.Show();
-            }
-        }
     }
 }

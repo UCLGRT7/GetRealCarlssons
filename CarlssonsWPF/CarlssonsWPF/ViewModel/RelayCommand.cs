@@ -63,6 +63,7 @@ namespace CarlssonsWPF.ViewModel
             else
                 _executeNoParam?.Invoke();
         }
+
     }
 }
 
