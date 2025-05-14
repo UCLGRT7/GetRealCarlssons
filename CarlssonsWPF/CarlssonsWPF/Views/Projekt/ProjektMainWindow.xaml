@@ -28,8 +28,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Opret" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="1"/>
-                <Button Content="Søg" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="2"/>
+                <Button Content="Opret" Click="createProject_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="1"/>
+                <Button Content="Søg" Click="projectSearch_Click" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Grid.Column="2"/>
 
             </Grid>
 
