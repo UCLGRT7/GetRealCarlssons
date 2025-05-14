@@ -76,5 +76,10 @@ namespace CarlssonsWPF.Views.Kunde
         {
             _frame.Navigate(new KundeMainWindow(_frame));
         }
+
+        private void ResultsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
