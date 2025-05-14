@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
+        <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
         <DataGrid Grid.Row="1"
           Name="CustomerDataGrid"

@@ -15,13 +15,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
+        <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
 
         <Grid Grid.Row="1" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="2*" MinHeight="310"/>
+                <RowDefinition Height="*" MinHeight="310"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -31,46 +31,54 @@
             </Grid.ColumnDefinitions>
 
             <Rectangle HorizontalAlignment="Center" Height="310" Fill="LightGoldenrodYellow" Opacity="0.8" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1"/>
-            <Grid ShowGridLines="True" Grid.Row="1" Grid.Column="1">
+            <Grid ShowGridLines="False" Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <!--Navn-->
-            <TextBlock HorizontalAlignment="Center" Grid.Row="0" Text="Navn" VerticalAlignment="Center"/>
-            <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="580,100,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Navn" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             <!--Adresse-->
-            <TextBlock HorizontalAlignment="Left" Margin="450,140,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top"/>
-            <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="580,140,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Adresse" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Adresse" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <!--Postnummer-->
-            <TextBlock HorizontalAlignment="Left" Margin="450,180,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Top"/>
-            <TextBox x:Name="Postnummer" HorizontalAlignment="Left" Margin="580,180,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Postnummer" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             <!--By-->
-            <TextBlock HorizontalAlignment="Left" Margin="450,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Top"/>
-            <TextBox x:Name="By" HorizontalAlignment="Left" Margin="580,220,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="By" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             <!--Tlfnummer-->
-            <TextBlock HorizontalAlignment="Left" Margin="450,260,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top"/>
-            <TextBox x:Name="Tlfnummer" HorizontalAlignment="Left" Margin="580,260,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Tlfnummer" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             <!--E-mail-->
-            <TextBlock HorizontalAlignment="Left" Margin="450,300,0,0" Grid.Row="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top"/>
-            <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="580,300,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Email" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
-            <Button Content="Søg" Click="KundeSearch_Click" Width="120" Height="50" HorizontalAlignment="Right" Margin="0 0 5 0" />
-            <Button Content="Tilbage" Click="KundeMainWindow_Click" Width="120" Height="50" HorizontalAlignment="left" Margin="5 0 0 0" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Søg" Click="KundeSearch_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="1" VerticalAlignment="Center" />
+            <Button Content="Tilbage" Click="KundeMainWindow_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="2" VerticalAlignment="Center" />
 
         </Grid>
     </Grid>
