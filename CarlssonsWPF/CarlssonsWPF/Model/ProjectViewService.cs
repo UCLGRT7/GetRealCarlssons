@@ -39,8 +39,8 @@ namespace CarlssonsWPF.Model
                     var dates = new[]
                     {
                 contract.OfferSent,
-                contract.OfferConfirmed,
-                contract.PaymentReceivedDate
+                contract.OfferApproved,
+                contract.Paid
             }
                     .Where(d => d.HasValue)
                     .Select(d => d.Value);
