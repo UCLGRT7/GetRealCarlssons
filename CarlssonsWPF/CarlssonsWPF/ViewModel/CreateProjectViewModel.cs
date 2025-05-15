@@ -28,7 +28,7 @@ namespace CarlssonsWPF.ViewModel
 
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
+        public ObservableCollection<Services> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
@@ -43,7 +43,6 @@ namespace CarlssonsWPF.ViewModel
             {
                 _scope = value;
                 OnPropertyChanged();
-                UpdateEstimatedPrice();
             }
         }
 
@@ -93,19 +92,19 @@ namespace CarlssonsWPF.ViewModel
             // Initialiser 5 ydelser og tilføj PropertyChanged-handler
             for (int i = 0; i < 5; i++)
             {
-                var entry = new Project.ServiceEntry();
-                entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
-                Services.Add(entry);
+                var entry = new Services();
+                UpdateEstimatedPrice(entry);
+                services.Add(entry);
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
         }
-        private void UpdateEstimatedPrice()
+        private void UpdateEstimatedPrice(Services entry)
         {
             if (Scope == null)
                 return;
 
-            int totalComplexity = Services.Sum(s => s.Complexity);
+            int totalComplexity = services.Sum(s => s.Complexity);
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
@@ -126,7 +125,7 @@ namespace CarlssonsWPF.ViewModel
                 ProjectAddress = Address,
                 Deadline = deadlineValue,
                 Scope = scopeValue,
-                Services = Services.ToList(),
+                ServiceEntry = services.ToList(),
                 EstimatedPrice = EstimatedPrice ?? 0,
                 Price = Price,
                 OfferSent = offerSentValue,
@@ -145,7 +144,7 @@ namespace CarlssonsWPF.ViewModel
                 OfferSent = OfferSent,
                 OfferConfirmed = OfferConfirmed,
                 PaymentReceivedDate = PaymentRecieved,
-                Price = project.Price
+                Price = (double)project.Price
             };
 
 

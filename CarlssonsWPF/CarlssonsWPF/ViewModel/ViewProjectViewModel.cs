@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using CarlssonsWPF.Data.FileRepositories;
@@ -55,7 +54,7 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-        public ICommand ToggleEditCommand { get; }
+        public ICommand ToggleCommand { get; }
         public ICommand AddServiceCommand { get; }
         public ICommand RemoveServiceCommand { get; }
         public ICommand CancelCommand { get; }
@@ -65,9 +64,9 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CancelEditCommand => new RelayCommand(_ => CancelEdit());
         private void AddService()
         {
-            if (SelectedProject.Services.Count < 10)
+            if (SelectedProject.ServiceEntry.Count < 10)
             {
-                SelectedProject.Services.Add(new Project.ServiceEntry { Name = "", Complexity = 0 });
+                SelectedProject.ServiceEntry.Add(new Services { ServiceEntry = "", Complexity = 0 });
                 OnPropertyChanged(nameof(SelectedProject));
             }
         }
@@ -80,12 +79,12 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
 
-            foreach (var c in _customerRepository.GetAll()) Customers.Add(c);
-            foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
-            foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
+            foreach (var c in _customerRepository.GetAll()) customers.Add(c);
+            foreach (var p in _projectRepository.GetAll()) projects.Add(p);
+            foreach (var con in _contractRepository.GetAll()) contracts.Add(con);
 
             SelectedProject = project;
-            AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
+            AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.ServiceEntry.Count < 10);
             RemoveServiceCommand = new RelayCommand(obj => RemoveService(obj));
             CancelCommand = new RelayCommand(_ => CancelEdit());
         }
@@ -102,9 +101,9 @@ namespace CarlssonsWPF.ViewModel
 
         private void RemoveService(object? service)
         {
-            if (service is Project.ServiceEntry entry)
+            if (service is Services entry)
             {
-                SelectedProject.Services.Remove(entry);
+                SelectedProject.ServiceEntry.Remove(entry);
                 OnPropertyChanged(nameof(SelectedProject));
                 CommandManager.InvalidateRequerySuggested();
             }
