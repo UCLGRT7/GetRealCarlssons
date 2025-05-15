@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -33,29 +33,7 @@ namespace CarlssonsWPF.ViewModel
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
         public DateTime? Deadline { get; set; }
-
-
-        private int? _scope;
-        public int? Scope
-        {
-            get => _scope;
-            set
-            {
-                _scope = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private double? _estimatedPrice;
-        public double? EstimatedPrice
-        {
-            get => _estimatedPrice;
-            set
-            {
-                _estimatedPrice = value;
-                OnPropertyChanged();
-            }
-        }
+        public int? Scope { get; set; }
 
         public DateTime? OfferSent { get; set; }
         public DateTime? OfferConfirmed { get; set; }
@@ -89,7 +67,7 @@ namespace CarlssonsWPF.ViewModel
             {
                 services.Add(service);
             }
-            // Initialiser 5 ydelser og tilf�j PropertyChanged-handler
+            // Initialiser 5 ydelser og tilføj PropertyChanged-handler
             for (int i = 0; i < 5; i++)
             {
                 var entry = new Services();
@@ -108,9 +86,39 @@ namespace CarlssonsWPF.ViewModel
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
+        private DateTime? TryParseToDate(string? input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return null;
+
+            input = input.Trim();
+
+            // 6-cifret form: ddMMyy → 24/03/95
+            if (input.Length == 6)
+            {
+                var parsed = DateTime.TryParseExact(input, "ddMMyy", null, System.Globalization.DateTimeStyles.None, out var date);
+                return parsed ? date : null;
+            }
+
+            // 8-cifret form: ddMMyyyy → 24/03/1995
+            if (input.Length == 8)
+            {
+                var parsed = DateTime.TryParseExact(input, "ddMMyyyy", null, System.Globalization.DateTimeStyles.None, out var date);
+                return parsed ? date : null;
+            }
+
+            // Sidste chance: normal DateTime.Parse
+            if (DateTime.TryParse(input, out var fallbackDate))
+                return fallbackDate;
+
+            return null;
+        }
+
+
         public void CreateProject()
         {
-            // Sikrer stabile v�rdier, s�ledes at >>null<< ikke runtime crasher.
+
+
+            // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
             int scopeValue = Scope ?? 0;
             DateTime deadlineValue = Deadline ?? DateTime.Today;
             DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
@@ -123,7 +131,7 @@ namespace CarlssonsWPF.ViewModel
                 CustomerName = SelectedCustomer,
                 CaseNumber = CaseNumber,
                 ProjectAddress = Address,
-                Deadline = deadlineValue,
+                Deadline = ParsedDeadline ?? DateTime.Today,
                 Scope = scopeValue,
                 ServiceEntry = services.ToList(),
                 EstimatedPrice = EstimatedPrice ?? 0,
