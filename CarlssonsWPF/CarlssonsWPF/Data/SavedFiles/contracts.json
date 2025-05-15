@@ -2,16 +2,16 @@
   {
     "InvoiceNumber": 1234,
     "OfferSent": "2025-05-01T20:39:57.4730729+02:00",
-    "PaymentReceivedDate": "2025-05-07T20:39:57.473091+02:00",
-    "OfferConfirmed": "2025-05-05T20:39:57.473091+02:00",
+    "Paid": "2025-04-13T14:35:29.763447+02:00",
+    "OfferApproved": "2025-04-13T14:35:29.763447+02:00",
     "Price": 5000,
-    "CaseNumber": "8888"
+    "CaseNumber": "2022_01_02"
   },
   {
     "InvoiceNumber": 123,
     "OfferSent": "2025-04-13T14:35:29.763447+02:00",
-    "PaymentReceivedDate": null,
-    "OfferConfirmed": null,
+    "Paid": null,
+    "OfferApproved": null,
     "Price": 7500,
     "CaseNumber": "1234"
   },
