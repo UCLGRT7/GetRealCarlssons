@@ -74,12 +74,12 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public IEnumerable<Project> GetByAddress(string address)
         {
-            return GetAll().Where(p => p.AddressOfDelivery.Contains(address, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(p => p.ProjectAddress.Contains(address, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<Project> GetByScale(int scale)
         {
-            return GetAll().Where(p => p.Scale == scale);
+            return GetAll().Where(p => p.Scope == scale);
         }
 
         public void Add(Project project)
@@ -130,6 +130,12 @@ namespace CarlssonsWPF.Data.FileRepositories
         {
             var projects = GetAll().ToList();
             projects.RemoveAll(p => p.CaseNumber == caseNumber);
+            SaveProjectsToFile(projects);
+        }
+
+        public void SaveAllOnExit()
+        {
+            var projects = GetAll().ToList();
             SaveProjectsToFile(projects);
         }
 

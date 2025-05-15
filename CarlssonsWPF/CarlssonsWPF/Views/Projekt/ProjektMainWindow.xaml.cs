@@ -20,15 +20,15 @@ namespace CarlssonsWPF.Views.Projekt
 
     public partial class ProjektMainWindow : Page
     {
-        private ProjektMainPageViewModel projektMainPageViewModel;
+        private ProjektMainPageViewModel _projektMainPageViewModel;
         private Frame _frame;
 
         public ProjektMainWindow(Frame frame) 
         {
             InitializeComponent();
             _frame = frame;
-            projektMainPageViewModel = new ProjektMainPageViewModel();
-            DataContext = projektMainPageViewModel;
+            _projektMainPageViewModel = new ProjektMainPageViewModel();
+            DataContext = _projektMainPageViewModel;
         }
 
         private void startPage_Click(object sender, RoutedEventArgs e)
@@ -43,7 +43,17 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void reminders_Click(object sender, RoutedEventArgs e)
         {
+            _frame.Navigate(new RemindersWindow(_frame));
+        }
 
+        private void projectSearch_Click(object sender, RoutedEventArgs e)
+        {
+            //_frame.Navigate(new SearchProjectView(_frame));
+        }
+
+        private void createProject_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new CreateProjectView(_frame));
         }
     }
 }

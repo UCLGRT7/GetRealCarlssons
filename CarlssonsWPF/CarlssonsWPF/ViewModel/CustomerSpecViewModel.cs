@@ -126,11 +126,6 @@ namespace CarlssonsWPF.ViewModel
 
         }
 
-    
-
-       
-
-
         public void UpdateCustomer()
         {
 
@@ -146,7 +141,7 @@ namespace CarlssonsWPF.ViewModel
                 SelectedCustomer.City = City;
 
                 _customerRepository.Update(SelectedCustomer);
-              
+
             }
 
             var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,46 +12,40 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CarlssonsWPF.Data.FileRepositories;
-using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
-using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Views.Kunde;
 using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views
 {
-
-    public partial class StartPage : Page
+    //private ProjektMainPageViewModel _projektMainPageViewModel;
+    public partial class RemindersWindow : Page
     {
-  
-        private Frame _frame;
-        private StartPageViewModel _viewModel;
-        public StartPage(Frame frame)
+        private readonly RemindersViewModel remindersViewModel;
+        private readonly Frame _frame;
+        public RemindersWindow(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            _viewModel = new StartPageViewModel();
-            DataContext = _viewModel;
+            remindersViewModel = new RemindersViewModel();
+            DataContext = remindersViewModel;
         }
-        private void project_Click(object sender, RoutedEventArgs e)
+
+        private void projects_Click(object sender, RoutedEventArgs e)
         {
-
-
             _frame.Navigate(new ProjektMainWindow(_frame));
-
         }
 
         private void customer_Click(object sender, RoutedEventArgs e)
         {
-
-
             _frame.Navigate(new KundeMainWindow(_frame));
         }
 
-        private void reminder_Click(object sender, RoutedEventArgs e)
+        private void startPage_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new RemindersWindow(_frame));
+            _frame.Navigate(new StartPage(_frame));
         }
+
+
     }
 }

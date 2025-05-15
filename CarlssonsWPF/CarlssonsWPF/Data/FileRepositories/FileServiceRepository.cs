@@ -67,9 +67,9 @@ namespace CarlssonsWPF.Data.FileRepositories
             return services;
         }
 
-        public IEnumerable<Services> GetByServiceType(string serviceType)
+        public IEnumerable<Services> GetByServiceEntry(string serviceEntry)
         {
-            return GetAll().Where(s => s.ServiceType.Contains(serviceType, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(s => s.ServiceEntry.Contains(serviceEntry, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<Services> GetByComplexity(int complexity)
@@ -126,6 +126,11 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveServicesToFile(services);
         }
 
+        public void SaveAllOnExit()
+        {
+            var services = GetAll().ToList();
+            SaveServicesToFile(services);
+        }
 
         private void SaveServicesToFile(IEnumerable<Services> services)
         {

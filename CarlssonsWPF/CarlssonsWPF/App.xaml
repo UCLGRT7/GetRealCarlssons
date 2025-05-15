@@ -1,9 +1,39 @@
 ﻿<Application x:Class="CarlssonsWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CarlssonsWPF"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- Tekst -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Tekstfelter -->
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- Dropdowns -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- Knapper -->
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+
+        <!-- Side-baggrunde til Pages) -->
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
     </Application.Resources>
 </Application>

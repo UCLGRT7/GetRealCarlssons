@@ -15,6 +15,7 @@ namespace CarlssonsWPF.ViewModel.IRepositories
         void Add(Contract contract);
         void Update(Contract contract);
         void Delete(int invoiceNumber);
+        void SaveAllOnExit();
 
     }
 }

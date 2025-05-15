@@ -5,30 +5,29 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class StartPageViewModel
+    public class RemindersViewModel
     {
         private readonly ReminderViewService _reminderViewService;
-        private ObservableCollection<RemindersData> _reminders14DaysExeededData;
+        private ObservableCollection<RemindersData> _remindersData;
 
-        public StartPageViewModel()
+        public RemindersViewModel()
         {
             _reminderViewService = new ReminderViewService();
-            Reminders14DaysExeededDatas = _reminderViewService.GetExeededby14Days();
+            RemindersDatas = _reminderViewService.GetRemindersData();
+
         }
 
-        public ObservableCollection<RemindersData> Reminders14DaysExeededDatas
+        public ObservableCollection<RemindersData> RemindersDatas
         {
-            get => _reminders14DaysExeededData;
+            get => _remindersData;
             set
             {
-                _reminders14DaysExeededData = value;
-                OnPropertyChanged(nameof(Reminders14DaysExeededDatas));
+                _remindersData = value;
+                OnPropertyChanged(nameof(RemindersDatas));
             }
         }
 
@@ -37,6 +36,5 @@ namespace CarlssonsWPF.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

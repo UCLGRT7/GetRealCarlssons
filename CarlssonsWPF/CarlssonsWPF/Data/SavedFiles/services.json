@@ -1,7 +1,7 @@
 [
-    {
-        "Id": 1,
-        "ServiceType": "Gulv",
-        "Complexity": 0
-    }
+  {
+    "Id": 1,
+    "ServiceEntry": "Gulv",
+    "Complexity": 0
+  }
 ]

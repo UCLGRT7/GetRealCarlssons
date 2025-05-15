@@ -40,8 +40,8 @@ namespace CarlssonsWPF.Data.FileRepositories
         public Customer GetByName(string name)
         {
  
-   return GetAll().FirstOrDefault(c => c.Name != null && c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));  
-           }
+            return GetAll().FirstOrDefault(c => c.Name != null && c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));  
+        }
 
         public Customer GetByEmail(string email)
         {
@@ -129,6 +129,11 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveCustomersToFile(customers);
         }
 
+        public void SaveAllOnExit()
+        {
+            var customers = GetAll().ToList();
+            SaveCustomersToFile(customers);
+        }
 
         private void SaveCustomersToFile(IEnumerable<Customer> customers)
         {

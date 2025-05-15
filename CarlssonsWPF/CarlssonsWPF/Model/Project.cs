@@ -10,41 +10,46 @@ namespace CarlssonsWPF.Model
     public class Project
     {
         public string CaseNumber { get; set; }
-        public string AddressOfDelivery { get; set; }
-        public DateTime DateOfDelivery { get; set; }
-        public double PriceEstimate { get; set; }
-        public int Scale { get; set; }
+        public string ProjectAddress { get; set; }
+        public DateTime Deadline { get; set; }
+        public double EstimatedPrice { get; set; }
+        public int Scope { get; set; }
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
         public DateTime LastModified { get; set; }
 
 
+
+
+
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
-        public List<Services> Services { get; set; } = new List<Services>();
+        public List<Services> ServiceEntry { get; set; } = new List<Services>();
+        public object Services { get; internal set; }
 
         public override string ToString()
         {
-            return $"{CaseNumber},{AddressOfDelivery},{DateOfDelivery:yyyy-MM-dd},{PriceEstimate},{Scale},{CustomerName},{Status},{LastModified}";
+            return $"{CaseNumber},{ProjectAddress},{Deadline:yyyy-MM-dd},{EstimatedPrice},{Scope},{CustomerName},{Status},{LastModified}";
         }
 
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 8)
+            if (parts.Length < 7)
                 throw new FormatException("Invalid project data format");
             return new Project
             {
                 CaseNumber = parts[0],
-                AddressOfDelivery = parts[1],
-                DateOfDelivery = DateTime.Parse(parts[2]),
-                PriceEstimate = double.Parse(parts[3]),
-                Scale = int.Parse(parts[4]),
+                ProjectAddress = parts[1],
+                Deadline = DateTime.Parse(parts[2]),
+                EstimatedPrice = double.Parse(parts[3]),
+                Scope = int.Parse(parts[4]),
                 CustomerName = parts[5],
                 Status = parts[6],
                 LastModified = DateTime.Parse(parts[7])
             };
         }
     }
+
 }
