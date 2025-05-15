@@ -17,11 +17,6 @@ namespace CarlssonsWPF.Model
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
         public DateTime LastModified { get; set; }
-        public double? Price { get; set; }
-        public DateTime OfferSent { get; set; }
-        public DateTime OfferApproved { get; set; }
-        public DateTime Paid { get; set; }
-        public double estimatedPrice { get; set; }
 
 
 
@@ -41,7 +36,7 @@ namespace CarlssonsWPF.Model
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 8)
+            if (parts.Length < 7)
                 throw new FormatException("Invalid project data format");
             return new Project
             {
@@ -52,8 +47,7 @@ namespace CarlssonsWPF.Model
                 Scope = int.Parse(parts[4]),
                 CustomerName = parts[5],
                 Status = parts[6],
-                LastModified = DateTime.Parse(parts[7]),
-                Price = double.Parse(parts[8])
+                LastModified = DateTime.Parse(parts[7])
             };
         }
     }

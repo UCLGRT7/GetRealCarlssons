@@ -33,26 +33,34 @@
 
             </Grid>
 
+            <Grid Grid.Row="2" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- DataGrid for Data -->
+                <DataGrid Grid.Column="1" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
+                 Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontSize" Value="20"/>
+                            <!--<Setter Property="Width" Value="Auto" />-->
+                            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="150" FontSize="16" CanUserResize="True" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="250" FontSize="16" />
+                        <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="125" FontSize="16" />
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="85" FontSize="16" />
+                        <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="125" FontSize="16" />
+                        <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="100" FontSize="16" />
+                    </DataGrid.Columns>
+                </DataGrid>
 
-            <!-- DataGrid for Data -->
-            <DataGrid Grid.Row="2" ItemsSource="{Binding CombinedProjects}" AutoGenerateColumns="False" 
-                 Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Stretch" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#FFF0F0F0" AlternationCount="2">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="FontSize" Value="18"/>
-                        <!--<Setter Property="FontWeight" Value="Bold"/>-->
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" CanUserReorder="False" />
-                    <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
-                    <DataGridTextColumn Header="Ændret" Binding="{Binding LastModified, StringFormat=\{0:d\}}" Width="*" />
-                    <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="*" />
-                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
-                    <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="*" />
-                    <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
-                </DataGrid.Columns>
-            </DataGrid>
+            </Grid>
+
 
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>

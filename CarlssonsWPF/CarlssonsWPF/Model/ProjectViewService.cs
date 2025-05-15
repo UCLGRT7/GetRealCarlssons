@@ -36,7 +36,7 @@ namespace CarlssonsWPF.Model
                 DateTime lastEdited = DateTime.MinValue;
                 if (contract != null)
                 {
-                    lastEdited = (DateTime)new[] { contract.OfferSent, contract.OfferConfirmed, contract.PaymentReceivedDate }
+                    lastEdited = (DateTime)new[] { contract.OfferSent, contract.OfferApproved, contract.Paid }
                         .Where(d => d != DateTime.MinValue)
                         .DefaultIfEmpty(DateTime.MinValue)
                         .Max();
@@ -49,8 +49,8 @@ namespace CarlssonsWPF.Model
                     LastModified = lastEdited,
                     Deadline = project.Deadline,
                     Status = project.Status,
-                    OfferConfirmed = contract != null && contract.OfferConfirmed.HasValue ? "Yes" : "No",
-                    IsPaymentRecieved = contract != null && contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
+                    OfferConfirmed = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
+                    IsPaymentRecieved = contract != null && contract.Paid.HasValue ? "Yes" : "No"
                 };
 
                 combinedList.Add(viewModel);
