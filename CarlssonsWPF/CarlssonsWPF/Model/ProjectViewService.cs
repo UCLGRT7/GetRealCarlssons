@@ -36,10 +36,16 @@ namespace CarlssonsWPF.Model
                 DateTime lastEdited = DateTime.MinValue;
                 if (contract != null)
                 {
-                    lastEdited = (DateTime)new[] { contract.OfferSent, contract.OfferConfirmed, contract.PaymentReceivedDate }
-                        .Where(d => d != DateTime.MinValue)
-                        .DefaultIfEmpty(DateTime.MinValue)
-                        .Max();
+                    var dates = new[]
+                    {
+                contract.OfferSent,
+                contract.OfferConfirmed,
+                contract.PaymentReceivedDate
+            }
+                    .Where(d => d.HasValue)
+                    .Select(d => d.Value);
+
+                    lastEdited = dates.Any() ? dates.Max() : DateTime.MinValue;
                 }
 
                 var viewModel = new CombinedProjectData

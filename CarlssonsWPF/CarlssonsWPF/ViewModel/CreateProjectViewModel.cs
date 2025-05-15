@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows; // for MessageBox
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -9,10 +10,16 @@ using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 
 namespace CarlssonsWPF.ViewModel
 {
+
+
+
+
     public class CreateProjectViewModel : BaseViewModel
     {
         private readonly ICustomerRepository _customerRepository;
@@ -24,11 +31,18 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
+
         private const int P = 100; // Justeres til hvad end 1 Point skal koste i kroner.
+
+        public ICommand AddServiceCommand { get; }
+
+        public double? EstimatedPrice;
+
+
 
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<Services> Services { get; set; } = new();
+        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
@@ -40,9 +54,57 @@ namespace CarlssonsWPF.ViewModel
         public DateTime? PaymentRecieved { get; set; }
         public double Price { get; set; }
         public string? Paid { get; set; }
-
+        public Action<Project>? NavigateToViewProject { get; set; }
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+
+        private void AddService()
+        {
+            var entry = new ServiceEntry();
+            entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+            Services.Add(entry);
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+
+
+
+        private string? _offerSentInput;
+        public string? OfferSentInput
+        {
+            get => _offerSentInput;
+            set
+            {
+                _offerSentInput = value;
+                OnPropertyChanged();
+                OfferSent = TryParseToDate(value);
+            }
+        }
+
+        private string? _offerApprovedInput;
+        public string? OfferApprovedInput
+        {
+            get => _offerApprovedInput;
+            set
+            {
+                _offerApprovedInput = value;
+                OnPropertyChanged();
+                OfferConfirmed = TryParseToDate(value);
+            }
+        }
+
+        private string? _paidInput;
+        public string? PaidInput
+        {
+            get => _paidInput;
+            set
+            {
+                _paidInput = value;
+                OnPropertyChanged();
+                PaymentRecieved = TryParseToDate(value);
+            }
+        }
+
 
         public CreateProjectViewModel()
         {
@@ -67,22 +129,24 @@ namespace CarlssonsWPF.ViewModel
             {
                 services.Add(service);
             }
-            // Initialiser 5 ydelser og tilføj PropertyChanged-handler
             for (int i = 0; i < 5; i++)
             {
-                var entry = new Services();
-                UpdateEstimatedPrice(entry);
-                services.Add(entry);
+                var entry = new ServiceEntry();
+                entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+                Services.Add(entry);
             }
 
-            CreateProjectCommand = new RelayCommand(_ => CreateProject());
-        }
-        private void UpdateEstimatedPrice(Services entry)
-        {
-            if (Scope == null)
-                return;
+            // Knapkommando
+            AddServiceCommand = new RelayCommand(_ => AddService(), _ => Services.Count < 10);
 
-            int totalComplexity = services.Sum(s => s.Complexity);
+            CreateProjectCommand = new RelayCommand(_ => CreateProject());
+
+
+        }
+        private void UpdateEstimatedPrice()
+        {
+            if (Scope == null) return;
+            int totalComplexity = Services.Sum(s => s.Complexity);
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
@@ -113,63 +177,104 @@ namespace CarlssonsWPF.ViewModel
             return null;
         }
 
+        public DateTime? ParsedDeadline { get; private set; }
+
+        private string? _deadlineInput;
+        public string? DeadlineInput
+        {
+            get => _deadlineInput;
+            set
+            {
+                _deadlineInput = value;
+                OnPropertyChanged();
+                ParsedDeadline = TryParseToDate(value);
+            }
+        }
+
 
         public void CreateProject()
         {
-
-
-            // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
-            int scopeValue = Scope ?? 0;
-            DateTime deadlineValue = Deadline ?? DateTime.Today;
-            DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
-            DateTime offerApprovedValue = OfferConfirmed ?? DateTime.MinValue;
-            DateTime paymentReceivedValue = PaymentRecieved ?? DateTime.MinValue;
-
-            var project = new Project
+            try
             {
 
-                CustomerName = SelectedCustomer,
-                CaseNumber = CaseNumber,
-                ProjectAddress = Address,
-                Deadline = ParsedDeadline ?? DateTime.Today,
-                Scope = scopeValue,
-                ServiceEntry = services.ToList(),
-                EstimatedPrice = EstimatedPrice ?? 0,
-                Price = Price,
-                OfferSent = offerSentValue,
-                OfferApproved = offerApprovedValue,
-                Paid = paymentReceivedValue,
-                LastModified = DateTime.Now
-            };
 
-            _projectRepository.Add(project);
-            projects.Add(project);
+                // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
+                int scopeValue = Scope ?? 0;
+                DateTime deadlineValue = Deadline ?? DateTime.Today;
+                DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
+                DateTime offerApprovedValue = OfferConfirmed ?? DateTime.MinValue;
+                DateTime paymentReceivedValue = PaymentRecieved ?? DateTime.MinValue;
+
+                var project = new Project
+                {
+
+                    CustomerName = SelectedCustomer,
+                    CaseNumber = CaseNumber,
+                    ProjectAddress = Address,
+                    Deadline = ParsedDeadline ?? DateTime.Today,
+                    Scope = scopeValue,
+                    ServiceEntry = Services.Select((s, index) => new Services
+                    {
+                        Id = index + 1,
+                        ServiceEntry = s.Name,
+                        Complexity = s.Complexity
+                    }).ToList(),
+                    EstimatedPrice = EstimatedPrice ?? 0,
+                    Price = Price,
+                    OfferSent = offerSentValue,
+                    OfferApproved = offerApprovedValue,
+                    Paid = paymentReceivedValue,
+                    LastModified = DateTime.Now
+                };
+
+                _projectRepository.Add(project);
+                projects.Add(project);
 
 
-            var contract = new Contract
+                var contract = new Contract
+                {
+                    CaseNumber = CaseNumber,
+                    OfferSent = OfferSent,
+                    OfferConfirmed = OfferConfirmed,
+                    PaymentReceivedDate = PaymentRecieved,
+                    Price = (double)project.Price
+                };
+
+
+
+                _contractRepository.Add(contract);
+                contracts.Add(contract);
+
+                NavigateToViewProject?.Invoke(project);
+
+
+                MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
             {
-                CaseNumber = CaseNumber,
-                OfferSent = OfferSent,
-                OfferConfirmed = OfferConfirmed,
-                PaymentReceivedDate = PaymentRecieved,
-                Price = (double)project.Price
-            };
+                MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
 
-
-            _contractRepository.Add(contract);
-            contracts.Add(contract);
-
-
-            //foreach (var s in services)
-            //{
-            //    if (!existingServices.Any(es => es.ServiceEntry == s.ServiceType))
-            //    {
-            //        existingServices.Add(new Services { ServiceEntry = s.ServiceEntry });
-            //    }
-            //}
-            //FileService.Save("Data/services.json", existingServices);
         }
 
+
     }
+
 }
+
+
+
+
+                //foreach (var s in services)
+                //{
+                //    if (!existingServices.Any(es => es.ServiceEntry == s.ServiceType))
+                //    {
+                //        existingServices.Add(new Services { ServiceEntry = s.ServiceEntry });
+                //    }
+                //}
+                //FileService.Save("Data/services.json", existingServices);
+
+
+
+
