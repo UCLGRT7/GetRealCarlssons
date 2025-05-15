@@ -55,7 +55,7 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-        public ICommand ToggleEditCommand { get; }
+
         public ICommand AddServiceCommand { get; }
         public ICommand RemoveServiceCommand { get; }
         public ICommand CancelCommand { get; }

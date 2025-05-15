@@ -22,7 +22,6 @@ namespace CarlssonsWPF.Model
         public DateTime OfferApproved { get; set; }
         public DateTime Paid { get; set; }
         public double estimatedPrice { get; set; }
-        public List<ServiceEntry> Services { get; set; }
 
 
 
@@ -32,6 +31,7 @@ namespace CarlssonsWPF.Model
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
         public List<Services> ServiceEntry { get; set; } = new List<Services>();
+        public object Services { get; internal set; }
 
         public override string ToString()
         {

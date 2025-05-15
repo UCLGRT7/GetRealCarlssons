@@ -145,7 +145,7 @@ namespace CarlssonsWPF.ViewModel
                 OfferSent = OfferSent,
                 OfferConfirmed = OfferConfirmed,
                 PaymentReceivedDate = PaymentRecieved,
-                Price = project.Price
+                Price = (double)project.Price
             };
 
 
