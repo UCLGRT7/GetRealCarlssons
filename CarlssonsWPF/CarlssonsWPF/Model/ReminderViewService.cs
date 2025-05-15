@@ -32,7 +32,8 @@ namespace CarlssonsWPF.Model
             {
                 var customer = _customerRepository.GetByName(project.CustomerName);
                 var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
-                if (!contract.OfferApproved.HasValue || !contract.Paid.HasValue)
+
+                if (contract == null || !contract.OfferApproved.HasValue || !contract.Paid.HasValue)
                 {
                     var viewModel = new RemindersData
                     {
@@ -46,7 +47,6 @@ namespace CarlssonsWPF.Model
 
                     remindersList.Add(viewModel);
                 }
-
             }
             return remindersList;
         }
