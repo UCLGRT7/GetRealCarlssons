@@ -36,9 +36,7 @@ namespace CarlssonsWPF.Model
                 DateTime lastEdited = DateTime.MinValue;
                 if (contract != null)
                 {
-                    lastEdited = (DateTime)new[] { contract.OfferSent, contract.OfferApproved, contract.Paid }
-                        .Where(d => d != DateTime.MinValue)
-                        .DefaultIfEmpty(DateTime.MinValue)
+                    lastEdited = new[] { contract.OfferSent ?? DateTime.MinValue, contract.OfferApproved ?? DateTime.MinValue, contract.Paid ?? DateTime.MinValue }
                         .Max();
                 }
 

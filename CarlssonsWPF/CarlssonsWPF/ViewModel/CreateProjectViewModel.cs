@@ -43,7 +43,7 @@ namespace CarlssonsWPF.ViewModel
 
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-        public double EstimatedPrice { get; private set; }
+        public double EstimatedPrice { get; set; }
 
         public CreateProjectViewModel()
         {

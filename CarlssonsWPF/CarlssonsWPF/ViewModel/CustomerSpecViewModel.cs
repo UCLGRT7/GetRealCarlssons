@@ -152,6 +152,7 @@ namespace CarlssonsWPF.ViewModel
         {
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
+
             MessageBox.Show($"Found {customerProjects?.Count() ?? 0} projects for customer ID {SelectedCustomer.Name}");
 
 
@@ -160,6 +161,7 @@ namespace CarlssonsWPF.ViewModel
                 projects.Clear();
                 foreach (var project in customerProjects)
                 {
+                    var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
                     projects.Add(project);
                 }
             }
