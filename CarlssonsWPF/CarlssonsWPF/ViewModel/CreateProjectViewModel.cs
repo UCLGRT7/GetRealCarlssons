@@ -45,10 +45,9 @@ namespace CarlssonsWPF.ViewModel
         public int? Scope { get; set; }
 
         public DateTime? OfferSent { get; set; }
-        public DateTime? OfferConfirmed { get; set; }
-        public DateTime? PaymentRecieved { get; set; }
+        public DateTime? OfferApproved { get; set; }
+        public DateTime? Paid { get; set; }
         public double Price { get; set; }
-        public string? Paid { get; set; }
         public Action<Project>? NavigateToViewProject { get; set; }
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -85,7 +84,7 @@ namespace CarlssonsWPF.ViewModel
             {
                 _offerApprovedInput = value;
                 OnPropertyChanged();
-                OfferConfirmed = TryParseToDate(value);
+                OfferApproved = TryParseToDate(value);
             }
         }
 
@@ -97,7 +96,7 @@ namespace CarlssonsWPF.ViewModel
             {
                 _paidInput = value;
                 OnPropertyChanged();
-                PaymentRecieved = TryParseToDate(value);
+                Paid = TryParseToDate(value);
             }
         }
 
@@ -192,18 +191,15 @@ namespace CarlssonsWPF.ViewModel
         {
             try
             {
-
-
                 // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
                 int scopeValue = Scope ?? 0;
                 DateTime deadlineValue = Deadline ?? DateTime.Today;
                 DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
-                DateTime offerApprovedValue = OfferConfirmed ?? DateTime.MinValue;
-                DateTime paymentReceivedValue = PaymentRecieved ?? DateTime.MinValue;
+                DateTime offerApprovedValue = OfferApproved ?? DateTime.MinValue;
+                DateTime paymentReceivedValue = Paid ?? DateTime.MinValue;
 
                 var project = new Project
                 {
-
                     CustomerName = SelectedCustomer,
                     CaseNumber = CaseNumber,
                     ProjectAddress = Address,
@@ -215,7 +211,7 @@ namespace CarlssonsWPF.ViewModel
                         ServiceEntry = s.Name,
                         Complexity = s.Complexity
                     }).ToList(),
-                    EstimatedPrice = EstimatedPrice ?? 0,
+                    EstimatedPrice = EstimatedPrice, // Removed the null-coalescing operator
                     Price = Price,
                     OfferSent = offerSentValue,
                     OfferApproved = offerApprovedValue,
@@ -226,23 +222,19 @@ namespace CarlssonsWPF.ViewModel
                 _projectRepository.Add(project);
                 projects.Add(project);
 
-
                 var contract = new Contract
                 {
                     CaseNumber = CaseNumber,
                     OfferSent = OfferSent,
-                    OfferConfirmed = OfferConfirmed,
-                    PaymentReceivedDate = PaymentRecieved,
-                    Price = (double)project.Price
+                    OfferApproved = OfferApproved,
+                    Paid = Paid,
+                    Price = Price
                 };
-
-
 
                 _contractRepository.Add(contract);
                 contracts.Add(contract);
 
                 NavigateToViewProject?.Invoke(project);
-
 
                 MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -250,8 +242,6 @@ namespace CarlssonsWPF.ViewModel
             {
                 MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
 
 
