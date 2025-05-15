@@ -46,5 +46,22 @@ namespace CarlssonsWPF.Views.Projekt
         {
 
         }
+
+        private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Lader input komme først, og så smider den ind.
+            var proposed = textBox.Text.Insert(textBox.CaretIndex, e.Text);
+            if (proposed.Length == 6)
+            {
+                var formatted = $"{proposed.Substring(0, 2)}/{proposed.Substring(2, 2)}/{proposed.Substring(4, 2)}";
+                textBox.Text = formatted;
+                textBox.CaretIndex = textBox.Text.Length;
+                e.Handled = true;
+            }
+        }
+
     }
 }

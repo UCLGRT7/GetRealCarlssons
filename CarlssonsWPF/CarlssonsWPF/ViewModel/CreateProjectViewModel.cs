@@ -19,21 +19,44 @@ namespace CarlssonsWPF.ViewModel
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
-        private double estimatedPrice;
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
+        private const int P = 100; // Justeres til hvad end 1 Point skal koste i kroner.
+
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<Project.ServiceEntry> Services { get; set; } = new();
-
+        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
         public DateTime? Deadline { get; set; }
-        public int? Scope { get; set; }
+
+
+        private int? _scope;
+        public int? Scope
+        {
+            get => _scope;
+            set
+            {
+                _scope = value;
+                OnPropertyChanged();
+                UpdateEstimatedPrice();
+            }
+        }
+
+        private double? _estimatedPrice;
+        public double? EstimatedPrice
+        {
+            get => _estimatedPrice;
+            set
+            {
+                _estimatedPrice = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DateTime? OfferSent { get; set; }
         public DateTime? OfferConfirmed { get; set; }
@@ -67,11 +90,23 @@ namespace CarlssonsWPF.ViewModel
             {
                 services.Add(service);
             }
-            // Initialiser 5 tomme ydelser
+            // Initialiser 5 ydelser og tilføj PropertyChanged-handler
             for (int i = 0; i < 5; i++)
-                Services.Add(new Project.ServiceEntry());
+            {
+                var entry = new Project.ServiceEntry();
+                entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+                Services.Add(entry);
+            }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
+        }
+        private void UpdateEstimatedPrice()
+        {
+            if (Scope == null)
+                return;
+
+            int totalComplexity = Services.Sum(s => s.Complexity);
+            EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
         public void CreateProject()
@@ -82,6 +117,7 @@ namespace CarlssonsWPF.ViewModel
             DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
             DateTime offerApprovedValue = OfferConfirmed ?? DateTime.MinValue;
             DateTime paymentReceivedValue = PaymentRecieved ?? DateTime.MinValue;
+
             var project = new Project
             {
 
@@ -91,7 +127,7 @@ namespace CarlssonsWPF.ViewModel
                 Deadline = deadlineValue,
                 Scope = scopeValue,
                 Services = Services.ToList(),
-                EstimatedPrice = estimatedPrice,
+                EstimatedPrice = EstimatedPrice ?? 0,
                 Price = Price,
                 OfferSent = offerSentValue,
                 OfferApproved = offerApprovedValue,
@@ -112,15 +148,17 @@ namespace CarlssonsWPF.ViewModel
                 Price = project.Price
             };
 
+
+
             _contractRepository.Add(contract);
             contracts.Add(contract);
 
 
             //foreach (var s in services)
             //{
-            //    if (!existingServices.Any(es => es.ServiceType == s.ServiceType))
+            //    if (!existingServices.Any(es => es.ServiceEntry == s.ServiceType))
             //    {
-            //        existingServices.Add(new Services { ServiceType = s.ServiceType });
+            //        existingServices.Add(new Services { ServiceEntry = s.ServiceEntry });
             //    }
             //}
             //FileService.Save("Data/services.json", existingServices);

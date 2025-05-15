@@ -63,7 +63,7 @@
 
                 <!-- Deadline -->
                 <TextBlock x:Name="Deadline" Text="Deadline:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
-                <TextBox x:Name="DeadlineFelt" Text="{Binding Deadline}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,5"/>
+                <TextBox x:Name="DeadlineFelt" Text="{Binding Deadline}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,5" PreviewTextInput="DateAutoFormatter" MaxLength="8"/>/>
 
                 <!-- Omfang -->
                 <TextBlock x:Name="Omfang" Text="Omfang:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
@@ -97,11 +97,11 @@
 
                 <!-- Tilbud afsendt -->
                 <TextBlock x:Name="TilbudAfsendt" Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="TilbudAfsendtDato" Text="{Binding OfferSent}" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2"/>
+                <TextBox x:Name="TilbudAfsendtDato" Text="{Binding OfferSent}" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" PreviewTextInput="DateAutoFormatter" MaxLength="8"/>/>
 
                 <!-- Tilbud godkendt -->
                 <TextBlock x:Name="TilbudGodkendt" Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="TilbudGodkendtDato" Text="{Binding OfferApproved}" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2"/>
+                <TextBox x:Name="TilbudGodkendtDato" Text="{Binding OfferApproved}" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" PreviewTextInput="DateAutoFormatter" MaxLength="8"/>/>
 
                 <!-- Anslået pris -->
                 <TextBlock x:Name="AnslaaetPris" Text="Anslået pris:" Grid.Row="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
@@ -113,7 +113,7 @@
 
                 <!-- Betalt -->
                 <TextBlock x:Name="Betalt" Text="Betalt:" Grid.Row="17" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right"/>
-                <TextBox x:Name="BetaltFelt" Text="{Binding Paid}" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2"/>
+                <TextBox x:Name="BetaltFelt" Text="{Binding Paid}" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" PreviewTextInput="DateAutoFormatter" MaxLength="8"/>/>
 
                 <!-- Knapper -->
                 <StackPanel Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Left" Margin="23,71,0,-51" RenderTransformOrigin="0.502,2.001" Grid.Column="1">
