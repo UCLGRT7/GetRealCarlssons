@@ -5,7 +5,7 @@
     "Address": "3323",
     "Email": "3",
     "PhoneNumber": 2322,
-    "PostalCode": 23,
+    "PostalCode": 2323,
     "City": "3"
   },
   {
@@ -14,18 +14,18 @@
     "Address": "Sallingvej",
     "Email": "Dni",
     "PhoneNumber": 29023323,
-    "PostalCode": 123123,
+    "PostalCode": 1233,
     "City": "Vanl\u00F8se"
   },
-  {
-    "Id": "2dd6bcb8-244c-49d5-91aa-4580dd762ef7",
-    "Name": "Alex Holmbo",
-    "Address": "awdawdawdawdadadawdadadwad",
-    "Email": "dwadawdawdawawdwadadawdawdawdawdaw",
-    "PhoneNumber": 0,
-    "PostalCode": 1233,
-    "City": "dawdwadadwdawdaw"
-  },
+    {
+        "Id": "2dd6bcb8-244c-49d5-91aa-4580dd762ef7",
+        "Name": "Alex Holmbo",
+        "Address": "Borgmester Christiansens Gade 2,tv",
+        "Email": "dwadawdawdawawdwadadawdawdawdawdaw",
+        "PhoneNumber": 0,
+        "PostalCode": 1233,
+        "City": "Skaftelevgårdshuse"
+    },
   {
     "Id": "9e9f0ec1-4718-469d-995c-1d5487b3c62c",
     "Name": "Daniel Kargaard R\u00F8rlund",
