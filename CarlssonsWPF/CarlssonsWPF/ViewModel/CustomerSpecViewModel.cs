@@ -24,9 +24,11 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
 
 
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<Customer> customers { get; set; } = new();
+        public ObservableCollection<Project> projects { get; set; } = new();
+        public ObservableCollection<Contract> contracts { get; set; } = new();
+
+
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -104,6 +106,8 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
 
+
+
             SelectedCustomer = selectedCustomer;
             SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
 
@@ -116,6 +120,8 @@ namespace CarlssonsWPF.ViewModel
             City = selectedCustomer.City;
 
             UpdateCustomerCommand = new RelayCommand(_ => UpdateCustomer());
+
+            ShowCustomerProjects();
 
         }
 
@@ -143,6 +149,23 @@ namespace CarlssonsWPF.ViewModel
             }
 
             MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void ShowCustomerProjects()
+        {
+            var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
+
+            MessageBox.Show($"Found {customerProjects?.Count() ?? 0} projects for customer ID {SelectedCustomer.Name}");
+
+
+            if (customerProjects != null)
+            {
+                projects.Clear();
+                foreach (var project in customerProjects)
+                {
+                    projects.Add(project);
+                }
+            }
         }
     }
 }

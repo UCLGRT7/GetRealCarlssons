@@ -49,7 +49,10 @@
             <DataGrid
                 Margin="0,40 0 0"
                 AutoGenerateColumns="True"
-                ItemsSource="{Binding Projects}"
+                ItemsSource="{Binding projects}"
+                IsReadOnly="True"
+                CanUserAddRows="False"
+                
                 
             />
 

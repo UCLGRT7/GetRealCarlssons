@@ -36,12 +36,12 @@
     "City": "vanl\u00F8se"
   },
   {
-    "Id": "def360cc-44c1-4c85-be26-ca32489912b6",
-    "Name": null,
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
+    "Id": "c2382104-a4a5-4357-83ae-d90539d05dcf",
+    "Name": "Alex",
+    "Address": "1234",
+    "Email": "1234",
+    "PhoneNumber": 1234,
+    "PostalCode": 1234,
+    "City": "1234"
   }
 ]
