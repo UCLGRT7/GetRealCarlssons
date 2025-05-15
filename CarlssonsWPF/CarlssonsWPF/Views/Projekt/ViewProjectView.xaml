@@ -93,7 +93,7 @@
                 <TextBox x:Name="Y5K" Text="{Binding Project.Services[4].Complexity}" Grid.Row="11" Grid.Column="2" Margin="10,2,0,2" TextAlignment="Center" VerticalContentAlignment="Center"/>
 
                 <!-- Økonomi overskrift -->
-                <TextBlock x:Name="Økonomi" Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,10" Width="52"/>
+                <TextBlock x:Name="Økonomi_HEADER_" Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,10" Width="52"/>
 
                 <!-- Tilbud afsendt -->
                 <TextBlock x:Name="TilbudAfsendt" Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
