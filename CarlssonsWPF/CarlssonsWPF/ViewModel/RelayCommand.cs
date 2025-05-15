@@ -23,11 +23,18 @@ namespace CarlssonsWPF.ViewModel
             remove => CommandManager.RequerySuggested -= value;
         }
 
-        // Brug til: new RelayCommand(() => ...)
+        // new RelayCommand uden parameter
         public RelayCommand(Action execute, Func<bool>? canExecute = null)
         {
             _executeNoParam = execute;
             _canExecuteNoParam = canExecute;
+        }
+
+        // new RelayCommand med parameter
+        public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
+        {
+            _executeWithParam = execute;
+            _canExecuteWithParam = canExecute;
         }
 
         // Brug til: visning af vindue m.m.

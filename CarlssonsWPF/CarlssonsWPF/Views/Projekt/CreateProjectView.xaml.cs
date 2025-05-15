@@ -31,5 +31,20 @@ namespace CarlssonsWPF.Views.Projekt
             _createProjectViewModel = new CreateProjectViewModel();
             DataContext = _createProjectViewModel;
         }
+
+        private void AfsendtFelt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Opret_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

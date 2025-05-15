@@ -13,53 +13,118 @@
 
 
 
-        <ScrollViewer>
-            <StackPanel Margin="20">
-                <TextBlock Text="Navn:" />
-                <ComboBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Margin="40"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center">
 
-                <TextBlock Text="Sagsnummer:" />
-                <TextBox Text="{Binding CaseNumber}" />
+                <Grid.RowDefinitions>
+                    <!-- Felter -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Ydelser -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Økonomi -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Knapper -->
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <TextBlock Text="Projekt Addresse:" />
-                <TextBox Text="{Binding Address}" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Deadline:" />
-                <TextBox Text="{Binding Deadline}" />
+                <!-- Navn -->
+                <TextBlock x:Name="Navn" Text="Navn:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" />
+                <ComboBox x:Name="NavnFelt" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" />
 
-                <TextBlock Text="Omfang (1-10):" />
-                <TextBox Text="{Binding Scope}" />
+                <!-- Sagsnummer -->
+                <TextBlock x:Name="SagsNummer" Text="Sagsnummer:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
+                <TextBox x:Name="SagsNummerFelt" Text="{Binding CaseNumber}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5"/>
 
-                <TextBlock Text="Ydelser:" Margin="0,10,0,0"/>
-                <ItemsControl ItemsSource="{Binding Services}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox Width="200" Text="{Binding Name, Mode=TwoWay}" />
-                                <TextBox Width="50" Margin="10,0,0,0" Text="{Binding Complexity, Mode=TwoWay}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <!-- Projekt Adresse -->
+                <TextBlock x:Name="Adresse" Text="Projekt Adresse:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
+                <TextBox x:Name="AdresseFelt" Text="{Binding Address}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5"/>
 
-                <TextBlock Text="Tilbud Afsendt:" />
-                <TextBox Text="{Binding OfferSent}" />
+                <!-- Deadline -->
+                <TextBlock x:Name="Deadline" Text="Deadline:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
+                <TextBox x:Name="DeadlineFelt" Text="{Binding Deadline}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5"/>
 
-                <TextBlock Text="Tilbud Godkendt:" />
-                <TextBox Text="{Binding OfferApproved}" />
+                <!-- Omfang -->
+                <TextBlock x:Name="Omfang" Text="Omfang:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
+                <TextBox x:Name="OmfangFelt" Text="{Binding Scope}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5"/>
 
-                <TextBlock Text="Pris (Anslået beregnes automatisk):" />
-                <TextBox Text="{Binding Price}" />
+                <!-- Jeg kan ikke få Ydelser til at line ordentligt op efter timevis af arbejde - Det her er mit fix.. Pls ikke slet LOL -->
+                <TextBlock x:Name="Lmao_spacer" Text="Ydelser:" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Margin="116,10,116,10" HorizontalAlignment="Center" Opacity="0"/>
 
-                <TextBlock Text="Betalt:" />
-                <TextBox Text="{Binding Paid}" />
+                <!-- Header -->
+                <TextBlock x:Name="Ydelser" Text="Ydelser" Grid.Row="6" Grid.Column="1" FontWeight="Bold" Margin="0,0,0,22" Grid.RowSpan="2" HorizontalAlignment="Center" Width="40"/>
+                <TextBlock x:Name="Kompleksitet" Text="Kompleksitet" Grid.Row="6" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <Button Content="Tilbage" Command="{Binding CancelCommand}" Width="100"/>
-                    <Button Content="Opret" Command="{Binding CreateProjectCommand}" Margin="10,0,0,0" Width="100"/>
+                <!-- Ydelser 1–5 -->
+                <TextBox x:Name="Y1" Text="{Binding Services[0].Name}" Grid.Row="7" Grid.Column="1" Margin="0,2"/>
+                <TextBox x:Name="Y1K" Text="{Binding Services[0].Complexity}" Grid.Row="7" Grid.Column="2" Margin="10,2,0,2"/>
+
+                <TextBox x:Name="Y2" Text="{Binding Services[1].Name}" Grid.Row="8" Grid.Column="1" Margin="0,2"/>
+                <TextBox x:Name="Y2K" Text="{Binding Services[1].Complexity}" Grid.Row="8" Grid.Column="2" Margin="10,2,0,2"/>
+
+                <TextBox x:Name="Y3" Text="{Binding Services[2].Name}" Grid.Row="9" Grid.Column="1" Margin="0,2"/>
+                <TextBox x:Name="Y3K" Text="{Binding Services[2].Complexity}" Grid.Row="9" Grid.Column="2" Margin="10,2,0,2"/>
+
+                <TextBox x:Name="Y4" Text="{Binding Services[3].Name}" Grid.Row="10" Grid.Column="1" Margin="0,2"/>
+                <TextBox x:Name="Y4K" Text="{Binding Services[3].Complexity}" Grid.Row="10" Grid.Column="2" Margin="10,2,0,2"/>
+
+                <TextBox x:Name="Y5" Text="{Binding Services[4].Name}" Grid.Row="11" Grid.Column="1" Margin="0,2"/>
+                <TextBox x:Name="Y5K" Text="{Binding Services[4].Complexity}" Grid.Row="11" Grid.Column="2" Margin="10,2,0,2"/>
+
+                <!-- Økonomi overskrift -->
+                <TextBlock x:Name="Økonomi" Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,10" Width="52"/>
+
+                <!-- Tilbud afsendt -->
+                <TextBlock x:Name="TilbudAfsendt" Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBox x:Name="TilbudAfsendtDato" Text="{Binding OfferSent}" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2"/>
+
+                <!-- Tilbud godkendt -->
+                <TextBlock x:Name="TilbudGodkendt" Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBox x:Name="TilbudGodkendtDato" Text="{Binding OfferApproved}" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2"/>
+
+                <!-- Anslået pris -->
+                <TextBlock x:Name="AnslaaetPris" Text="Anslået pris:" Grid.Row="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBox x:Name="AnslaaetPrisFelt" Text="{Binding EstimatedPrice}" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2"/>
+
+                <!-- Pris -->
+                <TextBlock x:Name="Pris" Text="Pris:" Grid.Row="16" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                <TextBox x:Name="PrisFelt" Text="{Binding Price}" Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2"/>
+
+                <!-- Betalt -->
+                <TextBlock x:Name="Betalt" Text="Betalt:" Grid.Row="17" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right"/>
+                <TextBox x:Name="BetaltFelt" Text="{Binding Paid}" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2"/>
+
+                <!-- Knapper -->
+                <StackPanel Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Left" Margin="23,71,0,-51" RenderTransformOrigin="0.502,2.001" Grid.Column="1">
+                    <Button x:Name="Tilbage" Content="Tilbage" Command="{Binding CancelCommand}" Width="100" Margin="10,0"/>
+                    <Button x:Name="Opret" Content="Opret" Command="{Binding CreateProjectCommand}" Width="100" Margin="10,0"/>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
         </ScrollViewer>
+
+
+
 
     </Grid>
 </Page>

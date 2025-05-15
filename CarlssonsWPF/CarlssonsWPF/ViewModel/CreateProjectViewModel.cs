@@ -10,6 +10,7 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 
+
 namespace CarlssonsWPF.ViewModel
 {
     public class CreateProjectViewModel : BaseViewModel
@@ -18,11 +19,15 @@ namespace CarlssonsWPF.ViewModel
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
+        private double estimatedPrice;
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
+
+        // 5 ydelser fra brugeren
+        public ObservableCollection<Project.ServiceEntry> Services { get; set; } = new();
 
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
@@ -33,7 +38,7 @@ namespace CarlssonsWPF.ViewModel
         public DateTime? OfferSent { get; set; }
         public DateTime? OfferConfirmed { get; set; }
         public DateTime? PaymentRecieved { get; set; }
-        public double? Price { get; set; }
+        public double Price { get; set; }
         public string? Paid { get; set; }
 
         public ICommand CreateProjectCommand { get; set; }
@@ -62,21 +67,36 @@ namespace CarlssonsWPF.ViewModel
             {
                 services.Add(service);
             }
+            // Initialiser 5 tomme ydelser
+            for (int i = 0; i < 5; i++)
+                Services.Add(new Project.ServiceEntry());
 
+            CreateProjectCommand = new RelayCommand(_ => CreateProject());
         }
 
         public void CreateProject()
         {
+            // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
+            int scopeValue = Scope ?? 0;
+            DateTime deadlineValue = Deadline ?? DateTime.Today;
+            DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
+            DateTime offerApprovedValue = OfferConfirmed ?? DateTime.MinValue;
+            DateTime paymentReceivedValue = PaymentRecieved ?? DateTime.MinValue;
             var project = new Project
             {
+
                 CustomerName = SelectedCustomer,
                 CaseNumber = CaseNumber,
                 ProjectAddress = Address,
-                Deadline = (DateTime)Deadline,
-                Scope = (int)Scope,
-                Services = services.ToList(),
-                EstimatedPrice = (double)(Scope * services.Sum(s => s.Complexity)),
-                Price = (double)Price
+                Deadline = deadlineValue,
+                Scope = scopeValue,
+                Services = Services.ToList(),
+                EstimatedPrice = estimatedPrice,
+                Price = Price,
+                OfferSent = offerSentValue,
+                OfferApproved = offerApprovedValue,
+                Paid = paymentReceivedValue,
+                LastModified = DateTime.Now
             };
 
             _projectRepository.Add(project);
