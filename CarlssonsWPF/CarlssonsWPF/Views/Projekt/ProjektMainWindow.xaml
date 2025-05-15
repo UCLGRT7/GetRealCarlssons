@@ -53,7 +53,7 @@
                         <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="150" FontSize="16" CanUserResize="True" />
                         <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="250" FontSize="16" />
                         <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="125" FontSize="16" />
-                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="85" FontSize="16" />
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="125" FontSize="16" />
                         <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferConfirmed}" Width="125" FontSize="16" />
                         <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="100" FontSize="16" />
                     </DataGrid.Columns>

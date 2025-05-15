@@ -43,6 +43,7 @@ namespace CarlssonsWPF.ViewModel
 
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+        public double EstimatedPrice { get; private set; }
 
         public CreateProjectViewModel()
         {
@@ -131,10 +132,10 @@ namespace CarlssonsWPF.ViewModel
                 CustomerName = SelectedCustomer,
                 CaseNumber = CaseNumber,
                 ProjectAddress = Address,
-                Deadline = ParsedDeadline ?? DateTime.Today,
+                //Deadline = ParsedDeadline ?? DateTime.Today,
                 Scope = scopeValue,
                 ServiceEntry = services.ToList(),
-                EstimatedPrice = EstimatedPrice ?? 0,
+                EstimatedPrice = EstimatedPrice,
                 LastModified = DateTime.Now
             };
 
