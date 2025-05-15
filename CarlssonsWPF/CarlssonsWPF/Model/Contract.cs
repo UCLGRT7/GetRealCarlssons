@@ -13,8 +13,8 @@ namespace CarlssonsWPF.Model
 
         public int InvoiceNumber { get; set; }
         public DateTime? OfferSent { get; set; }
-        public DateTime? PaymentReceivedDate { get; set; }
-        public DateTime? OfferConfirmed { get; set; }
+        public DateTime? Paid { get; set; }
+        public DateTime? OfferApproved { get; set; }
         public double Price { get; set; }
         public string CaseNumber { get; set; } // Reference to Project
 
@@ -24,7 +24,7 @@ namespace CarlssonsWPF.Model
 
         public override string ToString()
         {
-            return $"{InvoiceNumber},{OfferSent:yyyy-MM-dd},{PaymentReceivedDate:yyyy-MM-dd},{OfferConfirmed:yyyy-MM-dd},{Price},{CaseNumber}";
+            return $"{InvoiceNumber},{OfferSent:yyyy-MM-dd},{Paid:yyyy-MM-dd},{OfferApproved:yyyy-MM-dd},{Price},{CaseNumber}";
         }
 
         public static Contract FromString(string input)
@@ -36,8 +36,8 @@ namespace CarlssonsWPF.Model
             {
                 InvoiceNumber = int.Parse(parts[0]),
                 OfferSent = DateTime.Parse(parts[1]),
-                PaymentReceivedDate = DateTime.Parse(parts[2]),
-                OfferConfirmed = DateTime.Parse(parts[3]),
+                Paid = DateTime.Parse(parts[2]),
+                OfferApproved = DateTime.Parse(parts[3]),
                 Price = double.Parse(parts[4]),
                 CaseNumber = parts[5]
             };

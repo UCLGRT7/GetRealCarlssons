@@ -1,32 +1,35 @@
 [
   {
-    "CaseNumber": "8888",
-    "ProjectAddress": null,
+    "CaseNumber": "2022_01_02",
+    "ProjectAddress": "testvej",
     "Deadline": "2025-05-10T21:34:57.5313523+02:00",
     "EstimatedPrice": 0,
     "Scope": 0,
-    "CustomerName": "Alex",
+    "CustomerName": "Alex Holmbo",
     "Status": "Done",
     "LastModified": "2025-05-09T14:35:29.7613435+02:00",
-    "Price": 0,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0
+    "Price": 0
   },
   {
-    "CaseNumber": "1234",
+    "CaseNumber": "2022_09_02",
     "ProjectAddress": null,
     "Deadline": "2025-05-13T14:35:29.7609625+02:00",
     "EstimatedPrice": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar",
+    "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Price": 0,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0
+    "Services": null
+  },
+  {
+    "CaseNumber": "2022_10_02",
+    "ProjectAddress": null,
+    "Deadline": "2025-05-13T14:35:29.7609625+02:00",
+    "EstimatedPrice": 0,
+    "Scope": 0,
+    "CustomerName": "Valdemar Carlsson",
+    "Status": "Igangv\u00E6rende",
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
+    "Services": null
   }
 ]
