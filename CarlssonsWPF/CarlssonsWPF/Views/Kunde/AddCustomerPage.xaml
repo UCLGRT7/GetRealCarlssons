@@ -43,7 +43,7 @@
                 <TextBlock Text="E-Mail:" FontSize="16" Margin="0,50,5,0" TextAlignment="Right" Grid.Row="5"/>
            </Grid>
 
-           <Grid Grid.Column="1" ShowGridLines="True">
+           <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
