@@ -8,5 +8,16 @@
         "CustomerName": "Alex",
         "Status": "Done",
         "LastModified": "0001-01-01T00:00:00"
+    },
+    {
+            "CaseNumber": "2222",
+            "AddressOfDelivery": "HejVej",
+            "DateOfDelivery": "2025-05-10T21:34:57.5313523+02:00",
+            "PriceEstimate": 100000,
+            "Scale": 8,
+            "CustomerName": "Valdemar",
+            "Status": "Done",
+            "LastModified": "0001-01-01T00:00:00"
     }
+    
 ]

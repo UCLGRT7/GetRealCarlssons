@@ -43,5 +43,14 @@
     "PhoneNumber": 1234,
     "PostalCode": 1234,
     "City": "1234"
+  },
+  {
+    "Id": "4d36ecfb-72a9-45e0-8a73-e1a82413ba11",
+    "Name": "Valdemar Carlsson Alex",
+    "Address": "Niels Steensens Vej, 2, 2 tv",
+    "Email": "ValdemarKongen@Brobyggeri.dk",
+    "PhoneNumber": 12345678,
+    "PostalCode": 5200,
+    "City": "Holstebro"
   }
 ]
