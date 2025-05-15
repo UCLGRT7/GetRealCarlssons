@@ -5,7 +5,7 @@
     "Address": "3323",
     "Email": "3",
     "PhoneNumber": 2322,
-    "PostalCode": 23,
+    "PostalCode": 2323,
     "City": "3"
   },
   {
@@ -14,17 +14,17 @@
     "Address": "Sallingvej",
     "Email": "Dni",
     "PhoneNumber": 29023323,
-    "PostalCode": 123123,
+    "PostalCode": 1233,
     "City": "Vanl\u00F8se"
   },
   {
     "Id": "2dd6bcb8-244c-49d5-91aa-4580dd762ef7",
-    "Name": "Alex",
-    "Address": "awdawdawdawdadadawdadadwad",
+    "Name": "Alex Holmbo",
+    "Address": "Borgmester Christiansens Gade 2,tv",
     "Email": "dwadawdawdawawdwadadawdawdawdawdaw",
     "PhoneNumber": 0,
     "PostalCode": 1233,
-    "City": "dawdwadadwdawdaw"
+    "City": "Skaftelevg\u00E5rdshuse"
   },
   {
     "Id": "9e9f0ec1-4718-469d-995c-1d5487b3c62c",
@@ -36,12 +36,21 @@
     "City": "vanl\u00F8se"
   },
   {
-    "Id": "14f4c5a2-c16e-4079-9ef4-71865b224091",
-    "Name": "Valdemar",
-    "Address": "TestVej",
-    "Email": "test",
+    "Id": "c2382104-a4a5-4357-83ae-d90539d05dcf",
+    "Name": "Alex",
+    "Address": "1234",
+    "Email": "1234",
+    "PhoneNumber": 1234,
+    "PostalCode": 1234,
+    "City": "1234"
+  },
+  {
+    "Id": "4d36ecfb-72a9-45e0-8a73-e1a82413ba11",
+    "Name": "Valdemar Carlsson Alex",
+    "Address": "Niels Steensens Vej, 2, 2 tv",
+    "Email": "ValdemarKongen@Brobyggeri.dk",
     "PhoneNumber": 12345678,
-    "PostalCode": 8000,
-    "City": "AA"
+    "PostalCode": 5200,
+    "City": "Holstebro"
   }
 ]
