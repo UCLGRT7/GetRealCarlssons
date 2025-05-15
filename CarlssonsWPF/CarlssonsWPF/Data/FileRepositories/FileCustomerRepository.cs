@@ -39,8 +39,9 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public Customer GetByName(string name)
         {
-            return GetAll().FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-        }
+ 
+   return GetAll().FirstOrDefault(c => c.Name != null && c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));  
+           }
 
         public Customer GetByEmail(string email)
         {

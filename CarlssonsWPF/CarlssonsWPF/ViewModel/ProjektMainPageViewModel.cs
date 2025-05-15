@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using CarlssonsWPF.Data.FileRepositories;
@@ -12,24 +16,31 @@ namespace CarlssonsWPF.ViewModel
 {
     public class ProjektMainPageViewModel
     {
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IProjectRepository _projectRepository;
-        private readonly IContractRepository _contractRepository;
+        private readonly ProjectViewService _projectViewService;
+        private ObservableCollection<CombinedProjectData> _combinedProjectData;
 
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
-
+        //public ObservableCollection<CombinedProjectData> CombinedData { get; set; } = new ObservableCollection<CombinedProjectData>();
 
         public ProjektMainPageViewModel()
         {
-            _customerRepository = new FileCustomerRepository();
-            _projectRepository = new FileProjectRepository();
-            _contractRepository = new FileContractRepository();
-
+            _projectViewService = new ProjectViewService();
+            CombinedProjects = _projectViewService.GetCombinedProjectModels();
+            
         }
-
-
+        public ObservableCollection<CombinedProjectData> CombinedProjects
+        {
+            get => _combinedProjectData;
+            set
+            {
+                _combinedProjectData = value;
+                OnPropertyChanged(nameof(CombinedProjects));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

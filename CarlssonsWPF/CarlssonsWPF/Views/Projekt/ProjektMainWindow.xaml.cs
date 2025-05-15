@@ -13,27 +13,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Kunde;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for ProjektMainWindow.xaml
-    /// </summary>
+
     public partial class ProjektMainWindow : Page
     {
+        private ProjektMainPageViewModel projektMainPageViewModel;
         private Frame _frame;
-        public ProjektMainWindow(Frame frame)
+
+        public ProjektMainWindow(Frame frame) 
         {
             InitializeComponent();
             _frame = frame;
-
-            //ProjektMainPageViewModel projektMainWindowViewModel = new ProjektMainPageViewModel();
-            //DataContext = projektMainWindowViewModel;
+            projektMainPageViewModel = new ProjektMainPageViewModel();
+            DataContext = projektMainPageViewModel;
         }
 
         private void startPage_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new StartPage(_frame));
+        }
+
+        private void customer_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(new KundeMainWindow(_frame));
+        }
+
+        private void reminders_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

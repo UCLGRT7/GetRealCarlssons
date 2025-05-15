@@ -5,8 +5,8 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        xmlns:local="clr-namespace:CarlssonsWPF"
        mc:Ignorable="d"
-       Title="MainWindow" Height="720" Width="1280">
-    <Grid Height="704" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280">
+       Title="MainWindow" Height="720" Width="1278">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="1280" Height="704">
         <Border BorderBrush="Black" BorderThickness="1"/>
         <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden" Margin="10,10,10,10" />
