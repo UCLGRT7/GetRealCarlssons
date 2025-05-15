@@ -211,11 +211,11 @@ namespace CarlssonsWPF.ViewModel
                         ServiceEntry = s.Name,
                         Complexity = s.Complexity
                     }).ToList(),
-                    EstimatedPrice = EstimatedPrice, // Removed the null-coalescing operator
-                    Price = Price,
-                    OfferSent = offerSentValue,
-                    OfferApproved = offerApprovedValue,
-                    Paid = paymentReceivedValue,
+                    EstimatedPrice = EstimatedPrice,
+                    //Price = Price,
+                    //OfferSent = offerSentValue,
+                    //OfferApproved = offerApprovedValue,
+                    //Paid = paymentReceivedValue,
                     LastModified = DateTime.Now
                 };
 

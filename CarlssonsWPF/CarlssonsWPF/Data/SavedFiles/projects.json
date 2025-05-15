@@ -41,11 +41,6 @@
     "CustomerName": null,
     "Status": null,
     "LastModified": "2025-05-15T14:08:25.0141389+02:00",
-    "Price": 1500000,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0,
     "Services": null
   },
   {
@@ -57,11 +52,6 @@
     "CustomerName": null,
     "Status": null,
     "LastModified": "2025-05-15T14:47:05.4788401+02:00",
-    "Price": 100000,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0,
     "Services": null
   },
   {
@@ -73,11 +63,6 @@
     "CustomerName": null,
     "Status": null,
     "LastModified": "2025-05-15T14:26:25.3132149+02:00",
-    "Price": 100000,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0,
     "Services": null
   },
   {
@@ -89,11 +74,6 @@
     "CustomerName": null,
     "Status": null,
     "LastModified": "2025-05-15T14:53:35.5672029+02:00",
-    "Price": 100000,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0,
     "Services": null
   },
   {
@@ -105,11 +85,6 @@
     "CustomerName": null,
     "Status": null,
     "LastModified": "2025-05-15T14:54:03.4052993+02:00",
-    "Price": 0,
-    "OfferSent": "0001-01-01T00:00:00",
-    "OfferApproved": "0001-01-01T00:00:00",
-    "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0,
     "Services": null
   }
 ]
