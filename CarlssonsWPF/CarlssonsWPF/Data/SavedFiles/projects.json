@@ -12,7 +12,8 @@
     "OfferSent": "0001-01-01T00:00:00",
     "OfferApproved": "0001-01-01T00:00:00",
     "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0
+    "estimatedPrice": 0,
+    "Services": null
   },
   {
     "CaseNumber": "2022_02_01",
@@ -27,6 +28,7 @@
     "OfferSent": "0001-01-01T00:00:00",
     "OfferApproved": "0001-01-01T00:00:00",
     "Paid": "0001-01-01T00:00:00",
-    "estimatedPrice": 0
+    "estimatedPrice": 0,
+    "Services": null
   }
 ]
