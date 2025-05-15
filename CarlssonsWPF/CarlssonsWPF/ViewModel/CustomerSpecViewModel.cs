@@ -148,7 +148,7 @@ namespace CarlssonsWPF.ViewModel
 
             }
 
-            var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
@@ -157,16 +157,16 @@ namespace CarlssonsWPF.ViewModel
         {
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
-            int count = customerProjects?.Count() ?? 0;
+            //int count = customerProjects?.Count() ?? 0;
 
-            MessageBox.Show(
-              $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
-              "Projektstatus",
-              MessageBoxButton.OK,
-              MessageBoxImage.Information
-            );
+            //MessageBox.Show(
+            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
+            //  "Projektstatus",
+            //  MessageBoxButton.OK,
+            //  MessageBoxImage.Information
+            //);
 
-            ProjectWithContractInfo.Clear(); // ❗ Husk at rydde listen først!
+            ProjectWithContractInfo.Clear(); 
 
             if (customerProjects != null)
             {
@@ -179,7 +179,7 @@ namespace CarlssonsWPF.ViewModel
                         CaseNumber = project.CaseNumber,
                         Deadline = project.Deadline,
                         Status = project.Status,
-                        Price = contract?.Price ?? 0  // Brug null-coalescing for at undgå fejl
+                        Price = contract?.Price ?? 0
                     });
                 }
             }
