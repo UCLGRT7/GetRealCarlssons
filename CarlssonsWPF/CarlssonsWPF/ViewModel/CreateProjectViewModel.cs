@@ -36,11 +36,6 @@ namespace CarlssonsWPF.ViewModel
 
         public ICommand AddServiceCommand { get; }
 
-        public double? EstimatedPrice;
-
-
-
-
         // 5 ydelser fra brugeren
         public ObservableCollection<ServiceEntry> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
