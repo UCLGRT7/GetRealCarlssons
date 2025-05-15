@@ -27,7 +27,7 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<Project.ServiceEntry> Services { get; set; } = new();
+
 
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
@@ -69,7 +69,7 @@ namespace CarlssonsWPF.ViewModel
             }
             // Initialiser 5 tomme ydelser
             for (int i = 0; i < 5; i++)
-                Services.Add(new Project.ServiceEntry());
+                services.Add(new Services());
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
         }
@@ -90,7 +90,7 @@ namespace CarlssonsWPF.ViewModel
                 ProjectAddress = Address,
                 Deadline = deadlineValue,
                 Scope = scopeValue,
-                Services = Services.ToList(),
+                Services = services.ToList(),
                 EstimatedPrice = estimatedPrice,
                 Price = Price,
                 OfferSent = offerSentValue,
@@ -109,7 +109,7 @@ namespace CarlssonsWPF.ViewModel
                 OfferSent = OfferSent,
                 OfferConfirmed = OfferConfirmed,
                 PaymentReceivedDate = PaymentRecieved,
-                Price = project.Price
+                Price = (double)project.Price
             };
 
             _contractRepository.Add(contract);

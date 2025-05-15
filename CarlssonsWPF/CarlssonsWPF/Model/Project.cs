@@ -21,9 +21,7 @@ namespace CarlssonsWPF.Model
         public DateTime OfferSent { get; set; }
         public DateTime OfferApproved { get; set; }
         public DateTime Paid { get; set; }
-        public DateTime LastModified { get; set; }
         public double estimatedPrice { get; set; }
-        public List<ServiceEntry> Services { get; set; }
 
 
 
