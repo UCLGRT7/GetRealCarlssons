@@ -25,9 +25,11 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
 
 
-        public ObservableCollection<Customer> customers { get; set; } = new();
+        public ObservableCollection<Customer> ustomers { get; set; } = new();
         public ObservableCollection<Project> projects { get; set; } = new();
         public ObservableCollection<Contract> contracts { get; set; } = new();
+
+        public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
 
 
 
@@ -101,6 +103,8 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
+
+
         public CustomerSpecViewModel(Customer selectedCustomer)
         {
             _customerRepository = new FileCustomerRepository();
@@ -144,27 +148,43 @@ namespace CarlssonsWPF.ViewModel
 
             }
 
-            var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
+
 
         public void ShowCustomerProjects()
         {
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
+            //int count = customerProjects?.Count() ?? 0;
 
-            MessageBox.Show($"Found {customerProjects?.Count() ?? 0} projects for customer ID {SelectedCustomer.Name}");
+            //MessageBox.Show(
+            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
+            //  "Projektstatus",
+            //  MessageBoxButton.OK,
+            //  MessageBoxImage.Information
+            //);
 
+            ProjectWithContractInfo.Clear(); 
 
             if (customerProjects != null)
             {
-                projects.Clear();
                 foreach (var project in customerProjects)
                 {
                     var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
-                    projects.Add(project);
+
+                    ProjectWithContractInfo.Add(new ProjectWithContractInfoDatagrid
+                    {
+                        CaseNumber = project.CaseNumber,
+                        Deadline = project.Deadline,
+                        Status = project.Status,
+                        Price = contract?.Price ?? 0
+                    });
                 }
             }
         }
     }
 }
+
+ 
