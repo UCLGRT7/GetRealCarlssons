@@ -13,6 +13,14 @@
     "Paid": null,
     "OfferApproved": null,
     "Price": 7500,
-    "CaseNumber": "2022_10_02"
+    "CaseNumber": "1234"
+  },
+  {
+    "InvoiceNumber": 0,
+    "OfferSent": null,
+    "PaymentReceivedDate": null,
+    "OfferConfirmed": null,
+    "Price": 0,
+    "CaseNumber": null
   }
 ]
