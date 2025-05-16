@@ -11,6 +11,8 @@ namespace CarlssonsWPF.Model
     {
         public string CaseNumber { get; set; }
         public string ProjectAddress { get; set; }
+
+        public int ProjectPostalCode { get; set; }
         public DateTime Deadline { get; set; }
         public double EstimatedPrice { get; set; }
         public int Scope { get; set; }
@@ -46,7 +48,8 @@ namespace CarlssonsWPF.Model
                 Scope = int.Parse(parts[4]),
                 CustomerName = parts[5],
                 Status = parts[6],
-                LastModified = DateTime.Parse(parts[7])
+                LastModified = DateTime.Parse(parts[7]),
+                ProjectPostalCode = int.Parse(parts[8]),
             };
         }
     }
