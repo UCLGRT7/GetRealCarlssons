@@ -87,6 +87,8 @@ namespace CarlssonsWPF.ViewModel
             entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
             Services.Add(entry);
             CommandManager.InvalidateRequerySuggested();
+
+
         }
 
 
@@ -169,9 +171,30 @@ namespace CarlssonsWPF.ViewModel
         private void UpdateEstimatedPrice()
         {
             if (Scope == null) return;
+
             int totalComplexity = Services.Sum(s => s.Complexity);
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
+
+        private int _complexity;
+        public int Complexity
+        {
+            get => _complexity;
+            set
+            {
+                if (_complexity != value)
+                {
+                    _complexity = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+}
 
         private DateTime? TryParseToDate(string? input)
         {

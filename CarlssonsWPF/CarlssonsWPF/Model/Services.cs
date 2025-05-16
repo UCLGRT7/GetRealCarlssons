@@ -32,25 +32,4 @@ namespace CarlssonsWPF.Model
             };
         }
     }
-
-    public class ServiceEntry : INotifyPropertyChanged
-    {
-        private string _name = "";
-        public string Name
-        {
-            get => _name;
-            set { _name = value; OnPropertyChanged(); }
-        }
-
-        private int _complexity;
-        public int Complexity
-        {
-            get => _complexity;
-            set { _complexity = value; OnPropertyChanged(); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string? name = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    }
 }
