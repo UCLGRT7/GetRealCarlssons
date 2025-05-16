@@ -23,14 +23,15 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
 
 
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Margin="0 0 5 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
@@ -47,9 +48,9 @@
                 <TextBlock Text="By:" FontSize="16" Grid.Row="4" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <TextBlock Text="Tlf Nummer:" FontSize="16" Grid.Row="5" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <TextBlock Text="E-Mail:" FontSize="16" Grid.Row="6" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Column="2">
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
@@ -67,23 +68,41 @@
                 <TextBox Name="PhoneNumberTextBox" Text="{Binding PhoneNumber}" FontSize="16" TextAlignment="Left" Width="300" Height="21.28" Grid.Row="5" Margin="0,10,0,10"/>
                 <TextBox Name="EmailTextBox" Text="{Binding Email}" FontSize="16" TextAlignment="Left" Width="300" Height="21.28" Grid.Row="6" Margin="0,10,0,10"/>
 
-        </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Row="2">
             <TextBlock Text="Projekter" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,10"/>
         </Grid>
 
         <Grid Grid.Row="3">
-            <DataGrid
-                AutoGenerateColumns="True"
-                ItemsSource="{Binding Projects}"
-            />
-        </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+             
+            </Grid.ColumnDefinitions>
 
+            <DataGrid Grid.Column="1" ItemsSource="{Binding ProjectWithContractInfo}" AutoGenerateColumns="False" 
+                 Name="CustomerDataGrid"
+                 HorizontalAlignment="Center"
+                 
+Margin="0,10,0,10" CanUserAddRows="False" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="210" FontSize="16" CanUserResize="True" />
+                    <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="275" FontSize="16" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="80" FontSize="16" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="150" FontSize="16" />
+            </DataGrid.Columns>
+        </DataGrid>
 
+         </Grid>
 
-
-        <Grid Grid.Row="4">
+    <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>

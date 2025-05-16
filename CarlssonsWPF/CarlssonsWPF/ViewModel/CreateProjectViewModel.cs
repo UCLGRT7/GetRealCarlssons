@@ -56,6 +56,30 @@ namespace CarlssonsWPF.ViewModel
         public Action<Project>? NavigateToViewProject { get; set; }
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+        public double EstimatedPrice { get; set; }
+
+        private void AddService()
+        {
+            var entry = new ServiceEntry();
+            entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+            Services.Add(entry);
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+
+
+
+        private string? _offerSentInput;
+        public string? OfferSentInput
+        {
+            get => _offerSentInput;
+            set
+            {
+                _offerSentInput = value;
+                OnPropertyChanged();
+                OfferSent = TryParseToDate(value);
+            }
+        }
 
         private void AddService()
         {
