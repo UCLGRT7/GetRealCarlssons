@@ -68,7 +68,7 @@ namespace CarlssonsWPF.ViewModel
         {
             if (SelectedProject.ServiceEntry.Count < 10)
             {
-                SelectedProject.ServiceEntry.Add(new Services { ServiceEntry = "", Complexity = 0 });
+                SelectedProject.ServiceEntry.Add(new Services { Name = "", Complexity = 0 });
                 OnPropertyChanged(nameof(SelectedProject));
             }
         }

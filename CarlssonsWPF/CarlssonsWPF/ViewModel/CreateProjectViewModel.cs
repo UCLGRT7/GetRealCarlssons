@@ -42,7 +42,7 @@ namespace CarlssonsWPF.ViewModel
 
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
+        public ObservableCollection<Services> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
@@ -60,39 +60,11 @@ namespace CarlssonsWPF.ViewModel
 
         private void AddService()
         {
-            var entry = new ServiceEntry();
-            entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+            var entry = new Services();
             Services.Add(entry);
+            UpdateEstimatedPrice();
             CommandManager.InvalidateRequerySuggested();
         }
-
-
-
-
-        private string? _offerSentInput;
-        public string? OfferSentInput
-        {
-            get => _offerSentInput;
-            set
-            {
-                _offerSentInput = value;
-                OnPropertyChanged();
-                OfferSent = TryParseToDate(value);
-            }
-        }
-
-        private void AddService()
-        {
-            var entry = new ServiceEntry();
-            entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
-            Services.Add(entry);
-            CommandManager.InvalidateRequerySuggested();
-
-
-        }
-
-
-
 
         private string? _offerSentInput;
         public string? OfferSentInput
@@ -154,10 +126,11 @@ namespace CarlssonsWPF.ViewModel
             {
                 services.Add(service);
             }
+            Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
+
             for (int i = 0; i < 5; i++)
             {
-                var entry = new ServiceEntry();
-                entry.PropertyChanged += (_, _) => UpdateEstimatedPrice();
+                var entry = new Services();
                 Services.Add(entry);
             }
 
@@ -191,10 +164,10 @@ namespace CarlssonsWPF.ViewModel
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string? name = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    }
-}
+        protected void OnPropertyChanged(string propertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
 
         private DateTime? TryParseToDate(string? input)
         {
@@ -262,7 +235,7 @@ namespace CarlssonsWPF.ViewModel
                     ServiceEntry = Services.Select((s, index) => new Services
                     {
                         Id = index + 1,
-                        ServiceEntry = s.Name,
+                        Name = s.Name,
                         Complexity = s.Complexity
                     }).ToList(),
                     EstimatedPrice = EstimatedPrice,
@@ -311,9 +284,9 @@ namespace CarlssonsWPF.ViewModel
 
                 //foreach (var s in services)
                 //{
-                //    if (!existingServices.Any(es => es.ServiceEntry == s.ServiceType))
+                //    if (!existingServices.Any(es => es.Name == s.ServiceType))
                 //    {
-                //        existingServices.Add(new Services { ServiceEntry = s.ServiceEntry });
+                //        existingServices.Add(new Services { Name = s.Name });
                 //    }
                 //}
                 //FileService.Save("Data/services.json", existingServices);

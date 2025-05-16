@@ -69,7 +69,7 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public IEnumerable<Services> GetByServiceEntry(string serviceEntry)
         {
-            return GetAll().Where(s => s.ServiceEntry.Contains(serviceEntry, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(s => s.Name.Contains(serviceEntry, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<Services> GetByComplexity(int complexity)
