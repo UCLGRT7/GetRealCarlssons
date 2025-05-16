@@ -52,5 +52,23 @@
     "PhoneNumber": 12345678,
     "PostalCode": 5200,
     "City": "Holstebro"
+  },
+  {
+    "Id": "55e319d2-80e1-4f11-9135-51c84071fefd",
+    "Name": null,
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  },
+  {
+    "Id": "9e541b58-801c-4e0f-b9a6-a4874fbcc346",
+    "Name": null,
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
   }
 ]

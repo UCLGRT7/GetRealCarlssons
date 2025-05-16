@@ -155,6 +155,12 @@ namespace CarlssonsWPF.ViewModel
 
         public void ShowCustomerProjects()
         {
+            if(SelectedCustomer.Name == null)
+            {
+                return;
+            }
+
+            // Get the projects for the selected customer
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
             //int count = customerProjects?.Count() ?? 0;
