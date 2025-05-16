@@ -46,7 +46,6 @@ namespace CarlssonsWPF.ViewModel
         private string? _phoneNumber;
         private string? _postalCode;
         private string? _city;
-        public int SelectedCustomerIndex { get; set; }
 
         public string? Name
         {
@@ -111,11 +110,7 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
 
-
-
             SelectedCustomer = selectedCustomer;
-            SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
-
 
             Name = selectedCustomer.Name;
             Address = selectedCustomer.Address;
@@ -132,9 +127,6 @@ namespace CarlssonsWPF.ViewModel
 
         public void UpdateCustomer()
         {
-
-
-
             if (SelectedCustomer != null)
             {
                 SelectedCustomer.Name = Name;
@@ -147,15 +139,13 @@ namespace CarlssonsWPF.ViewModel
                 _customerRepository.Update(SelectedCustomer);
 
             }
-
-            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
 
         public void ShowCustomerProjects()
         {
-            if(SelectedCustomer.Name == null)
+            // Check if SelectedCustomer is null or has no name
+            if (SelectedCustomer.Name == null)
             {
                 return;
             }
@@ -163,17 +153,9 @@ namespace CarlssonsWPF.ViewModel
             // Get the projects for the selected customer
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
-            //int count = customerProjects?.Count() ?? 0;
+            ProjectWithContractInfo.Clear();
 
-            //MessageBox.Show(
-            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
-            //  "Projektstatus",
-            //  MessageBoxButton.OK,
-            //  MessageBoxImage.Information
-            //);
-
-            ProjectWithContractInfo.Clear(); 
-
+            // Populate the ProjectWithContractInfo collection
             if (customerProjects != null)
             {
                 foreach (var project in customerProjects)
