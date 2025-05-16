@@ -39,8 +39,8 @@ namespace CarlssonsWPF.Model
                     var dates = new[]
                     {
                 contract.OfferSent,
-                contract.OfferConfirmed,
-                contract.PaymentReceivedDate
+                contract.OfferApproved,
+                contract.Paid
             }
                     .Where(d => d.HasValue)
                     .Select(d => d.Value);
@@ -55,7 +55,7 @@ namespace CarlssonsWPF.Model
                     LastModified = lastEdited,
                     Deadline = project.Deadline,
                     Status = project.Status,
-                    OfferConfirmed = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
+                    OfferApproved = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
                     IsPaymentRecieved = contract != null && contract.Paid.HasValue ? "Yes" : "No"
                 };
 

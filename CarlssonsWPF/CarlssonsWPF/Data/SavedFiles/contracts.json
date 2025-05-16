@@ -18,8 +18,8 @@
   {
     "InvoiceNumber": 0,
     "OfferSent": null,
-    "PaymentReceivedDate": null,
-    "OfferConfirmed": null,
+    "Paid": null,
+    "OfferApproved": null,
     "Price": 0,
     "CaseNumber": null
   }
