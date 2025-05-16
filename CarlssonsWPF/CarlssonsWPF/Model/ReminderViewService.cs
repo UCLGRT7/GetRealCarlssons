@@ -32,7 +32,7 @@ namespace CarlssonsWPF.Model
             {
                 var customer = _customerRepository.GetByName(project.CustomerName);
                 var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
-                if (!contract.OfferConfirmed.HasValue || !contract.PaymentReceivedDate.HasValue)
+                if (!contract.OfferApproved.HasValue || !contract.Paid.HasValue)
                 {
                     var viewModel = new RemindersData
                     {
@@ -40,8 +40,8 @@ namespace CarlssonsWPF.Model
                         CustomerName = project.CustomerName,
                         OfferSentDate = contract?.OfferSent,
                         Deadline = project.Deadline,
-                        OfferConfirmed = contract != null && contract.OfferConfirmed.HasValue ? "Yes" : "No",
-                        IsPaymentRecieved = contract != null && contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
+                        OfferConfirmed = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
+                        IsPaymentRecieved = contract != null && contract.Paid.HasValue ? "Yes" : "No"
                     };
 
                     remindersList.Add(viewModel);
@@ -67,7 +67,7 @@ namespace CarlssonsWPF.Model
                 {
                     TimeSpan timeSinceOffer = DateTime.Now - contract.OfferSent.Value;
 
-                    if ((!contract.OfferConfirmed.HasValue || !contract.PaymentReceivedDate.HasValue) && timeSinceOffer.TotalDays > 14)
+                    if ((!contract.OfferApproved.HasValue || !contract.Paid.HasValue) && timeSinceOffer.TotalDays > 14)
                     {
                         var viewModel = new RemindersData
                         {
@@ -75,8 +75,8 @@ namespace CarlssonsWPF.Model
                             CustomerName = project.CustomerName,
                             OfferSentDate = contract.OfferSent,
                             DaysPassed = (int)timeSinceOffer.TotalDays,
-                            OfferConfirmed = contract.OfferConfirmed.HasValue ? "Yes" : "No",
-                            IsPaymentRecieved = contract.PaymentReceivedDate.HasValue ? "Yes" : "No"
+                            OfferConfirmed = contract.OfferApproved.HasValue ? "Yes" : "No",
+                            IsPaymentRecieved = contract.Paid.HasValue ? "Yes" : "No"
                         };
 
                         exceededList.Add(viewModel);

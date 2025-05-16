@@ -225,7 +225,7 @@ namespace CarlssonsWPF.ViewModel
                     ProjectAddress = Address,
                     Deadline = ParsedDeadline ?? DateTime.Today,
                     Scope = scopeValue,
-                    ServiceEntry = Services.Select((s, index) => new Services
+                    Services = Services.Select((s, index) => new Services
                     {
                         Id = index + 1,
                         Name = s.Name,
@@ -236,8 +236,8 @@ namespace CarlssonsWPF.ViewModel
                     LastModified = DateTime.Now
                 };
 
-            _projectRepository.Add(project);
-            projects.Add(project);
+                _projectRepository.Add(project);
+                projects.Add(project);
 
 
                 var contract = new Contract
@@ -249,8 +249,8 @@ namespace CarlssonsWPF.ViewModel
                     Price = Price
                 };
 
-            _contractRepository.Add(contract);
-            contracts.Add(contract);
+                _contractRepository.Add(contract);
+                contracts.Add(contract);
 
 
                 //foreach (var s in services)
@@ -262,8 +262,8 @@ namespace CarlssonsWPF.ViewModel
                 //}
                 //FileService.Save("Data/services.json", existingServices);
 
-
-
+            }
+        }
 
     }
 }
