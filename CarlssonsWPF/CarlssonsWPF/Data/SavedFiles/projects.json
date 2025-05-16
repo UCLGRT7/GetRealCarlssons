@@ -7,8 +7,7 @@
     "Scope": 0,
     "CustomerName": "Alex Holmbo",
     "Status": "Done",
-    "LastModified": "2025-05-09T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-09T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_02_02",
@@ -29,8 +28,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_04_02",
@@ -40,8 +38,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_05_02",
@@ -51,8 +48,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_06_02",
@@ -62,8 +58,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_07_02",
@@ -73,8 +68,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_08_02",
@@ -84,8 +78,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_09_02",
@@ -95,8 +88,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson Alex Holmbo",
     "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "2022_10_02",
@@ -106,8 +98,7 @@
     "Scope": 0,
     "CustomerName": "Valdemar Carlsson",
     "Status": "Igangv\u00E6rende",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
+    "LastModified": "2025-05-13T14:35:29.7613435+02:00"
   },
   {
     "CaseNumber": "240396_01_01",
@@ -117,8 +108,7 @@
     "Scope": 3,
     "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-15T14:08:25.0141389+02:00",
-    "Services": null
+    "LastModified": "2025-05-15T14:08:25.0141389+02:00"
   },
   {
     "CaseNumber": "2022_01_01",
@@ -128,8 +118,7 @@
     "Scope": 3,
     "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-15T14:47:05.4788401+02:00",
-    "Services": null
+    "LastModified": "2025-05-15T14:47:05.4788401+02:00"
   },
   {
     "CaseNumber": "2204_01_01",
@@ -139,8 +128,7 @@
     "Scope": 3,
     "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-15T14:26:25.3132149+02:00",
-    "Services": null
+    "LastModified": "2025-05-15T14:26:25.3132149+02:00"
   },
   {
     "CaseNumber": "2022_02_02",
@@ -150,8 +138,7 @@
     "Scope": 3,
     "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-15T14:53:35.5672029+02:00",
-    "Services": null
+    "LastModified": "2025-05-15T14:53:35.5672029+02:00"
   },
   {
     "CaseNumber": null,
@@ -161,7 +148,6 @@
     "Scope": 0,
     "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-15T14:54:03.4052993+02:00",
-    "Services": null
+    "LastModified": "2025-05-15T14:54:03.4052993+02:00"
   }
 ]
