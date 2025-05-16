@@ -57,7 +57,6 @@ namespace CarlssonsWPF.ViewModel
         public Action<Project>? NavigateToViewProject { get; set; }
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-        public double EstimatedPrice { get; private set; }
 
         private void AddService()
         {
