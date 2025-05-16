@@ -9,6 +9,7 @@ using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
+using System.Windows;
 
 
 namespace CarlssonsWPF.ViewModel
@@ -262,6 +263,10 @@ namespace CarlssonsWPF.ViewModel
                 //}
                 //FileService.Save("Data/services.json", existingServices);
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

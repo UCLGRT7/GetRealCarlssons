@@ -26,9 +26,9 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CancelEditCommand => new RelayCommand(_ => CancelEdit());
         private void AddService()
         {
-            if (SelectedProject.ServiceEntry.Count < 10)
+            if (SelectedProject.Services.Count < 10)
             {
-                SelectedProject.ServiceEntry.Add(new Services { Name = "", Complexity = 0 });
+                SelectedProject.Services.Add(new Services { Name = "", Complexity = 0 });
                 OnPropertyChanged(nameof(SelectedProject));
             }
         }
