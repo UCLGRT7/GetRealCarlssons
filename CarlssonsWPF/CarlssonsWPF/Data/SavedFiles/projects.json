@@ -12,13 +12,13 @@
   },
   {
     "CaseNumber": "2022_02_02",
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T14:35:29.7609625+02:00",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
+    "ProjectAddress": "Niels vej 7",
+    "Deadline": "2025-05-16T00:00:00+02:00",
+    "EstimatedPrice": 3600,
+    "Scope": 3,
+    "CustomerName": null,
+    "Status": null,
+    "LastModified": "2025-05-16T14:34:47.2348308+02:00",
     "Services": null
   },
   {
