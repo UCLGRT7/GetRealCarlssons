@@ -10,7 +10,7 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class FileServiceRepository :  IServiceRepository
+    public class FileServiceRepository : IServiceRepository
     {
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");

@@ -92,10 +92,6 @@ namespace CarlssonsWPF.ViewModel
                 Scope = scopeValue,
                 Services = services.ToList(),
                 EstimatedPrice = estimatedPrice,
-                Price = Price,
-                OfferSent = offerSentValue,
-                OfferApproved = offerApprovedValue,
-                Paid = paymentReceivedValue,
                 LastModified = DateTime.Now
             };
 
@@ -107,9 +103,9 @@ namespace CarlssonsWPF.ViewModel
             {
                 CaseNumber = CaseNumber,
                 OfferSent = OfferSent,
-                OfferConfirmed = OfferConfirmed,
-                PaymentReceivedDate = PaymentRecieved,
-                Price = (double)project.Price
+                OfferApproved = OfferConfirmed,
+                Paid = PaymentRecieved,
+                Price = Price
             };
 
             _contractRepository.Add(contract);
