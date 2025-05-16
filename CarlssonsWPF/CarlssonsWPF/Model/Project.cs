@@ -25,8 +25,7 @@ namespace CarlssonsWPF.Model
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
-        public List<Services> ServiceEntry { get; set; } = new List<Services>();
-        public object Services { get; internal set; }
+        public List<Services> Services { get; set; } = new List<Services>();
 
         public override string ToString()
         {
