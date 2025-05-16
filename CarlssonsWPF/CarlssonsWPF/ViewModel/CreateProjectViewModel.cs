@@ -10,6 +10,7 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.Windows;
+using System.ComponentModel;
 
 
 namespace CarlssonsWPF.ViewModel
