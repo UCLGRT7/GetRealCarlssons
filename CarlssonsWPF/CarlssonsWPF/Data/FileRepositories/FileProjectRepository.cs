@@ -75,7 +75,8 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public IEnumerable<Project> GetByCustomerId(string customerName)
         {
-            return GetAll().Where(p => p.CustomerName.Equals(customerName, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(p => p.CustomerName != null && p.CustomerName.Equals(customerName, StringComparison.OrdinalIgnoreCase));
+
         }
 
         public IEnumerable<Project> GetByAddress(string address)

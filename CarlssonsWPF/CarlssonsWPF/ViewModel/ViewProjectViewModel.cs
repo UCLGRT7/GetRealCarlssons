@@ -21,6 +21,20 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
 
 
+        // Commands
+        public ICommand ToggleEditCommand => new RelayCommand(_ => ToggleEdit());
+        public ICommand CancelEditCommand => new RelayCommand(_ => CancelEdit());
+        private void AddService()
+        {
+            if (SelectedProject.ServiceEntry.Count < 10)
+            {
+                SelectedProject.ServiceEntry.Add(new Services { Name = "", Complexity = 0 });
+                OnPropertyChanged(nameof(SelectedProject));
+            }
+        }
+
+
+
         public ViewProjectViewModel(Project project)
         {
             _customerRepository = new FileCustomerRepository();

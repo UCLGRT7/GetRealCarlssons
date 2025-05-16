@@ -9,12 +9,12 @@ namespace CarlssonsWPF.Model
     public class Services
     {
         public int Id { get; set; }
-        public string ServiceType { get; set; }
+        public string? Name { get; set; }
         public int Complexity { get; set; }
 
         public override string ToString()
         {
-            return $"{Id},{ServiceType},{Complexity}";
+            return $"{Id},{Name},{Complexity}";
         }
 
         public static Services FromString(string input)
@@ -25,7 +25,7 @@ namespace CarlssonsWPF.Model
             return new Services
             {
                 Id = int.Parse(parts[0]),
-                ServiceType = parts[1],
+                Name = parts[1],
                 Complexity = int.Parse(parts[2])
             };
         }
