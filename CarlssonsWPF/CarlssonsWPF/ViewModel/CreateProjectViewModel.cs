@@ -232,7 +232,7 @@ namespace CarlssonsWPF.ViewModel
                     ProjectAddress = Address,
                     Deadline = ParsedDeadline ?? DateTime.Today,
                     Scope = scopeValue,
-                    ServiceEntry = Services.Select((s, index) => new Services
+                    Services = Services.Select((s, index) => new Services
                     {
                         Id = index + 1,
                         Name = s.Name,
