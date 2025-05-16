@@ -27,13 +27,9 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
 
-        // 5 ydelser fra brugeren
+        private const int P = 100; // Justeres til hvad end 1 Point skal koste i kroner.
 
-
- 
-
-
-
+        public ICommand AddServiceCommand { get; }
 
         // 5 ydelser fra brugeren
         public ObservableCollection<Services> Services { get; set; } = new();
