@@ -164,7 +164,7 @@
 
 
 
-                <!--                          Deadline                           -->
+       <!--                                   Deadline                                  -->
        <TextBlock x:Name="Deadline"
         Text="Deadline:"
         Grid.Row="3"
@@ -175,17 +175,18 @@
         Height="16"
         Width="49" />
        <TextBox x:Name="DeadlineFelt"
-        Text="{Binding SelectedProject.DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+        Text="{Binding SelectedProject.DeadlineInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
         Grid.Row="3"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
         Margin="0,5,20,5"
+        IsReadOnly="{Binding IsReadOnly}"
         PreviewTextInput="DateAutoFormatter"
         MaxLength="8"/>
         
         
-         <!--                          Postnummer                           -->
+       <!--                                    Postnummer                                   -->
        <TextBlock x:Name="Postalcode"
         Text="Postnummer:"
         Grid.Row="4"
@@ -332,12 +333,13 @@
          Height="16"
          Width="78" />
         <TextBox x:Name="TilbudAfsendtDato"
-         Text="{Binding SelectedProject.OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
+         Text="{Binding SelectedProject.OfferSentInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Grid.Row="13"
          Grid.Column="1"
          Grid.ColumnSpan="2"
          TextAlignment="Left"
          Margin="0,2,20,2"
+         IsReadOnly="{Binding IsReadOnly}"
          PreviewTextInput="DateAutoFormatter"
          MaxLength="8" />
         
@@ -354,12 +356,13 @@
          Height="16"
          Width="90" />
         <TextBox x:Name="TilbudGodkendtDato"
-         Text="{Binding SelectedProject.OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+         Text="{Binding SelectedProject.OfferApprovedInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Grid.Row="14"
          Grid.Column="1"
          Grid.ColumnSpan="2"
          TextAlignment="Left"
          Margin="0,2,20,2"
+         IsReadOnly="{Binding IsReadOnly}"
          PreviewTextInput="DateAutoFormatter"
          MaxLength="8" />
         
@@ -417,12 +420,13 @@
          Height="16"
          Width="33" />
         <TextBox x:Name="BetaltFelt"
-         Text="{Binding SelectedProject.PaidInput, UpdateSourceTrigger=PropertyChanged}"
+         Text="{Binding SelectedProject.PaidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Grid.Row="17"
          Grid.Column="1"
          Grid.ColumnSpan="2"
          TextAlignment="Left" 
          Margin="0,2,20,2"
+         IsReadOnly="{Binding IsReadOnly}"
          PreviewTextInput="DateAutoFormatter"
          MaxLength="8" />
         
@@ -446,10 +450,12 @@
           Margin="5"/>
          
          
-         <Button Content="{Binding BackButtonText}"
-          Command="{Binding CancelEditCommand}"
-          Width="130"
-          Margin="5"/>
+<Button Content="{Binding BackButtonText}"
+        Command="{Binding CancelEditCommand}"
+        Click="Tilbage_Click"
+        Width="130"
+        Margin="5"/>
+
          
          
        </StackPanel>

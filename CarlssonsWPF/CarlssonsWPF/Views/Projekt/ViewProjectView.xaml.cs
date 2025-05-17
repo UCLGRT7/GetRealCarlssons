@@ -33,11 +33,6 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             DataContext = new ViewProjectViewModel(selectedProject);
         }
-        public ViewProjectView(Project project)
-        {
-            InitializeComponent();
-            DataContext = new ViewProjectViewModel(project);
-        }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
         {
@@ -56,5 +51,12 @@ namespace CarlssonsWPF.Views.Projekt
                 e.Handled = true;
             }
         }
+
+        private void Tilbage_Click(object sender, RoutedEventArgs e)
+        {
+            if (_frame?.CanGoBack == true)
+                _frame.GoBack();
+        }
+
     }
 }

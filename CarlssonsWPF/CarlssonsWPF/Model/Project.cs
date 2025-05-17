@@ -31,10 +31,57 @@ namespace CarlssonsWPF.Model
 
 
 
+
+
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
         public List<Services> Services { get; set; } = new List<Services>();
+        [JsonIgnore]
+        public string OfferSentInput
+        {
+            get => OfferSent.HasValue ? OfferSent.Value.ToString("dd/MM/yy") : "";
+            set
+            {
+                if (DateTime.TryParse(value, out DateTime result))
+                    OfferSent = result;
+            }
+        }
+
+        [JsonIgnore]
+        public string OfferApprovedInput
+        {
+            get => OfferApproved.HasValue ? OfferApproved.Value.ToString("dd/MM/yy") : "";
+            set
+            {
+                if (DateTime.TryParse(value, out DateTime result))
+                    OfferApproved = result;
+            }
+        }
+
+        [JsonIgnore]
+        public string PaidInput
+        {
+            get => Paid.HasValue ? Paid.Value.ToString("dd/MM/yy") : "";
+            set
+            {
+                if (DateTime.TryParse(value, out DateTime result))
+                    Paid = result;
+            }
+        }
+
+        [JsonIgnore]
+        public string DeadlineInput
+        {
+            get => Deadline == DateTime.MinValue ? "" : Deadline.ToString("dd/MM/yy");
+            set
+            {
+                if (DateTime.TryParse(value, out DateTime result))
+                    Deadline = result;
+            }
+        }
+
+
 
         public override string ToString()
         {

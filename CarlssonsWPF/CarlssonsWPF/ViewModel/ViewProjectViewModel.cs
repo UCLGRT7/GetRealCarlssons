@@ -61,8 +61,9 @@ namespace CarlssonsWPF.ViewModel
         public ICommand RemoveServiceCommand { get; }
         public ICommand CancelCommand { get; }
 
+        public ICommand ToggleEditCommand { get; }
+
         // Commands
-        public ICommand ToggleEditCommand => new RelayCommand(_ => ToggleEdit());
         public ICommand CancelEditCommand => new RelayCommand(_ => CancelEdit());
         private void AddService()
         {
@@ -75,7 +76,7 @@ namespace CarlssonsWPF.ViewModel
 
 
 
-        public ViewProjectViewModel(Project project)
+        public ViewProjectViewModel(Project selectedProject)
         {
             _customerRepository = new FileCustomerRepository();
             _projectRepository = new FileProjectRepository();
@@ -85,10 +86,11 @@ namespace CarlssonsWPF.ViewModel
             foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
             foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
 
-            SelectedProject = project;
+            SelectedProject = selectedProject;
             AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
             RemoveServiceCommand = new RelayCommand(obj => RemoveService(obj));
             CancelCommand = new RelayCommand(_ => CancelEdit());
+            ToggleEditCommand = new RelayCommand(ToggleEdit);
         }
 
         private void ToggleEdit()

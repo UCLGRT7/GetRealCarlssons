@@ -34,8 +34,9 @@ namespace CarlssonsWPF.Views.Projekt
             // Navigation callback fra ViewModel
             _createProjectViewModel.NavigateToViewProject = project =>
             {
-                var viewPage = new ViewProjectView(project);
+                var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
+
             };
         }
 
@@ -76,5 +77,13 @@ namespace CarlssonsWPF.Views.Projekt
         {
 
         }
+
+        private void Tilbage_Click(object sender, RoutedEventArgs e)
+        {
+            if (_frame.CanGoBack)
+                _frame.GoBack();
+        }
+
+
     }
 }
