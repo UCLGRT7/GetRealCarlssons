@@ -1,137 +1,466 @@
-﻿<Page x:Class="CarlssonsWPF.Views.Projekt.ViewProjectView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
-      mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="ViewProjectView">
+<?xml version="1.0" ?>
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt" x:Class="CarlssonsWPF.Views.Projekt.ViewProjectView" mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280" Title="ViewProjectView">
+   
+  <Grid Margin="10">
+   
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+     
+     
+      <Grid Margin="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+       
+       <Grid.Resources>  
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+       </Grid.Resources>
+        
+       <Grid.RowDefinitions>
+       
+        <!--        Navn         -->
+        <RowDefinition Height="30"/>
+        
+        <!--     Sagsnummer      -->
+        <RowDefinition Height="30"/>
+        
+        <!--  Projekt Addresse  -->
+        <RowDefinition Height="30"/>
+        
+        <!--      Deadline      -->
+        <RowDefinition Height="30"/>
+        
+        <!--       Omfang       -->
+        <RowDefinition Height="30"/>
+        
+        <!--    PostalCode       -->
+        <RowDefinition Height="30"/>
+        
+        <!--  Ydelser Headers   -->
+        <RowDefinition Height="30"/>
+        
+        <!--      Ydelser        -->
+        <RowDefinition Height="16"/>
+        <RowDefinition Height="16"/>
+        <RowDefinition Height="16"/>
+        <RowDefinition Height="16"/>
+        <RowDefinition Height="16"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <!-- Økonomi -->
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+            
+       <!-- Knapper -->
+       
+            
+       <RowDefinition Height="Auto"/>
+       
+        
+       </Grid.RowDefinitions>
+        
+        
+            
+       <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="140"/>
+        <ColumnDefinition Width="280"/>
+        <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+       
+       
+       
+        <!--              Navn                -->
+        <TextBlock x:Name="Navn"
+         Text="Navn:"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="105,0,0,0"
+         Height="16"
+         Width="30" />
+        <ComboBox x:Name="NavnFelt"
+         Grid.Row="0"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         ItemsSource="{Binding Customers}"
+         SelectedItem="{Binding SelectedCustomer}"
+         Margin="0,6,20,4"
+         IsEnabled="{Binding IsEditing}"/>
+        
+        
+       <!--       Sagsnummer       -->
+       <TextBlock x:Name="SagsNummer"
+        Text="Sagsnummer:"
+        Grid.Row="1"
+        Grid.Column="0"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Margin="63,0,0,0"
+        Height="16"
+        Width="72" />
+        
+       <TextBox x:Name="SagsNummerFelt"
+        Text="{Binding CaseNumber}"
+        Grid.Row="1"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextAlignment="Left"
+        Margin="0,5,20,5"
+        IsEnabled="{Binding IsEditing}"/>
+        
+        
+        
+        <!--    Projekt Adresse   -->
+       <TextBlock x:Name="Adresse"
+        Text="Projekt Adresse:"
+        Grid.Row="2"
+        Grid.Column="0"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Margin="50,0,0,0"
+        Height="16"
+        Width="85" />
+       <TextBox x:Name="AdresseFelt"
+        Text="{Binding Address}"
+        Grid.Row="2"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextAlignment="Left"
+        Margin="0,5,20,5"
+        IsEnabled="{Binding IsEditing}"/>
+        
+        
+        
+        <!--                          Deadline                           -->
+       <TextBlock x:Name="Deadline"
+        Text="Deadline:"
+        Grid.Row="3"
+        Grid.Column="0"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Margin="86,0,0,0"
+        Height="16"
+        Width="49" />
+       <TextBox x:Name="DeadlineFelt"
+        Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+        Grid.Row="3"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextAlignment="Left"
+        Margin="0,5,20,5"
+        PreviewTextInput="DateAutoFormatter"
+        MaxLength="8"
+        IsEnabled="{Binding IsEditing}"/>
+        
+        
+         <!--                          Postnummer                           -->
+       <TextBlock x:Name="Postalcode"
+        Text="Postnummer:"
+        Grid.Row="4"
+        Grid.Column="0"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Margin="63,0,0,0"
+        Height="16"
+        Width="72" />
+       <TextBox x:Name="Postalcodefelt"
+        Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+        Grid.Row="4"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextAlignment="Left"
+        Margin="0,5,20,5"
+        MaxLength="8"
+        IsEnabled="{Binding IsEditing}"/>
+        
+        
+        
+        <!--        Omfang        -->
+       <TextBlock x:Name="Omfang"
+        Text="Omfang:"
+        Grid.Row="5"
+        Grid.Column="0"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Margin="89,0,0,0"
+        Height="16"
+        Width="46" />
+       <TextBox x:Name="OmfangFelt"
+        Text="{Binding Scope}"
+        Grid.Row="5"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextAlignment="Left"
+        Margin="0,5,20,5"
+        IsEnabled="{Binding IsEditing}"/>
+        
+        
+        
+       <!--                                     Header                                       -->
+       <StackPanel Grid.Row="6"
+        Grid.Column="1"
+        Orientation="Horizontal"
+        HorizontalAlignment="Left"
+        Margin="0,0,0,5" Width="117">
+        
+        
+        <TextBlock Text="Ydelser"
+         FontWeight="Bold"
+         VerticalAlignment="Center"
+         Margin="0,0,10,0"/>
+        <Button Content="Tilføj ydelse"
+         Command="{Binding AddServiceCommand}"
+         IsEnabled="{Binding Services.Count, Converter={StaticResource Max10EnableConverter}}"
+         VerticalAlignment="Center"/>
+       </StackPanel>
+        
+       <TextBlock x:Name="Kompleksitet"
+        Text="Kompleksitet"
+        Grid.Row="6" Grid.Column="2"
+        FontWeight="Bold"
+        HorizontalAlignment="Center"
+        Margin="0,0,0,6"
+        Width="74"/>
+        
+        <ItemsControl
+         ItemsSource="{Binding Services}"
+         Grid.Row="7"
+         Grid.Column="1"
+         Grid.ColumnSpan="2">
+         <ItemsControl.ItemTemplate>
+          <DataTemplate>
+        
+           <StackPanel
+            Orientation="Horizontal"
+            Margin="0,2">
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+             Width="200" />
+        
+            <TextBox Text="{Binding Complexity, UpdateSourceTrigger=PropertyChanged}"
+             Width="50"
+             Margin="10,0,0,0"
+             TextAlignment="Center"
+             VerticalContentAlignment="Center" />
+           </StackPanel>
+          </DataTemplate>
+         </ItemsControl.ItemTemplate>
+         </ItemsControl>
+        
+        
+        
+                    <!-- Ydelser dynamisk -->
+        <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+         
+         <ItemsControl.ItemTemplate>
+          
+          <DataTemplate>
+           
+           <StackPanel Orientation="Horizontal" Margin="0,2">
+            
 
-    <Grid Margin="10">
-
-
-
-
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <Grid Margin="40"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center">
-
-                <Grid.Resources>
-                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-                </Grid.Resources>
-
-
-                <Grid.RowDefinitions>
-                    <!-- Felter -->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Ydelser -->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Økonomi -->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+            <TextBox Text="{Binding ServiceEntry}"
+             Width="200" TextAlignment="Center"
+             VerticalContentAlignment="Center"
+             IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}"/>
+            
+            <TextBox Text="{Binding Complexity}"
+             Width="100" TextAlignment="Center"
+             VerticalContentAlignment="Center"
+             IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}"/>
+            
+            <Button Content="Slet"
+             Width="50"
+             Margin="10,0,0,0"
+             Command="{Binding DataContext.RemoveServiceCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+             CommandParameter="{Binding}"
+             Visibility="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            
+           </StackPanel>
+          </DataTemplate>
+         </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        
+        
+        
+        <!--  Økonomi overskrift  -->
+        <TextBlock x:Name="Økonomi"
+         Text="Økonomi"
+         Grid.Row="12"
+         Grid.Column="1"
+         HorizontalAlignment="Center"
+         FontWeight="Bold"
+         Width="52" />
+        
+        
+        
+        <!--                        Tilbud afsendt                        -->
+        <TextBlock x:Name="TilbudAfsendt"
+         Text="Tilbud afsendt:"
+         Grid.Row="13"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="57,0,0,0"
+         Height="16"
+         Width="78" />
+        <TextBox x:Name="TilbudAfsendtDato"
+         Text="{Binding SelectedProject.OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
+         Grid.Row="13"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         TextAlignment="Left"
+         Margin="0,2,20,2"
+         PreviewTextInput="DateAutoFormatter"
+         MaxLength="8" />
+        
+        
+        
+        <!--                           Tilbud godkendt                        -->
+        <TextBlock x:Name="TilbudGodkendt"
+         Text="Tilbud godkendt:"
+         Grid.Row="14"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="45,0,0,0"
+         Height="16"
+         Width="90" />
+        <TextBox x:Name="TilbudGodkendtDato"
+         Text="{Binding SelectedProject.OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+         Grid.Row="14"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         TextAlignment="Left"
+         Margin="0,2,20,2"
+         PreviewTextInput="DateAutoFormatter"
+         MaxLength="8" />
+        
+        
+        
+        <!--        Anslået pris        -->
+        <TextBlock x:Name="AnslaaetPris"
+         Text="Anslået pris:"
+         Grid.Row="15"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="71,0,0,0"
+         Height="16"
+         Width="64" />
+        <TextBox
+         x:Name="AnslaaetPrisFelt"
+         Text="{Binding SelectedProject.EstimatedPrice}"
+         Grid.Row="15"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         TextAlignment="Left"
+         Margin="0,2,20,2" />
+        
+        
+        
+        <!--        Pris        -->
+        <TextBlock x:Name="Pris"
+         Text="Pris:"
+         Grid.Row="16"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="114,0,0,0"
+         Height="16"
+         Width="21" />
+        <TextBox x:Name="PrisFelt"
+         Text="{Binding SelectedProject.Price}"
+         Grid.Row="16"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         TextAlignment="Left"
+         Margin="0,2,20,2" />
+        
+        
+        
+         <!--            Betalt            -->
+        <TextBlock x:Name="Betalt"
+         Text="Betalt:"
+         Grid.Row="17"
+         Grid.Column="0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Left"
+         Margin="102,0,0,0"
+         Height="16"
+         Width="33" />
+        <TextBox x:Name="BetaltFelt"
+         Text="{Binding SelectedProject.PaidInput, UpdateSourceTrigger=PropertyChanged}"
+         Grid.Row="17"
+         Grid.Column="1"
+         Grid.ColumnSpan="2"
+         TextAlignment="Left" 
+         Margin="0,2,20,2"
+         PreviewTextInput="DateAutoFormatter"
+         MaxLength="8" />
+        
+        
+        
                     <!-- Knapper -->
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        
+        
+        <StackPanel
+         Grid.Row="17"
+         Orientation="Horizontal"
+         HorizontalAlignment="Left"
+         Margin="23,71,0,-51"
+         RenderTransformOrigin="0.502,2.001"
+         Grid.Column="1">
+         
+         
+         <Button Content="{Binding EditButtonText}"
+          Command="{Binding ToggleEditCommand}"
+          Width="130"
+          Margin="5"/>
+         
+         
+         <Button Content="{Binding BackButtonText}"
+          Command="{Binding CancelEditCommand}"
+          Width="130"
+          Margin="5"/>
+         
+         
+       </StackPanel>
+       
+       
+     </Grid>
+     
+     
+    </ScrollViewer>
+    
+   
+    
+   </Grid>
+ 
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="140"/>
-                    <ColumnDefinition Width="280"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-
-                <!-- Navn -->
-                <TextBlock x:Name="Navn" Text="Navn:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" />
-                <ComboBox x:Name="NavnFelt" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" IsEnabled="{Binding IsEditing}" />
-
-                <!-- Sagsnummer -->
-                <TextBlock x:Name="SagsNummer" Text="Sagsnummer:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
-                <TextBox x:Name="SagsNummerFelt" Text="{Binding SelectedProject.CaseNumber}" Grid.Row="1" Grid.Column="1" TextAlignment="Left" Grid.ColumnSpan="2" Margin="0,5" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Projekt Adresse -->
-                <TextBlock x:Name="Adresse" Text="Projekt Adresse:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
-                <TextBox x:Name="AdresseFelt" Text="{Binding SelectedProject.Address}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,5" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Deadline -->
-                <TextBlock x:Name="Deadline" Text="Deadline:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
-                <TextBox x:Name="DeadlineFelt" Text="{Binding SelectedProject.Deadline}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,5" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Omfang -->
-                <TextBlock x:Name="Omfang" Text="Omfang:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,5,5" HorizontalAlignment="Right"/>
-                <TextBox x:Name="OmfangFelt" Text="{Binding SelectedProject.Scope}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,5" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Jeg kan ikke få Ydelser til at line ordentligt op efter timevis af arbejde - Det her er mit fix.. Pls ikke slet LOL -->
-                <TextBlock x:Name="Lmao_spacer" Text="Ydelser:" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Margin="116,10,116,10" HorizontalAlignment="Center" Opacity="0" />
-
-                <!-- Header -->
-                <TextBlock x:Name="Ydelser" Text="Ydelser" Grid.Row="6" Grid.Column="1" FontWeight="Bold" Margin="0,0,0,22" Grid.RowSpan="2" HorizontalAlignment="Center" Width="40"/>
-                <TextBlock x:Name="Kompleksitet" Text="Kompleksitet" Grid.Row="6" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Center"/>
-
-                <!-- Ydelser dynamisk -->
-                <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,2">
-                                <TextBox Text="{Binding Name}" Width="200" 
-                         TextAlignment="Center" VerticalContentAlignment="Center"
-                         IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}" />
-                                <TextBox Text="{Binding Complexity}" Width="100" 
-                         TextAlignment="Center" VerticalContentAlignment="Center"
-                         IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}" />
-                                <Button Content="Slet" Width="50" Margin="10,0,0,0"
-                        Command="{Binding DataContext.RemoveServiceCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                        CommandParameter="{Binding}"
-                        Visibility="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-
-
-                <!-- Økonomi overskrift -->
-                <TextBlock x:Name="Økonomi_HEADER_" Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,10" Width="52"/>
-
-                <!-- Tilbud afsendt -->
-                <TextBlock x:Name="TilbudAfsendt" Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="TilbudAfsendtDato" Text="{Binding SelectedProject.OfferSent}" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Tilbud godkendt -->
-                <TextBlock x:Name="TilbudGodkendt" Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="TilbudGodkendtDato" Text="{Binding SelectedProject.OfferApproved}" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Anslået pris -->
-                <TextBlock x:Name="AnslaaetPris" Text="Anslået pris:" Grid.Row="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="AnslaaetPrisFelt" Text="{Binding SelectedProject.EstimatedPrice}" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Pris -->
-                <TextBlock x:Name="Pris" Text="Pris:" Grid.Row="16" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-                <TextBox x:Name="PrisFelt" Text="{Binding SelectedProject.Price}" Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Betalt -->
-                <TextBlock x:Name="Betalt" Text="Betalt:" Grid.Row="17" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right"/>
-                <TextBox x:Name="BetaltFelt" Text="{Binding SelectedProject.Paid}" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" Margin="0,2" IsReadOnly="{Binding IsReadOnly}"/>
-
-                <!-- Knapper -->
-                <StackPanel Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Left" Margin="23,71,0,-51" RenderTransformOrigin="0.502,2.001" Grid.Column="1">
-                    <Button Content="{Binding EditButtonText}" Command="{Binding ToggleEditCommand}" Width="130" Margin="5" />
-                    <Button Content="{Binding BackButtonText}" Command="{Binding CancelEditCommand}" Width="130" Margin="5" />
-                </StackPanel>
-            </Grid>
-        </ScrollViewer>
-
-    </Grid>
 </Page>

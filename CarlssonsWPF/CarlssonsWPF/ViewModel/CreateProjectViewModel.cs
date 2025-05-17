@@ -27,10 +27,10 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
 
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
-        public ObservableCollection<Services> services { get; set; } = new ObservableCollection<Services>();
+        public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
+        public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
+        public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<Services> Services { get; set; } = new ObservableCollection<Services>();
 
         private const int P = 100; // Justeres til hvad end 1 Point skal koste i kroner.
 
@@ -42,11 +42,23 @@ namespace CarlssonsWPF.ViewModel
 
 
         // 5 ydelser fra brugeren
-        public ObservableCollection<Services> Services { get; set; } = new();
         public string? SelectedCustomer { get; set; }
         public string? CaseNumber { get; set; }
         public string? Address { get; set; }
         public DateTime? Deadline { get; set; }
+
+        private string? _projectPostalCode;
+        public string? ProjectPostalCode
+        {
+            get => _projectPostalCode;
+            set
+            {
+                _projectPostalCode = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public int? Scope { get; set; }
 
         public DateTime? OfferSent { get; set; }
@@ -78,18 +90,6 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-        private string? _offerApprovedInput;
-        public string? OfferApprovedInput
-        {
-            get => _offerApprovedInput;
-            set
-            {
-                _offerApprovedInput = value;
-                OnPropertyChanged();
-                OfferApproved = TryParseToDate(value);
-            }
-        }
-
         private string? _paidInput;
         public string? PaidInput
         {
@@ -103,6 +103,19 @@ namespace CarlssonsWPF.ViewModel
         }
 
 
+        private string? _offerApprovedInput;
+        public string? OfferApprovedInput
+        {
+            get => _offerApprovedInput;
+            set
+            {
+                _offerApprovedInput = value;
+                OnPropertyChanged();
+                OfferApproved = TryParseToDate(value);
+            }
+        }
+
+
         public CreateProjectViewModel()
         {
             _customerRepository = new FileCustomerRepository();
@@ -112,19 +125,19 @@ namespace CarlssonsWPF.ViewModel
 
             foreach (var customer in _customerRepository.GetAll())
             {
-                customers.Add(customer);
+                Customers.Add(customer);
             }
             foreach (var project in _projectRepository.GetAll())
             {
-                projects.Add(project);
+                Projects.Add(project);
             }
             foreach (var contract in _contractRepository.GetAll())
             {
-                contracts.Add(contract);
+                Contracts.Add(contract);
             }
             foreach (var service in _serviceRepository.GetAll())
             {
-                services.Add(service);
+                Services.Add(service);
             }
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
 
@@ -134,10 +147,9 @@ namespace CarlssonsWPF.ViewModel
                 Services.Add(entry);
             }
 
-            // Knapkommando
-            AddServiceCommand = new RelayCommand(_ => AddService(), _ => Services.Count < 10);
-
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
+
+
 
 
         }
@@ -175,26 +187,27 @@ namespace CarlssonsWPF.ViewModel
 
             input = input.Trim();
 
-            // 6-cifret form: ddMMyy → 24/03/95
+            // 6-cifret: ddMMyy
             if (input.Length == 6)
             {
                 var parsed = DateTime.TryParseExact(input, "ddMMyy", null, System.Globalization.DateTimeStyles.None, out var date);
-                return parsed ? date : null;
+                if (parsed) return date;
             }
 
-            // 8-cifret form: ddMMyyyy → 24/03/1995
+            // 8-cifret: ddMMyyyy
             if (input.Length == 8)
             {
                 var parsed = DateTime.TryParseExact(input, "ddMMyyyy", null, System.Globalization.DateTimeStyles.None, out var date);
-                return parsed ? date : null;
+                if (parsed) return date;
             }
 
-            // Sidste chance: normal DateTime.Parse
+            // Fallback: almindelig DateTime.TryParse
             if (DateTime.TryParse(input, out var fallbackDate))
                 return fallbackDate;
 
             return null;
         }
+
 
         public DateTime? ParsedDeadline { get; private set; }
 
@@ -226,10 +239,10 @@ namespace CarlssonsWPF.ViewModel
 
                 var project = new Project
                 {
-
                     CustomerName = SelectedCustomer,
                     CaseNumber = CaseNumber,
                     ProjectAddress = Address,
+                    ProjectPostalCode = int.TryParse(ProjectPostalCode, out int postalCode) ? postalCode : (int?)null,
                     Deadline = ParsedDeadline ?? DateTime.Today,
                     Scope = scopeValue,
                     Services = Services.Select((s, index) => new Services
@@ -240,11 +253,17 @@ namespace CarlssonsWPF.ViewModel
                     }).ToList(),
                     EstimatedPrice = EstimatedPrice,
 
+                    OfferSent = offerSentValue,
+                    OfferApproved = offerApprovedValue,
+                    Paid = paymentReceivedValue,
+                    Price = Price,
+
                     LastModified = DateTime.Now
                 };
 
+
                 _projectRepository.Add(project);
-                projects.Add(project);
+                Projects.Add(project);
 
 
                 var contract = new Contract
@@ -259,7 +278,7 @@ namespace CarlssonsWPF.ViewModel
 
 
                 _contractRepository.Add(contract);
-                contracts.Add(contract);
+                Contracts.Add(contract);
 
                 NavigateToViewProject?.Invoke(project);
 

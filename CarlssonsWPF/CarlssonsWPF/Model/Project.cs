@@ -11,14 +11,21 @@ namespace CarlssonsWPF.Model
     {
         public string CaseNumber { get; set; }
         public string ProjectAddress { get; set; }
-
-        public int ProjectPostalCode { get; set; }
+        public int? ProjectPostalCode { get; set; } // nullable
         public DateTime Deadline { get; set; }
         public double EstimatedPrice { get; set; }
+        public double Price { get; set; }
+
         public int Scope { get; set; }
         public string CustomerName { get; set; } // Reference to Customer
         public string Status { get; set; }
         public DateTime LastModified { get; set; }
+
+        public DateTime? OfferSent { get; set; }
+        public DateTime? OfferApproved { get; set; }
+        public DateTime? Paid { get; set; }
+
+
 
 
 

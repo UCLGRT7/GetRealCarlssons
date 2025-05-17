@@ -17,9 +17,9 @@ namespace CarlssonsWPF.ViewModel
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
 
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
+        public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
+        public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
 
 
         // Redigeringstilstand
@@ -81,9 +81,9 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
 
-            foreach (var c in _customerRepository.GetAll()) customers.Add(c);
-            foreach (var p in _projectRepository.GetAll()) projects.Add(p);
-            foreach (var con in _contractRepository.GetAll()) contracts.Add(con);
+            foreach (var c in _customerRepository.GetAll()) Customers.Add(c);
+            foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
+            foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
 
             SelectedProject = project;
             AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);

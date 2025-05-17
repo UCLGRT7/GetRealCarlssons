@@ -162,7 +162,7 @@
         Height="16"
         Width="72" />
        <TextBox x:Name="Postalcodefelt"
-        Text="{Binding ProjectPostalCode}"
+        Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="4"
         Grid.Column="1"
         Grid.ColumnSpan="2"
@@ -334,7 +334,7 @@
         Height="16"
         Width="33" />
        <TextBox x:Name="BetaltFelt"
-        Text="{Binding Paid}"
+        Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="17"
         Grid.Column="1"
         Grid.ColumnSpan="2"
