@@ -79,7 +79,8 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="140"/>
-                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="152"/>
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
 
@@ -97,7 +98,7 @@
         Grid.Column="1"
         ItemsSource="{Binding Customers}"
         SelectedItem="{Binding SelectedCustomer}"
-        Margin="0,6,0,4" />
+        Margin="0,6,0,4" Grid.ColumnSpan="2" />
 
                 <!--       Sagsnummer       -->
                 <TextBlock x:Name="SagsNummer"
@@ -115,7 +116,7 @@
         Grid.Row="1"
         Grid.Column="1"
         TextAlignment="Left"
-        Margin="0,5,0,5" />
+        Margin="0,5,0,5" Grid.ColumnSpan="2" />
 
                 <!--    Projekt Adresse   -->
                 <TextBlock x:Name="Adresse"
@@ -131,7 +132,7 @@
         Grid.Row="2"
         Grid.Column="1"
         TextAlignment="Left"
-        Margin="0,5,0,5" />
+        Margin="0,5,0,5" Grid.ColumnSpan="2" />
 
                 <!--                          Deadline                           -->
                 <TextBlock x:Name="Deadline"
@@ -150,7 +151,7 @@
         TextAlignment="Left"
         Margin="0,5,0,5"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8" />
+        MaxLength="8" Grid.ColumnSpan="2" />
 
                 <!--                          Postnummer                           -->
                 <TextBlock x:Name="Postalcode"
@@ -168,7 +169,7 @@
         Grid.Column="1"
         TextAlignment="Left"
         Margin="0,5,0,5"
-        MaxLength="8" />
+        MaxLength="8" Grid.ColumnSpan="2" />
 
                 <!--        Omfang        -->
                 <TextBlock x:Name="Omfang"
@@ -185,7 +186,7 @@
         Grid.Row="5"
         Grid.Column="1"
         TextAlignment="Left"
-        Margin="0,5,0,5" />
+        Margin="0,5,0,5" Grid.ColumnSpan="2" />
 
                 <!--                                     Header                                       -->
 
@@ -197,7 +198,7 @@
         Grid.Column="1"
         HorizontalAlignment="Center"
         FontWeight="Bold"
-        Width="52" />
+        Width="52" Grid.ColumnSpan="2" />
 
                 <!--                        Tilbud afsendt                        -->
                 <TextBlock x:Name="TilbudAfsendt"
@@ -216,7 +217,7 @@
         TextAlignment="Left"
         Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8" />
+        MaxLength="8" Grid.ColumnSpan="2" />
 
                 <!--                           Tilbud godkendt                        -->
                 <TextBlock x:Name="TilbudGodkendt"
@@ -235,7 +236,7 @@
         TextAlignment="Left"
         Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8" TextChanged="TilbudGodkendtDato_TextChanged" />
+        MaxLength="8" TextChanged="TilbudGodkendtDato_TextChanged" Grid.ColumnSpan="2" />
 
                 <!--        Anslået pris        -->
                 <TextBlock x:Name="AnslaaetPris"
@@ -253,7 +254,7 @@
         Grid.Row="15"
         Grid.Column="1"
         TextAlignment="Left"
-        Margin="0,2,0,2" />
+        Margin="0,2,0,2" Grid.ColumnSpan="2" />
 
                 <!--        Pris        -->
                 <TextBlock x:Name="Pris"
@@ -270,7 +271,7 @@
         Grid.Row="16"
         Grid.Column="1"
         TextAlignment="Left"
-        Margin="0,2,0,2" />
+        Margin="0,2,0,2" Grid.ColumnSpan="2" />
 
                 <!--            Betalt            -->
                 <TextBlock x:Name="Betalt"
@@ -289,7 +290,7 @@
         TextAlignment="Left" 
         Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8" />
+        MaxLength="8" Grid.ColumnSpan="2" />
 
 
                 <!--              Knapper              -->
@@ -323,7 +324,7 @@
                     <ColumnDefinition Width="30"/>
                     <!-- Kompleksitet 3 -->
                     <ColumnDefinition Width="75"/>
-                    
+
                 </Grid.ColumnDefinitions>
 
                 <!--              Navn                -->
@@ -359,7 +360,7 @@
         <StackPanel x:Name="Buttons"
         Orientation="Horizontal"
         HorizontalAlignment="Left"
-        Margin="150,495,0,155"
+        Margin="177,621,0,29"
         Width="280">
 
             <Button x:Name="Tilbage"
