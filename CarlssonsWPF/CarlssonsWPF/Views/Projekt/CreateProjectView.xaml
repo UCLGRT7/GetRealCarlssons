@@ -18,7 +18,7 @@
 
         <ScrollViewer
      VerticalScrollBarVisibility="Auto"
-     HorizontalScrollBarVisibility="Auto" Margin="0,0,300,0">
+     HorizontalScrollBarVisibility="Auto" Margin="0,0,500,0">
             <Grid x:Name="LeftGrid"
        Margin="40" Height="540" Width="420">
 
@@ -363,11 +363,9 @@
         Width="280">
 
             <Button x:Name="Tilbage"
-         Content="Tilbage"
-         Command="{Binding CancelCommand}"
-         Width="120"
-         Margin="10,0"
-         Height="40"/>
+                    Content="Tilbage"
+                    Click="Tilbage_Click" />
+
 
             <Button x:Name="Opret"
          Content="Opret"
