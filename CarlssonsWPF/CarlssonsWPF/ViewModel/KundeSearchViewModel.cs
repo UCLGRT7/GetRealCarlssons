@@ -11,7 +11,7 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-class KundeSearchViewModel : INotifyPropertyChanged
+    public class KundeSearchViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -111,10 +111,24 @@ class KundeSearchViewModel : INotifyPropertyChanged
                 (string.IsNullOrWhiteSpace(City) || customer.City?.ToLower().Contains(City.ToLower().Trim()) == true)
             ).ToList();
 
-            Customers.Clear();
-            foreach (var match in filtered)
-                Customers.Add(match);
-        }
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IProjectRepository _projectRepository;
+        private readonly IContractRepository _contractRepository;
 
+        List<Customer> results = new List<Customer>();
+
+        public KundeSearchViewModel()
+        {
+            _customerRepository = new FileCustomerRepository();
+            _projectRepository = new FileProjectRepository();
+            _contractRepository = new FileContractRepository();
+
+            foreach (var customer in _customerRepository.GetAll())
+            {
+                customers.Add(customer);
+            }
+
+        }
     }
+
 }
