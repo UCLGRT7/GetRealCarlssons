@@ -8,6 +8,7 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views;
 using CarlssonsWPF.Views.Projekt;
+using System;
 
 namespace CarlssonsWPF.ViewModel
 {

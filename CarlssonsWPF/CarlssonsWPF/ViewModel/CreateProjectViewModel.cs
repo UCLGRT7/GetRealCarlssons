@@ -27,6 +27,8 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
 
+
+
         public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
@@ -69,6 +71,8 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CreateProjectCommand { get; set; }
         public ICommand CancelCommand { get; set; }
         public double EstimatedPrice { get; set; }
+
+
 
         private void AddService()
         {
@@ -123,6 +127,7 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
 
+
             foreach (var customer in _customerRepository.GetAll())
             {
                 Customers.Add(customer);
@@ -148,6 +153,25 @@ namespace CarlssonsWPF.ViewModel
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
+
+#if DEBUG
+            // Fyld felter med testdata automatisk under debugging
+            SelectedCustomer = null;
+            CaseNumber = "2022_02_02";
+            Address = "Trævej 42";
+            Scope = 3;
+            ProjectPostalCode = "2100";
+            DeadlineInput = "24/03/96";
+            OfferSentInput = "24/03/96";
+            OfferApprovedInput = "24/03/96";
+            PaidInput = "24/03/96";
+            Price = 23000;
+            EstimatedPrice = 25000;
+
+            Services.Clear();
+            Services.Add(new Services { Name = "Beregning af Søjle", Complexity = 3 });
+            Services.Add(new Services { Name = "Beregning af Brandmur", Complexity = 2 });
+#endif
 
 
 
@@ -295,6 +319,8 @@ namespace CarlssonsWPF.ViewModel
 
 
     }
+
+
 
 }
 

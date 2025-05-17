@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.Helpers;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Projekt;
 
@@ -36,6 +37,24 @@ namespace CarlssonsWPF.Views.Projekt
         {
             InitializeComponent();
             DataContext = new ViewProjectViewModel(project);
+        }
+
+        private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                int caret = textBox.CaretIndex;
+                string raw = textBox.Text.Insert(caret, e.Text).Replace("/", "");
+
+                if (raw.Length > 4)
+                    raw = raw.Insert(4, "/");
+                if (raw.Length > 2)
+                    raw = raw.Insert(2, "/");
+
+                textBox.Text = raw;
+                textBox.CaretIndex = textBox.Text.Length;
+                e.Handled = true;
+            }
         }
     }
 }

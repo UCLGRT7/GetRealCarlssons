@@ -1,10 +1,21 @@
 <?xml version="1.0" ?>
-<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt" x:Class="CarlssonsWPF.Views.Projekt.ViewProjectView" mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280" Title="ViewProjectView">
-   
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+      xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
+      x:Class="CarlssonsWPF.Views.Projekt.ViewProjectView"
+      mc:Ignorable="d"
+      d:DesignHeight="720"
+      d:DesignWidth="1280"
+      
+      
+      Title="ViewProjectView">
+
   <Grid Margin="10">
    
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-     
      
       <Grid Margin="40" HorizontalAlignment="Center" VerticalAlignment="Center">
        
@@ -109,8 +120,7 @@
          Grid.ColumnSpan="2"
          ItemsSource="{Binding Customers}"
          SelectedItem="{Binding SelectedCustomer}"
-         Margin="0,6,20,4"
-         IsEnabled="{Binding IsEditing}"/>
+         Margin="0,6,20,4"/>
         
         
        <!--       Sagsnummer       -->
@@ -125,13 +135,12 @@
         Width="72" />
         
        <TextBox x:Name="SagsNummerFelt"
-        Text="{Binding CaseNumber}"
+        Text="{Binding SelectedProject.CaseNumber}"
         Grid.Row="1"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5"
-        IsEnabled="{Binding IsEditing}"/>
+        Margin="0,5,20,5"/>
         
         
         
@@ -145,18 +154,17 @@
         Margin="50,0,0,0"
         Height="16"
         Width="85" />
-       <TextBox x:Name="AdresseFelt"
-        Text="{Binding Address}"
+                <TextBox x:Name="AdresseFelt"
+        Text="{Binding SelectedProject.ProjectAddress}"
         Grid.Row="2"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5"
-        IsEnabled="{Binding IsEditing}"/>
-        
-        
-        
-        <!--                          Deadline                           -->
+        Margin="0,5,20,5"/>
+
+
+
+                <!--                          Deadline                           -->
        <TextBlock x:Name="Deadline"
         Text="Deadline:"
         Grid.Row="3"
@@ -167,15 +175,14 @@
         Height="16"
         Width="49" />
        <TextBox x:Name="DeadlineFelt"
-        Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+        Text="{Binding SelectedProject.DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="3"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
         Margin="0,5,20,5"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8"
-        IsEnabled="{Binding IsEditing}"/>
+        MaxLength="8"/>
         
         
          <!--                          Postnummer                           -->
@@ -189,14 +196,13 @@
         Height="16"
         Width="72" />
        <TextBox x:Name="Postalcodefelt"
-        Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+        Text="{Binding SelectedProject.ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="4"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
         Margin="0,5,20,5"
-        MaxLength="8"
-        IsEnabled="{Binding IsEditing}"/>
+        MaxLength="8"/>
         
         
         
@@ -211,13 +217,12 @@
         Height="16"
         Width="46" />
        <TextBox x:Name="OmfangFelt"
-        Text="{Binding Scope}"
+        Text="{Binding SelectedProject.Scope}"
         Grid.Row="5"
         Grid.Column="1"
         Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5"
-        IsEnabled="{Binding IsEditing}"/>
+        Margin="0,5,20,5"/>
         
         
         
@@ -235,7 +240,6 @@
          Margin="0,0,10,0"/>
         <Button Content="Tilføj ydelse"
          Command="{Binding AddServiceCommand}"
-         IsEnabled="{Binding Services.Count, Converter={StaticResource Max10EnableConverter}}"
          VerticalAlignment="Center"/>
        </StackPanel>
         
@@ -274,7 +278,7 @@
         
         
                     <!-- Ydelser dynamisk -->
-        <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+        <ItemsControl ItemsSource="{Binding Services}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
          
          <ItemsControl.ItemTemplate>
           
@@ -283,15 +287,13 @@
            <StackPanel Orientation="Horizontal" Margin="0,2">
             
 
-            <TextBox Text="{Binding ServiceEntry}"
+            <TextBox Text="{Binding SelectedProject.ServiceEntry}"
              Width="200" TextAlignment="Center"
-             VerticalContentAlignment="Center"
-             IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}"/>
+             VerticalContentAlignment="Center"/>
             
-            <TextBox Text="{Binding Complexity}"
+            <TextBox Text="{Binding SelectedProject.Complexity}"
              Width="100" TextAlignment="Center"
-             VerticalContentAlignment="Center"
-             IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType=Page}}"/>
+             VerticalContentAlignment="Center"/>
             
             <Button Content="Slet"
              Width="50"

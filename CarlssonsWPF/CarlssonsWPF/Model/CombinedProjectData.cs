@@ -1,3 +1,5 @@
+using System;
+
 public class CombinedProjectData
 {
     public string? CaseNumber { get; set; }

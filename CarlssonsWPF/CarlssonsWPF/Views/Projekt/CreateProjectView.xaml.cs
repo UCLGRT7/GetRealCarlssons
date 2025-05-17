@@ -27,58 +27,22 @@ namespace CarlssonsWPF.Views.Projekt
         public CreateProjectView(Frame frame)
         {
             InitializeComponent();
+            _createProjectViewModel = new CreateProjectViewModel();
+            DataContext = _createProjectViewModel;
+            _frame = frame;
 
-            var viewModel = new CreateProjectViewModel();
-
-            // 🔁 Navigation fra ViewModel til View
-            viewModel.NavigateToViewProject = project =>
+            // Navigation callback fra ViewModel
+            _createProjectViewModel.NavigateToViewProject = project =>
             {
                 var viewPage = new ViewProjectView(project);
                 NavigationService?.Navigate(viewPage);
             };
-
-            DataContext = viewModel;
-            _frame = frame;
         }
 
         private void AfsendtFelt_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
-        private void DatoFormatter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var tb = sender as TextBox;
-            if (tb == null) return;
-
-            var raw = new string(tb.Text.Where(char.IsDigit).ToArray());
-
-            if (raw.Length >= 6)
-            {
-                string dag = raw.Substring(0, 2);
-                string måned = raw.Substring(2, 2);
-                string år = raw.Length == 8 ? raw.Substring(6, 2) : raw.Substring(4, 2);
-                tb.Text = $"{dag}/{måned}/{år}";
-                tb.CaretIndex = tb.Text.Length;
-            }
-        }
-
-
-        private void Opret_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TilbudGodkendtDato_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            
-        }
-
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
         {
@@ -98,7 +62,19 @@ namespace CarlssonsWPF.Views.Projekt
             }
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
+        }
 
+        private void TilbudGodkendtDato_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+        }
+
+        private void TilbudGodkendtDato_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

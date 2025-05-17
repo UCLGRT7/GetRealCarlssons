@@ -3,83 +3,88 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+      xmlns:local="clr-namespace:CarlssonsWPF.Helpers"
+      xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="CreateProjectView">
 
-  <Grid
-    Margin="10">
-  
-    <ScrollViewer
+    <Page.Resources>
+        <local:Max10EnableConverter x:Key="Max10EnableConverter" />
+    </Page.Resources>
+
+    <!-- Hovedlayout -->
+    <Grid Margin="10">
+
+        <ScrollViewer
      VerticalScrollBarVisibility="Auto"
      HorizontalScrollBarVisibility="Auto">
-      <Grid
-       Margin="40" Height="540" Width="860">
-  
-       <Grid.RowDefinitions>
-  
-        <!--        Navn         -->
-        <RowDefinition Height="30"/>
-        
-        <!--     Sagsnummer      -->
-        <RowDefinition Height="30"/>
-        
-        <!--  Projekt Addresse  -->
-        <RowDefinition Height="30"/>
-        
-        <!--      Deadline      -->
-        <RowDefinition Height="30"/>
-        
-        <!--       Omfang       -->
-        <RowDefinition Height="30"/>
-        
-        <!--    PostalCode       -->
-        <RowDefinition Height="30"/>
-        
-        <!--  Ydelser Headers   -->
-        <RowDefinition Height="30"/>
-        
-        <!--      Ydelser        -->
-        <RowDefinition Height="16"/>
-        <RowDefinition Height="16"/>
-        <RowDefinition Height="16"/>
-        <RowDefinition Height="16"/>
-        <RowDefinition Height="16"/>
-        
-        <!--       Økonomi       -->
-        <RowDefinition Height="30"/>
-        
-        <!--    Tilbud Afsendt   -->
-        <RowDefinition Height="30"/>
-        
-        <!--   Tilbud Godkendt   -->
-        <RowDefinition Height="30"/>
-        
-        <!--    Anslået pris     -->
-        <RowDefinition Height="30"/>
-        
-        <!--        Pris         -->
-        <RowDefinition Height="30"/>
-        
-        <!--       Betalt        -->
-        <RowDefinition Height="30"/>
-        
-        <!--       Knapper       -->
-        <RowDefinition Height="25"/>
-        <RowDefinition Height="50"/>
-        <RowDefinition Height="0"/>
-        
-       </Grid.RowDefinitions>
+            <Grid x:Name="LeftGrid"
+       Margin="40" Height="540" Width="420">
 
-       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="140"/>
-        <ColumnDefinition Width="280"/>
-        <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-  
-       <!--              Navn                -->
-       <TextBlock x:Name="Navn"
+                <Grid.RowDefinitions>
+
+                    <!--        Navn         -->
+                    <RowDefinition Height="30"/>
+
+                    <!--     Sagsnummer      -->
+                    <RowDefinition Height="30"/>
+
+                    <!--  Projekt Addresse  -->
+                    <RowDefinition Height="30"/>
+
+                    <!--      Deadline      -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Omfang       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    PostalCode       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--  Ydelser Headers   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--      Ydelser        -->
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="17"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="16"/>
+
+                    <!--       Økonomi       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    Tilbud Afsendt   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--   Tilbud Godkendt   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    Anslået pris     -->
+                    <RowDefinition Height="30"/>
+
+                    <!--        Pris         -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Betalt        -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Knapper       -->
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="0"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <!--              Navn                -->
+                <TextBlock x:Name="Navn"
         Text="Navn:"
         Grid.Column="0"
         VerticalAlignment="Center"
@@ -87,16 +92,15 @@
         Margin="105,0,0,0"
         Height="16"
         Width="30" />
-       <ComboBox x:Name="NavnFelt"
+                <ComboBox x:Name="NavnFelt"
         Grid.Row="0"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         ItemsSource="{Binding Customers}"
         SelectedItem="{Binding SelectedCustomer}"
-        Margin="0,6,20,4" />
+        Margin="0,6,0,4" />
 
-       <!--       Sagsnummer       -->
-       <TextBlock x:Name="SagsNummer"
+                <!--       Sagsnummer       -->
+                <TextBlock x:Name="SagsNummer"
         Text="Sagsnummer:"
         Grid.Row="1"
         Grid.Column="0"
@@ -105,17 +109,16 @@
         Margin="63,0,0,0"
         Height="16"
         Width="72" />
-  
-       <TextBox x:Name="SagsNummerFelt"
+
+                <TextBox x:Name="SagsNummerFelt"
         Text="{Binding CaseNumber}"
         Grid.Row="1"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5" />
-  
-       <!--    Projekt Adresse   -->
-       <TextBlock x:Name="Adresse"
+        Margin="0,5,0,5" />
+
+                <!--    Projekt Adresse   -->
+                <TextBlock x:Name="Adresse"
         Text="Projekt Adresse:"
         Grid.Row="2"         Grid.Column="0"
         VerticalAlignment="Center"
@@ -123,16 +126,15 @@
         Margin="50,0,0,0"
         Height="16"
         Width="85" />
-       <TextBox x:Name="AdresseFelt"
+                <TextBox x:Name="AdresseFelt"
         Text="{Binding Address}"
         Grid.Row="2"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5" />
-  
-       <!--                          Deadline                           -->
-       <TextBlock x:Name="Deadline"
+        Margin="0,5,0,5" />
+
+                <!--                          Deadline                           -->
+                <TextBlock x:Name="Deadline"
         Text="Deadline:"
         Grid.Row="3"
         Grid.Column="0"
@@ -141,18 +143,17 @@
         Margin="86,0,0,0"
         Height="16"
         Width="49" />
-       <TextBox x:Name="DeadlineFelt"
+                <TextBox x:Name="DeadlineFelt"
         Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="3"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5"
+        Margin="0,5,0,5"
         PreviewTextInput="DateAutoFormatter"
         MaxLength="8" />
-  
-       <!--                          Postnummer                           -->
-       <TextBlock x:Name="Postalcode"
+
+                <!--                          Postnummer                           -->
+                <TextBlock x:Name="Postalcode"
         Text="Postnummer:"
         Grid.Row="4"
         Grid.Column="0"
@@ -161,17 +162,16 @@
         Margin="63,0,0,0"
         Height="16"
         Width="72" />
-       <TextBox x:Name="Postalcodefelt"
+                <TextBox x:Name="Postalcodefelt"
         Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="4"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5"
+        Margin="0,5,0,5"
         MaxLength="8" />
-  
-       <!--        Omfang        -->
-       <TextBlock x:Name="Omfang"
+
+                <!--        Omfang        -->
+                <TextBlock x:Name="Omfang"
         Text="Omfang:"
         Grid.Row="5"
         Grid.Column="0"
@@ -180,74 +180,27 @@
         Margin="89,0,0,0"
         Height="16"
         Width="46" />
-       <TextBox x:Name="OmfangFelt"
+                <TextBox x:Name="OmfangFelt"
         Text="{Binding Scope}"
         Grid.Row="5"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,5,20,5" />
-       
-       <!--                                     Header                                       -->
-       <StackPanel Grid.Row="6"
-        Grid.Column="1"
-        Orientation="Horizontal"
-        HorizontalAlignment="Left"
-        Margin="0,0,0,5" Width="117">
-       
-       
-        <TextBlock Text="Ydelser"
-        FontWeight="Bold"
-        VerticalAlignment="Center"
-        Margin="0,0,10,0"/>
-        <Button Content="Tilføj ydelse"
-        Command="{Binding AddServiceCommand}"
-        IsEnabled="{Binding Services.Count, Converter={StaticResource Max10EnableConverter}}"
-        VerticalAlignment="Center"/>
-        </StackPanel>
-       
-       <TextBlock x:Name="Kompleksitet"
-        Text="Kompleksitet"
-        Grid.Row="6" Grid.Column="2"
-        FontWeight="Bold"
-        HorizontalAlignment="Center"
-        Margin="0,0,0,6"
-        Width="74"/>
-       
-       <ItemsControl
-        ItemsSource="{Binding Services}"
-        Grid.Row="7"
-        Grid.Column="1"
-        Grid.ColumnSpan="2">
-        <ItemsControl.ItemTemplate>
-         <DataTemplate>
-       
-          <StackPanel
-           Orientation="Horizontal" Margin="0,2">
-           <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-            Width="200" />
-       
-           <TextBox Text="{Binding Complexity, UpdateSourceTrigger=PropertyChanged}"
-            Width="50"
-            Margin="10,0,0,0"
-            TextAlignment="Center" VerticalContentAlignment="Center" />
-           </StackPanel>
-          </DataTemplate>
-         </ItemsControl.ItemTemplate>
-        </ItemsControl>
-       
-       
-       <!--  Økonomi overskrift  -->
-       <TextBlock x:Name="Økonomi"
+        Margin="0,5,0,5" />
+
+                <!--                                     Header                                       -->
+
+
+                <!--  Økonomi overskrift  -->
+                <TextBlock x:Name="Økonomi"
         Text="Økonomi"
         Grid.Row="12"
         Grid.Column="1"
         HorizontalAlignment="Center"
         FontWeight="Bold"
         Width="52" />
-       
-       <!--                        Tilbud afsendt                        -->
-       <TextBlock x:Name="TilbudAfsendt"
+
+                <!--                        Tilbud afsendt                        -->
+                <TextBlock x:Name="TilbudAfsendt"
         Text="Tilbud afsendt:"
         Grid.Row="13"
         Grid.Column="0"
@@ -256,18 +209,17 @@
         Margin="57,0,0,0"
         Height="16"
         Width="78" />
-       <TextBox x:Name="TilbudAfsendtDato"
+                <TextBox x:Name="TilbudAfsendtDato"
         Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="13"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,2,20,2"
+        Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
         MaxLength="8" />
-       
-       <!--                           Tilbud godkendt                        -->
-       <TextBlock x:Name="TilbudGodkendt"
+
+                <!--                           Tilbud godkendt                        -->
+                <TextBlock x:Name="TilbudGodkendt"
         Text="Tilbud godkendt:"
         Grid.Row="14"
         Grid.Column="0"
@@ -276,18 +228,17 @@
         Margin="45,0,0,0"
         Height="16"
         Width="90" />
-       <TextBox x:Name="TilbudGodkendtDato"
+                <TextBox x:Name="TilbudGodkendtDato"
         Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="14"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,2,20,2"
+        Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
-        MaxLength="8" />
-       
-       <!--        Anslået pris        -->
-       <TextBlock x:Name="AnslaaetPris"
+        MaxLength="8" TextChanged="TilbudGodkendtDato_TextChanged" />
+
+                <!--        Anslået pris        -->
+                <TextBlock x:Name="AnslaaetPris"
         Text="Anslået pris:"
         Grid.Row="15"
         Grid.Column="0"
@@ -296,17 +247,16 @@
         Margin="71,0,0,0"
         Height="16"
         Width="64" />
-       <TextBox
+                <TextBox
         x:Name="AnslaaetPrisFelt"
         Text="{Binding EstimatedPrice}"
         Grid.Row="15"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,2,20,2" />
-       
-       <!--        Pris        -->
-       <TextBlock x:Name="Pris"
+        Margin="0,2,0,2" />
+
+                <!--        Pris        -->
+                <TextBlock x:Name="Pris"
         Text="Pris:"
         Grid.Row="16"
         Grid.Column="0"
@@ -315,16 +265,15 @@
         Margin="114,0,0,0"
         Height="16"
         Width="21" />
-       <TextBox x:Name="PrisFelt"
+                <TextBox x:Name="PrisFelt"
         Text="{Binding Price}"
         Grid.Row="16"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left"
-        Margin="0,2,20,2" />
-       
-       <!--            Betalt            -->
-       <TextBlock x:Name="Betalt"
+        Margin="0,2,0,2" />
+
+                <!--            Betalt            -->
+                <TextBlock x:Name="Betalt"
         Text="Betalt:"
         Grid.Row="17"
         Grid.Column="0"
@@ -333,41 +282,103 @@
         Margin="102,0,0,0"
         Height="16"
         Width="33" />
-       <TextBox x:Name="BetaltFelt"
+                <TextBox x:Name="BetaltFelt"
         Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}"
         Grid.Row="17"
         Grid.Column="1"
-        Grid.ColumnSpan="2"
         TextAlignment="Left" 
-        Margin="0,2,20,2"
+        Margin="0,2,0,2"
         PreviewTextInput="DateAutoFormatter"
         MaxLength="8" />
-       
-       
-       <!--              Knapper              -->
-       <StackPanel
-        Grid.Row="19"
+
+
+                <!--              Knapper              -->
+
+            </Grid>
+        </ScrollViewer>
+            <Grid x:Name="RightGrid="40" Height="540" Width="420">
+
+                <Grid.RowDefinitions>
+
+                    <!--        Navn         -->
+                    <RowDefinition Height="30"/>
+
+                    <!--     Sagsnummer      -->
+                    <RowDefinition Height="30"/>
+
+                    <!--  Projekt Addresse  -->
+                    <RowDefinition Height="30"/>
+
+                    <!--      Deadline      -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Omfang       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    PostalCode       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--  Ydelser Headers   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--      Ydelser        -->
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="17"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="16"/>
+
+                    <!--       Økonomi       -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    Tilbud Afsendt   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--   Tilbud Godkendt   -->
+                    <RowDefinition Height="30"/>
+
+                    <!--    Anslået pris     -->
+                    <RowDefinition Height="30"/>
+
+                    <!--        Pris         -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Betalt        -->
+                    <RowDefinition Height="30"/>
+
+                    <!--       Knapper       -->
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="0"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+        <StackPanel x:Name="Buttons"
         Orientation="Horizontal"
         HorizontalAlignment="Left"
-        Margin="10,0,0,0"
-        Grid.ColumnSpan="2" Grid.Column="1" Width="280">
-       
-        <Button x:Name="Tilbage"
+        Margin="150,495,0,155"
+        Width="280">
+
+            <Button x:Name="Tilbage"
          Content="Tilbage"
          Command="{Binding CancelCommand}"
          Width="120"
          Margin="10,0"
          Height="40"/>
-       
-        <Button x:Name="Opret"
+
+            <Button x:Name="Opret"
          Content="Opret"
          Command="{Binding CreateProjectCommand}"
          Width="120"
          Margin="10,0"
          Height="40"/>
-       </StackPanel>
-  
-      </Grid>
-    </ScrollViewer>
-  </Grid>
+        </StackPanel>
+    </Grid>
+        
 </Page>
+    

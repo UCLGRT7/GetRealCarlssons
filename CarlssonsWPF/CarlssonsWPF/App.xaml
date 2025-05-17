@@ -1,11 +1,13 @@
 ﻿<Application x:Class="CarlssonsWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
+             xmlns:local="clr-namespace:CarlssonsWPF.Helpers"
              StartupUri="Views/MainWindow.xaml">
+
+
     <Application.Resources>
 
-        <helpers:Max10EnableConverter x:Key="Max10EnableConverter" />
+        <local:Max10EnableConverter x:Key="Max10EnableConverter" />
 
         <!-- Tekst -->
         <Style TargetType="TextBlock">
