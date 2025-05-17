@@ -18,7 +18,7 @@
 
         <ScrollViewer
      VerticalScrollBarVisibility="Auto"
-     HorizontalScrollBarVisibility="Auto">
+     HorizontalScrollBarVisibility="Auto" Margin="0,0,300,0">
             <Grid x:Name="LeftGrid"
        Margin="40" Height="540" Width="420">
 
@@ -296,60 +296,25 @@
 
             </Grid>
         </ScrollViewer>
-            <Grid x:Name="RightGrid="40" Height="540" Width="420">
+        <ScrollViewer
+            VerticalScrollBarVisibility="Auto"
+            HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="695,0,0,0" Width="565">
+            <Grid x:Name="RightGrid"
+    Height="540" Width="420">
+
+                <!--                                     Header                                       -->
+
+
+                <!--              Knapper              -->
 
                 <Grid.RowDefinitions>
 
-                    <!--        Navn         -->
+                    <!--      Headers        -->
                     <RowDefinition Height="30"/>
-
-                    <!--     Sagsnummer      -->
-                    <RowDefinition Height="30"/>
-
-                    <!--  Projekt Addresse  -->
-                    <RowDefinition Height="30"/>
-
-                    <!--      Deadline      -->
-                    <RowDefinition Height="30"/>
-
-                    <!--       Omfang       -->
-                    <RowDefinition Height="30"/>
-
-                    <!--    PostalCode       -->
-                    <RowDefinition Height="30"/>
-
-                    <!--  Ydelser Headers   -->
-                    <RowDefinition Height="30"/>
-
-                    <!--      Ydelser        -->
-                    <RowDefinition Height="15"/>
                     <RowDefinition Height="17"/>
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="16"/>
-
-                    <!--       Økonomi       -->
-                    <RowDefinition Height="30"/>
-
-                    <!--    Tilbud Afsendt   -->
-                    <RowDefinition Height="30"/>
-
-                    <!--   Tilbud Godkendt   -->
-                    <RowDefinition Height="30"/>
-
-                    <!--    Anslået pris     -->
-                    <RowDefinition Height="30"/>
-
-                    <!--        Pris         -->
-                    <RowDefinition Height="30"/>
-
-                    <!--       Betalt        -->
-                    <RowDefinition Height="30"/>
-
-                    <!--       Knapper       -->
-                    <RowDefinition Height="25"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="0"/>
 
                 </Grid.RowDefinitions>
 
@@ -358,6 +323,595 @@
                     <ColumnDefinition Width="280"/>
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
+
+                <!--              Navn                -->
+                <TextBlock x:Name="Navn1"
+                        Text="Navn:"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="105,0,0,0"
+                        Height="16"
+                        Width="30" />
+                <TextBlock x:Name="Kompleksitet"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+
+                <!--       Sagsnummer       -->
+                <TextBlock x:Name="SagsNummer1"
+                        Text="Sagsnummer:"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="63,0,0,0"
+                        Height="16"
+                        Width="72" />
+                <ComboBox x:Name="YdelserCombo"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 ItemsSource="{Binding Services}"
+                 SelectedItem="{Binding SelectedServices}"
+                 Margin="0,6,0,4" />
+
+
+                <Grid x:Name="LeftGrid1"
+                Margin="0,20,-220,-75" Grid.Column="2" Grid.RowSpan="19" Grid.Row="2">
+
+                    <!--                                     Header                                       -->
+
+
+                    <!--              Knapper              -->
+
+                    <Grid.RowDefinitions>
+
+                        <!--        Navn         -->
+                        <RowDefinition Height="30"/>
+
+                        <!--     Sagsnummer      -->
+                        <RowDefinition Height="30"/>
+
+                        <!--  Projekt Addresse  -->
+                        <RowDefinition Height="30"/>
+
+                        <!--      Deadline      -->
+                        <RowDefinition Height="30"/>
+
+                        <!--       Omfang       -->
+                        <RowDefinition Height="30"/>
+
+                        <!--    PostalCode       -->
+                        <RowDefinition Height="30"/>
+
+                        <!--  Ydelser Headers   -->
+                        <RowDefinition Height="30"/>
+
+                        <!--      Ydelser        -->
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="17"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="16"/>
+
+                        <!--       Økonomi       -->
+                        <RowDefinition Height="30"/>
+
+                        <!--    Tilbud Afsendt   -->
+                        <RowDefinition Height="30"/>
+
+                        <!--   Tilbud Godkendt   -->
+                        <RowDefinition Height="30"/>
+
+                        <!--    Anslået pris     -->
+                        <RowDefinition Height="30"/>
+
+                        <!--        Pris         -->
+                        <RowDefinition Height="30"/>
+
+                        <!--       Betalt        -->
+                        <RowDefinition Height="30"/>
+
+                        <!--       Knapper       -->
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="0"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--              Navn                -->
+                    <TextBlock x:Name="Navn2"
+                    Text="Navn:"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="105,0,0,0"
+                    Height="16"
+                    Width="30" />
+                    <ComboBox x:Name="NavnFelt2"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ItemsSource="{Binding Customers}"
+                    SelectedItem="{Binding SelectedCustomer}"
+                    Margin="0,6,0,4" />
+
+                    <!--       Sagsnummer       -->
+                    <TextBlock x:Name="SagsNummer2"
+                    Text="Sagsnummer:"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="63,0,0,0"
+                    Height="16"
+                    Width="72" />
+
+                    <TextBox x:Name="SagsNummerFelt2"
+                    Text="{Binding CaseNumber}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,5,0,5" />
+
+                    <!--    Projekt Adresse   -->
+                    <TextBlock x:Name="Adresse2"
+                    Text="Projekt Adresse:"
+                    Grid.Row="2"         Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="50,0,0,0"
+                    Height="16"
+                    Width="85" />
+                    <TextBox x:Name="AdresseFelt2"
+                    Text="{Binding Address}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,5,0,5" />
+
+                    <!--                          Deadline                           -->
+                    <TextBlock x:Name="Deadline2"
+                    Text="Deadline:"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="86,0,0,0"
+                    Height="16"
+                    Width="49" />
+                    <TextBox x:Name="DeadlineFelt2"
+                    Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,5,0,5"
+                    PreviewTextInput="DateAutoFormatter"
+                    MaxLength="8" />
+
+                    <!--                          Postnummer                           -->
+                    <TextBlock x:Name="Postalcode2"
+                    Text="Postnummer:"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="63,0,0,0"
+                    Height="16"
+                    Width="72" />
+                    <TextBox x:Name="Postalcodefelt2"
+                    Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,5,0,5"
+                    MaxLength="8" />
+
+                    <!--        Omfang        -->
+                    <TextBlock x:Name="Omfang2"
+                    Text="Omfang:"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="89,0,0,0"
+                    Height="16"
+                    Width="46" />
+                    <TextBox x:Name="OmfangFelt2"
+                    Text="{Binding Scope}"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,5,0,5" />
+
+                    <!--  Økonomi overskrift  -->
+                    <TextBlock x:Name="Økonomi2"
+                    Text="Økonomi"
+                    Grid.Row="12"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    Width="52" />
+
+                    <!--                        Tilbud afsendt                        -->
+                    <TextBlock x:Name="TilbudAfsendt2"
+                    Text="Tilbud afsendt:"
+                    Grid.Row="13"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="57,0,0,0"
+                    Height="16"
+                    Width="78" />
+                    <TextBox x:Name="TilbudAfsendtDato2"
+                    Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="13"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,2,0,2"
+                    PreviewTextInput="DateAutoFormatter"
+                    MaxLength="8" />
+
+                    <!--                           Tilbud godkendt                        -->
+                    <TextBlock x:Name="TilbudGodkendt2"
+                    Text="Tilbud godkendt:"
+                    Grid.Row="14"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="45,0,0,0"
+                    Height="16"
+                    Width="90" />
+                    <TextBox x:Name="TilbudGodkendtDato2"
+                    Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="14"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,2,0,2"
+                    PreviewTextInput="DateAutoFormatter"
+                    MaxLength="8" TextChanged="TilbudGodkendtDato_TextChanged" />
+
+                    <!--        Anslået pris        -->
+                    <TextBlock x:Name="AnslaaetPris2"
+                    Text="Anslået pris:"
+                    Grid.Row="15"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="71,0,0,0"
+                    Height="16"
+                    Width="64" />
+                    <TextBox
+                    x:Name="AnslaaetPrisFelt2"
+                    Text="{Binding EstimatedPrice}"
+                    Grid.Row="15"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,2,0,2" />
+
+                    <!--        Pris        -->
+                    <TextBlock x:Name="Pris2"
+                    Text="Pris:"
+                    Grid.Row="16"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="114,0,0,0"
+                    Height="16"
+                    Width="21" />
+                    <TextBox x:Name="PrisFelt2"
+                    Text="{Binding Price}"
+                    Grid.Row="16"
+                    Grid.Column="1"
+                    TextAlignment="Left"
+                    Margin="0,2,0,2" />
+
+                    <!--            Betalt            -->
+                    <TextBlock x:Name="Betalt2"
+                    Text="Betalt:"
+                    Grid.Row="17"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="102,0,0,0"
+                    Height="16"
+                    Width="33" />
+                    <TextBox x:Name="BetaltFelt2"
+                    Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="17"
+                    Grid.Column="1"
+                    TextAlignment="Left" 
+                    Margin="0,2,0,2"
+                    PreviewTextInput="DateAutoFormatter"
+                    MaxLength="8" />
+                    <Grid x:Name="LeftGrid_Copy1"
+                    Grid.Column="2" Margin="0,20,-220,-75" Grid.RowSpan="19" Grid.Row="2">
+
+                        <!--                                     Header                                       -->
+
+
+                        <!--              Knapper              -->
+
+                        <Grid.RowDefinitions>
+
+                            <!--        Navn         -->
+                            <RowDefinition Height="30"/>
+
+                            <!--     Sagsnummer      -->
+                            <RowDefinition Height="30"/>
+
+                            <!--  Projekt Addresse  -->
+                            <RowDefinition Height="30"/>
+
+                            <!--      Deadline      -->
+                            <RowDefinition Height="30"/>
+
+                            <!--       Omfang       -->
+                            <RowDefinition Height="30"/>
+
+                            <!--    PostalCode       -->
+                            <RowDefinition Height="30"/>
+
+                            <!--  Ydelser Headers   -->
+                            <RowDefinition Height="30"/>
+
+                            <!--      Ydelser        -->
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="17"/>
+                            <RowDefinition Height="16"/>
+                            <RowDefinition Height="16"/>
+                            <RowDefinition Height="16"/>
+
+                            <!--       Økonomi       -->
+                            <RowDefinition Height="30"/>
+
+                            <!--    Tilbud Afsendt   -->
+                            <RowDefinition Height="30"/>
+
+                            <!--   Tilbud Godkendt   -->
+                            <RowDefinition Height="30"/>
+
+                            <!--    Anslået pris     -->
+                            <RowDefinition Height="30"/>
+
+                            <!--        Pris         -->
+                            <RowDefinition Height="30"/>
+
+                            <!--       Betalt        -->
+                            <RowDefinition Height="30"/>
+
+                            <!--       Knapper       -->
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="0"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="280"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--              Navn                -->
+                        <TextBlock x:Name="Navn3"
+                        Text="Navn:"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="105,0,0,0"
+                        Height="16"
+                        Width="30" />
+                        <ComboBox x:Name="NavnFelt3"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        ItemsSource="{Binding Customers}"
+                        SelectedItem="{Binding SelectedCustomer}"
+                        Margin="0,6,0,4" />
+
+                        <!--       Sagsnummer       -->
+                        <TextBlock x:Name="SagsNummer3"
+                        Text="Sagsnummer:"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="63,0,0,0"
+                        Height="16"
+                        Width="72" />
+
+                        <TextBox x:Name="SagsNummerFelt3"
+                        Text="{Binding CaseNumber}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,5,0,5" />
+
+                        <!--    Projekt Adresse   -->
+                        <TextBlock x:Name="Adresse3"
+                        Text="Projekt Adresse:"
+                        Grid.Row="2"         Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="50,0,0,0"
+                        Height="16"
+                        Width="85" />
+                        <TextBox x:Name="AdresseFelt3"
+                        Text="{Binding Address}"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,5,0,5" />
+
+                        <!--                          Deadline                           -->
+                        <TextBlock x:Name="Deadline3"
+                        Text="Deadline:"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="86,0,0,0"
+                        Height="16"
+                        Width="49" />
+                        <TextBox x:Name="DeadlineFelt3"
+                        Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,5,0,5"
+                        PreviewTextInput="DateAutoFormatter"
+                        MaxLength="8" />
+
+                        <!--                          Postnummer                           -->
+                        <TextBlock x:Name="Postalcode3"
+                        Text="Postnummer:"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="63,0,0,0"
+                        Height="16"
+                        Width="72" />
+                        <TextBox x:Name="Postalcodefelt3"
+                        Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,5,0,5"
+                        MaxLength="8" />
+
+                        <!--        Omfang        -->
+                        <TextBlock x:Name="Omfang3"
+                        Text="Omfang:"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="89,0,0,0"
+                        Height="16"
+                        Width="46" />
+                        <TextBox x:Name="OmfangFelt3"
+                        Text="{Binding Scope}"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,5,0,5" />
+
+                        <!--  Økonomi overskrift  -->
+                        <TextBlock x:Name="Økonomi3"
+                        Text="Økonomi"
+                        Grid.Row="12"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        Width="52" />
+
+                        <!--                        Tilbud afsendt                        -->
+                        <TextBlock x:Name="TilbudAfsendt3"
+                        Text="Tilbud afsendt:"
+                        Grid.Row="13"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="57,0,0,0"
+                        Height="16"
+                        Width="78" />
+                        <TextBox x:Name="TilbudAfsendtDato3"
+                        Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="13"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,2,0,2"
+                        PreviewTextInput="DateAutoFormatter"
+                        MaxLength="8" />
+
+                        <!--                           Tilbud godkendt                        -->
+                        <TextBlock x:Name="TilbudGodkendt3"
+                        Text="Tilbud godkendt:"
+                        Grid.Row="14"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="45,0,0,0"
+                        Height="16"
+                        Width="90" />
+                        <TextBox x:Name="TilbudGodkendtDato3"
+                        Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="14"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,2,0,2"
+                        PreviewTextInput="DateAutoFormatter"
+                        MaxLength="8" TextChanged="TilbudGodkendtDato_TextChanged" />
+
+                        <!--        Anslået pris        -->
+                        <TextBlock x:Name="AnslaaetPris3"
+                        Text="Anslået pris:"
+                        Grid.Row="15"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="71,0,0,0"
+                        Height="16"
+                        Width="64" />
+                        <TextBox
+                        x:Name="AnslaaetPrisFelt3"
+                        Text="{Binding EstimatedPrice}"
+                        Grid.Row="15"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,2,0,2" />
+
+                        <!--        Pris        -->
+                        <TextBlock x:Name="Pris3"
+                        Text="Pris:"
+                        Grid.Row="16"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="114,0,0,0"
+                        Height="16"
+                        Width="21" />
+                        <TextBox x:Name="PrisFelt3"
+                        Text="{Binding Price}"
+                        Grid.Row="16"
+                        Grid.Column="1"
+                        TextAlignment="Left"
+                        Margin="0,2,0,2" />
+
+                        <!--            Betalt            -->
+                        <TextBlock x:Name="Betalt3"
+                        Text="Betalt:"
+                        Grid.Row="17"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="102,0,0,0"
+                        Height="16"
+                        Width="33" />
+                        <TextBox x:Name="BetaltFelt3"
+                        Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Row="17"
+                        Grid.Column="1"
+                        TextAlignment="Left" 
+                        Margin="0,2,0,2"
+                        PreviewTextInput="DateAutoFormatter"
+                        MaxLength="8" />
+
+
+                    </Grid>
+
+
+                </Grid>
+
+
+            </Grid>
+        </ScrollViewer>
+
         <StackPanel x:Name="Buttons"
         Orientation="Horizontal"
         HorizontalAlignment="Left"
@@ -379,6 +933,6 @@
          Height="40"/>
         </StackPanel>
     </Grid>
-        
+
 </Page>
     
