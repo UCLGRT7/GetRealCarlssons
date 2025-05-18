@@ -36,8 +36,16 @@ namespace CarlssonsWPF.Model
                 DateTime lastEdited = DateTime.MinValue;
                 if (contract != null)
                 {
-                    lastEdited = new[] { contract.OfferSent ?? DateTime.MinValue, contract.OfferApproved ?? DateTime.MinValue, contract.Paid ?? DateTime.MinValue }
-                        .Max();
+                    var dates = new[]
+                    {
+                contract.OfferSent,
+                contract.OfferApproved,
+                contract.Paid
+            }
+                    .Where(d => d.HasValue)
+                    .Select(d => d.Value);
+
+                    lastEdited = dates.Any() ? dates.Max() : DateTime.MinValue;
                 }
 
                 var viewModel = new CombinedProjectData
@@ -47,7 +55,7 @@ namespace CarlssonsWPF.Model
                     LastModified = lastEdited,
                     Deadline = project.Deadline,
                     Status = project.Status,
-                    OfferConfirmed = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
+                    OfferApproved = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
                     IsPaymentRecieved = contract != null && contract.Paid.HasValue ? "Yes" : "No"
                 };
 

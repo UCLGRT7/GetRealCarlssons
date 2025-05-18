@@ -5,7 +5,7 @@
     "Paid": "2025-04-13T14:35:29.763447+02:00",
     "OfferApproved": "2025-04-13T14:35:29.763447+02:00",
     "Price": 5000,
-    "CaseNumber": "2022_01_02"
+    "CaseNumber": "1234"
   },
   {
     "InvoiceNumber": 123,
@@ -13,6 +13,14 @@
     "Paid": null,
     "OfferApproved": null,
     "Price": 7500,
-    "CaseNumber": "2022_10_02"
+    "CaseNumber": "2022_01_02"
+  },
+  {
+    "InvoiceNumber": 0,
+    "OfferSent": null,
+    "Paid": null,
+    "OfferApproved": null,
+    "Price": 0,
+    "CaseNumber": null
   }
 ]

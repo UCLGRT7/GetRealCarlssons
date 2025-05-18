@@ -15,7 +15,13 @@ namespace CarlssonsWPF.Data.FileRepositories
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");
         private static string subFolder = Path.Combine(folder, "SavedFiles");
+
+#if DEBUG
+        private static string projectFilePath = Path.Combine(subFolder, "projects_test.json");
+#else
         private static string projectFilePath = Path.Combine(subFolder, "projects.json");
+#endif
+
         public string FilePath { get; set; }
 
         public FileProjectRepository(string? filePath = null)
@@ -69,7 +75,8 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public IEnumerable<Project> GetByCustomerId(string customerName)
         {
-            return GetAll().Where(p => p.CustomerName.Equals(customerName, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(p => p.CustomerName != null && p.CustomerName.Equals(customerName, StringComparison.OrdinalIgnoreCase));
+
         }
 
         public IEnumerable<Project> GetByAddress(string address)

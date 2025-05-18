@@ -43,7 +43,7 @@ namespace CarlssonsWPF.ViewModel
         public string EditButtonText => IsEditing ? "Bekræft redigering" : "Redigér";
         public string BackButtonText => IsEditing ? "Annullér redigering" : "Tilbage";
 
-         private Project _selectedProject;
+        private Project _selectedProject;
         public Project SelectedProject
         {
             get => _selectedProject;
@@ -66,9 +66,9 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CancelEditCommand => new RelayCommand(_ => CancelEdit());
         private void AddService()
         {
-            if (SelectedProject.ServiceEntry.Count < 10)
+            if (SelectedProject.Services.Count < 10)
             {
-                SelectedProject.ServiceEntry.Add(new Services { ServiceEntry = "", Complexity = 0 });
+                SelectedProject.Services.Add(new Services { Name = "", Complexity = 0 });
                 OnPropertyChanged(nameof(SelectedProject));
             }
         }
@@ -86,7 +86,7 @@ namespace CarlssonsWPF.ViewModel
             foreach (var con in _contractRepository.GetAll()) contracts.Add(con);
 
             SelectedProject = project;
-            AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.ServiceEntry.Count < 10);
+            AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
             RemoveServiceCommand = new RelayCommand(obj => RemoveService(obj));
             CancelCommand = new RelayCommand(_ => CancelEdit());
         }
@@ -105,7 +105,7 @@ namespace CarlssonsWPF.ViewModel
         {
             if (service is Services entry)
             {
-                SelectedProject.ServiceEntry.Remove(entry);
+                SelectedProject.Services.Remove(entry);
                 OnPropertyChanged(nameof(SelectedProject));
                 CommandManager.InvalidateRequerySuggested();
             }

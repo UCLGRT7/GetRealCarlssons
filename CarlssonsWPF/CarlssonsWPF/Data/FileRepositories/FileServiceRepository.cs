@@ -10,12 +10,18 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class FileServiceRepository :  IServiceRepository
+    public class FileServiceRepository : IServiceRepository
     {
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");
         private static string subFolder = Path.Combine(folder, "SavedFiles");
+
+#if DEBUG
+        private static string servicesFilePath = Path.Combine(subFolder, "services_test.json");
+#else
         private static string servicesFilePath = Path.Combine(subFolder, "services.json");
+#endif
+
         public string FilePath { get; set; }
 
         public FileServiceRepository(string? filePath = null)
@@ -67,9 +73,9 @@ namespace CarlssonsWPF.Data.FileRepositories
             return services;
         }
 
-        public IEnumerable<Services> GetByServiceEntry(string serviceEntry)
+        public IEnumerable<Services> GetByServiceEntry(string name)
         {
-            return GetAll().Where(s => s.ServiceEntry.Contains(serviceEntry, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<Services> GetByComplexity(int complexity)
