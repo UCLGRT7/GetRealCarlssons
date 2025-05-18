@@ -34,10 +34,21 @@ namespace CarlssonsWPF.Views.Projekt
             // Navigation callback fra ViewModel
             _createProjectViewModel.NavigateToViewProject = project =>
             {
+                project.CustomerName = _createProjectViewModel.SelectedCustomer?.Name;
+                project.Deadline = _createProjectViewModel.Deadline;
+                project.OfferSent = _createProjectViewModel.OfferSent;
+                project.OfferApproved = _createProjectViewModel.OfferApproved;
+                project.Paid = _createProjectViewModel.Paid;
+
                 var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
-
             };
+
+
+
+
+
+
         }
 
         private void AfsendtFelt_TextChanged(object sender, TextChangedEventArgs e)
@@ -83,6 +94,21 @@ namespace CarlssonsWPF.Views.Projekt
             if (_frame.CanGoBack)
                 _frame.GoBack();
         }
+
+        private void CancelCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService != null && this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack(); // Går tilbage til forrige visning
+            }
+            else
+            {
+                // Hvis der ikke er navigation, lukker vi hele vinduet (f.eks. hvis det blev vist i Window)
+                Window.GetWindow(this)?.Close();
+            }
+        }
+
+
 
 
     }

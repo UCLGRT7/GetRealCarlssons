@@ -1,25 +1,18 @@
-﻿
-using System;
-using System.Windows; // for MessageBox
+﻿using System;
+using System.Windows;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using CarlssonsWPF.Model;
-using CarlssonsWPF.Service;
-using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using System.Text.Json;
+using System.IO;
 
 namespace CarlssonsWPF.ViewModel
 {
-
-
-
-
     public class CreateProjectViewModel : BaseViewModel
     {
         private readonly ICustomerRepository _customerRepository;
@@ -27,98 +20,154 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
 
-
-
         public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
-        public ObservableCollection<Services> Services { get; set; } = new ObservableCollection<Services>();
+        public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
+        public ObservableCollection<ComplexityEntry> Complexities { get; set; } = new ObservableCollection<ComplexityEntry>();
 
-        private const int P = 100; // Justeres til hvad end 1 Point skal koste i kroner.
+        // Her er den korrekte ObservableCollection af SelectedServiceEntry
+        public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
 
-        public ICommand AddServiceCommand { get; }
+        public class SelectedServiceEntry : INotifyPropertyChanged
+        {
+            private ServiceEntry? _service;
+            public ServiceEntry? Service
+            {
+                get => _service;
+                set { _service = value; OnPropertyChanged(); }
+            }
+            public event PropertyChangedEventHandler? PropertyChanged;
+            protected void OnPropertyChanged([CallerMemberName] string? name = null)
+                => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
- 
+        public bool IsEditing { get; set; } = true;
+
+        public ICommand CreateProjectCommand { get; set; }
+
+        private Customer _customer;
+        public Customer SelectedCustomer
+        {
+            get => _customer;
+            set
+            {
+                _customer = value;
+                OnPropertyChanged();
+
+                // Opdater CustomerName med kun kundens navn som string
+                if (SelectedProject != null && _customer != null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"SelectedCustomer: {_customer.Name}"); // Debug: udskriv det valgte kundenavn
+
+                    // Opdater SelectedProject.CustomerName med kundens navn som string
+                    SelectedProject.CustomerName = _customer.Name?.Trim();
+
+                    System.Diagnostics.Debug.WriteLine($"Updated CustomerName: {SelectedProject.CustomerName}"); // Debug: udskriv den opdaterede CustomerName
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
+                }
+            }
+        }
 
 
 
+        private Project _selectedProject;
+        public Project SelectedProject
+        {
+            get => _selectedProject;
+            set
+            {
+                _selectedProject = value;
+                OnPropertyChanged();
+            }
+        }
 
-        // 5 ydelser fra brugeren
-        public string? SelectedCustomer { get; set; }
-        public string? CaseNumber { get; set; }
-        public string? Address { get; set; }
-        public DateTime? Deadline { get; set; }
+        private string? _caseNumber;
+        public string? CaseNumber
+        {
+            get => _caseNumber;
+            set { _caseNumber = value; OnPropertyChanged(); }
+        }
+
+        private string? _address;
+        public string? Address
+        {
+            get => _address;
+            set { _address = value; OnPropertyChanged(); }
+        }
+
+        private int? _scope;
+        public int? Scope
+        {
+            get => _scope;
+            set { _scope = value; OnPropertyChanged(); }
+        }
 
         private string? _projectPostalCode;
         public string? ProjectPostalCode
         {
             get => _projectPostalCode;
-            set
-            {
-                _projectPostalCode = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        public int? Scope { get; set; }
-
-        public DateTime? OfferSent { get; set; }
-        public DateTime? OfferApproved { get; set; }
-        public DateTime? Paid { get; set; }
-        public double Price { get; set; }
-        public Action<Project>? NavigateToViewProject { get; set; }
-        public ICommand CreateProjectCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
-        public double EstimatedPrice { get; set; }
-
-
-
-        private void AddService()
-        {
-            var entry = new Services();
-            Services.Add(entry);
-            UpdateEstimatedPrice();
-            CommandManager.InvalidateRequerySuggested();
+            set { _projectPostalCode = value; OnPropertyChanged(); }
         }
 
         private string? _offerSentInput;
         public string? OfferSentInput
         {
             get => _offerSentInput;
-            set
-            {
-                _offerSentInput = value;
-                OnPropertyChanged();
-                OfferSent = TryParseToDate(value);
-            }
+            set { _offerSentInput = value; OnPropertyChanged(); OfferSent = TryParseToDate(value); }
         }
+
+        private DateTime? _deadline;
+        public DateTime? Deadline
+        {
+            get => _deadline;
+            set { if (_deadline != value) { _deadline = value; OnPropertyChanged(); } }
+        }
+
+        private DateTime? _offerSent;
+        public DateTime? OfferSent
+        {
+            get => _offerSent;
+            set { if (_offerSent != value) { _offerSent = value; OnPropertyChanged(); } }
+        }
+
+        public DateTime? OfferApproved { get; set; }
+        public DateTime? Paid { get; set; }
 
         private string? _paidInput;
         public string? PaidInput
         {
             get => _paidInput;
-            set
-            {
-                _paidInput = value;
-                OnPropertyChanged();
-                Paid = TryParseToDate(value);
-            }
+            set { _paidInput = value; OnPropertyChanged(); Paid = TryParseToDate(value); }
         }
-
 
         private string? _offerApprovedInput;
         public string? OfferApprovedInput
         {
             get => _offerApprovedInput;
-            set
-            {
-                _offerApprovedInput = value;
-                OnPropertyChanged();
-                OfferApproved = TryParseToDate(value);
-            }
+            set { _offerApprovedInput = value; OnPropertyChanged(); OfferApproved = TryParseToDate(value); }
         }
 
+        private double _price;
+        public double Price
+        {
+            get => _price;
+            set { if (_price != value) { _price = value; OnPropertyChanged(); } }
+        }
+
+        private double _estimatedPrice;
+        public double EstimatedPrice
+        {
+            get => _estimatedPrice;
+            set { if (_estimatedPrice != value) { _estimatedPrice = value; OnPropertyChanged(); } }
+        }
+
+        private const int P = 100;
+
+        public Action<Project>? NavigateToViewProject { get; set; }
 
         public CreateProjectViewModel()
         {
@@ -127,36 +176,29 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
 
+            foreach (var customer in _customerRepository.GetAll()) Customers.Add(customer);
+            foreach (var project in _projectRepository.GetAll()) Projects.Add(project);
+            foreach (var contract in _contractRepository.GetAll()) Contracts.Add(contract);
+            foreach (var service in _serviceRepository.GetAll()) Services.Add(service);
 
-            foreach (var customer in _customerRepository.GetAll())
+            // Initialiser 10 tomme entries for SelectedServices og Complexities
+            for (int i = 0; i < 10; i++)
             {
-                Customers.Add(customer);
-            }
-            foreach (var project in _projectRepository.GetAll())
-            {
-                Projects.Add(project);
-            }
-            foreach (var contract in _contractRepository.GetAll())
-            {
-                Contracts.Add(contract);
-            }
-            foreach (var service in _serviceRepository.GetAll())
-            {
-                Services.Add(service);
-            }
-            Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
-
-            for (int i = 0; i < 5; i++)
-            {
-                var entry = new Services();
-                Services.Add(entry);
+                Complexities.Add(new ComplexityEntry());
+                SelectedServices.Add(new SelectedServiceEntry());
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
 
+            Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
+            SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
+
+            foreach (var complexity in Complexities)
+            {
+                complexity.PropertyChanged += (s, e) => { if (e.PropertyName == nameof(ComplexityEntry.Value)) UpdateEstimatedPrice(); };
+            }
+
 #if DEBUG
-            // Fyld felter med testdata automatisk under debugging
-            SelectedCustomer = null;
             CaseNumber = "2022_02_02";
             Address = "Trævej 42";
             Scope = 3;
@@ -166,131 +208,78 @@ namespace CarlssonsWPF.ViewModel
             OfferApprovedInput = "24/03/96";
             PaidInput = "24/03/96";
             Price = 23000;
-            EstimatedPrice = 25000;
-
-            Services.Clear();
-            Services.Add(new Services { Name = "Beregning af Søjle", Complexity = 3 });
-            Services.Add(new Services { Name = "Beregning af Brandmur", Complexity = 2 });
 #endif
-
-
-
-
         }
+
         private void UpdateEstimatedPrice()
         {
             if (Scope == null) return;
 
-            int totalComplexity = Services.Sum(s => s.Complexity);
+            // Summér kompleksitet baseret på Complexities (du kan ændre hvis du ønsker at summere på SelectedServices)
+            int totalComplexity = 0;
+
+            for (int i = 0; i < SelectedServices.Count; i++)
+            {
+                var selectedService = SelectedServices[i];
+                var complexityEntry = i < Complexities.Count ? Complexities[i] : null;
+
+                if (selectedService?.Service != null && complexityEntry?.Value != null)
+                    totalComplexity += complexityEntry.Value.Value;
+            }
+
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
-
-        private int _complexity;
-        public int Complexity
-        {
-            get => _complexity;
-            set
-            {
-                if (_complexity != value)
-                {
-                    _complexity = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
-
-        private DateTime? TryParseToDate(string? input)
-        {
-            if (string.IsNullOrWhiteSpace(input)) return null;
-
-            input = input.Trim();
-
-            // 6-cifret: ddMMyy
-            if (input.Length == 6)
-            {
-                var parsed = DateTime.TryParseExact(input, "ddMMyy", null, System.Globalization.DateTimeStyles.None, out var date);
-                if (parsed) return date;
-            }
-
-            // 8-cifret: ddMMyyyy
-            if (input.Length == 8)
-            {
-                var parsed = DateTime.TryParseExact(input, "ddMMyyyy", null, System.Globalization.DateTimeStyles.None, out var date);
-                if (parsed) return date;
-            }
-
-            // Fallback: almindelig DateTime.TryParse
-            if (DateTime.TryParse(input, out var fallbackDate))
-                return fallbackDate;
-
-            return null;
-        }
-
-
-        public DateTime? ParsedDeadline { get; private set; }
-
-        private string? _deadlineInput;
-        public string? DeadlineInput
-        {
-            get => _deadlineInput;
-            set
-            {
-                _deadlineInput = value;
-                OnPropertyChanged();
-                ParsedDeadline = TryParseToDate(value);
-            }
-        }
-
 
         public void CreateProject()
         {
             try
             {
+                System.Diagnostics.Debug.WriteLine("CreateProject() called");
 
-
-                // Sikrer stabile værdier, således at >>null<< ikke runtime crasher.
                 int scopeValue = Scope ?? 0;
-                DateTime deadlineValue = Deadline ?? DateTime.Today;
-                DateTime offerSentValue = OfferSent ?? DateTime.MinValue;
-                DateTime offerApprovedValue = OfferApproved ?? DateTime.MinValue;
-                DateTime paymentReceivedValue = Paid ?? DateTime.MinValue;
+
+                var servicesWithComplexity = SelectedServices.Select((selectedService, index) =>
+                {
+                    if (selectedService?.Service == null) return null;
+
+                    int complexity = 0;
+                    if (index < Complexities.Count && Complexities[index].Value.HasValue)
+                        complexity = Complexities[index].Value.Value;
+
+                    return new ServiceEntry
+                    {
+                        Id = selectedService.Service.Id,
+                        Name = selectedService.Service.Name,
+                        Complexity = complexity
+                    };
+                }).Where(s => s != null).Cast<ServiceEntry>();
 
                 var project = new Project
                 {
-                    CustomerName = SelectedCustomer,
+                    CustomerName = SelectedCustomer?.Name,
                     CaseNumber = CaseNumber,
                     ProjectAddress = Address,
-                    ProjectPostalCode = int.TryParse(ProjectPostalCode, out int postalCode) ? postalCode : (int?)null,
-                    Deadline = ParsedDeadline ?? DateTime.Today,
+                    ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
                     Scope = scopeValue,
-                    Services = Services.Select((s, index) => new Services
-                    {
-                        Id = index + 1,
-                        Name = s.Name,
-                        Complexity = s.Complexity
-                    }).ToList(),
                     EstimatedPrice = EstimatedPrice,
-
-                    OfferSent = offerSentValue,
-                    OfferApproved = offerApprovedValue,
-                    Paid = paymentReceivedValue,
                     Price = Price,
-
-                    LastModified = DateTime.Now
+                    LastModified = DateTime.Now,
+                    Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity)
                 };
 
+                System.Diagnostics.Debug.WriteLine($"Project CustomerName: {project.CustomerName}"); // Debug: udskriv CustomerName
+
+                project.Deadline = Deadline;
+                project.OfferSent = OfferSent;
+                project.OfferApproved = OfferApproved;
+                project.Paid = Paid;
+
+                System.Diagnostics.Debug.WriteLine($"Services count: {project.Services.Count}");
+                foreach (var s in project.Services)
+                    System.Diagnostics.Debug.WriteLine($"Service: {s.Name}, Complexity: {s.Complexity}");
 
                 _projectRepository.Add(project);
                 Projects.Add(project);
-
 
                 var contract = new Contract
                 {
@@ -301,13 +290,10 @@ namespace CarlssonsWPF.ViewModel
                     Price = Price
                 };
 
-
-
                 _contractRepository.Add(contract);
                 Contracts.Add(contract);
 
                 NavigateToViewProject?.Invoke(project);
-
 
                 MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -315,29 +301,36 @@ namespace CarlssonsWPF.ViewModel
             {
                 MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
 
+        private DateTime? TryParseToDate(string? input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return null;
+            input = input.Trim();
 
+            string[] formats = { "dd/MM/yy", "dd/MM/yyyy", "ddMMyy", "ddMMyyyy" };
+
+            foreach (var format in formats)
+            {
+                if (DateTime.TryParseExact(input, format, null, System.Globalization.DateTimeStyles.None, out var dt))
+                    return dt;
+            }
+
+            if (DateTime.TryParse(input, out var fallback))
+                return fallback;
+
+            return null;
+        }
+
+        private string? _deadlineInput;
+        public string? DeadlineInput
+        {
+            get => _deadlineInput;
+            set { _deadlineInput = value; OnPropertyChanged(); Deadline = TryParseToDate(value); }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-
-
-
 }
-
-
-
-
-                //foreach (var s in services)
-                //{
-                //    if (!existingServices.Any(es => es.Name == s.ServiceType))
-                //    {
-                //        existingServices.Add(new Services { Name = s.Name });
-                //    }
-                //}
-                //FileService.Save("Data/services.json", existingServices);
-
-
-
-

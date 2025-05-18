@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using CarlssonsWPF.Service;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views;
@@ -19,7 +18,7 @@ namespace CarlssonsWPF.ViewModel
         public string Scope { get; set; }
         public string Deadline { get; set; }
 
-        public ObservableCollection<Services> Services { get; set; } = [];
+        public ObservableCollection<ServiceEntry> Services { get; set; } = [];
         public ObservableCollection<Project> SearchResults { get; set; } = [];
 
         public Project SelectedProject { get; set; }
@@ -32,7 +31,7 @@ namespace CarlssonsWPF.ViewModel
         {
             for (int i = 0; i < 5; i++)
             {
-                Services.Add(new Services());
+                Services.Add(new ServiceEntry());
             }
 
             //SearchCommand = new RelayCommand(Search);

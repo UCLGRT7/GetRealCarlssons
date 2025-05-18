@@ -56,7 +56,14 @@ namespace CarlssonsWPF.Data.FileRepositories
                     if (!string.IsNullOrWhiteSpace(jsonContent))
                     {
                         projects = JsonSerializer.Deserialize<List<Project>>(jsonContent) ?? new List<Project>();
+
+                        // Init input-felter baseret på DateTime?-felter
+                        foreach (var project in projects)
+                        {
+                            project.InitFromModel();
+                        }
                     }
+
                 }
             }
             catch (Exception ex)

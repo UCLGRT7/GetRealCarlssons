@@ -7,8 +7,6 @@
 
     <Application.Resources>
 
-        <local:Max10EnableConverter x:Key="Max10EnableConverter" />
-
         <!-- Tekst -->
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="Black"/>

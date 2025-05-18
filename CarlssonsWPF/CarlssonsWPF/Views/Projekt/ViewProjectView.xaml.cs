@@ -27,11 +27,11 @@ namespace CarlssonsWPF.Views.Projekt
 
         private Frame _frame;
 
-        public ViewProjectView(Frame frame, Project selectedProject)
+        public ViewProjectView(Frame frame, Project selectedProject, ServiceEntry selectedService = null)
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = new ViewProjectViewModel(selectedProject);
+            DataContext = new ViewProjectViewModel(selectedProject, selectedService);
         }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)

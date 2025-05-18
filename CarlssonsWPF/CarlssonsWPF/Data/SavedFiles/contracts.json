@@ -17,9 +17,9 @@
   },
   {
     "InvoiceNumber": 0,
-    "OfferSent": null,
-    "Paid": null,
-    "OfferApproved": null,
+    "OfferSent": "1996-03-24T00:00:00",
+    "Paid": "1996-03-24T00:00:00",
+    "OfferApproved": "1996-03-24T00:00:00",
     "Price": 23000,
     "CaseNumber": "2022_02_02"
   }

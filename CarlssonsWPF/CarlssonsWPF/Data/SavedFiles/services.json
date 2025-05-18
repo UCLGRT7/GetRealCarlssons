@@ -1,7 +1,47 @@
 [
   {
     "Id": 1,
-    "Name": null,
+    "Name": "Registrering",
+    "Complexity": 0
+  },
+  {
+    "Id": 2,
+    "Name": "Beregning af tagkonstruktion",
+    "Complexity": 0
+  },
+  {
+    "Id": 1,
+    "Name": "Beregning af bj\u00E6lke",
+    "Complexity": 0
+  },
+  {
+    "Id": 3,
+    "Name": "Beregning af s\u00F8jle",
+    "Complexity": 0
+  },
+  {
+    "Id": 4,
+    "Name": "Beregning af mur",
+    "Complexity": 0
+  },
+  {
+    "Id": 5,
+    "Name": "Beregning af fundament",
+    "Complexity": 0
+  },
+  {
+    "Id": 6,
+    "Name": "Beregning af Varmetransmissionstab",
+    "Complexity": 0
+  },
+  {
+    "Id": 7,
+    "Name": "Beregning af energiramme",
+    "Complexity": 0
+  },
+  {
+    "Id": 8,
+    "Name": "Udarbejdelse af rapport",
     "Complexity": 0
   }
 ]

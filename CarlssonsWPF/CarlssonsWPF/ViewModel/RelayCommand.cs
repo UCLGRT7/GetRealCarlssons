@@ -44,16 +44,6 @@ namespace CarlssonsWPF.ViewModel
             _canShowWindowCommand = canShowWindowCommand;
         }
 
-        public RelayCommand(Action cancel)
-        {
-            this.cancel = cancel;
-        }
-
-        public RelayCommand(Action<string> search)
-        {
-            this.search = search;
-        }
-
         public bool CanExecute(object? parameter)
         {
             if (_canExecuteWithParam != null)

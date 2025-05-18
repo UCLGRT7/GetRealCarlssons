@@ -1,84 +1,158 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
 {
-    public class Project
+    public class Project : INotifyPropertyChanged
     {
-        public string CaseNumber { get; set; }
-        public string ProjectAddress { get; set; }
-        public int? ProjectPostalCode { get; set; } // nullable
-        public DateTime Deadline { get; set; }
-        public double EstimatedPrice { get; set; }
-        public double Price { get; set; }
 
-        public int Scope { get; set; }
-        public string CustomerName { get; set; } // Reference to Customer
-        public string Status { get; set; }
-        public DateTime LastModified { get; set; }
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DateTime? OfferSent { get; set; }
-        public DateTime? OfferApproved { get; set; }
-        public DateTime? Paid { get; set; }
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private string? _caseNumber;
+        public string? CaseNumber
+        {
+            get => _caseNumber;
+            set { _caseNumber = value; OnPropertyChanged(); }
+        }
+        private string? _projectAddress;
+        public string? ProjectAddress
+        {
+            get => _projectAddress;
+            set { _projectAddress = value; OnPropertyChanged(); }
+        }
+        private int? _projectPostalCode;
+        public int? ProjectPostalCode
+        {
+            get => _projectPostalCode;
+            set { _projectPostalCode = value; OnPropertyChanged(); }
+        }
+        private DateTime? _deadline;
+        [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
+        public DateTime? Deadline
+        {
+            get => _deadline;
+            set { _deadline = value; OnPropertyChanged(); }
+        }
+        private double _estimatedPrice;
+        public double EstimatedPrice
+        {
+            get => _estimatedPrice;
+            set { _estimatedPrice = value; OnPropertyChanged(); }
+        }
+        private double _price;
+        public double Price
+        {
+            get => _price;
+            set { _price = value; OnPropertyChanged(); }
+        }
+
+        private int _scope;
+        public int Scope
+        {
+            get => _scope;
+            set { _scope = value; OnPropertyChanged(); }
+        }
+        private string? _customerName;
+        public string? CustomerName
+        {
+            get => _customerName;
+            set
+            {
+                _customerName = value;
+                System.Diagnostics.Debug.WriteLine($"CustomerName set to: {value}"); // Debug: udskriv den nye værdi
+                OnPropertyChanged();
+            }
+        }
+
+        private string? _status;
+        public string? Status
+        {
+            get => _status;
+            set { _status = value; OnPropertyChanged(); }
+        }
+        private DateTime _lastModified;
+        public DateTime LastModified
+        {
+            get => _lastModified;
+            set { _lastModified = value; OnPropertyChanged(); }
+        }
 
 
+        private DateTime? _offerSent;
+        [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
+        public DateTime? OfferSent
+        {
+            get => _offerSent;
+            set { _offerSent = value; OnPropertyChanged(); }
+        }
+
+        private DateTime? _offerApproved;
+        [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
+        public DateTime? OfferApproved
+        {
+            get => _offerApproved;
+            set { _offerApproved = value; OnPropertyChanged(); }
+        }
 
 
-
-
-
-
-
+        private DateTime? _paid;
+        [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
+        public DateTime? Paid
+        {
+            get => _paid;
+            set { _paid = value; OnPropertyChanged(); }
+        }
         [JsonIgnore]
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
-        public List<Services> Services { get; set; } = new List<Services>();
+        private ObservableCollection<ServiceEntry>? _services;
         [JsonIgnore]
-        public string OfferSentInput
+        public ObservableCollection<ServiceEntry> Services
         {
-            get => OfferSent.HasValue ? OfferSent.Value.ToString("dd/MM/yy") : "";
+            get => _services ??= new ObservableCollection<ServiceEntry>();
             set
             {
-                if (DateTime.TryParse(value, out DateTime result))
-                    OfferSent = result;
+                _services = value;
+                OnPropertyChanged();
             }
         }
 
         [JsonIgnore]
-        public string OfferApprovedInput
+        public string? DeadlineInput
         {
-            get => OfferApproved.HasValue ? OfferApproved.Value.ToString("dd/MM/yy") : "";
-            set
-            {
-                if (DateTime.TryParse(value, out DateTime result))
-                    OfferApproved = result;
-            }
+            get => Deadline?.ToString("dd/MM/yy") ?? "";
+            set { if (DateTime.TryParse(value, out var result)) Deadline = result; }
         }
 
         [JsonIgnore]
-        public string PaidInput
+        public string? OfferSentInput
         {
-            get => Paid.HasValue ? Paid.Value.ToString("dd/MM/yy") : "";
-            set
-            {
-                if (DateTime.TryParse(value, out DateTime result))
-                    Paid = result;
-            }
+            get => OfferSent?.ToString("dd/MM/yy") ?? "";
+            set { if (DateTime.TryParse(value, out var result)) OfferSent = result; }
         }
 
         [JsonIgnore]
-        public string DeadlineInput
+        public string? OfferApprovedInput
         {
-            get => Deadline == DateTime.MinValue ? "" : Deadline.ToString("dd/MM/yy");
-            set
-            {
-                if (DateTime.TryParse(value, out DateTime result))
-                    Deadline = result;
-            }
+            get => OfferApproved?.ToString("dd/MM/yy") ?? "";
+            set { if (DateTime.TryParse(value, out var result)) OfferApproved = result; }
+        }
+
+        [JsonIgnore]
+        public string? PaidInput
+        {
+            get => Paid?.ToString("dd/MM/yy") ?? "";
+            set { if (DateTime.TryParse(value, out var result)) Paid = result; }
         }
 
 
@@ -91,21 +165,53 @@ namespace CarlssonsWPF.Model
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 7)
+            if (parts.Length < 9)
                 throw new FormatException("Invalid project data format");
-            return new Project
+
+            var deadlineParsed = DateTime.TryParse(parts[2], out var deadline) ? deadline : (DateTime?)null;
+            var lastModifiedParsed = DateTime.TryParse(parts[7], out var lastModified) ? lastModified : DateTime.Now;
+            var postalCodeParsed = int.TryParse(parts[8], out var postalCode) ? postalCode : (int?)null;
+
+            var project = new Project
             {
                 CaseNumber = parts[0],
                 ProjectAddress = parts[1],
-                Deadline = DateTime.Parse(parts[2]),
-                EstimatedPrice = double.Parse(parts[3]),
-                Scope = int.Parse(parts[4]),
+                Deadline = deadlineParsed,
+                EstimatedPrice = double.TryParse(parts[3], out var est) ? est : 0,
+                Scope = int.TryParse(parts[4], out var scope) ? scope : 0,
                 CustomerName = parts[5],
                 Status = parts[6],
-                LastModified = DateTime.Parse(parts[7]),
-                ProjectPostalCode = int.Parse(parts[8]),
+                LastModified = lastModifiedParsed,
+                ProjectPostalCode = postalCodeParsed
             };
+
+            // Brug Input-properties til at sikre korrekt visning
+            project.DeadlineInput = project.Deadline?.ToString("dd/MM/yy") ?? "";
+
+            // Hvis du tilføjer flere datoer i filen senere, gør ligesom ovenfor:
+            // project.OfferSent = ...
+            // project.OfferSentInput = ...
+
+            return project;
         }
+        public void InitFromModel()
+        {
+            DeadlineInput = Deadline?.ToString("dd/MM/yy") ?? "";
+            OfferSentInput = OfferSent?.ToString("dd/MM/yy") ?? "";
+            OfferApprovedInput = OfferApproved?.ToString("dd/MM/yy") ?? "";
+            PaidInput = Paid?.ToString("dd/MM/yy") ?? "";
+
+            // Services er allerede ObservableCollection takket være property, men hvis du har en Liste et andet sted,
+            // kan du konvertere sådan her:
+
+            {
+                if (Services == null)
+                    Services = new ObservableCollection<ServiceEntry>();
+                else if (!(Services is ObservableCollection<ServiceEntry>))
+                    Services = new ObservableCollection<ServiceEntry>(Services);
+            }
+        }
+
     }
 
 }
