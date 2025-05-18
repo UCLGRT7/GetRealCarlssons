@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.Views.Projekt;
-using System.Windows.Input;
 
 
 namespace CarlssonsWPF.Views.Kunde

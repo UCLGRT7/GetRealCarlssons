@@ -18,26 +18,6 @@
 
         <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
-        <!--<DataGrid Grid.Row="1"
-          Name="CustomerDataGrid"
-          Margin="0,10,0,10"
-          VerticalAlignment="Stretch"
-          ItemsSource="{Binding customers}"
-          IsReadOnly="True"
-          CanUserSortColumns="True"
-          AutoGenerateColumns="False"
-          MouseDoubleClick="CustomerDataGrid_MouseDoubleClick">
-          
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" CanUserSort="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" CanUserSort="True"/>
-                <DataGridTextColumn Header="Postnummer" Binding="{Binding PostalCode}" CanUserSort="True"/>
-                <DataGridTextColumn Header="By" Binding="{Binding City}" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" CanUserSort="True"/>
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" CanUserSort="True"/>
-            </DataGrid.Columns>
-        </DataGrid>-->
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding customers}" AutoGenerateColumns="False" 
                   Name="CustomerDataGrid"
