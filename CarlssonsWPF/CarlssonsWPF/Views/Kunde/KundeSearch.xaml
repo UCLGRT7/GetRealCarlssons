@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CarlssonsWPF.Views.Kunde"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
-      Title="KundeMainWindow">
+      Title="KundeSearch">
 
     <Grid Margin="10" ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -52,22 +52,22 @@
 
                 <!--Navn-->
                 <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="Navn" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-            <!--Adresse-->
+                <TextBox x:Name="Navn" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--Adresse-->
                 <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Adresse" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="Adresse" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <!--Postnummer-->
+                <TextBox x:Name="Adresse" Text="{Binding Address,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--Postnummer-->
                 <TextBlock HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="Postnummer" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-            <!--By-->
+                <TextBox x:Name="Postnummer" Text="{Binding PostalCode,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--By-->
                 <TextBlock HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="By" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-            <!--Tlfnummer-->
+                <TextBox x:Name="By" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--Tlfnummer-->
                 <TextBlock HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="Tlfnummer" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-            <!--E-mail-->
+                <TextBox x:Name="Tlfnummer" Text="{Binding PhoneNumber,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--E-mail-->
                 <TextBlock HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                <TextBox x:Name="Email" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <TextBox x:Name="Email" Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
@@ -77,8 +77,8 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Søg" Click="KundeSearch_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="1" VerticalAlignment="Center" />
-            <Button Content="Tilbage" Click="KundeMainWindow_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="2" VerticalAlignment="Center" />
+            <Button Content="Tilbage" Click="KundeMainWindow_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="1" VerticalAlignment="Center" />
+            <Button Content="Søg" Click="SearchButton_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="2" VerticalAlignment="Center" />
 
         </Grid>
     </Grid>
