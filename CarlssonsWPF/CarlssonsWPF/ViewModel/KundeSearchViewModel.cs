@@ -5,19 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
     public class KundeSearchViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
 
         private readonly ICustomerRepository _customerRepository;
         private List<Customer> allCustomers;

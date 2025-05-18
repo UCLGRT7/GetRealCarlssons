@@ -16,37 +16,19 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Søgte Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
+        <TextBlock Text="Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Customers}" AutoGenerateColumns="False" 
-                 Name="CustomerDataGrid"
-                 MouseDoubleClick="SearchCustomerDataGrid_MouseDoubleClick"
-Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
-                <DataGridTextColumn Header="Post nr" Binding="{Binding PostalCode}" Width="80" FontSize="16" />
-                <DataGridTextColumn Header="By" Binding="{Binding City}" Width="150" FontSize="16" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100" FontSize="16" />
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="300" FontSize="16" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <UniformGrid Grid.Row="2" Columns="1" Margin="10" Height="50" VerticalAlignment="Top">
+            <Button Content="Tilbage" Click="KundeSearch_Click" Width="120" Height="50" HorizontalAlignment="center" />
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="Tilbage" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="BackFromSearchResults_Click" Grid.Column="1"/>
-           
-        </Grid>
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2" Columns="1" Margin="5" Height="50" VerticalAlignment="Bottom"/>
+
+
+        <Rectangle HorizontalAlignment="Center" Height="310" Margin="0,60,0,0" Grid.Row="1" Fill="LightGoldenrodYellow" Opacity="0.8" VerticalAlignment="Top" Width="500"/>
+
+        <DataGrid x:Name="ResultsGrid" />
 
 
     </Grid>
