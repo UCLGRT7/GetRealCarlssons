@@ -19,15 +19,69 @@
         <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding customers}" AutoGenerateColumns="False" 
+        <DataGrid Grid.Row="1" ItemsSource="{Binding customers}"
+                  AutoGenerateColumns="False" 
                   Name="CustomerDataGrid"
                   MouseDoubleClick="CustomerDataGrid_MouseDoubleClick"
- Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
+                  Margin="0,10,0,10"
+                  CanUserAddRows="False"
+                  SelectionUnit="FullRow"
+                  SelectionMode="Single"
+                  HorizontalAlignment="Center"
+                  GridLinesVisibility="None"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  CanUserReorderColumns="False"
+                  CanUserSortColumns="False"
+                  HeadersVisibility="Column"
+                  AlternatingRowBackground="#F0F0F0F0"
+                  AlternationCount="1"
+                  Background="White"
+                  MinRowHeight="35"
+                  IsReadOnly="True">
+
+            <DataGrid.Resources>
+                <!-- "Windows" Blå highlight og hvid baggrund -->
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" 
+                        Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            <Setter Property="Foreground" 
+                        Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <!-- Celle-styling: Fjern fokusramme -->
+                <Style TargetType="DataGridCell">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                    <Setter Property="IsTabStop" Value="False" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridCell">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Margin="4,0,4,0"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.Resources>
+
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
                 <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
