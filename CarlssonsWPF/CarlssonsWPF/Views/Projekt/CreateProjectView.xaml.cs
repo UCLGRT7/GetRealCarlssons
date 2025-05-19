@@ -79,7 +79,7 @@ namespace CarlssonsWPF.Views.Projekt
         {
         }
 
-        private void Tilbage_Click(object sender, RoutedEventArgs e)
+        private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             if (_frame.CanGoBack)
                 _frame.GoBack();
@@ -96,7 +96,8 @@ namespace CarlssonsWPF.Views.Projekt
                 // Hvis der ikke er navigation, lukker vi hele vinduet (f.eks. hvis det blev vist i Window)  
                 Window.GetWindow(this)?.Close();
             }
-        }
+
+    }
     }
 }
 

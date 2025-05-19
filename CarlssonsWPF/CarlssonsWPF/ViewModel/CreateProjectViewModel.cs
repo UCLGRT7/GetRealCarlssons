@@ -46,6 +46,8 @@ namespace CarlssonsWPF.ViewModel
 
         public ICommand CreateProjectCommand { get; set; }
 
+        public ICommand CancelCommand { get; }
+
         private Customer _customer;
         public Customer SelectedCustomer
         {
@@ -175,6 +177,8 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
+
+            CancelCommand = new RelayCommand(OnCancel);
 
             foreach (var customer in _customerRepository.GetAll()) Customers.Add(customer);
             foreach (var project in _projectRepository.GetAll()) Projects.Add(project);
@@ -322,6 +326,11 @@ namespace CarlssonsWPF.ViewModel
             return null;
         }
 
+        private void OnCancel()
+        {
+            // Navigering eller ryd logik
+        }
+
         private string? _deadlineInput;
         public string? DeadlineInput
         {
@@ -332,5 +341,7 @@ namespace CarlssonsWPF.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
     }
 }

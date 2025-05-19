@@ -22,9 +22,9 @@
     "EstimatedPrice": 0,
     "Price": 23000,
     "Scope": 3,
-    "CustomerName": "Valdemar",
+    "CustomerName": null,
     "Status": null,
-    "LastModified": "2025-05-18T18:25:05.6236025+02:00",
+    "LastModified": "2025-05-19T21:36:42.2058769+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24"

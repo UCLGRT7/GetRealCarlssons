@@ -60,7 +60,12 @@ namespace CarlssonsWPF.ViewModel
         }
 
         public ICommand ToggleEditCommand { get; }
-        public ICommand CancelEditCommand { get; }
+        public ICommand CancelCommand { get; }
+
+        private void OnCancel()
+        {
+            // Navigér eller ryd data
+        }
         public ICommand AddServiceCommand { get; }
         public ICommand RemoveServiceCommand { get; }
 
@@ -117,7 +122,11 @@ namespace CarlssonsWPF.ViewModel
             AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
             RemoveServiceCommand = new RelayCommand(RemoveService);
             ToggleEditCommand = new RelayCommand(ToggleEdit);
-            CancelEditCommand = new RelayCommand(CancelEdit);
+            //CancelEditCommand = new RelayCommand(CancelEdit);
+
+            {
+                CancelCommand = new RelayCommand(OnCancel); // eller noget lignende
+            }
 
 
         }

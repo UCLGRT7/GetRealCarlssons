@@ -504,7 +504,7 @@
 
         <!-- Knapper -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="25,605,0,45" Width="280">
-            <Button Content="{Binding BackButtonText}" Command="{Binding CancelEditCommand}" Click="Tilbage_Click" Width="100" Margin="0,0,10,0" />
+            <Button Content="{Binding BackButtonText}" Command="{Binding CancelEditCommand}" Click="GoBack_Click" Width="100" Margin="0,0,10,0" />
             <Button Content="{Binding EditButtonText}" Command="{Binding ToggleEditCommand}" Width="100" />
         </StackPanel>
 

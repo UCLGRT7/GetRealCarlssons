@@ -8,10 +8,6 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="CreateProjectView">
 
-    <Page.Resources>
-        <!--<local:Max10EnableConverter x:Key="Max10EnableConverter" />-->
-    </Page.Resources>
-
     <!-- Hovedlayout -->
     <Grid Margin="10">
 
@@ -320,6 +316,14 @@
                 </Grid>
 
                 <Grid Grid.Row="1" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <!-- Overskrift -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- ItemsControl -->
+                        <RowDefinition Height="*"/>
+                        
+                    </Grid.RowDefinitions>
+
 
 
                     <TextBlock Text="Kompleksitet"
@@ -330,13 +334,13 @@
                                FontSize="14" 
                                Margin="0,5,0,5"/>
 
-                    <ItemsControl>
+                    <ItemsControl ItemsSource="{Binding Complexities}" Grid.Row="2">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <TextBox Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         TextAlignment="Left"
-                                         Height="Auto"
-                                         Margin="0,5,0,5"/>
+                     TextAlignment="Left"
+                     Height="Auto"
+                     Margin="0,5,0,5"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -357,7 +361,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Tilbage"
+            <Button Content="Annullér Oprettelse"
+                    Click="GoBack_Click"
                     Command="{Binding CancelCommand}"
                     Width="150"
                     Height="50"

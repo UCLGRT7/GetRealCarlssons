@@ -31,5 +31,11 @@ namespace CarlssonsWPF.Views.Projekt
             DataContext = new SearchProjectViewModel();
 
         }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (_frame?.CanGoBack == true)
+                _frame.GoBack();
+        }
     }
 }
