@@ -73,7 +73,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             return services;
         }
 
-        public IEnumerable<Services> GetByServiceEntry(string name)
+        public IEnumerable<Services> GetByServiceType(string serviceType)
         {
             return GetAll().Where(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
         }

@@ -33,10 +33,6 @@ namespace CarlssonsWPF.ViewModel
 
 
 
-        public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
-
-
-
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -117,6 +113,10 @@ namespace CarlssonsWPF.ViewModel
 
 
             SelectedCustomer = selectedCustomer;
+            SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
+
+
+            SelectedCustomer = selectedCustomer;
 
             Name = selectedCustomer.Name;
             Address = selectedCustomer.Address;
@@ -145,6 +145,10 @@ namespace CarlssonsWPF.ViewModel
                 _customerRepository.Update(SelectedCustomer);
 
             }
+        }
+
+            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
             //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
