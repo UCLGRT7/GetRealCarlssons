@@ -32,7 +32,7 @@
             </Grid.ColumnDefinitions>
 
             <Rectangle HorizontalAlignment="Center" Height="310" Fill="LightGoldenrodYellow" Opacity="0.8" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1"/>
-            <Grid ShowGridLines="False" Grid.Row="1" Grid.Column="1" >
+            <Grid ShowGridLines="True" Grid.Row="1" Grid.Column="1" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto"/>

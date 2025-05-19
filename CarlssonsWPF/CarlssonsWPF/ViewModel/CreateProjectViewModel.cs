@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows; // for MessageBox
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -15,13 +16,16 @@ using System.ComponentModel;
 
 namespace CarlssonsWPF.ViewModel
 {
+
+
+
+
     public class CreateProjectViewModel : BaseViewModel
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
-        private double estimatedPrice;
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
@@ -250,6 +254,23 @@ namespace CarlssonsWPF.ViewModel
                 _contractRepository.Add(contract);
                 contracts.Add(contract);
 
+                NavigateToViewProject?.Invoke(project);
+
+                MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+    }
+
+}
+
+
+
 
                 //foreach (var s in services)
                 //{
@@ -267,5 +288,3 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-    }
-}

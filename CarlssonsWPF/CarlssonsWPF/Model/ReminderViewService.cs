@@ -46,7 +46,6 @@ namespace CarlssonsWPF.Model
 
                     remindersList.Add(viewModel);
                 }
-
             }
             return remindersList;
         }

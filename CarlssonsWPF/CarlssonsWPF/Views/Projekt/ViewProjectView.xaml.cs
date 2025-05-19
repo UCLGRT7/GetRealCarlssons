@@ -32,5 +32,10 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             DataContext = new ViewProjectViewModel(selectedProject);
         }
+        public ViewProjectView(Project project)
+        {
+            InitializeComponent();
+            DataContext = new ViewProjectViewModel(project);
+        }
     }
 }

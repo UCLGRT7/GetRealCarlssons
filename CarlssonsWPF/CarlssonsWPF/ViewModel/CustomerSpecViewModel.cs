@@ -33,6 +33,10 @@ namespace CarlssonsWPF.ViewModel
 
 
 
+        public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
+
+
+
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -110,6 +114,8 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
 
+
+
             SelectedCustomer = selectedCustomer;
 
             Name = selectedCustomer.Name;
@@ -141,21 +147,26 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
+            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
 
         public void ShowCustomerProjects()
         {
-            // Check if SelectedCustomer is null or has no name
-            if (SelectedCustomer.Name == null)
-            {
-                return;
-            }
-
-            // Get the projects for the selected customer
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
-            ProjectWithContractInfo.Clear();
+            //int count = customerProjects?.Count() ?? 0;
 
-            // Populate the ProjectWithContractInfo collection
+            //MessageBox.Show(
+            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
+            //  "Projektstatus",
+            //  MessageBoxButton.OK,
+            //  MessageBoxImage.Information
+            //);
+
+            ProjectWithContractInfo.Clear(); 
+
             if (customerProjects != null)
             {
                 foreach (var project in customerProjects)
