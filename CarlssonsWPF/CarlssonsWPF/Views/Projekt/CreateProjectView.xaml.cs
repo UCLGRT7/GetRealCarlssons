@@ -16,9 +16,9 @@ using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for CreateProjectView.xaml
-    /// </summary>
+    /// <summary>  
+    /// Interaction logic for TestPage.xaml  
+    /// </summary>  
     public partial class CreateProjectView : Page
     {
         private CreateProjectViewModel _createProjectViewModel;
@@ -31,7 +31,7 @@ namespace CarlssonsWPF.Views.Projekt
             DataContext = _createProjectViewModel;
             _frame = frame;
 
-            // Navigation callback fra ViewModel
+            // Navigation callback fra ViewModel  
             _createProjectViewModel.NavigateToViewProject = project =>
             {
                 project.CustomerName = _createProjectViewModel.SelectedCustomer?.Name;
@@ -43,17 +43,10 @@ namespace CarlssonsWPF.Views.Projekt
                 var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
             };
-
-
-
-
-
-
         }
 
         private void AfsendtFelt_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
@@ -76,17 +69,14 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void TilbudGodkendtDato_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            
         }
 
         private void TilbudGodkendtDato_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void Tilbage_Click(object sender, RoutedEventArgs e)
@@ -99,17 +89,14 @@ namespace CarlssonsWPF.Views.Projekt
         {
             if (this.NavigationService != null && this.NavigationService.CanGoBack)
             {
-                this.NavigationService.GoBack(); // Går tilbage til forrige visning
+                this.NavigationService.GoBack(); // Går tilbage til forrige visning  
             }
             else
             {
-                // Hvis der ikke er navigation, lukker vi hele vinduet (f.eks. hvis det blev vist i Window)
+                // Hvis der ikke er navigation, lukker vi hele vinduet (f.eks. hvis det blev vist i Window)  
                 Window.GetWindow(this)?.Close();
             }
         }
-
-
-
-
     }
 }
+
