@@ -10,7 +10,7 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
 {
-    public class FileServiceRepository :  IServiceRepository
+    public class FileServiceRepository : IServiceRepository
     {
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");
@@ -73,9 +73,9 @@ namespace CarlssonsWPF.Data.FileRepositories
             return services;
         }
 
-        public IEnumerable<Services> GetByServiceType(string serviceType)
+        public IEnumerable<Services> GetByServiceEntry(string name)
         {
-            return GetAll().Where(s => s.ServiceType.Contains(serviceType, StringComparison.OrdinalIgnoreCase));
+            return GetAll().Where(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<Services> GetByComplexity(int complexity)

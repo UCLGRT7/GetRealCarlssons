@@ -36,5 +36,7 @@ namespace CarlssonsWPF.Views.Kunde
             _frame.Navigate(new KundeMainWindow(_frame));
 
         }
+
+        
     }
 }

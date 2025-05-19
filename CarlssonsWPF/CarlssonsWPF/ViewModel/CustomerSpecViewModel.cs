@@ -25,9 +25,13 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
 
 
-        public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<Customer> ustomers { get; set; } = new();
+        public ObservableCollection<Project> projects { get; set; } = new();
+        public ObservableCollection<Contract> contracts { get; set; } = new();
+
+        public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
+
+
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -42,7 +46,6 @@ namespace CarlssonsWPF.ViewModel
         private string? _phoneNumber;
         private string? _postalCode;
         private string? _city;
-        public int SelectedCustomerIndex { get; set; }
 
         public string? Name
         {
@@ -99,6 +102,8 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
+
+
         public CustomerSpecViewModel(Customer selectedCustomer)
         {
             _customerRepository = new FileCustomerRepository();
@@ -106,8 +111,6 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
 
             SelectedCustomer = selectedCustomer;
-            SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
-
 
             Name = selectedCustomer.Name;
             Address = selectedCustomer.Address;
@@ -118,13 +121,12 @@ namespace CarlssonsWPF.ViewModel
 
             UpdateCustomerCommand = new RelayCommand(_ => UpdateCustomer());
 
+            ShowCustomerProjects();
+
         }
 
         public void UpdateCustomer()
         {
-
-
-
             if (SelectedCustomer != null)
             {
                 SelectedCustomer.Name = Name;
@@ -137,9 +139,40 @@ namespace CarlssonsWPF.ViewModel
                 _customerRepository.Update(SelectedCustomer);
 
             }
+        }
 
-            var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
+        public void ShowCustomerProjects()
+        {
+            // Check if SelectedCustomer is null or has no name
+            if (SelectedCustomer.Name == null)
+            {
+                return;
+            }
+
+            // Get the projects for the selected customer
+            var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
+
+            ProjectWithContractInfo.Clear();
+
+            // Populate the ProjectWithContractInfo collection
+            if (customerProjects != null)
+            {
+                foreach (var project in customerProjects)
+                {
+                    var contract = _contractRepository.GetByProjectId(project.CaseNumber).FirstOrDefault();
+
+                    ProjectWithContractInfo.Add(new ProjectWithContractInfoDatagrid
+                    {
+                        CaseNumber = project.CaseNumber,
+                        Deadline = project.Deadline,
+                        Status = project.Status,
+                        Price = contract?.Price ?? 0
+                    });
+                }
+            }
         }
     }
 }
+
+ 
