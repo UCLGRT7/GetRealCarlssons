@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarlssonsWPF.Views.Projekt"
+      xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="CreateProjectView">
@@ -22,26 +22,132 @@
                     <!-- Felter -->
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Ydelser -->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Økonomi -->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Knapper -->
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
+
+                <!--Top grid in Left Grid-->
+                <Grid Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Navn-->
+                    <TextBlock Text="Navn:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,0"
+                               FontSize="14"/>
+                    <ComboBox Name="NavnFelt"
+                              Grid.Row="0"
+                              Grid.Column="1"
+                              ItemsSource="{Binding Customers}"
+                              SelectedItem="{Binding Customers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              DisplayMemberPath="Name"
+                              MinWidth="280"
+                              Margin="0,5,0,5"/>
+
+                    <!--Sagsnummer-->
+                    <TextBlock Text="Sagsnummer:"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="SagsnummerFelt"
+                             Text="{Binding CaseNumber, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             Margin="0,5,0,5"/>
+
+                    <!--Projekt Adresse-->
+                    <TextBlock Text="Projekt Adresse:"
+                              Grid.Row="2"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="AdresseFelt"
+                             Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             Margin="0,5,0,5"/>
+
+                    <!--Deadline-->
+                    <TextBlock Text="Deadline:"
+                              Grid.Row="3"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="DeadlineFelt"
+                            Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            MinWidth="280"
+                            PreviewTextInput="DateAutoFormatter"
+                            Margin="0,5,0,5"
+                             MaxLength="8"/>
+
+                    <!--Postnummer-->
+                    <TextBlock Text="Postnummer:"
+                              Grid.Row="4"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="PostalcodeFelt"
+                             Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="4"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             Margin="0,5,0,5"
+                             MaxLength="8"/>
+
+                    <!--Omfang-->
+                    <TextBlock Text="Omfang:"
+                              Grid.Row="5"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="OmfangFelt"
+                             Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="5"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             Margin="0,5,0,5"/>
+                </Grid>
+
+                <!--Bottom grid in Left Grid-->
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="140"/>

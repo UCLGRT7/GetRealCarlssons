@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CarlssonsWPF.Views.Kunde"
+      xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="KundeSearch">
@@ -77,8 +78,8 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Tilbage" Click="KundeMainWindow_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="1" VerticalAlignment="Center" />
-            <Button Content="Søg" Click="SearchButton_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="2" VerticalAlignment="Center" />
+            <Button Content="Søg" Click="KundeSearch_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="1" VerticalAlignment="Center" />
+            <Button Content="Tilbage" Click="GoBack_Click" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Grid.Column="2" VerticalAlignment="Center" />
 
         </Grid>
     </Grid>

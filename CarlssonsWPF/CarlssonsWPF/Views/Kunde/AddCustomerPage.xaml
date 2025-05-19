@@ -4,6 +4,7 @@
      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
      xmlns:local="clr-namespace:CarlssonsWPF.Views.Kunde"
+     xmlns:helpers="clr-namespace:CarlssonsWPF.Helpers"
      mc:Ignorable="d" 
      d:DesignHeight="720" d:DesignWidth="1280"
      Title="AddCustomerPage">
@@ -69,7 +70,15 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Tilbage" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="BackFromAddCustomer_Click" Grid.Column="1"/>
+            <Button Content="Tilbage"
+        Command="{x:Static helpers:CommonCommands.CancelAndGoBackCommand}"
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"
+        Grid.Column="1"
+        Margin="10"
+        MinWidth="150"
+        MinHeight="50"/>
+
+
             <Button Content="Opret" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="AddCustomerAndGoToSpec_click" Grid.Column=" 2"/>
        </Grid>
 
