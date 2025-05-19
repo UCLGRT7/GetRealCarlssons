@@ -15,7 +15,13 @@ namespace CarlssonsWPF.Data.FileRepositories
         private static string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static string folder = Path.Combine(projectPath, "Data");
         private static string subFolder = Path.Combine(folder, "SavedFiles");
+
+#if DEBUG
+        private static string servicesFilePath = Path.Combine(subFolder, "services_test.json");
+#else
         private static string servicesFilePath = Path.Combine(subFolder, "services.json");
+#endif
+
         public string FilePath { get; set; }
 
         public FileServiceRepository(string? filePath = null)
