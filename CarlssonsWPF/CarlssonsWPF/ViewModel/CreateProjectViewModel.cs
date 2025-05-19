@@ -29,6 +29,8 @@ namespace CarlssonsWPF.ViewModel
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
 
+
+
         public class SelectedServiceEntry : INotifyPropertyChanged
         {
             private ServiceEntry? _service;
@@ -193,6 +195,8 @@ namespace CarlssonsWPF.ViewModel
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
+            SelectedProject = new Project();
+
 
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
@@ -240,6 +244,12 @@ namespace CarlssonsWPF.ViewModel
             {
                 System.Diagnostics.Debug.WriteLine("CreateProject() called");
 
+                if (SelectedCustomer == null)
+                {
+                    MessageBox.Show("Du skal vælge en kunde før du opretter projektet.", "Validering", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 int scopeValue = Scope ?? 0;
 
                 var servicesWithComplexity = SelectedServices.Select((selectedService, index) =>
@@ -258,32 +268,23 @@ namespace CarlssonsWPF.ViewModel
                     };
                 }).Where(s => s != null).Cast<ServiceEntry>();
 
-                var project = new Project
-                {
-                    CustomerName = SelectedCustomer?.Name,
-                    CaseNumber = CaseNumber,
-                    ProjectAddress = Address,
-                    ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
-                    Scope = scopeValue,
-                    EstimatedPrice = EstimatedPrice,
-                    Price = Price,
-                    LastModified = DateTime.Now,
-                    Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity)
-                };
+                // ✅ Brug SelectedProject direkte
+                SelectedProject.CustomerName = SelectedCustomer?.Name?.Trim();
+                SelectedProject.CaseNumber = CaseNumber;
+                SelectedProject.ProjectAddress = Address;
+                SelectedProject.ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null;
+                SelectedProject.Scope = scopeValue;
+                SelectedProject.EstimatedPrice = EstimatedPrice;
+                SelectedProject.Price = Price;
+                SelectedProject.LastModified = DateTime.Now;
+                SelectedProject.Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity);
+                SelectedProject.Deadline = Deadline;
+                SelectedProject.OfferSent = OfferSent;
+                SelectedProject.OfferApproved = OfferApproved;
+                SelectedProject.Paid = Paid;
 
-                System.Diagnostics.Debug.WriteLine($"Project CustomerName: {project.CustomerName}"); // Debug: udskriv CustomerName
-
-                project.Deadline = Deadline;
-                project.OfferSent = OfferSent;
-                project.OfferApproved = OfferApproved;
-                project.Paid = Paid;
-
-                System.Diagnostics.Debug.WriteLine($"Services count: {project.Services.Count}");
-                foreach (var s in project.Services)
-                    System.Diagnostics.Debug.WriteLine($"Service: {s.Name}, Complexity: {s.Complexity}");
-
-                _projectRepository.Add(project);
-                Projects.Add(project);
+                _projectRepository.Add(SelectedProject);
+                Projects.Add(SelectedProject);
 
                 var contract = new Contract
                 {
@@ -297,7 +298,7 @@ namespace CarlssonsWPF.ViewModel
                 _contractRepository.Add(contract);
                 Contracts.Add(contract);
 
-                NavigateToViewProject?.Invoke(project);
+                NavigateToViewProject?.Invoke(SelectedProject);
 
                 MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }

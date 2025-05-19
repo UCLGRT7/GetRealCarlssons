@@ -71,7 +71,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <ComboBox ItemsSource="{Binding DataContext.Customers, RelativeSource={RelativeSource AncestorType=Page}}"
-                                          SelectedItem="{Binding SelectedProject.Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          SelectedItem="{Binding Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayMemberPath="Name"
                                           Height="22" HorizontalAlignment="Right" />
                                             </DataTemplate>
@@ -82,7 +82,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding SelectedProject.CustomerName}" />
+                                                <TextBlock Text="{Binding CustomerName}" />
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>

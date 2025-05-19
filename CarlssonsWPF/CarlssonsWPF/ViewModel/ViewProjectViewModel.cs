@@ -82,7 +82,9 @@ namespace CarlssonsWPF.ViewModel
             foreach (var s in _serviceRepository.GetAll()) Services.Add(s);
 
             SelectedProject = selectedProject ?? throw new System.ArgumentNullException(nameof(selectedProject));
+            var savedCustomerName = SelectedProject.CustomerName;
             SelectedProject.InitFromModel();
+            SelectedProject.CustomerName = savedCustomerName;
 
             if (selectedService != null)
             {
