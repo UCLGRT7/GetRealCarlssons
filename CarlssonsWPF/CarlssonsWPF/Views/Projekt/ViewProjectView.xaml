@@ -10,42 +10,42 @@
       d:DesignWidth="1280"
       Title="ViewProjectView">
 
-<Page.Resources>
-    <!--  Shared Box Styling -->
-    <Style x:Key="BaseBoxStyle" TargetType="FrameworkElement">
-        <Setter Property="Height" Value="25"/>
+    <Page.Resources>
+        <!--  Shared Box Styling -->
+        <Style x:Key="BaseBoxStyle" TargetType="FrameworkElement">
+            <Setter Property="Height" Value="25"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="5,0,5,0"/>
         </Style>
 
-    <!--  Dato-formatering -->
-    <Style x:Key="DateTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
-        <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
-        <Setter Property="Width" Value="200"/>
-    </Style>
+        <!--  Dato-formatering -->
+        <Style x:Key="DateTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
+            <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
 
-    <!--  ComboBoxEdit -->
-    <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
+        <!--  ComboBoxEdit -->
+        <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-    </Style>
+        </Style>
 
-    <!--  ComboBoxView -->
-    <Style x:Key="ComboBoxView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
+        <!--  ComboBoxView -->
+        <Style x:Key="ComboBoxView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="200"/>
         </Style>
 
-    <!--  TextBlockEdit -->
-    <Style x:Key="TextBlockEdit" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
+        <!--  TextBlockEdit -->
+        <Style x:Key="TextBlockEdit" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="TextAlignment" Value="Left"/>
-    </Style>
+        </Style>
 
-    <!--  TextBlockView -->
-    <Style x:Key="TextBlockView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
+        <!--  TextBlockView -->
+        <Style x:Key="TextBlockView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
         </Style>
 
@@ -66,7 +66,7 @@
 
     <Grid Margin="10,0,0,0">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,500,0">
-            
+
             <Grid x:Name="LeftGrid" Margin="40" Height="540" Width="420">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -88,7 +88,7 @@
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="15"/>
-                    
+
                     <!-- Økonomi header -->
                     <RowDefinition Height="30"/>
                     <!-- Tilbud Afsendt -->
@@ -110,6 +110,7 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
 
+
                 <!-- Navn -->
                 <TextBlock Text="Navn:" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding SelectedProject}">
@@ -120,12 +121,11 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <ComboBox 
-                                                    Style="{StaticResource ComboBoxEdit}"
-                                                    ItemsSource="{Binding DataContext.Customers, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                 SelectedItem="{Binding Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                                 DisplayMemberPath="Name"/>
-                                            </DataTemplate>     
+                                                <ComboBox ItemsSource="{Binding DataContext.Customers, RelativeSource={RelativeSource AncestorType=Page}}"
+                           SelectedItem="{Binding Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                           DisplayMemberPath="Name"
+                            Style="{StaticResource ComboBoxEdit}"/>
+                                            </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
@@ -133,8 +133,9 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Customer}"
-                                                            Style="{StaticResource ComboBoxView}" />
+                                                <TextBlock Text="{Binding CustomerName}"
+                                                           Style="{StaticResource BaseBoxStyle}"/>
+
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -460,30 +461,36 @@
         </ScrollViewer>
 
         <!-- Højre side med Ydelser og Kompleksitet -->
-<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="800,0,0,0" Width="400" Height="540">
-    <Grid x:Name="RightGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/> <!-- Header -->
-            <RowDefinition Height="30"/> <!-- Ydelser og Kompleksitet -->
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="480"/> <!-- Resten af pladsen -->
-        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="800,0,0,0" Width="400" Height="540">
+            <Grid x:Name="RightGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <!-- Header -->
+                    <RowDefinition Height="30"/>
+                    <!-- Ydelser og Kompleksitet -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="480"/>
+                    <!-- Resten af pladsen -->
+                </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/> <!-- Ydelser -->
-            <ColumnDefinition Width="30"/>  <!-- Spacer -->
-            <ColumnDefinition Width="75"/>  <!-- Kompleksitet -->
-        </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <!-- Ydelser -->
+                    <ColumnDefinition Width="30"/>
+                    <!-- Spacer -->
+                    <ColumnDefinition Width="75"/>
+                    <!-- Kompleksitet -->
+                </Grid.ColumnDefinitions>
 
-        <!-- Header: Ydelser og Kompleksitet -->
+                <!-- Header: Ydelser og Kompleksitet -->
                 <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" />
                 <TextBlock Text="Kompleksitet" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="75" />
 
@@ -571,17 +578,18 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </Grid>
-</ScrollViewer>
+        </ScrollViewer>
 
 
 
 
         <!-- Knapper -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="25,605,0,45" Width="280">
-            <Button Content="{Binding BackButtonText}" Command="{Binding CancelEditCommand}" Click="GoBack_Click" Width="100" Margin="0,0,10,0" />
+            <Button Content="Tilbage"
+        Command="{x:Static helpers:CommonCommands.GoBackAndReload}"
+        CommandParameter="{Binding ElementName=MainFrame}" />
             <Button Content="{Binding EditButtonText}" Command="{Binding ToggleEditCommand}" Width="100" />
         </StackPanel>
-
     </Grid>
 </Page>
 
