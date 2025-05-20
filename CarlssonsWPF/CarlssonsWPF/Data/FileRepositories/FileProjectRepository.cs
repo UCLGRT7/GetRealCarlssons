@@ -127,7 +127,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             var projects = GetAll().ToList();
 
             // Find the index of the project to update
-            var existingIndex = projects.FindIndex(p => p.CaseNumber == project.CaseNumber);
+            var existingIndex = projects.FindIndex(p => p.Id == project.Id);
 
             // Update the project if found
             if (existingIndex != -1)

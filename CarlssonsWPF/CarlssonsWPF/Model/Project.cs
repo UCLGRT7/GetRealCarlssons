@@ -15,11 +15,28 @@ namespace CarlssonsWPF.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        [JsonIgnore]
-        public Customer Customer { get; set; }
+        
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        public Guid Id { get; set; } = Guid.NewGuid();
+
+        private Customer? _customer;
+        [JsonIgnore]
+        public Customer? Customer
+        {
+            get => _customer;
+            set
+            {
+                _customer = value;
+                OnPropertyChanged();
+
+                // 👇 Sørg for at CustomerName opdateres
+                if (_customer != null)
+                    CustomerName = _customer.Name;
+            }
+        }
 
         private string? _caseNumber;
         public string? CaseNumber
@@ -226,7 +243,7 @@ namespace CarlssonsWPF.Model
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 9)
+            if (parts.Length < 10)
                 throw new FormatException("Invalid project data format");
 
             var deadlineParsed = DateTime.TryParse(parts[2], out var deadline) ? deadline : (DateTime?)null;
@@ -235,6 +252,7 @@ namespace CarlssonsWPF.Model
 
             var project = new Project
             {
+                Id = Guid.NewGuid(),
                 CaseNumber = parts[0],
                 ProjectAddress = parts[1],
                 Deadline = deadlineParsed,
