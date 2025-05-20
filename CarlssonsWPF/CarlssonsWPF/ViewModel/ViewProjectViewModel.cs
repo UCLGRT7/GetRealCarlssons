@@ -80,6 +80,11 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
 
+            ServiceEntry.AvailableServices = Services
+                .Where(s => s.Service != null)
+                .Select(s => s.Service!)
+                .ToList();
+
             foreach (var c in _customerRepository.GetAll()) Customers.Add(c);
             foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
             foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
@@ -89,7 +94,6 @@ namespace CarlssonsWPF.ViewModel
             var savedCustomerName = SelectedProject.CustomerName;
             SelectedProject.InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
-            SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == savedCustomerName);
 
 
 
@@ -146,9 +150,29 @@ namespace CarlssonsWPF.ViewModel
         private void ToggleEdit()
         {
             if (IsEditing)
-                _projectRepository.Update(SelectedProject);
+            {
+                // 🛠️ Opdater alle ServiceEntry-felter ud fra Id
+                foreach (var entry in SelectedProject.Services)
+                {
+                    var match = Services.FirstOrDefault(s => s.Id == entry.Id);
+                    if (match != null)
+                    {
+                        entry.Name = match.Name;
+                        entry.Service = new Service
+                        {
+                            Id = match.Id,
+                            Name = match.Name
+                        };
+                        entry.OnPropertyChanged(nameof(entry.Name));
+                        entry.OnPropertyChanged(nameof(entry.Service));
+                    }
+                }
 
-            // Sikr 10 ydelser ALTID
+                // Gem ændringer
+                _projectRepository.Update(SelectedProject);
+            }
+
+            // Sørg for at der altid er 10 linjer
             while (SelectedProject.Services.Count < 10)
             {
                 SelectedProject.Services.Add(new ServiceEntry());

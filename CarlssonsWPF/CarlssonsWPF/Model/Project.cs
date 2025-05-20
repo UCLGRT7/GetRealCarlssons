@@ -15,6 +15,7 @@ namespace CarlssonsWPF.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        [JsonIgnore]
         public Customer Customer { get; set; }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
@@ -119,7 +120,7 @@ namespace CarlssonsWPF.Model
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
         private ObservableCollection<ServiceEntry>? _services;
-        [JsonIgnore]
+        
         public ObservableCollection<ServiceEntry> Services
         {
             get => _services ??= new ObservableCollection<ServiceEntry>();
