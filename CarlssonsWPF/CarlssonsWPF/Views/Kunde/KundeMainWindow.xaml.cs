@@ -46,26 +46,26 @@ namespace CarlssonsWPF.Views.Kunde
         {
             _frame.Navigate(new KundeSearch(_frame));
         }
-        private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-            if (e.EditAction == DataGridEditAction.Commit)
-            {
-                // Vent til redigeringen er færdig, før vi tilføjer
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    var nyKunde = e.Row.Item as Customer;
+        //private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        //{
+        //    if (e.EditAction == DataGridEditAction.Commit)
+        //    {
+        //        // Vent til redigeringen er færdig, før vi tilføjer
+        //        Dispatcher.BeginInvoke(new Action(() =>
+        //        {
+        //            var newProject = e.Row.Item as Project;
 
-                    if (nyKunde != null && !string.IsNullOrWhiteSpace(nyKunde.Name))
-                    {
-                        // Undgå duplikater (valgfrit tjek på navn)
-                        if (addCustomerViewModel.customers.All(c => c.Name != nyKunde.Name))
-                        {
-                            addCustomerViewModel.AddCustomer(nyKunde);
-                        }
-                    }
-                }), System.Windows.Threading.DispatcherPriority.Background);
-            }
-        }
+        //            if (newProject != null && !string.IsNullOrWhiteSpace(newProject.Name))
+        //            {
+        //                // Undgå duplikater (valgfrit tjek på navn)
+        //                if (addCustomerViewModel.customers.All(c => c.Name != nyKunde.Name))
+        //                {
+        //                    addCustomerViewModel.AddCustomer(nyKunde);
+        //                }
+        //            }
+        //        }), System.Windows.Threading.DispatcherPriority.Background);
+        //    }
+        //}
         private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (CustomerDataGrid.SelectedItem is Customer selectedCustomer)

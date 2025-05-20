@@ -26,8 +26,7 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<ServiceEntry> Services { get; set; } = new();
 
 
-
-
+       
 
         private bool _isEditing;
         public bool IsEditing
@@ -88,6 +87,9 @@ namespace CarlssonsWPF.ViewModel
             SelectedProject.InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
 
+            
+
+
             if (selectedService != null)
             {
                 var existingService = Services.FirstOrDefault(s => s.Id == selectedService.Id);
@@ -135,11 +137,14 @@ namespace CarlssonsWPF.ViewModel
 
         }
 
-
         private void ToggleEdit()
         {
+            if (IsEditing)
+                _projectRepository.Update(SelectedProject); // <-- er den kaldt?
+
             IsEditing = !IsEditing;
         }
+        
 
         private void CancelEdit()
         {
