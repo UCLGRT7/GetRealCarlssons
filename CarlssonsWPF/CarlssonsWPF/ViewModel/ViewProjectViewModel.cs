@@ -77,6 +77,11 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
 
+            ServiceEntry.AvailableServices = Services
+                .Where(s => s.Service != null)
+                .Select(s => s.Service!)
+                .ToList();
+
             foreach (var c in _customerRepository.GetAll()) Customers.Add(c);
             foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
             foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
@@ -143,7 +148,15 @@ namespace CarlssonsWPF.ViewModel
         private void ToggleEdit()
         {
             if (IsEditing)
-                _projectRepository.Update(SelectedProject);
+                foreach (var entry in SelectedProject.Services)
+                {
+                    if (entry.Service != null)
+                    {
+                        entry.Id = entry.Service.Id;
+                        entry.Name = entry.Service.Name;
+                    }
+                }
+            _projectRepository.Update(SelectedProject);
 
             // Sikr 10 ydelser ALTID
             while (SelectedProject.Services.Count < 10)

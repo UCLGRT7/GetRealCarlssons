@@ -7,10 +7,34 @@ namespace CarlssonsWPF.Model
     // ServiceEntry er nu den centrale model, der indeholder både serviceinformationer og kompleksitet
     public class ServiceEntry : INotifyPropertyChanged
     {
+        public static List<Service> AvailableServices { get; set; } = new List<Service>();
+
         private int _complexity;
 
         // Id for service (fra tidligere Service.cs)
-        public int Id { get; set; }
+        private int _id;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+
+                    // Find matchende service fra den globale liste og opdater
+                    var service = AvailableServices.FirstOrDefault(s => s.Id == _id);
+                    if (service != null)
+                    {
+                        Name = service.Name;
+                        Service = service;
+                    }
+
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
         // Navn på servicen
         public string Name { get; set; }

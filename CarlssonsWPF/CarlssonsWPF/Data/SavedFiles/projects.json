@@ -14,10 +14,19 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
-    "Customer": null,
+    "Customer": {
+      "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
+      "Name": "asd",
+      "Address": null,
+      "Email": null,
+      "PhoneNumber": 0,
+      "PostalCode": 0,
+      "City": null
+    },
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -27,10 +36,81 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T12:57:10.8688848+02:00",
+    "LastModified": "2025-05-20T13:03:32.0627683+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3,
+        "Service": {
+          "Id": 1,
+          "Name": "Registrering"
+        }
+      },
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
+        "Complexity": 3,
+        "Service": {
+          "Id": 4,
+          "Name": "Beregning af mur"
+        }
+      },
+      {
+        "Id": 5,
+        "Name": "Beregning af fundament",
+        "Complexity": 3,
+        "Service": {
+          "Id": 5,
+          "Name": "Beregning af fundament"
+        }
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0,
+        "Service": null
+      }
+    ],
     "OfferSentInput": "24-03-96"
   },
   {
@@ -48,6 +128,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -65,6 +146,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -82,6 +164,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -99,6 +182,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -116,6 +200,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -133,6 +218,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -150,6 +236,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -167,6 +254,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -184,6 +272,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -201,6 +290,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -218,6 +308,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -235,6 +326,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
+    "Services": [],
     "OfferSentInput": ""
   },
   {
@@ -252,6 +344,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
+    "Services": [],
     "OfferSentInput": "01-01-01"
   },
   {
@@ -269,6 +362,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
+    "Services": [],
     "OfferSentInput": "01-01-01"
   },
   {
@@ -286,6 +380,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
+    "Services": [],
     "OfferSentInput": "01-01-01"
   },
   {
@@ -303,6 +398,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Services": [],
     "OfferSentInput": "24-03-96"
   },
   {
@@ -320,6 +416,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Services": [],
     "OfferSentInput": "24-03-96"
   },
   {
@@ -337,6 +434,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Services": [],
     "OfferSentInput": "24-03-96"
   }
 ]
