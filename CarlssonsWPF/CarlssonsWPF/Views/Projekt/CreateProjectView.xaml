@@ -411,8 +411,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Annullér Oprettelse"
-                    Command="{x:Static helpers:CommonCommands.GoBackAndReload}"
-CommandParameter="{Binding ElementName=MainFrame}"
+                    Click="GoBack_Click"
                      Width="150"
                     Height="50"
                     Margin="10"

@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class ViewProjectViewModel : INotifyPropertyChanged
+    public class ViewProjectViewModel : INotifyPropertyChanged, IReloadableViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,8 +25,11 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> Contracts { get; set; } = new();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new();
 
+        public void LoadData()
+        {
+            // Genindlæs data her (f.eks. fra repository)
+        }
 
-       
 
         private bool _isEditing;
         public bool IsEditing
@@ -46,7 +49,7 @@ namespace CarlssonsWPF.ViewModel
         }
 
         public bool IsReadOnly => !IsEditing;
-        public string EditButtonText => IsEditing ? "Bekræft redigering" : "Redigér";
+        public string EditButtonText => IsEditing ? "Bekræft" : "Redigér";
         public string BackButtonText => IsEditing ? "Annullér redigering" : "Tilbage";
 
         private Project _selectedProject;

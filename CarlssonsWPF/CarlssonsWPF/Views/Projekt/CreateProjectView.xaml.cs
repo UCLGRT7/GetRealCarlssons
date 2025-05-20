@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Helpers;
 using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Projekt
@@ -81,7 +82,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new ProjektMainWindow(_frame));
+            NavigationHelper.ExecuteGoBack();
         }
 
         private void CancelCreate_Click(object sender, RoutedEventArgs e)

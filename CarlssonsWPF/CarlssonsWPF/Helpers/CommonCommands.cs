@@ -11,28 +11,30 @@ public static class CommonCommands
 {
     public static ICommand CancelAndGoBackCommand { get; } = new RelayCommand(ExecuteCancel);
 
-    public static ICommand GoBackAndReload { get; } = new RelayCommand(ExecuteGoBackAndReload);
+    public static ICommand GoBack => new RelayCommand(ExecuteGoBack);
 
-    private static void ExecuteGoBackAndReload(object parameter)
+
+    private static void ExecuteGoBack(object parameter)
     {
+        System.Diagnostics.Debug.WriteLine($"PARAM: {parameter?.GetType().Name}");
+
         if (parameter is Frame frame)
         {
+            System.Diagnostics.Debug.WriteLine($"CanGoBack: {frame.CanGoBack}");
+
             if (frame.CanGoBack)
-                frame.RemoveBackEntry(); // Fjern nuværende side hvis ønsket
-
-            var currentPage = frame.Content as Page;
-            var pageType = currentPage?.GetType();
-            if (pageType != null)
             {
-                var newPage = (Page)Activator.CreateInstance(pageType);
+                frame.GoBack();
 
-                if (newPage.DataContext is IReloadableViewModel vm)
+                if (frame.Content is Page newPage && newPage.DataContext is IReloadableViewModel vm)
                 {
-                    vm.LoadData(); // Kald på tværs af alle ViewModels
+                    vm.LoadData();
                 }
-
-                frame.Navigate(newPage);
             }
+        }
+        else
+        {
+            System.Diagnostics.Debug.WriteLine("Parameter is not a Frame");
         }
     }
 

@@ -26,10 +26,24 @@
             <Setter Property="Width" Value="200"/>
         </Style>
 
+        <!-- Button -->
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="15,0,15,0"/>
+        </Style>
+
         <!--  ComboBoxEdit -->
         <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Style.Resources>
+                <Style TargetType="ToggleButton">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Style>
+            </Style.Resources>
         </Style>
 
         <!--  ComboBoxView -->
@@ -385,7 +399,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding EstimatedPrice}"
+                                                <TextBlock Text="{Binding EstimatedPrice, StringFormat='{}{0:N0} kr'}"
                                                            Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
@@ -416,7 +430,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Price, StringFormat=N0}"
+                                                <TextBlock Text="{Binding Price, StringFormat='{}{0:N0} kr'}"
                                                            Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
@@ -460,6 +474,25 @@
             </Grid>
         </ScrollViewer>
 
+
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Text" Value="" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="25" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsEditing}" Value="True">
+                            <Setter Property="Text" Value="Redigerer" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+
+
         <!-- Højre side med Ydelser og Kompleksitet -->
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="800,0,0,0" Width="400" Height="540">
             <Grid x:Name="RightGrid">
@@ -489,11 +522,11 @@
                 <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0,5">
+                            <Grid Margin="0,3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="250"/>
-                                    <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Ydelse -->
@@ -510,7 +543,7 @@
                                                                          DisplayMemberPath="Name"
                                                                          SelectedValuePath="Id"
                                                                          SelectedValue="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                                    Width="250"
+                                                                         Width="230"
                                                                          Style="{StaticResource ComboBoxEdit}"
 />
                                                             </DataTemplate>
@@ -546,7 +579,8 @@
                                                                 <TextBox Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                          Width="50" Height="26"
                                                          Padding="4,0,4,0" Margin="0"
-                                                         VerticalContentAlignment="Center"/>
+                                                         VerticalContentAlignment="Center"
+                                                                         HorizontalContentAlignment="Center"/>
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>
@@ -576,11 +610,15 @@
 
 
         <!-- Knapper -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="25,605,0,45" Width="280">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,500,0,0" Width="350" Height="50" VerticalAlignment="Center">
             <Button Content="Tilbage"
-        Command="{x:Static helpers:CommonCommands.GoBackAndReload}"
-        CommandParameter="{Binding ElementName=MainFrame}" />
-            <Button Content="{Binding EditButtonText}" Command="{Binding ToggleEditCommand}" Width="100" />
+                    Click="GoBack_Click"
+                    Style="{StaticResource Button}"/>
+
+
+            <Button Content="{Binding EditButtonText}"
+                    Command="{Binding ToggleEditCommand}"
+                    Style="{StaticResource Button}"/>
         </StackPanel>
     </Grid>
 </Page>
