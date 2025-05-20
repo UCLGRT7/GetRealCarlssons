@@ -1,5 +1,6 @@
 [
   {
+    "Customer": null,
     "CaseNumber": "2022_01_02",
     "ProjectAddress": "testvej",
     "ProjectPostalCode": 0,
@@ -16,22 +17,32 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": {
+      "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
+      "Name": "asd",
+      "Address": null,
+      "Email": null,
+      "PhoneNumber": 0,
+      "PostalCode": 0,
+      "City": null
+    },
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
     "Deadline": "1996-03-24",
-    "EstimatedPrice": 13500,
+    "EstimatedPrice": 0,
     "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T12:43:55.8758385+02:00",
+    "LastModified": "2025-05-20T12:55:41.8844343+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
     "OfferSentInput": "24/03/96"
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_03_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -48,6 +59,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_04_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -64,6 +76,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_05_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -80,6 +93,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_06_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -96,6 +110,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_07_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -112,6 +127,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_08_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -128,6 +144,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_09_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -144,6 +161,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_10_02",
     "ProjectAddress": null,
     "ProjectPostalCode": 0,
@@ -160,6 +178,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "240396_01_01",
     "ProjectAddress": "Niels Steensens Vej 11, 5200",
     "ProjectPostalCode": 0,
@@ -176,6 +195,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_01_01",
     "ProjectAddress": "Niels vej 7",
     "ProjectPostalCode": 0,
@@ -192,6 +212,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2204_01_01",
     "ProjectAddress": "niels vej 7",
     "ProjectPostalCode": 0,
@@ -208,6 +229,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "nielsvej 7",
     "ProjectPostalCode": 0,
@@ -224,6 +246,7 @@
     "OfferSentInput": ""
   },
   {
+    "Customer": null,
     "CaseNumber": null,
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -240,6 +263,7 @@
     "OfferSentInput": "01/01/01"
   },
   {
+    "Customer": null,
     "CaseNumber": "22_02_02",
     "ProjectAddress": "Niels 7",
     "ProjectPostalCode": 5200,
@@ -256,6 +280,7 @@
     "OfferSentInput": "01/01/01"
   },
   {
+    "Customer": null,
     "CaseNumber": "2402_02_02",
     "ProjectAddress": "Niels 7",
     "ProjectPostalCode": 5200,
@@ -272,6 +297,7 @@
     "OfferSentInput": "01/01/01"
   },
   {
+    "Customer": null,
     "CaseNumber": "PLEASE",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -288,6 +314,7 @@
     "OfferSentInput": "24/03/96"
   },
   {
+    "Customer": null,
     "CaseNumber": "Test",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -304,6 +331,7 @@
     "OfferSentInput": "24/03/96"
   },
   {
+    "Customer": null,
     "CaseNumber": "Test 2",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,

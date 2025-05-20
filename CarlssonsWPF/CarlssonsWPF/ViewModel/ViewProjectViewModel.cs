@@ -86,8 +86,9 @@ namespace CarlssonsWPF.ViewModel
             var savedCustomerName = SelectedProject.CustomerName;
             SelectedProject.InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
+            SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == savedCustomerName);
 
-            
+
 
 
             if (selectedService != null)

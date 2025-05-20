@@ -15,6 +15,8 @@ namespace CarlssonsWPF.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public Customer Customer { get; set; }
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
