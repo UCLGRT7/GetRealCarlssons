@@ -36,7 +36,7 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T13:03:32.0627683+02:00",
+    "LastModified": "2025-05-20T13:07:35.0080565+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
@@ -69,37 +69,46 @@
         }
       },
       {
-        "Id": 0,
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 6,
+        "Service": {
+          "Id": 6,
+          "Name": "Beregning af Varmetransmissionstab"
+        }
+      },
+      {
+        "Id": 8,
+        "Name": "Udarbejdelse af rapport",
+        "Complexity": 6,
+        "Service": {
+          "Id": 8,
+          "Name": "Udarbejdelse af rapport"
+        }
+      },
+      {
+        "Id": 8,
+        "Name": "Udarbejdelse af rapport",
+        "Complexity": 0,
+        "Service": {
+          "Id": 8,
+          "Name": "Udarbejdelse af rapport"
+        }
+      },
+      {
+        "Id": 8,
         "Name": null,
         "Complexity": 0,
         "Service": null
       },
       {
-        "Id": 0,
+        "Id": 5,
         "Name": null,
         "Complexity": 0,
         "Service": null
       },
       {
-        "Id": 0,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
-      },
-      {
-        "Id": 0,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
-      },
-      {
-        "Id": 0,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
-      },
-      {
-        "Id": 0,
+        "Id": 7,
         "Name": null,
         "Complexity": 0,
         "Service": null

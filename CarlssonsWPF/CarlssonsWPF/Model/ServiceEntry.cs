@@ -55,7 +55,21 @@ namespace CarlssonsWPF.Model
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
-        public Service? Service { get; set; }
+        private Service? _service;
+        public Service? Service
+        {
+            get => _service;
+            set
+            {
+                _service = value;
+                if (_service != null)
+                {
+                    Name = _service.Name; // <-- Dette sikrer korrekt navngivning
+                    Id = _service.Id;     // (valgfrit, men sikrer konsistens)
+                }
+                OnPropertyChanged();
+            }
+        }
 
         // ToString metode for nemt at konvertere ServiceEntry til en streng
         public override string ToString()
