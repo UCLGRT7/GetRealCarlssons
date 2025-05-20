@@ -12,7 +12,8 @@
     "LastModified": "2025-05-09T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_02_02",
@@ -42,7 +43,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_04_02",
@@ -57,7 +59,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_05_02",
@@ -72,7 +75,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_06_02",
@@ -87,7 +91,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_07_02",
@@ -102,7 +107,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_08_02",
@@ -117,7 +123,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_09_02",
@@ -132,7 +139,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_10_02",
@@ -147,7 +155,8 @@
     "LastModified": "2025-05-13T14:35:29.7613435+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "240396_01_01",
@@ -162,7 +171,8 @@
     "LastModified": "2025-05-15T14:08:25.0141389+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_01_01",
@@ -177,7 +187,8 @@
     "LastModified": "2025-05-15T14:47:05.4788401+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2204_01_01",
@@ -192,7 +203,8 @@
     "LastModified": "2025-05-15T14:26:25.3132149+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": "2022_02_02",
@@ -207,7 +219,8 @@
     "LastModified": "2025-05-15T14:53:35.5672029+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "OfferSentInput": ""
   },
   {
     "CaseNumber": null,
@@ -222,7 +235,8 @@
     "LastModified": "2025-05-16T20:29:06.9110062+02:00",
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01"
+    "Paid": "2001-01-01",
+    "OfferSentInput": "01-01-01"
   },
   {
     "CaseNumber": "22_02_02",
@@ -237,7 +251,8 @@
     "LastModified": "2025-05-16T20:57:03.5270976+02:00",
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01"
+    "Paid": "2001-01-01",
+    "OfferSentInput": "01-01-01"
   },
   {
     "CaseNumber": "2402_02_02",
@@ -252,7 +267,8 @@
     "LastModified": "2025-05-17T07:08:24.7823493+02:00",
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01"
+    "Paid": "2001-01-01",
+    "OfferSentInput": "01-01-01"
   },
   {
     "CaseNumber": "PLEASE",
@@ -267,7 +283,8 @@
     "LastModified": "2025-05-19T22:35:13.8840652+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24"
+    "Paid": "1996-03-24",
+    "OfferSentInput": "24-03-96"
   },
   {
     "CaseNumber": "Test",
@@ -282,7 +299,8 @@
     "LastModified": "2025-05-19T22:34:31.729912+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24"
+    "Paid": "1996-03-24",
+    "OfferSentInput": "24-03-96"
   },
   {
     "CaseNumber": "Test 2",
@@ -297,6 +315,7 @@
     "LastModified": "2025-05-19T22:55:09.9867082+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24"
+    "Paid": "1996-03-24",
+    "OfferSentInput": "24-03-96"
   }
 ]

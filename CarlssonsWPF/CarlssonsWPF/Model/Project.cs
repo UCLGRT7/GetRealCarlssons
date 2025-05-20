@@ -96,6 +96,7 @@ namespace CarlssonsWPF.Model
             set { _offerSent = value; OnPropertyChanged(); }
         }
 
+
         private DateTime? _offerApproved;
         [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
         public DateTime? OfferApproved
@@ -127,32 +128,89 @@ namespace CarlssonsWPF.Model
             }
         }
 
+       
+        private string? _deadlineInput;
         [JsonIgnore]
         public string? DeadlineInput
         {
-            get => Deadline?.ToString("dd/MM/yy") ?? "";
-            set { if (DateTime.TryParse(value, out var result)) Deadline = result; }
+            get => _deadlineInput;
+            set
+            {
+                _deadlineInput = value;
+                OnPropertyChanged();
+
+                if (!string.IsNullOrWhiteSpace(_deadlineInput) && _deadlineInput.Length >= 8)
+                {
+                    if (DateTime.TryParseExact(_deadlineInput, "dd/MM/yy", null, System.Globalization.DateTimeStyles.None, out var parsed))
+                    {
+                        Deadline = parsed;
+                    }
+                }
+            }
         }
 
         [JsonIgnore]
+        private string? _offerSentInput;
         public string? OfferSentInput
         {
-            get => OfferSent?.ToString("dd/MM/yy") ?? "";
-            set { if (DateTime.TryParse(value, out var result)) OfferSent = result; }
+            get => _offerSentInput;
+            set
+            {
+                _offerSentInput = value;
+                OnPropertyChanged();
+
+                // Forsøg kun at parse når hele datoformatet er opfyldt
+                if (!string.IsNullOrWhiteSpace(_offerSentInput) && _offerSentInput.Length >= 8)
+                {
+                    if (DateTime.TryParseExact(_offerSentInput, "dd/MM/yy", null, System.Globalization.DateTimeStyles.None, out var parsed))
+                    {
+                        OfferSent = parsed;
+                    }
+                }
+            }
         }
 
+
+        
+        private string? _offerApprovedInput;
         [JsonIgnore]
         public string? OfferApprovedInput
         {
-            get => OfferApproved?.ToString("dd/MM/yy") ?? "";
-            set { if (DateTime.TryParse(value, out var result)) OfferApproved = result; }
+            get => _offerApprovedInput;
+            set
+            {
+                _offerApprovedInput = value;
+                OnPropertyChanged();
+
+                if (!string.IsNullOrWhiteSpace(_offerApprovedInput) && _offerApprovedInput.Length >= 8)
+                {
+                    if (DateTime.TryParseExact(_offerApprovedInput, "dd/MM/yy", null, System.Globalization.DateTimeStyles.None, out var parsed))
+                    {
+                        OfferApproved = parsed;
+                    }
+                }
+            }
         }
 
+        
+        private string? _paidInput;
         [JsonIgnore]
         public string? PaidInput
         {
-            get => Paid?.ToString("dd/MM/yy") ?? "";
-            set { if (DateTime.TryParse(value, out var result)) Paid = result; }
+            get => _paidInput;
+            set
+            {
+                _paidInput = value;
+                OnPropertyChanged();
+
+                if (!string.IsNullOrWhiteSpace(_paidInput) && _paidInput.Length >= 8)
+                {
+                    if (DateTime.TryParseExact(_paidInput, "dd/MM/yy", null, System.Globalization.DateTimeStyles.None, out var parsed))
+                    {
+                        Paid = parsed;
+                    }
+                }
+            }
         }
 
 
