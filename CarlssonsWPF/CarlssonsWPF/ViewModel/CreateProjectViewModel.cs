@@ -28,6 +28,8 @@ namespace CarlssonsWPF.ViewModel
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
 
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Afventer", "Igang", "Færdig", "Forsinket" };
+
 
 
         public class SelectedServiceEntry : INotifyPropertyChanged
@@ -283,6 +285,7 @@ namespace CarlssonsWPF.ViewModel
 
     });
 
+                System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
                 // ✅ Brug SelectedProject direkte
                 var newProject = new Project
                 {
@@ -292,6 +295,7 @@ namespace CarlssonsWPF.ViewModel
                     ProjectAddress = Address,
                     ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
                     Scope = Scope ?? 0,
+                    Status = SelectedProject.Status,
                     EstimatedPrice = EstimatedPrice,
                     Price = Price,
                     LastModified = DateTime.Now,
@@ -302,8 +306,13 @@ namespace CarlssonsWPF.ViewModel
                     Paid = Paid
                 };
 
+                // 🛠 GEM projektet
+                _projectRepository.Add(newProject);
+                Projects.Add(newProject); // Hvis du ønsker det vist med det samme
+
                 // Naviger videre
                 NavigateToViewProject?.Invoke(newProject);
+
 
                 var contract = new Contract
                 {

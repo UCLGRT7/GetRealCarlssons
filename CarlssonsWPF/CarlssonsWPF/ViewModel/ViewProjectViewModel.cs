@@ -25,6 +25,8 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> Contracts { get; set; } = new();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new();
 
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Forsinket", "Igang", "Færdig", "Afventer" };
+
         public void LoadData()
         {
             // Genindlæs data her (f.eks. fra repository)
@@ -161,7 +163,11 @@ namespace CarlssonsWPF.ViewModel
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
                     if (match != null)
                     {
+                        // match er ServiceEntry, så vi kopierer navn og ID
                         entry.Name = match.Name;
+                        entry.Id = match.Id;
+
+                        // Hvis du stadig bruger 'Service' som reference (eksempelvis for visning)
                         entry.Service = new Service
                         {
                             Id = match.Id,
