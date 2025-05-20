@@ -10,14 +10,63 @@
       d:DesignWidth="1280"
       Title="ViewProjectView">
 
-    <Page.Resources>
-        <Style x:Key="DateTextBoxStyle" TargetType="TextBox">
-            <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
+<Page.Resources>
+    <!--  Shared Box Styling -->
+    <Style x:Key="BaseBoxStyle" TargetType="FrameworkElement">
+        <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,0,5,0"/>
+        </Style>
+
+    <!--  Dato-formatering -->
+    <Style x:Key="DateTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
+        <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+
+    <!--  ComboBoxEdit -->
+    <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!--  ComboBoxView -->
+    <Style x:Key="ComboBoxView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+        </Style>
+
+    <!--  TextBlockEdit -->
+    <Style x:Key="TextBlockEdit" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+    </Style>
+
+    <!--  TextBlockView -->
+    <Style x:Key="TextBlockView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="Width" Value="200"/>
+        </Style>
+
+
+        <!--  Titles -->
+        <Style x:Key="TitleToLeft" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Right"/>
         </Style>
     </Page.Resources>
 
-    <Grid Margin="10">
+
+
+
+
+    <Grid Margin="10,0,0,0">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,500,0">
+            
             <Grid x:Name="LeftGrid" Margin="40" Height="540" Width="420">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -33,12 +82,13 @@
                     <RowDefinition Height="30"/>
                     <!-- Omfang -->
                     <RowDefinition Height="30"/>
-                    <!-- Ydelser header -->
+                    <!-- Spacer til Økonomi -->
                     <RowDefinition Height="15"/>
-                    <RowDefinition Height="17"/>
-                    <RowDefinition Height="16"/>
-                    <RowDefinition Height="16"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="15"/>
+                    
                     <!-- Økonomi header -->
                     <RowDefinition Height="30"/>
                     <!-- Tilbud Afsendt -->
@@ -61,7 +111,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Navn -->
-                <TextBlock Text="Navn:" Grid.Row="0" Grid.Column="0" Margin="105,0,0,0" Height="16" Width="30" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Navn:" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -70,11 +120,12 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <ComboBox ItemsSource="{Binding DataContext.Customers, RelativeSource={RelativeSource AncestorType=Page}}"
-                                          SelectedItem="{Binding Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                          DisplayMemberPath="Name"
-                                          Height="22" HorizontalAlignment="Right" />
-                                            </DataTemplate>
+                                                <ComboBox 
+                                                    Style="{StaticResource ComboBoxEdit}"
+                                                    ItemsSource="{Binding DataContext.Customers, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                 SelectedItem="{Binding Customer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                 DisplayMemberPath="Name"/>
+                                            </DataTemplate>     
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
@@ -82,7 +133,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding CustomerName}" />
+                                                <TextBlock Text="{Binding Customer}"
+                                                            Style="{StaticResource ComboBoxView}" />
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -93,7 +145,7 @@
                 </ContentControl>
 
                 <!-- Sagsnummer -->
-                <TextBlock Text="Sagsnummer:" Grid.Row="1" Grid.Column="0" Margin="63,0,0,0" Height="16" Width="72" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Sagsnummer:" Grid.Row="1" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -102,7 +154,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding CaseNumber, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBox Text="{Binding CaseNumber, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -111,7 +164,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding CaseNumber}" />
+                                                <TextBlock Text="{Binding CaseNumber}"
+                                                           Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -122,7 +176,7 @@
                 </ContentControl>
 
                 <!-- Adresse -->
-                <TextBlock Text="Projekt Adresse:" Grid.Row="2" Grid.Column="0" Margin="50,0,0,0" Height="16" Width="85" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Projekt Adresse:" Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="2" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -131,7 +185,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding ProjectAddress, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBox Text="{Binding ProjectAddress, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -140,7 +195,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding ProjectAddress}" />
+                                                <TextBlock Text="{Binding ProjectAddress}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -151,7 +207,7 @@
                 </ContentControl>
 
                 <!-- Deadline -->
-                <TextBlock Text="Deadline:" Grid.Row="3" Grid.Column="0" Margin="50,0,0,0" Height="16" Width="85" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Deadline:" Grid.Row="3" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="3" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -161,7 +217,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding DeadlineInput, UpdateSourceTrigger=PropertyChanged}" 
-                                                         Style="{StaticResource DateTextBoxStyle}" MaxLength="8" Height="22"/>
+                                                         Style="{StaticResource DateTextBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -170,7 +226,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Deadline, StringFormat='dd/MM/yy'}" />
+                                                <TextBlock Text="{Binding Deadline, StringFormat='dd/MM/yy'}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -181,7 +238,7 @@
                 </ContentControl>
 
                 <!-- Postnummer -->
-                <TextBlock Text="Postnummer:" Grid.Row="4" Grid.Column="0" Margin="63,0,0,0" Height="16" Width="72" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Postnummer:" Grid.Row="4" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="4" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -190,7 +247,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBox Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -199,7 +257,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding ProjectPostalCode}" />
+                                                <TextBlock Text="{Binding ProjectPostalCode}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -210,7 +269,7 @@
                 </ContentControl>
 
                 <!-- Omfang -->
-                <TextBlock Text="Omfang:" Grid.Row="5" Grid.Column="0" Margin="89,0,0,0" Height="16" Width="46" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Omfang:" Grid.Row="5" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="5" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -219,7 +278,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBox Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -228,7 +288,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Scope}" />
+                                                <TextBlock Text="{Binding Scope}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -238,14 +299,11 @@
                     </ContentControl.Style>
                 </ContentControl>
 
-                <!-- Ydelser header -->
-                <TextBlock Text="Ydelser" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Height="16"/>
-
                 <!-- Økonomi header -->
                 <TextBlock Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Width="52" />
 
                 <!-- Tilbud afsendt -->
-                <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Margin="57,0,0,0" Height="16" Width="78" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="13" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -254,7 +312,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DateTextBoxStyle}" MaxLength="8" Height="22"/>
+                                                <TextBox Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource DateTextBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -263,7 +322,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding OfferSent, StringFormat='dd/MM/yy'}" />
+                                                <TextBlock Text="{Binding OfferSent, StringFormat='dd/MM/yy'}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -274,7 +334,7 @@
                 </ContentControl>
 
                 <!-- Tilbud godkendt -->
-                <TextBlock Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" Margin="45,0,0,0" Height="16" Width="90" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="14" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -283,7 +343,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DateTextBoxStyle}" MaxLength="8" Height="22"/>
+                                                <TextBox Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource DateTextBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -292,7 +353,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding OfferApproved, StringFormat='dd/MM/yy'}" />
+                                                <TextBlock Text="{Binding OfferApproved, StringFormat='dd/MM/yy'}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -303,7 +365,7 @@
                 </ContentControl>
 
                 <!-- Anslået pris -->
-                <TextBlock Text="Anslået pris:" Grid.Row="15" Grid.Column="0" Margin="71,0,0,0" Height="16" Width="64" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Anslået pris:" Grid.Row="15" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="15" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -312,7 +374,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding EstimatedPrice, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBlock Text="{Binding EstimatedPrice, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -321,7 +384,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding EstimatedPrice}" />
+                                                <TextBlock Text="{Binding EstimatedPrice}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -332,7 +396,7 @@
                 </ContentControl>
 
                 <!-- Pris -->
-                <TextBlock Text="Pris:" Grid.Row="16" Grid.Column="0" Margin="114,0,0,0" Height="16" Width="21" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Pris:" Grid.Row="16" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="16" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -341,7 +405,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Height="22"/>
+                                                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource BaseBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -350,7 +415,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Price}" />
+                                                <TextBlock Text="{Binding Price, StringFormat=N0}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -361,7 +427,7 @@
                 </ContentControl>
 
                 <!-- Betalt -->
-                <TextBlock Text="Betalt:" Grid.Row="17" Grid.Column="0" Margin="102,0,0,0" Height="16" Width="33" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="Betalt:" Grid.Row="17" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <ContentControl Grid.Row="17" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -370,7 +436,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DateTextBoxStyle}" MaxLength="8" Height="22"/>
+                                                <TextBox Text="{Binding PaidInput, UpdateSourceTrigger=PropertyChanged}"
+                                                         Style="{StaticResource DateTextBoxStyle}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -379,7 +446,8 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Paid, StringFormat='dd/MM/yy'}" />
+                                                <TextBlock Text="{Binding Paid, StringFormat='dd/MM/yy'}"
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -392,11 +460,11 @@
         </ScrollViewer>
 
         <!-- Højre side med Ydelser og Kompleksitet -->
-<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="695,0,0,0" Width="565" Height="540">
+<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="800,0,0,0" Width="400" Height="540">
     <Grid x:Name="RightGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/> <!-- Header -->
-            <RowDefinition Height="Auto"/> <!-- Ydelser og Kompleksitet -->
+            <RowDefinition Height="30"/> <!-- Ydelser og Kompleksitet -->
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -416,87 +484,93 @@
         </Grid.ColumnDefinitions>
 
         <!-- Header: Ydelser og Kompleksitet -->
-        <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="16" />
-        <TextBlock Text="Kompleksitet" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="16" Width="75" />
+                <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" />
+                <TextBlock Text="Kompleksitet" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="75" />
 
-        <!-- ItemsControl for Ydelser og Kompleksitet -->
-        <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-            <ItemsControl.ItemTemplate>
+                <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                    <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid Margin="0,5">
-                                    <!-- Definerer 1 række for hver ydelse og kompleksitet -->
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
+                            <Grid Margin="0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="75"/>
+                                </Grid.ColumnDefinitions>
 
-                                    <!-- Ydelse: Kun Navn (Right Aligned) -->
-                                    <ContentControl Content="{Binding}" HorizontalAlignment="Right" Grid.Column="0">
-                                        <ContentControl.Style>
-                                            <Style TargetType="ContentControl">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="True">
-                                                        <Setter Property="ContentTemplate">
-                                                            <Setter.Value>
-                                                                <DataTemplate>
-                                                                    <!-- ComboBox i redigeringstilstand med valgt ydelse -->
-                                                                    <ComboBox ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                                              DisplayMemberPath="Name"
-                                                                              SelectedValuePath="Id"
-                                                                              SelectedValue="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <!-- Ydelse -->
+                                <ContentControl Content="{Binding}" Grid.Column="0" HorizontalAlignment="Stretch">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="True">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <ComboBox
+                                                                         ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                                         DisplayMemberPath="Name"
+                                                                         SelectedValuePath="Id"
+                                                                         SelectedValue="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                    Width="250"
+                                                                         Style="{StaticResource ComboBoxEdit}"
+/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="False">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <TextBlock
+                                                                             Text="{Binding Name}"
+                                                                             Style="{StaticResource TextBlockView}"
+/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
 
-                                                                </DataTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="False">
-                                                        <Setter Property="ContentTemplate">
-                                                            <Setter.Value>
-                                                                <DataTemplate>
-                                                                    <!-- TextBlock i visningstilstand -->
-                                                                    <TextBlock Text="{Binding Name}" Width="200" HorizontalAlignment="Right" />
-                                                                </DataTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </ContentControl.Style>
-                                    </ContentControl>
-
-                                    <!-- Kompleksitet: Rediger eller vis kompleksitet (Right Aligned) -->
-                                    <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">
-                                        <ContentControl.Style>
-                                            <Style TargetType="ContentControl">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="True">
-                                                        <Setter Property="ContentTemplate">
-                                                            <Setter.Value>
-                                                                <DataTemplate>
-                                                                    <TextBox Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="10,0,0,0" HorizontalAlignment="Right"/>
-                                                                </DataTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="False">
-                                                        <Setter Property="ContentTemplate">
-                                                            <Setter.Value>
-                                                                <DataTemplate>
-                                                                    <TextBlock Text="{Binding Complexity}" Width="50" Margin="10,0,0,0" HorizontalAlignment="Right"/>
-                                                                </DataTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </ContentControl.Style>
-                                    </ContentControl>
-                                </Grid>
+                                <!-- Kompleksitet -->
+                                <ContentControl Content="{Binding}" Grid.Column="2" HorizontalAlignment="Left">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="True">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <TextBox Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         Width="50" Height="26"
+                                                         Padding="4,0,4,0" Margin="0"
+                                                         VerticalContentAlignment="Center"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding DataContext.IsEditing, RelativeSource={RelativeSource AncestorType=Page}}" Value="False">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Complexity}" Width="50" Height="26"
+                                                                            Style="{StaticResource TextBlockView}"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
                             </Grid>
                         </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-    </Grid>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
 </ScrollViewer>
 
 

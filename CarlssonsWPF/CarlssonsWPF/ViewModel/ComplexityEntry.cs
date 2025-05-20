@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 public class ComplexityEntry : INotifyPropertyChanged
 {
@@ -11,10 +12,12 @@ public class ComplexityEntry : INotifyPropertyChanged
             if (_value != value)
             {
                 _value = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+                OnPropertyChanged();
             }
         }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
