@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Alex",
+    "Status": null,
+    "LastModified": "2025-05-20T09:40:24.8332912+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24"
+  }
+]

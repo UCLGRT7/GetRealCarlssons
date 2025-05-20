@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "Id": "1b4fb4dd-c316-4c3a-a3a4-23bdf4e951b1",
+    "Name": "Alex",
+    "Address": "TestCe",
+    "Email": "456@asd.dk",
+    "PhoneNumber": 12345678,
+    "PostalCode": 8080,
+    "City": "AA"
+  }
+]

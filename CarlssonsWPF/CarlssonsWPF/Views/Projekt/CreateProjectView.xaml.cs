@@ -81,8 +81,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (_frame.CanGoBack)
-                _frame.GoBack();
+            _frame.Navigate(new ProjektMainWindow(_frame));
         }
 
         private void CancelCreate_Click(object sender, RoutedEventArgs e)
@@ -97,7 +96,7 @@ namespace CarlssonsWPF.Views.Projekt
                 Window.GetWindow(this)?.Close();
             }
 
-    }
+        }
     }
 }
 
