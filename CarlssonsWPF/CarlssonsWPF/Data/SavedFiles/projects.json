@@ -1,32 +1,5 @@
 [
   {
-    "Customer": null,
-    "CaseNumber": "2022_01_02",
-    "ProjectAddress": "testvej",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-10-05",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Alex Holmbo",
-    "Status": "Done",
-    "LastModified": "2025-05-09T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": {
-      "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
-      "Name": "asd",
-      "Address": null,
-      "Email": null,
-      "PhoneNumber": 0,
-      "PostalCode": 0,
-      "City": null
-    },
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -36,414 +9,62 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T13:07:35.0080565+02:00",
+    "LastModified": "2025-05-20T13:35:07.1512424+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
     "Services": [
       {
-        "Id": 1,
-        "Name": "Registrering",
-        "Complexity": 3,
-        "Service": {
-          "Id": 1,
-          "Name": "Registrering"
-        }
-      },
-      {
         "Id": 4,
         "Name": "Beregning af mur",
-        "Complexity": 3,
-        "Service": {
-          "Id": 4,
-          "Name": "Beregning af mur"
-        }
-      },
-      {
-        "Id": 5,
-        "Name": "Beregning af fundament",
-        "Complexity": 3,
-        "Service": {
-          "Id": 5,
-          "Name": "Beregning af fundament"
-        }
-      },
-      {
-        "Id": 6,
-        "Name": "Beregning af Varmetransmissionstab",
-        "Complexity": 6,
-        "Service": {
-          "Id": 6,
-          "Name": "Beregning af Varmetransmissionstab"
-        }
-      },
-      {
-        "Id": 8,
-        "Name": "Udarbejdelse af rapport",
-        "Complexity": 6,
-        "Service": {
-          "Id": 8,
-          "Name": "Udarbejdelse af rapport"
-        }
-      },
-      {
-        "Id": 8,
-        "Name": "Udarbejdelse af rapport",
-        "Complexity": 0,
-        "Service": {
-          "Id": 8,
-          "Name": "Udarbejdelse af rapport"
-        }
-      },
-      {
-        "Id": 8,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
-      },
-      {
-        "Id": 5,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
+        "Complexity": 3
       },
       {
         "Id": 7,
-        "Name": null,
-        "Complexity": 0,
-        "Service": null
+        "Name": "Beregning af energiramme",
+        "Complexity": 3
       },
       {
         "Id": 0,
         "Name": null,
-        "Complexity": 0,
-        "Service": null
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
       }
     ],
-    "OfferSentInput": "24-03-96"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_03_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_04_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_05_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_06_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_07_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_08_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_09_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_10_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson",
-    "Status": "Igangv\u00E6rende",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "240396_01_01",
-    "ProjectAddress": "Niels Steensens Vej 11, 5200",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-15",
-    "EstimatedPrice": 3000,
-    "Price": 0,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:08:25.0141389+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_01_01",
-    "ProjectAddress": "Niels vej 7",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-15",
-    "EstimatedPrice": 4500,
-    "Price": 0,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:47:05.4788401+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2204_01_01",
-    "ProjectAddress": "niels vej 7",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-15",
-    "EstimatedPrice": 3000,
-    "Price": 0,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:26:25.3132149+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2022_02_02",
-    "ProjectAddress": "nielsvej 7",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-15",
-    "EstimatedPrice": 4500,
-    "Price": 0,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:53:35.5672029+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null,
-    "Services": [],
-    "OfferSentInput": ""
-  },
-  {
-    "Customer": null,
-    "CaseNumber": null,
-    "ProjectAddress": null,
-    "ProjectPostalCode": null,
-    "Deadline": "2025-05-16",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-16T20:29:06.9110062+02:00",
-    "OfferSent": "2001-01-01",
-    "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01",
-    "Services": [],
-    "OfferSentInput": "01-01-01"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "22_02_02",
-    "ProjectAddress": "Niels 7",
-    "ProjectPostalCode": 5200,
-    "Deadline": "2025-05-16",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-16T20:57:03.5270976+02:00",
-    "OfferSent": "2001-01-01",
-    "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01",
-    "Services": [],
-    "OfferSentInput": "01-01-01"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "2402_02_02",
-    "ProjectAddress": "Niels 7",
-    "ProjectPostalCode": 5200,
-    "Deadline": "2025-05-17",
-    "EstimatedPrice": 150000,
-    "Price": 150000,
-    "Scope": 3,
-    "CustomerName": "c4bf0d6b-a7a6-48c7-a03a-caadc89b1815Daniel blomst,Sallingvej,Dni,29023323,123123,Vanl\u00F8se",
-    "Status": null,
-    "LastModified": "2025-05-17T07:08:24.7823493+02:00",
-    "OfferSent": "2001-01-01",
-    "OfferApproved": "2001-01-01",
-    "Paid": "2001-01-01",
-    "Services": [],
-    "OfferSentInput": "01-01-01"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "PLEASE",
-    "ProjectAddress": "Tr\u00E6vej 42",
-    "ProjectPostalCode": 2100,
-    "Deadline": "1996-03-24",
-    "EstimatedPrice": 0,
-    "Price": 23000,
-    "Scope": 3,
-    "CustomerName": "Daniel blomst",
-    "Status": null,
-    "LastModified": "2025-05-19T22:35:13.8840652+02:00",
-    "OfferSent": "1996-03-24",
-    "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24",
-    "Services": [],
-    "OfferSentInput": "24-03-96"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "Test",
-    "ProjectAddress": "Tr\u00E6vej 42",
-    "ProjectPostalCode": 2100,
-    "Deadline": "1996-03-24",
-    "EstimatedPrice": 0,
-    "Price": 23000,
-    "Scope": 3,
-    "CustomerName": "Valdemar",
-    "Status": null,
-    "LastModified": "2025-05-19T22:34:31.729912+02:00",
-    "OfferSent": "1996-03-24",
-    "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24",
-    "Services": [],
-    "OfferSentInput": "24-03-96"
-  },
-  {
-    "Customer": null,
-    "CaseNumber": "Test 2",
-    "ProjectAddress": "Tr\u00E6vej 42",
-    "ProjectPostalCode": 2100,
-    "Deadline": "1996-03-24",
-    "EstimatedPrice": 0,
-    "Price": 23000,
-    "Scope": 3,
-    "CustomerName": "Daniel blomst",
-    "Status": null,
-    "LastModified": "2025-05-19T22:55:09.9867082+02:00",
-    "OfferSent": "1996-03-24",
-    "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24",
-    "Services": [],
     "OfferSentInput": "24-03-96"
   }
 ]

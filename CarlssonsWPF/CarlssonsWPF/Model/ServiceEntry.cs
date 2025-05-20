@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace CarlssonsWPF.Model
 {
@@ -55,7 +56,9 @@ namespace CarlssonsWPF.Model
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
+       
         private Service? _service;
+        [JsonIgnore]
         public Service? Service
         {
             get => _service;
@@ -94,7 +97,7 @@ namespace CarlssonsWPF.Model
 
         // INotifyPropertyChanged implementering for at give besked om ændringer
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        public void OnPropertyChanged([CallerMemberName] string? propertyName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 

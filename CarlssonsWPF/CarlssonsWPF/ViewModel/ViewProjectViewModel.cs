@@ -91,7 +91,6 @@ namespace CarlssonsWPF.ViewModel
             var savedCustomerName = SelectedProject.CustomerName;
             SelectedProject.InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
-            SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == savedCustomerName);
 
 
 
@@ -148,21 +147,17 @@ namespace CarlssonsWPF.ViewModel
         private void ToggleEdit()
         {
             if (IsEditing)
-                foreach (var entry in SelectedProject.Services)
-                {
-                    if (entry.Service != null)
-                    {
-                        entry.Id = entry.Service.Id;
-                        entry.Name = entry.Service.Name;
-                    }
-                }
-            _projectRepository.Update(SelectedProject);
-
-            // Sikr 10 ydelser ALTID
-            while (SelectedProject.Services.Count < 10)
             {
-                SelectedProject.Services.Add(new ServiceEntry());
+                _projectRepository.Update(SelectedProject);
+
+                // Tving UI til at opdatere visning af servicenavn
+                foreach (var s in SelectedProject.Services)
+                    s.OnPropertyChanged(nameof(ServiceEntry.Name));
             }
+
+            // Fyld op til 10 entries
+            while (SelectedProject.Services.Count < 10)
+                SelectedProject.Services.Add(new ServiceEntry());
 
             IsEditing = !IsEditing;
             OnPropertyChanged(nameof(SelectedProject));

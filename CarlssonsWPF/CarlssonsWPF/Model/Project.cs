@@ -15,6 +15,7 @@ namespace CarlssonsWPF.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        [JsonIgnore]
         public Customer Customer { get; set; }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
