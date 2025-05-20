@@ -1,11 +1,11 @@
 [
   {
-    "Id": "1b4fb4dd-c316-4c3a-a3a4-23bdf4e951b1",
-    "Name": "Alex",
-    "Address": "TestCe",
-    "Email": "456@asd.dk",
-    "PhoneNumber": 12345678,
-    "PostalCode": 8080,
-    "City": "AA"
+    "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
+    "Name": "asd",
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
   }
 ]

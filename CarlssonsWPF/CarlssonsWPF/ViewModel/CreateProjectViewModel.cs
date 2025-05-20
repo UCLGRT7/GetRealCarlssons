@@ -107,7 +107,7 @@ namespace CarlssonsWPF.ViewModel
         public int? Scope
         {
             get => _scope;
-            set { _scope = value; OnPropertyChanged(); }
+            set { _scope = value; OnPropertyChanged(); UpdateEstimatedPrice(); }
         }
 
         private string? _projectPostalCode;
@@ -162,14 +162,22 @@ namespace CarlssonsWPF.ViewModel
             set { if (_price != value) { _price = value; OnPropertyChanged(); } }
         }
 
+        private const int P = 100;
         private double _estimatedPrice;
         public double EstimatedPrice
         {
             get => _estimatedPrice;
-            set { if (_estimatedPrice != value) { _estimatedPrice = value; OnPropertyChanged(); } }
+            set
+            {
+                if (_estimatedPrice != value)
+                {
+                    _estimatedPrice = value;
+                    System.Diagnostics.Debug.WriteLine($"🔁 EstimatedPrice opdateret til: {_estimatedPrice}");
+                    OnPropertyChanged();
+                }
+            }
         }
 
-        private const int P = 100;
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -190,8 +198,21 @@ namespace CarlssonsWPF.ViewModel
             // Initialiser 10 tomme entries for SelectedServices og Complexities
             for (int i = 0; i < 10; i++)
             {
-                Complexities.Add(new ComplexityEntry());
-                SelectedServices.Add(new SelectedServiceEntry());
+                var complexity = new ComplexityEntry();
+                complexity.PropertyChanged += (s, e) =>
+                {
+                    if (e.PropertyName == nameof(ComplexityEntry.Value))
+                        UpdateEstimatedPrice();
+                };
+                Complexities.Add(complexity);
+
+                var selected = new SelectedServiceEntry();
+                selected.PropertyChanged += (s, e) =>
+                {
+                    if (e.PropertyName == nameof(SelectedServiceEntry.Service))
+                        UpdateEstimatedPrice();
+                };
+                SelectedServices.Add(selected);
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
@@ -201,10 +222,6 @@ namespace CarlssonsWPF.ViewModel
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
 
-            foreach (var complexity in Complexities)
-            {
-                complexity.PropertyChanged += (s, e) => { if (e.PropertyName == nameof(ComplexityEntry.Value)) UpdateEstimatedPrice(); };
-            }
 
 #if DEBUG
             CaseNumber = "2022_02_02";
@@ -223,19 +240,22 @@ namespace CarlssonsWPF.ViewModel
         {
             if (Scope == null) return;
 
-            // Summér kompleksitet baseret på Complexities (du kan ændre hvis du ønsker at summere på SelectedServices)
             int totalComplexity = 0;
 
-            for (int i = 0; i < SelectedServices.Count; i++)
+            for (int i = 0; i < Complexities.Count; i++)
             {
-                var selectedService = SelectedServices[i];
-                var complexityEntry = i < Complexities.Count ? Complexities[i] : null;
-
-                if (selectedService?.Service != null && complexityEntry?.Value != null)
+                var complexityEntry = Complexities[i];
+                if (complexityEntry?.Value != null)
                     totalComplexity += complexityEntry.Value.Value;
             }
 
             EstimatedPrice = Scope.Value * totalComplexity * P;
+        }
+
+        private void Complexity_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ComplexityEntry.Value))
+                UpdateEstimatedPrice();
         }
 
         public void CreateProject()
@@ -307,6 +327,7 @@ namespace CarlssonsWPF.ViewModel
                 MessageBox.Show($"Fejl under oprettelse:\n{ex.Message}", "Teknisk fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private DateTime? TryParseToDate(string? input)
         {
