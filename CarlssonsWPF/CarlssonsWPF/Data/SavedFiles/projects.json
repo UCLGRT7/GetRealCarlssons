@@ -4,19 +4,24 @@
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
     "Deadline": "1996-03-24",
-    "EstimatedPrice": 0,
+    "EstimatedPrice": 300,
     "Price": 23000,
-    "Scope": 3,
+    "Scope": 36,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T14:09:42.1755092+02:00",
+    "LastModified": "2025-05-20T15:09:39.157822+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
     "Services": [
       {
-        "Id": 0,
-        "Name": null,
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 3
+      },
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
         "Complexity": 0
       },
       {
@@ -55,13 +60,8 @@
         "Complexity": 0
       },
       {
-        "Id": 0,
-        "Name": null,
-        "Complexity": 0
-      },
-      {
-        "Id": 0,
-        "Name": null,
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
         "Complexity": 0
       }
     ],

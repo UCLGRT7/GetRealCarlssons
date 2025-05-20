@@ -17,12 +17,16 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Margin" Value="5,0,5,0"/>
+        </Style>
+
+        <Style x:Key="TextBoxCentered" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
         <!--  Dato-formatering -->
         <Style x:Key="DateTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
             <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Width" Value="200"/>
         </Style>
 
@@ -39,11 +43,7 @@
         <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Style.Resources>
-                <Style TargetType="ToggleButton">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                </Style>
-            </Style.Resources>
+            <Setter Property="Padding" Value="6,0,2,0"/>
         </Style>
 
         <!--  ComboBoxView -->
@@ -61,14 +61,15 @@
         <!--  TextBlockView -->
         <Style x:Key="TextBlockView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
 
 
         <!--  Titles -->
         <Style x:Key="TitleToLeft" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="140"/>
-            <Setter Property="Margin" Value="0,0,0,0"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,4,10,0"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Right"/>
         </Style>
@@ -126,7 +127,7 @@
 
 
                 <!-- Navn -->
-                <TextBlock Text="Navn:" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
+                <TextBlock Text="Navn:" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleToLeft}" Margin="0,9,10,0"/>
                 <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding SelectedProject}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -148,8 +149,9 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding CustomerName}"
-                                                           Style="{StaticResource BaseBoxStyle}"/>
-
+                                                           Margin="6,9,0,0"
+                                                           Style="{StaticResource BaseBoxStyle}">
+                                                </TextBlock>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -170,7 +172,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding CaseNumber, UpdateSourceTrigger=PropertyChanged}"
-                                                         Style="{StaticResource BaseBoxStyle}"/>
+                                                         Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -180,7 +182,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding CaseNumber}"
-                                                           Style="{StaticResource BaseBoxStyle}"/>
+                                                           Style="{StaticResource TextBlockView}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -201,7 +203,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding ProjectAddress, UpdateSourceTrigger=PropertyChanged}"
-                                                         Style="{StaticResource BaseBoxStyle}"/>
+                                                         Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -263,7 +265,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
-                                                         Style="{StaticResource BaseBoxStyle}"/>
+                                                         Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -294,7 +296,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}"
-                                                         Style="{StaticResource BaseBoxStyle}"/>
+                                                         Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -421,7 +423,7 @@
                                         <Setter.Value>
                                             <DataTemplate>
                                                 <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
-                                                         Style="{StaticResource BaseBoxStyle}"/>
+                                                         Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -577,10 +579,7 @@
                                                         <Setter.Value>
                                                             <DataTemplate>
                                                                 <TextBox Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         Width="50" Height="26"
-                                                         Padding="4,0,4,0" Margin="0"
-                                                         VerticalContentAlignment="Center"
-                                                                         HorizontalContentAlignment="Center"/>
+                                                                          Style="{StaticResource TextBoxCentered}" />
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>
