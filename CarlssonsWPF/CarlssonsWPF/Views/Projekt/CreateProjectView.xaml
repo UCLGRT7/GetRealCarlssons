@@ -286,9 +286,6 @@
            VerticalAlignment="Center"
            Style="{StaticResource TextBlockView}" />
 
-                    <!-- DEBUG-->
-                    <Label Content="{Binding DataContext.EstimatedPrice, RelativeSource={RelativeSource AncestorType=Page}, Mode=OneWay}" />
-
 
                     <!--Pris-->
                     <TextBlock Text="Pris:"

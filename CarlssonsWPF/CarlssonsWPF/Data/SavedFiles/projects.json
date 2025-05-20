@@ -4,30 +4,30 @@
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
     "Deadline": "1996-03-24",
-    "EstimatedPrice": 1800,
+    "EstimatedPrice": 0,
     "Price": 23000,
-    "Scope": 5,
+    "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T13:48:00.8786849+02:00",
+    "LastModified": "2025-05-20T14:09:42.1755092+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
     "Services": [
       {
-        "Id": 1,
-        "Name": "Registrering",
-        "Complexity": 3
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
       },
       {
-        "Id": 4,
-        "Name": "Beregning af mur",
-        "Complexity": 3
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
       },
       {
-        "Id": 10,
-        "Name": " ",
-        "Complexity": 3
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
       },
       {
         "Id": 0,
@@ -65,6 +65,6 @@
         "Complexity": 0
       }
     ],
-    "OfferSentInput": "24-03-96"
+    "OfferSentInput": "24/03/96"
   }
 ]
