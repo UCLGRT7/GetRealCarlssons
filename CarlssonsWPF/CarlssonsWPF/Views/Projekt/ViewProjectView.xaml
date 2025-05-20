@@ -541,13 +541,11 @@
                                                         <Setter.Value>
                                                             <DataTemplate>
                                                                 <ComboBox
-                                                                         ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                                         DisplayMemberPath="Name"
-                                                                         SelectedValuePath="Id"
-                                                                         SelectedValue="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                                         Width="230"
-                                                                         Style="{StaticResource ComboBoxEdit}"
-/>
+                                                                          ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                                          DisplayMemberPath="Name"
+                                                                          SelectedItem="{Binding Service, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                          Width="230"
+                                                                          Style="{StaticResource ComboBoxEdit}" />
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>
@@ -557,7 +555,7 @@
                                                         <Setter.Value>
                                                             <DataTemplate>
                                                                 <TextBlock
-                                                                             Text="{Binding Name}"
+                                                                             Text="{Binding Service.Name}"
                                                                              Style="{StaticResource TextBlockView}"
 />
                                                             </DataTemplate>
@@ -579,7 +577,7 @@
                                                         <Setter.Value>
                                                             <DataTemplate>
                                                                 <TextBox Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                                          Style="{StaticResource TextBoxCentered}" />
+                                         Style="{StaticResource TextBoxCentered}" />
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>
@@ -589,7 +587,7 @@
                                                         <Setter.Value>
                                                             <DataTemplate>
                                                                 <TextBlock Text="{Binding Complexity}" Width="50" Height="26"
-                                                                            Style="{StaticResource TextBlockView}"/>
+                                           Style="{StaticResource TextBlockView}" />
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>
@@ -598,6 +596,7 @@
                                         </Style>
                                     </ContentControl.Style>
                                 </ContentControl>
+
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

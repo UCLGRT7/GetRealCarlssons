@@ -96,23 +96,15 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public void Add(Project project)
         {
-            // If project already exists, update it instead
-            if (GetByCaseNumber(project.CaseNumber) != null)
-            {
-                Update(project);
-                return;
-            }
-
             try
             {
-                // Get all existing projects
                 var projects = GetAll().ToList();
 
-                // Add the new project
                 project.LastModified = DateTime.Now;
+                System.Diagnostics.Debug.WriteLine("💾 Gemmer projekt:");
+                System.Diagnostics.Debug.WriteLine(JsonSerializer.Serialize(projects));
                 projects.Add(project);
 
-                // Save all projects back to file
                 SaveProjectsToFile(projects);
             }
             catch (Exception ex)

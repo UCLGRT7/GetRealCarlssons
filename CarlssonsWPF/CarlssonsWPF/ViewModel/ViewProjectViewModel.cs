@@ -1,6 +1,7 @@
 ﻿using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -193,7 +194,6 @@ namespace CarlssonsWPF.ViewModel
         private void CancelEdit()
         {
             IsEditing = false;
-            SelectedProject.InitFromModel(); // Gendanner visning fra model-data
             OnPropertyChanged(nameof(SelectedProject));
         }
 
