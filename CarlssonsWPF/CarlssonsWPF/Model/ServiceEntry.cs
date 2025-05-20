@@ -13,7 +13,7 @@ namespace CarlssonsWPF.Model
         public int Id { get; set; }
 
         // Navn på servicen
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         // Komplexitet af servicen
         public int Complexity

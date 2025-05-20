@@ -17,14 +17,14 @@
   {
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "ProjectPostalCode": 300,
-    "Deadline": "2000-01-01",
-    "EstimatedPrice": 0,
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 13500,
     "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T10:58:51.6104224+02:00",
+    "LastModified": "2025-05-20T12:22:58.0312875+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24"

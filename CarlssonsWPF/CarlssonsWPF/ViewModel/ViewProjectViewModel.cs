@@ -140,11 +140,18 @@ namespace CarlssonsWPF.ViewModel
         private void ToggleEdit()
         {
             if (IsEditing)
-                _projectRepository.Update(SelectedProject); // <-- er den kaldt?
+                _projectRepository.Update(SelectedProject);
+
+            // Sikr 10 ydelser ALTID
+            while (SelectedProject.Services.Count < 10)
+            {
+                SelectedProject.Services.Add(new ServiceEntry());
+            }
 
             IsEditing = !IsEditing;
+            OnPropertyChanged(nameof(SelectedProject));
         }
-        
+
 
         private void CancelEdit()
         {
