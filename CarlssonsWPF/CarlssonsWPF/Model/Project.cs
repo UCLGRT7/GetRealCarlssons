@@ -119,7 +119,7 @@ namespace CarlssonsWPF.Model
         public List<Contract> Contracts { get; set; } = new List<Contract>();
         [JsonIgnore]
         private ObservableCollection<ServiceEntry>? _services;
-        [JsonIgnore]
+        
         public ObservableCollection<ServiceEntry> Services
         {
             get => _services ??= new ObservableCollection<ServiceEntry>();

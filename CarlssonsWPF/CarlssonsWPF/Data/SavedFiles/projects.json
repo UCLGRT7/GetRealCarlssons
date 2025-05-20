@@ -17,29 +17,21 @@
     "OfferSentInput": ""
   },
   {
-    "Customer": {
-      "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
-      "Name": "asd",
-      "Address": null,
-      "Email": null,
-      "PhoneNumber": 0,
-      "PostalCode": 0,
-      "City": null
-    },
+    "Customer": null,
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
     "Deadline": "1996-03-24",
-    "EstimatedPrice": 0,
+    "EstimatedPrice": 1800,
     "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T12:55:41.8844343+02:00",
+    "LastModified": "2025-05-20T12:57:10.8688848+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24/03/96"
+    "OfferSentInput": "24-03-96"
   },
   {
     "Customer": null,
@@ -260,7 +252,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01/01/01"
+    "OfferSentInput": "01-01-01"
   },
   {
     "Customer": null,
@@ -277,7 +269,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01/01/01"
+    "OfferSentInput": "01-01-01"
   },
   {
     "Customer": null,
@@ -294,7 +286,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01/01/01"
+    "OfferSentInput": "01-01-01"
   },
   {
     "Customer": null,
@@ -311,7 +303,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24/03/96"
+    "OfferSentInput": "24-03-96"
   },
   {
     "Customer": null,
@@ -328,7 +320,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24/03/96"
+    "OfferSentInput": "24-03-96"
   },
   {
     "Customer": null,
@@ -345,6 +337,6 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24/03/96"
+    "OfferSentInput": "24-03-96"
   }
 ]
