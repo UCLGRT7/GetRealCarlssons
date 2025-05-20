@@ -15,13 +15,28 @@ namespace CarlssonsWPF.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        [JsonIgnore]
-        public Customer Customer { get; set; }
+        
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public Guid Id { get; set; } = Guid.NewGuid();
+
+        private Customer? _customer;
+        [JsonIgnore]
+        public Customer? Customer
+        {
+            get => _customer;
+            set
+            {
+                _customer = value;
+                OnPropertyChanged();
+
+                // 👇 Sørg for at CustomerName opdateres
+                if (_customer != null)
+                    CustomerName = _customer.Name;
+            }
+        }
 
         private string? _caseNumber;
         public string? CaseNumber

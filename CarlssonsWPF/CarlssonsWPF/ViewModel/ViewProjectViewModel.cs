@@ -62,6 +62,8 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged();
             }
         }
+      
+
 
         public ICommand ToggleEditCommand { get; }
         public ICommand CancelCommand { get; }
