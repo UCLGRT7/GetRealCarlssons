@@ -153,7 +153,7 @@ namespace CarlssonsWPF.ViewModel
         {
             if (IsEditing)
             {
-                // 🛠️ Opdater alle ServiceEntry-felter ud fra Id
+                // 🔁 Opdater alle ServiceEntry-felter ud fra Id
                 foreach (var entry in SelectedProject.Services)
                 {
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
@@ -165,22 +165,26 @@ namespace CarlssonsWPF.ViewModel
                             Id = match.Id,
                             Name = match.Name
                         };
-                        entry.OnPropertyChanged(nameof(entry.Name));
-                        entry.OnPropertyChanged(nameof(entry.Service));
                     }
                 }
 
-                // Gem ændringer
+                // ⏱ Opdater sidste redigeringstidspunkt
+                SelectedProject.LastModified = DateTime.Now;
+
+                // 💾 Gem ændringer til fil
                 _projectRepository.Update(SelectedProject);
             }
 
-            // Sørg for at der altid er 10 linjer
+            // Sørg for at der altid er 10 linjer i Services
             while (SelectedProject.Services.Count < 10)
             {
                 SelectedProject.Services.Add(new ServiceEntry());
             }
 
+            // 🔁 Skift redigeringstilstand
             IsEditing = !IsEditing;
+
+            // 🔔 Notificér UI
             OnPropertyChanged(nameof(SelectedProject));
         }
 

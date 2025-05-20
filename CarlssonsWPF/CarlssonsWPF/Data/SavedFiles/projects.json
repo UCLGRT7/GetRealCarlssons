@@ -1,5 +1,6 @@
 [
   {
+    "Id": "73c70ef9-ab84-4918-b185-b771372b7cac",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -9,7 +10,7 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T14:09:42.1755092+02:00",
+    "LastModified": "2025-05-20T14:14:14.5024321+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
@@ -65,6 +66,6 @@
         "Complexity": 0
       }
     ],
-    "OfferSentInput": "24/03/96"
+    "OfferSentInput": "24-03-96"
   }
 ]
