@@ -9,25 +9,25 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T13:35:07.1512424+02:00",
+    "LastModified": "2025-05-20T13:48:00.8786849+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
     "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3
+      },
       {
         "Id": 4,
         "Name": "Beregning af mur",
         "Complexity": 3
       },
       {
-        "Id": 7,
-        "Name": "Beregning af energiramme",
+        "Id": 10,
+        "Name": " ",
         "Complexity": 3
-      },
-      {
-        "Id": 0,
-        "Name": null,
-        "Complexity": 0
       },
       {
         "Id": 0,

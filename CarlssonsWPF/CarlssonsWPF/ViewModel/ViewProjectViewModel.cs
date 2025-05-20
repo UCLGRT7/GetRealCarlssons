@@ -148,16 +148,32 @@ namespace CarlssonsWPF.ViewModel
         {
             if (IsEditing)
             {
-                _projectRepository.Update(SelectedProject);
+                // 🛠️ Opdater alle ServiceEntry-felter ud fra Id
+                foreach (var entry in SelectedProject.Services)
+                {
+                    var match = Services.FirstOrDefault(s => s.Id == entry.Id);
+                    if (match != null)
+                    {
+                        entry.Name = match.Name;
+                        entry.Service = new Service
+                        {
+                            Id = match.Id,
+                            Name = match.Name
+                        };
+                        entry.OnPropertyChanged(nameof(entry.Name));
+                        entry.OnPropertyChanged(nameof(entry.Service));
+                    }
+                }
 
-                // Tving UI til at opdatere visning af servicenavn
-                foreach (var s in SelectedProject.Services)
-                    s.OnPropertyChanged(nameof(ServiceEntry.Name));
+                // Gem ændringer
+                _projectRepository.Update(SelectedProject);
             }
 
-            // Fyld op til 10 entries
+            // Sørg for at der altid er 10 linjer
             while (SelectedProject.Services.Count < 10)
+            {
                 SelectedProject.Services.Add(new ServiceEntry());
+            }
 
             IsEditing = !IsEditing;
             OnPropertyChanged(nameof(SelectedProject));
