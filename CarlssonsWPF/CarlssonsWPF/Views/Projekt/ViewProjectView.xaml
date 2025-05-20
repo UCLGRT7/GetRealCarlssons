@@ -470,12 +470,13 @@
                     <RowDefinition Height="350"/>
                     <!-- Bunden -->
                     <RowDefinition Height="100"/>
+
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250"/>
                     <!-- Ydelser -->
-                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="0"/>
                     <!-- Spacer -->
                     <ColumnDefinition Width="75"/>
                     <!-- Kompleksitet -->
@@ -496,7 +497,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Ydelse -->
-                                <ContentControl Content="{Binding}" Grid.Column="0" Grid.Row="2" >
+                                <ContentControl Content="{Binding}" Grid.Column="0" >
                                     <ContentControl.Style>
                                         <Style TargetType="ContentControl">
                                             <Style.Triggers>

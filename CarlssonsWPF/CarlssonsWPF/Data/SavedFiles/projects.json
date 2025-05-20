@@ -25,10 +25,11 @@
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T12:22:58.0312875+02:00",
+    "LastModified": "2025-05-20T12:43:55.8758385+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24"
+    "Paid": "1996-03-24",
+    "OfferSentInput": "24/03/96"
   },
   {
     "CaseNumber": "2022_03_02",
@@ -236,7 +237,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01-01-01"
+    "OfferSentInput": "01/01/01"
   },
   {
     "CaseNumber": "22_02_02",
@@ -252,7 +253,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01-01-01"
+    "OfferSentInput": "01/01/01"
   },
   {
     "CaseNumber": "2402_02_02",
@@ -268,7 +269,7 @@
     "OfferSent": "2001-01-01",
     "OfferApproved": "2001-01-01",
     "Paid": "2001-01-01",
-    "OfferSentInput": "01-01-01"
+    "OfferSentInput": "01/01/01"
   },
   {
     "CaseNumber": "PLEASE",
@@ -284,7 +285,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24-03-96"
+    "OfferSentInput": "24/03/96"
   },
   {
     "CaseNumber": "Test",
@@ -300,7 +301,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24-03-96"
+    "OfferSentInput": "24/03/96"
   },
   {
     "CaseNumber": "Test 2",
@@ -316,6 +317,6 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "OfferSentInput": "24-03-96"
+    "OfferSentInput": "24/03/96"
   }
 ]

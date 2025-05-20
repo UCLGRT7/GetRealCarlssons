@@ -102,8 +102,10 @@ namespace CarlssonsWPF.ViewModel
             // Sørg for at der altid er 10 service-entries
             while (SelectedProject.Services.Count < 10)
             {
-                SelectedProject.Services.Add(new ServiceEntry { Name = "", Complexity = 0 });
+                SelectedProject.Services.Add(new ServiceEntry());
             }
+
+
 
             // Matcher eksisterende ServiceEntries med de reelle Service-objekter
             foreach (var entry in SelectedProject.Services)
