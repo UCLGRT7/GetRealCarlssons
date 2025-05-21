@@ -8,8 +8,10 @@ using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CarlssonsWPF.Dialogs;
 using System.Text.Json;
 using System.IO;
+using CarlssonsWPF.Helpers;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -59,6 +61,34 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CreateProjectCommand { get; set; }
 
         public ICommand CancelCommand { get; }
+
+        public string NewServiceName { get; set; }
+
+        public ICommand AddServiceEntry => new RelayCommand(() =>
+        {
+            // Vis dialog
+            var dialog = new InputDialog();
+            bool? result = dialog.ShowDialog();
+
+            // Hvis bruger trykker OK
+            if (result == true)
+            {
+                string name = dialog.ResponseText;
+
+                // Tjek at navnet ikke er tomt
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    CommonCommands.AddServiceEntry(serviceRepository, name);
+                }
+                else
+                {
+                    MessageBox.Show("Navn kan ikke være tomt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+        });
+
+
+
 
         private Customer _customer;
         public Customer SelectedCustomer
