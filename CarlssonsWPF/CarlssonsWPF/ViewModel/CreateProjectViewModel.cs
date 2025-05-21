@@ -27,6 +27,7 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
+        public ObservableCollection<ComplexityEntry> Complexities { get; set; } = new ObservableCollection<ComplexityEntry>();
 
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
@@ -198,7 +199,7 @@ namespace CarlssonsWPF.ViewModel
         public int EstimatedPrice
         {
             get => _estimatedPrice;
-            private set
+            set
             {
                 if (_estimatedPrice != value)
                 {
