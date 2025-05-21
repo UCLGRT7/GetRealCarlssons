@@ -18,18 +18,14 @@ namespace CarlssonsWPF.Views
 {
     public partial class MainWindow : Window
     {
-       
+
 
 
         public MainWindow()
         {
-            
             InitializeComponent();
-            
-            //_frame = new Frame(); // Initialize the _frame field to avoid null reference  
             MainFrame.Navigate(new StartPage(MainFrame));
-
         }
-
+        public Frame AppFrame => MainFrame;
     }
 }

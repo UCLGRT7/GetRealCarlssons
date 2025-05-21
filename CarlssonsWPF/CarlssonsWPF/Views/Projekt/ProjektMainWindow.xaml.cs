@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Data.FileRepositories;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Kunde;
 
@@ -55,5 +57,25 @@ namespace CarlssonsWPF.Views.Projekt
         {
             _frame.Navigate(new CreateProjectView(_frame));
         }
+        private void ProjectDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dataGrid = sender as DataGrid;
+            if (dataGrid?.SelectedItem is CombinedProjectData combined)
+            {
+            
+                var projectRepo = new FileProjectRepository();
+                var fullProject = projectRepo.GetByCaseNumber(combined.CaseNumber);
+
+                if (fullProject != null)
+                {
+                    _frame.Navigate(new ViewProjectView(_frame, fullProject));
+                }
+                else
+                {
+                    MessageBox.Show("Kunne ikke finde det valgte projekt.");
+                }
+            }
+        }
+
     }
 }

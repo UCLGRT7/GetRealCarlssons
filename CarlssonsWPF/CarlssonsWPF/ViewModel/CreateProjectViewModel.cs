@@ -25,10 +25,11 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
-        public ObservableCollection<ComplexityEntry> Complexities { get; set; } = new ObservableCollection<ComplexityEntry>();
 
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
+
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Afventer", "Igang", "Færdig", "Forsinket" };
 
 
 
@@ -40,10 +41,19 @@ namespace CarlssonsWPF.ViewModel
                 get => _service;
                 set { _service = value; OnPropertyChanged(); }
             }
+
+            private int? _complexity;
+            public int? Complexity
+            {
+                get => _complexity;
+                set { _complexity = value; OnPropertyChanged(); }
+            }
+
             public event PropertyChangedEventHandler? PropertyChanged;
             protected void OnPropertyChanged([CallerMemberName] string? name = null)
                 => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
 
         public bool IsEditing { get; set; } = true;
 
@@ -63,16 +73,14 @@ namespace CarlssonsWPF.ViewModel
                 // Opdater CustomerName med kun kundens navn som string
                 if (SelectedProject != null && _customer != null)
                 {
-                    System.Diagnostics.Debug.WriteLine($"SelectedCustomer: {_customer.Name}"); // Debug: udskriv det valgte kundenavn
+                   
 
                     // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
 
-                    System.Diagnostics.Debug.WriteLine($"Updated CustomerName: {SelectedProject.CustomerName}"); // Debug: udskriv den opdaterede CustomerName
                 }
                 else
                 {
-                    System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
                 }
             }
         }
@@ -236,11 +244,13 @@ namespace CarlssonsWPF.ViewModel
                 Complexities.Add(complexity);
 
                 var selected = new SelectedServiceEntry();
+
                 selected.PropertyChanged += (s, e) =>
                 {
                     if (e.PropertyName == nameof(SelectedServiceEntry.Service))
                         OnPropertyChanged(nameof(selected));
                 };
+
                 SelectedServices.Add(selected);
             }
 
@@ -275,9 +285,9 @@ namespace CarlssonsWPF.ViewModel
 
         public void CreateProject()
         {
+
             try
             {
-                System.Diagnostics.Debug.WriteLine("CreateProject() called");
 
                 if (SelectedCustomer == null)
                 {
@@ -301,13 +311,30 @@ namespace CarlssonsWPF.ViewModel
                         }
                     }
 
-                    return new ServiceEntry
-                    {
-                        Id = selectedService.Service.Id,
-                        Name = selectedService.Service.Name,
-                        Complexity = complexity
-                    };
-                }).Where(s => s != null).Cast<ServiceEntry>();
+                System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
+                // ✅ Brug SelectedProject direkte
+                var newProject = new Project
+                {
+                    Id = Guid.NewGuid(),
+                    CustomerName = SelectedCustomer?.Name?.Trim(),
+                    CaseNumber = CaseNumber,
+                    ProjectAddress = Address,
+                    ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
+                    Scope = Scope ?? 0,
+                    Status = SelectedProject.Status,
+                    EstimatedPrice = EstimatedPrice,
+                    Price = Price,
+                    LastModified = DateTime.Now,
+                    Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity),
+                    Deadline = Deadline,
+                    OfferSent = OfferSent,
+                    OfferApproved = OfferApproved,
+                    Paid = Paid
+                };
+
+                // 🛠 GEM projektet
+                _projectRepository.Add(newProject);
+                Projects.Add(newProject); // Hvis du ønsker det vist med det samme
 
                 // ✅ Brug SelectedProject direkte
                 SelectedProject.CustomerName = SelectedCustomer?.Name?.Trim();
@@ -324,8 +351,6 @@ namespace CarlssonsWPF.ViewModel
                 SelectedProject.Contract.OfferApproved = OfferApproved;
                 SelectedProject.Contract.Paid = Paid;
 
-                _projectRepository.Add(SelectedProject);
-                Projects.Add(SelectedProject);
 
                 var contract = new Contract
                 {
@@ -338,8 +363,6 @@ namespace CarlssonsWPF.ViewModel
 
                 _contractRepository.Add(contract);
                 Contracts.Add(contract);
-
-                NavigateToViewProject?.Invoke(SelectedProject);
 
                 MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }

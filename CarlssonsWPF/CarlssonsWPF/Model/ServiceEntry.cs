@@ -1,26 +1,69 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace CarlssonsWPF.Model
 {
     // ServiceEntry er nu den centrale model, der indeholder både serviceinformationer og kompleksitet
     public class ServiceEntry : INotifyPropertyChanged
     {
+        public static List<Service> AvailableServices { get; set; } = new List<Service>();
+
         private int _complexity;
 
         // Id for service (fra tidligere Service.cs)
-        public int Id { get; set; }
+        private int _id;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+
+                    // Find matchende service fra den globale liste og opdater
+                    var service = AvailableServices.FirstOrDefault(s => s.Id == _id);
+                    if (service != null)
+                    {
+                        Name = service.Name;
+                        Service = service;
+                    }
+
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
         // Navn på servicen
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         // Komplexitet af servicen
         public int Complexity { get; set; }
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
-        public Service? Service { get; set; }
+       
+        private Service? _service;
+        [JsonIgnore]
+        public Service? Service
+        {
+            get => _service;
+            set
+            {
+                _service = value;
+                if (_service != null)
+                {
+                    Name = _service.Name; // <-- Dette sikrer korrekt navngivning
+                    Id = _service.Id;     // (valgfrit, men sikrer konsistens)
+                }
+                OnPropertyChanged();
+            }
+        }
 
         // ToString metode for nemt at konvertere ServiceEntry til en streng
         public override string ToString()
@@ -45,7 +88,7 @@ namespace CarlssonsWPF.Model
 
         // INotifyPropertyChanged implementering for at give besked om ændringer
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        public void OnPropertyChanged([CallerMemberName] string? propertyName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 

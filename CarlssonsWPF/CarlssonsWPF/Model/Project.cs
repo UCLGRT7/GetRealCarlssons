@@ -24,6 +24,8 @@ namespace CarlssonsWPF.Model
         public DateTime? LastModified { get; set; }
         public int? ProjectPostalCode { get; set; }
 
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
        
         [JsonIgnore]
@@ -31,6 +33,8 @@ namespace CarlssonsWPF.Model
         [JsonIgnore]
         public List<ServiceEntry> Services { get; set; } = new List<ServiceEntry>();
 
+       
+        private string? _deadlineInput;
         [JsonIgnore]
         public Contract Contract { get => contract; set => contract = value; }
 
@@ -46,7 +50,7 @@ namespace CarlssonsWPF.Model
         public static Project FromString(string input)
         {
             string[] parts = input.Split(',');
-            if (parts.Length < 9)
+            if (parts.Length < 10)
                 throw new FormatException("Invalid project data format");
 
             var deadlineParsed = DateTime.TryParse(parts[2], out var deadline) ? deadline : (DateTime?)null;
@@ -55,6 +59,7 @@ namespace CarlssonsWPF.Model
 
             return new Project
             {
+                Id = Guid.NewGuid(),
                 CaseNumber = parts[0],
                 ProjectAddress = parts[1],
                 Deadline = deadlineParsed,

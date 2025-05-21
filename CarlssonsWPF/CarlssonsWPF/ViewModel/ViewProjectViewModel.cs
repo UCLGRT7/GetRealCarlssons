@@ -1,16 +1,16 @@
 ﻿using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using System.Linq;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class ViewProjectViewModel : INotifyPropertyChanged
+    public class ViewProjectViewModel : INotifyPropertyChanged, IReloadableViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,8 +25,12 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
 
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Forsinket", "Igang", "Færdig", "Afventer" };
 
-
+        public void LoadData()
+        {
+            // Genindlæs data her (f.eks. fra repository)
+        }
 
 
         private bool _isEditing;
@@ -47,7 +51,7 @@ namespace CarlssonsWPF.ViewModel
         }
 
         public bool IsReadOnly => !IsEditing;
-        public string EditButtonText => IsEditing ? "Bekræft redigering" : "Redigér";
+        public string EditButtonText => IsEditing ? "Bekræft" : "Redigér";
         public string BackButtonText => IsEditing ? "Annullér redigering" : "Tilbage";
 
         private Project _selectedProject;
@@ -60,6 +64,8 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged();
             }
         }
+      
+
 
         public ICommand ToggleEditCommand { get; }
         public ICommand CancelCommand { get; }
@@ -78,6 +84,11 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
 
+            ServiceEntry.AvailableServices = Services
+                .Where(s => s.Service != null)
+                .Select(s => s.Service!)
+                .ToList();
+
             foreach (var c in _customerRepository.GetAll()) Customers.Add(c);
             foreach (var p in _projectRepository.GetAll()) Projects.Add(p);
             foreach (var con in _contractRepository.GetAll()) Contracts.Add(con);
@@ -87,6 +98,11 @@ namespace CarlssonsWPF.ViewModel
             var savedCustomerName = SelectedProject.CustomerName;
             InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
+            SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == SelectedProject.CustomerName);
+
+
+
+
 
             if (selectedService != null)
             {
@@ -100,8 +116,10 @@ namespace CarlssonsWPF.ViewModel
             // Sørg for at der altid er 10 service-entries
             while (SelectedProject.Services.Count < 10)
             {
-                SelectedProject.Services.Add(new ServiceEntry { Name = "", Complexity = 0 });
+                SelectedProject.Services.Add(new ServiceEntry());
             }
+
+
 
             // Matcher eksisterende ServiceEntries med de reelle Service-objekter
             foreach (var entry in SelectedProject.Services)
@@ -135,33 +153,53 @@ namespace CarlssonsWPF.ViewModel
 
         }
 
-        public void InitFromModel()
-        {
-            DeadlineInput = SelectedProject.Deadline?.ToString("dd/MM/yy") ?? "";
-            OfferSentInput = SelectedProject.Contract.OfferSent?.ToString("dd/MM/yy") ?? "";
-            OfferApprovedInput = SelectedProject.Contract.OfferApproved?.ToString("dd/MM/yy") ?? "";
-            PaidInput = SelectedProject.Contract.Paid?.ToString("dd/MM/yy") ?? "";
-
-            // Services er allerede ObservableCollection takket være property, men hvis du har en Liste et andet sted,
-            // kan du konvertere sådan her:
-
-            {
-                if (Services == null)
-                    Services = new ObservableCollection<ServiceEntry>();
-                else if (!(Services is ObservableCollection<ServiceEntry>))
-                    Services = new ObservableCollection<ServiceEntry>(Services);
-            }
-        }
-
         private void ToggleEdit()
         {
+            if (IsEditing)
+            {
+                // 🔁 Opdater alle ServiceEntry-felter ud fra Id
+                foreach (var entry in SelectedProject.Services)
+                {
+                    var match = Services.FirstOrDefault(s => s.Id == entry.Id);
+                    if (match != null)
+                    {
+                        // match er ServiceEntry, så vi kopierer navn og ID
+                        entry.Name = match.Name;
+                        entry.Id = match.Id;
+
+                        // Hvis du stadig bruger 'Service' som reference (eksempelvis for visning)
+                        entry.Service = new Service
+                        {
+                            Id = match.Id,
+                            Name = match.Name
+                        };
+                    }
+                }
+
+                // ⏱ Opdater sidste redigeringstidspunkt
+                SelectedProject.LastModified = DateTime.Now;
+
+                // 💾 Gem ændringer til fil
+                _projectRepository.Update(SelectedProject);
+            }
+
+            // Sørg for at der altid er 10 linjer i Services
+            while (SelectedProject.Services.Count < 10)
+            {
+                SelectedProject.Services.Add(new ServiceEntry());
+            }
+
+            // 🔁 Skift redigeringstilstand
             IsEditing = !IsEditing;
+
+            // 🔔 Notificér UI
+            OnPropertyChanged(nameof(SelectedProject));
         }
+
 
         private void CancelEdit()
         {
             IsEditing = false;
-            InitFromModel(); // Gendanner visning fra model-data
             OnPropertyChanged(nameof(SelectedProject));
         }
 

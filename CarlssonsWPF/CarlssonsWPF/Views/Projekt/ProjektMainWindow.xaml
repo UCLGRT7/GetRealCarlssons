@@ -41,6 +41,7 @@
                 </Grid.ColumnDefinitions>
                 <!-- DataGrid for Data -->
                 <DataGrid Grid.Column="1"
+                          x:Name="ProjectDataGrid"
           ItemsSource="{Binding CombinedProjects}"
           AutoGenerateColumns="False"
           Margin="0,10,0,10"
@@ -57,7 +58,8 @@
           IsReadOnly="True"
           SelectionUnit="FullRow"
           SelectionMode="Single"
-          AlternationCount="2">
+          AlternationCount="2"
+          MouseDoubleClick="ProjectDataGrid_MouseDoubleClick">
 
                     <DataGrid.Resources>
                         <!-- ✅ Række-style: grå/hvid og blå markering -->
