@@ -37,9 +37,9 @@ namespace CarlssonsWPF.Views.Projekt
             {
                 project.CustomerName = _createProjectViewModel.SelectedCustomer?.Name;
                 project.Deadline = _createProjectViewModel.Deadline;
-                project.Contract.OfferSent = _createProjectViewModel.OfferSent;
-                project.Contract.OfferSent = _createProjectViewModel.OfferApproved;
-                project.Contract.Paid = _createProjectViewModel.Paid;
+                project.OfferSent = _createProjectViewModel.OfferSent;
+                project.OfferApproved = _createProjectViewModel.OfferApproved;
+                project.Paid = _createProjectViewModel.Paid;
 
                 var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
@@ -82,8 +82,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (_frame.CanGoBack)
-                _frame.GoBack();
+            _frame.Navigate(new ProjektMainWindow(_frame));
         }
 
         private void CancelCreate_Click(object sender, RoutedEventArgs e)
