@@ -24,6 +24,8 @@ namespace CarlssonsWPF.Model
         public DateTime? LastModified { get; set; }
         public int? ProjectPostalCode { get; set; }
 
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
        
         [JsonIgnore]
@@ -57,7 +59,7 @@ namespace CarlssonsWPF.Model
 
             return new Project
             {
-                //Id = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 CaseNumber = parts[0],
                 ProjectAddress = parts[1],
                 Deadline = deadlineParsed,

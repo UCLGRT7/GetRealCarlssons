@@ -148,6 +148,7 @@ namespace CarlssonsWPF.Data.FileRepositories
 
                 // Serialize the project list to JSON
                 string jsonString = JsonSerializer.Serialize(projects, options);
+                System.Diagnostics.Debug.WriteLine($"🔍 Gemmer JSON:\n{jsonString}");
 
                 // Write to file
                 File.WriteAllText(FilePath, jsonString);

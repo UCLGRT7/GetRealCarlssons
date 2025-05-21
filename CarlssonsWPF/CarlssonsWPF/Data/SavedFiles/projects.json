@@ -511,7 +511,6 @@
     "Scope": 3,
     "CustomerName": "Daniel",
     "Status": null,
-<<<<<<< HEAD
     "LastModified": "2025-05-16T20:57:03.5270976+02:00",
     "ProjectPostalCode": 5200
   },
@@ -548,9 +547,6 @@
     "CustomerName": "asd",
     "Status": "Igang",
     "LastModified": "2025-05-20T19:54:19.3728186+02:00",
-=======
-    "LastModified": "2025-05-20T19:26:08.4668115+02:00",
->>>>>>> parent of 24065dc (Implemented Status + various fixes.)
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
@@ -558,7 +554,6 @@
       {
         "Id": 2,
         "Name": "Beregning af tagkonstruktion",
-<<<<<<< HEAD
         "Complexity": 0
       },
       {
@@ -709,11 +704,5 @@
     "Status": null,
     "LastModified": "2025-05-20T20:56:19.3877401+02:00",
     "ProjectPostalCode": 2900
-=======
-        "Complexity": 3
-      }
-    ],
-    "OfferSentInput": "24/03/96"
->>>>>>> parent of 24065dc (Implemented Status + various fixes.)
   }
 ]
