@@ -52,12 +52,15 @@
         </Grid.RowDefinitions>
 
          <!-- Header -->
-        <GroupBox Grid.Row="0" >  <GroupBox.Header> Tilføj ny ydelse</GroupBox.Header>
+        <GroupBox Grid.Row="0" >  <GroupBox.Header> TilfÃ¸j ny ydelse</GroupBox.Header>
             <Grid Margin="10">                     <!--Column1-->                   <!--Column2-->
                 <Grid.ColumnDefinitions> <ColumnDefinition Width="260"/> <ColumnDefinition Width="Auto"/> </Grid.ColumnDefinitions>
                 
          <!-- Add Service Row -->
-                <TextBox x:Name="InputTextBox" Grid.Column="0"/> <Button Content="Gem" Grid.Column="1" Click="AddService_Click"/>
+                <TextBox x:Name="AddServiceInput" Grid.Column="0"/>
+				<Button Content="Gem"
+						Grid.Column="1"
+						Click="AddService_Click"/>
             </Grid>
         </GroupBox>
 
@@ -67,7 +70,6 @@
     <!-- Delete Service Header -->
         <GroupBox Header="Slet eksisterende ydelse" Grid.Row="1" >
             <Grid Margin="10">
-
                 <Grid.ColumnDefinitions> <ColumnDefinition Width="260"/> <ColumnDefinition Width="Auto"/> </Grid.ColumnDefinitions>
                 
     <!-- Delete Service Row-->
