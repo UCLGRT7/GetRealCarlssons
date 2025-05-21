@@ -21,12 +21,10 @@ namespace CarlssonsWPF.ViewModel
         private readonly IServiceRepository _serviceRepository;
 
 
-        public ObservableCollection<Customer> Customers { get; set; } = new();
-        public ObservableCollection<Project> Projects { get; set; } = new();
-        public ObservableCollection<Contract> Contracts { get; set; } = new();
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
-
-        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Forsinket", "Igang", "Færdig", "Afventer" };
+        public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
+        public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
+        public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
+        public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
 
         public void LoadData()
         {
@@ -97,7 +95,7 @@ namespace CarlssonsWPF.ViewModel
 
             SelectedProject = selectedProject ?? throw new System.ArgumentNullException(nameof(selectedProject));
             var savedCustomerName = SelectedProject.CustomerName;
-            SelectedProject.InitFromModel();
+            InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
             SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == SelectedProject.CustomerName);
 
@@ -164,11 +162,7 @@ namespace CarlssonsWPF.ViewModel
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
                     if (match != null)
                     {
-                        // match er ServiceEntry, så vi kopierer navn og ID
                         entry.Name = match.Name;
-                        entry.Id = match.Id;
-
-                        // Hvis du stadig bruger 'Service' som reference (eksempelvis for visning)
                         entry.Service = new Service
                         {
                             Id = match.Id,
@@ -228,6 +222,61 @@ namespace CarlssonsWPF.ViewModel
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+
+        public string? PaidInput
+        {
+            get => SelectedProject?.Contract?.Paid?.ToString("dd/MM/yy") ?? "";
+
+            set
+            {
+                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
+                {
+                    SelectedProject.Contract.Paid = result;
+                    OnPropertyChanged(nameof(SelectedProject));
+                }
+            }
+        }
+
+        public string? DeadlineInput
+        {
+            get => SelectedProject.Deadline?.ToString("dd/MM/yy") ?? "";
+            set
+            {
+                if (DateTime.TryParse(value, out var result) && SelectedProject != null)
+                {
+                    SelectedProject.Deadline = result; // Corrected to use SelectedProject.Deadline
+                    OnPropertyChanged(nameof(SelectedProject));
+                }
+            }
+        }
+
+        public string? OfferSentInput
+        {
+            get => SelectedProject.Contract.OfferSent?.ToString("dd/MM/yy") ?? "";
+            set
+            {
+                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
+                {
+                    SelectedProject.Contract.OfferSent = result;
+                    OnPropertyChanged(nameof(SelectedProject));
+                }
+            }
+        }
+
+        public string? OfferApprovedInput
+        {
+            get => SelectedProject.Contract.OfferApproved?.ToString("dd/MM/yy") ?? "";
+            set
+            {
+                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
+                {
+                    SelectedProject.Contract.OfferApproved = result;
+                    OnPropertyChanged(nameof(SelectedProject));
+                }
+            }
+        }
 
 
     }

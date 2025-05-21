@@ -76,6 +76,7 @@
 
        
     </Page.Resources>
+
     <!-- Hovedlayout -->
     <Grid Margin="10,0,0,0">
         <ScrollViewer x:Name="Left" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,500,0">
@@ -164,18 +165,21 @@
                           Text="{Binding ProjectPostalCode, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource TextBoxCentered}" />
 
-
-                <!--Omfang-->
-                <TextBlock Text="Omfang:" Grid.Row="5" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
-                <TextBox Grid.Row="5" Grid.Column="1"
-         Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}"
-         Style="{StaticResource TextBoxCentered}" />
-
-                <TextBlock Text="Status:" Grid.Row="6" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
-                <ComboBox Grid.Row="6" Grid.Column="1"
-          ItemsSource="{Binding StatusOptions}"
-          SelectedItem="{Binding SelectedProject.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-          Style="{StaticResource ComboBoxEdit}" />
+                    <!--Omfang-->
+                    <TextBlock Text="Omfang:"
+                              Grid.Row="5"
+                              Grid.Column="0"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,10,0"
+                              FontSize="14"/>
+                    <TextBox Name="OmfangFelt"
+                             Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Grid.Row="5"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             Margin="0,5,0,5"/>
+                </Grid>
 
                 <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
                 <TextBox Grid.Row="13" Grid.Column="1"
@@ -183,7 +187,7 @@
          Style="{StaticResource DateTextBoxStyle}" />
 
                 <!-- Economy header -->
-                <TextBlock Text="Okonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Width="52" Margin="58,0,0,0" />
+                <TextBlock Text="Okonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Width="52" />
 
                 <!-- Tilbud Afsendt -->
                 <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
@@ -191,11 +195,42 @@
          Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
          Style="{StaticResource DateTextBoxStyle}" />
 
-                <!-- Tilbud Godkendt -->
-                <TextBlock Text="Tilbud godkendt:" Grid.Row="14" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
-                <TextBox Grid.Row="14" Grid.Column="1"
-         Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
-         Style="{StaticResource DateTextBoxStyle}" />
+                    <!--Tilbud godkendt-->
+                    <TextBlock Text="Tilbud godkendt:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,0"
+                               FontSize="14"/>
+                    <TextBox Name="TilbudGodkendtDato"
+                             Text="{Binding OfferApprovedInput, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             MinWidth="280"
+                             PreviewTextInput="DateAutoFormatter"
+                             TextChanged="TilbudGodkendtDato_TextChanged"
+                             MaxLength="8"
+                             Margin="0,5,0,5"/>
+
+                    <!--Anslået pris-->
+                    <TextBlock Text="Anslået pris:"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,0"
+                               FontSize="14"/>
+                    <TextBox Text="{Binding EstimatedPrice, StringFormat={}{0:N0}, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
+                              Grid.Row="3"  
+                              Grid.Column="1"  
+                              MinWidth="280"  
+                              Margin="0,5,0,5"  
+                              VerticalAlignment="Center"  
+                              />
+
+                    <!-- DEBUG-->
+                    <Label Content="{Binding DataContext.EstimatedPrice, RelativeSource={RelativeSource AncestorType=Page}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <!-- Estimated Price -->
                 <TextBlock Text="Anslaaet pris:" Grid.Row="15" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
@@ -242,30 +277,81 @@
                 <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" />
                 <TextBlock Text="Kompleksitet" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="75" />
 
-                <!-- Ydelser + Kompleksitet -->
-                <ItemsControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding SelectedServices}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="0,3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="250"/>
-                                    <ColumnDefinition Width="15"/>
-                                    <ColumnDefinition Width="30"/>
-                                </Grid.ColumnDefinitions>
-                                <ComboBox Grid.Column="0"
-                          ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
-                          DisplayMemberPath="Name"
-                          SelectedItem="{Binding Service, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Width="230"
-                          Style="{StaticResource ComboBoxEdit}" />
-                                <TextBox Grid.Column="2"
-                         Text="{Binding Complexity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Style="{StaticResource TextBoxCentered}"
-                                         Width="30  "/>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    <!--       Ydelser       -->
+                    <ItemsControl ItemsSource="{Binding SelectedServices}" Grid.Row="1" Grid.Column="0" Width="250">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ComboBox x:Name="YdelserCombo"
+                                            ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
+                                            DisplayMemberPath="Name"
+                                            SelectedItem="{Binding Service, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            Height="20"
+                                            Margin="0,5,0,5"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+                    <TextBlock Text="Kompleksitet"
+               Grid.Row="0"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               FontSize="14" 
+               Margin="0,5,0,5"/>
+
+                    <!-- Kompleksitet-felter -->
+                    <ItemsControl ItemsSource="{Binding Complexities}" Grid.Row="1" Grid.Column="1">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                         TextAlignment="Left"
+                        Height="20"
+                         Margin="0,5,0,5"
+                         Width="75"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+
+        <!--Bottom Grid (Buttons)-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Annullér Oprettelse"
+                    Click="GoBack_Click"
+                    Command="{Binding CancelCommand}"
+                    Width="150"
+                    Height="50"
+                    Margin="10"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+
+            <Button Content="Opret"
+                    Command="{Binding CreateProjectCommand}"
+                    Width="150"
+                    Height="50"
+                    Margin="10"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
 
                 <!-- Knapper -->
             </Grid>

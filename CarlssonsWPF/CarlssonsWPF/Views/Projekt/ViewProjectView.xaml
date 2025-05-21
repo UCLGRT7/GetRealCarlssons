@@ -316,39 +316,6 @@
                     </ContentControl.Style>
                 </ContentControl>
 
-                <!-- Label -->
-                <TextBlock Text="Status:" Grid.Row="6" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
-                <!-- Content -->
-                <ContentControl Grid.Row="6" Grid.Column="1" Content="{Binding SelectedProject}">
-                    <ContentControl.Style>
-                        <Style TargetType="ContentControl">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsEditing}" Value="True">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <ComboBox ItemsSource="{Binding DataContext.StatusOptions, RelativeSource={RelativeSource AncestorType=Page}}"
-                                          SelectedItem="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          Style="{StaticResource ComboBoxEdit}" />
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsEditing}" Value="False">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Status}" Style="{StaticResource TextBlockView}" />
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ContentControl.Style>
-                </ContentControl>
-
-
                 <!-- Økonomi header -->
                 <TextBlock Text="Økonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Width="52" />
 
@@ -576,8 +543,7 @@
                                                                 <ComboBox
                                                                           ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
                                                                           DisplayMemberPath="Name"
-                                                                          SelectedValuePath="Id"
-                                                                          SelectedValue="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                          SelectedItem="{Binding Service, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                                           Width="230"
                                                                           Style="{StaticResource ComboBoxEdit}" />
                                                             </DataTemplate>

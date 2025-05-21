@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
@@ -56,18 +57,10 @@ namespace CarlssonsWPF.Data.FileRepositories
                 {
                     string jsonContent = File.ReadAllText(FilePath);
 
-                    // If the file isn't empty, deserialize it
                     if (!string.IsNullOrWhiteSpace(jsonContent))
                     {
                         projects = JsonSerializer.Deserialize<List<Project>>(jsonContent) ?? new List<Project>();
-
-                        // Init input-felter baseret på DateTime?-felter
-                        foreach (var project in projects)
-                        {
-                            project.InitFromModel();
-                        }
                     }
-
                 }
             }
             catch (Exception ex)
@@ -155,7 +148,6 @@ namespace CarlssonsWPF.Data.FileRepositories
 
                 // Serialize the project list to JSON
                 string jsonString = JsonSerializer.Serialize(projects, options);
-                System.Diagnostics.Debug.WriteLine($"🔍 Gemmer JSON:\n{jsonString}");
 
                 // Write to file
                 File.WriteAllText(FilePath, jsonString);
@@ -165,5 +157,6 @@ namespace CarlssonsWPF.Data.FileRepositories
                 Console.WriteLine($"Error saving projects: {ex.Message}");
             }
         }
+
     }
 }

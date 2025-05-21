@@ -43,5 +43,14 @@
     "PhoneNumber": 12345678,
     "PostalCode": 8000,
     "City": "AA"
+  },
+  {
+    "Id": "bb8ef3c6-50fd-49ba-a382-cd579d830d76",
+    "Name": "AlexTest",
+    "Address": "AlexTest",
+    "Email": "Test@test.dk",
+    "PhoneNumber": 12345678,
+    "PostalCode": 2900,
+    "City": "TestBY"
   }
 ]
