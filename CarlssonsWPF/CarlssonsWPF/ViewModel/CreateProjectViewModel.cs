@@ -29,8 +29,6 @@ namespace CarlssonsWPF.ViewModel
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
 
-        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Afventer", "Igang", "Færdig", "Forsinket" };
-
 
 
         public class SelectedServiceEntry : INotifyPropertyChanged
@@ -311,7 +309,6 @@ namespace CarlssonsWPF.ViewModel
                         }
                     }
 
-                System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
                 // ✅ Brug SelectedProject direkte
                 var newProject = new Project
                 {
@@ -321,7 +318,6 @@ namespace CarlssonsWPF.ViewModel
                     ProjectAddress = Address,
                     ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
                     Scope = Scope ?? 0,
-                    Status = SelectedProject.Status,
                     EstimatedPrice = EstimatedPrice,
                     Price = Price,
                     LastModified = DateTime.Now,
@@ -332,6 +328,7 @@ namespace CarlssonsWPF.ViewModel
                     Paid = Paid
                 };
 
+<<<<<<< HEAD
                 // 🛠 GEM projektet
                 _projectRepository.Add(newProject);
                 Projects.Add(newProject); // Hvis du ønsker det vist med det samme
@@ -350,7 +347,10 @@ namespace CarlssonsWPF.ViewModel
                 SelectedProject.Contract.OfferSent = OfferSent;
                 SelectedProject.Contract.OfferApproved = OfferApproved;
                 SelectedProject.Contract.Paid = Paid;
-
+=======
+                // Naviger videre
+                NavigateToViewProject?.Invoke(newProject);
+>>>>>>> parent of 24065dc (Implemented Status + various fixes.)
 
                 var contract = new Contract
                 {

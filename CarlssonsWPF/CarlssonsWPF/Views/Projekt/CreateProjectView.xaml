@@ -74,6 +74,7 @@
             <Setter Property="TextAlignment" Value="Right"/>
         </Style>
     </Page.Resources>
+
     <!-- Hovedlayout -->
     <Grid Margin="10,0,0,0">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,500,0">
@@ -178,19 +179,13 @@
                              Margin="0,5,0,5"/>
                 </Grid>
 
-                <TextBlock Text="Status:" Grid.Row="6" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
-                <ComboBox Grid.Row="6" Grid.Column="1"
-          ItemsSource="{Binding StatusOptions}"
-          SelectedItem="{Binding SelectedProject.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-          Style="{StaticResource ComboBoxEdit}" />
-
                 <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
                 <TextBox Grid.Row="13" Grid.Column="1"
          Text="{Binding OfferSentInput, UpdateSourceTrigger=PropertyChanged}"
          Style="{StaticResource DateTextBoxStyle}" />
 
                 <!-- Economy header -->
-                <TextBlock Text="Okonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Width="52" Margin="58,0,0,0" />
+                <TextBlock Text="Okonomi" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Width="52" />
 
                 <!-- Tilbud Afsendt -->
                 <TextBlock Text="Tilbud afsendt:" Grid.Row="13" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
