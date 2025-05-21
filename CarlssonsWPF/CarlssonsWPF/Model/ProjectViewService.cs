@@ -41,7 +41,7 @@ namespace CarlssonsWPF.Model
                 contract.OfferSent,
                 contract.OfferApproved,
                 contract.Paid
-            }
+                    }
                     .Where(d => d.HasValue)
                     .Select(d => d.Value);
 

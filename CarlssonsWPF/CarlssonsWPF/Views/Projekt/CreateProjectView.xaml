@@ -4,7 +4,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarlssonsWPF.Helpers"
+      xmlns:local="clr-namespace:CarlssonsWPF.Helpers" xmlns:viewmodel="clr-namespace:CarlssonsWPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CreateProjectViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="CreateProjectView">
@@ -203,7 +203,7 @@
                               Margin="0,0,10,0"
                               FontSize="14"/>
                     <TextBox Name="OmfangFelt"
-                             Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Scope, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Grid.Row="5"
                              Grid.Column="1"
                              MinWidth="280"
@@ -277,16 +277,16 @@
                                HorizontalAlignment="Right"
                                Margin="0,0,10,0"
                                FontSize="14"/>
-                    <TextBlock Text="{Binding DataContext.EstimatedPrice, RelativeSource={RelativeSource AncestorType=Page}}"
-           Grid.Row="3"
-           Grid.Column="1"
-           MinWidth="280"
-           Margin="0,5,0,5"
-           VerticalAlignment="Center"
-           Style="{StaticResource TextBlockView}" />
+                    <TextBox Text="{Binding EstimatedPrice, StringFormat={}{0:N0}, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
+                              Grid.Row="3"  
+                              Grid.Column="1"  
+                              MinWidth="280"  
+                              Margin="0,5,0,5"  
+                              VerticalAlignment="Center"  
+                              />
 
                     <!-- DEBUG-->
-                    <Label Content="{Binding DataContext.EstimatedPrice, RelativeSource={RelativeSource AncestorType=Page}, Mode=OneWay}" />
+                    <Label Content="{Binding DataContext.EstimatedPrice, RelativeSource={RelativeSource AncestorType=Page}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
 
                     <!--Pris-->
@@ -385,7 +385,7 @@
                     <ItemsControl ItemsSource="{Binding Complexities}" Grid.Row="1" Grid.Column="1">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
                          TextAlignment="Left"
                         Height="20"
                          Margin="0,5,0,5"

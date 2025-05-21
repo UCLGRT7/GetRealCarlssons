@@ -13,12 +13,13 @@ using System.IO;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class CreateProjectViewModel : BaseViewModel
+    public class CreateProjectViewModel : BaseViewModel, INotifyPropertyChanged
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
+        private ObservableCollection<ComplexityEntry> _complexityEntry;
 
         public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
@@ -103,12 +104,6 @@ namespace CarlssonsWPF.ViewModel
             set { _address = value; OnPropertyChanged(); }
         }
 
-        private int? _scope;
-        public int? Scope
-        {
-            get => _scope;
-            set { _scope = value; OnPropertyChanged(); UpdateEstimatedPrice(); }
-        }
 
         private string? _projectPostalCode;
         public string? ProjectPostalCode
@@ -163,21 +158,50 @@ namespace CarlssonsWPF.ViewModel
         }
 
         private const int P = 100;
-        private double _estimatedPrice;
-        public double EstimatedPrice
+        private int _estimatedPrice;
+        public int EstimatedPrice
         {
             get => _estimatedPrice;
-            set
+            private set
             {
                 if (_estimatedPrice != value)
                 {
                     _estimatedPrice = value;
-                    System.Diagnostics.Debug.WriteLine($"🔁 EstimatedPrice opdateret til: {_estimatedPrice}");
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(EstimatedPrice));
                 }
             }
         }
 
+        private int _scope;
+        public int Scope
+        {
+            get => _scope;
+            set
+            {
+                if (_scope != value)
+                {
+                    _scope = value;
+                    OnPropertyChanged(nameof(_scope));
+                    UpdateEstimatedPrice(); // Recalculate when scope changes
+                }
+            }
+        }    
+        
+
+        private int _complexity;
+        public int Complexity
+        {
+            get => _complexity;
+            set
+            {
+                if (_complexity != value)
+                {
+                    _complexity = value;
+                    OnPropertyChanged(nameof(_complexity));
+                    UpdateEstimatedPrice(); // Recalculate when scope changes
+                }
+            }
+        }
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -190,11 +214,13 @@ namespace CarlssonsWPF.ViewModel
 
             CancelCommand = new RelayCommand(OnCancel);
 
+
             foreach (var customer in _customerRepository.GetAll()) Customers.Add(customer);
             foreach (var project in _projectRepository.GetAll()) Projects.Add(project);
             foreach (var contract in _contractRepository.GetAll()) Contracts.Add(contract);
             foreach (var service in _serviceRepository.GetAll()) Services.Add(service);
 
+            UpdateEstimatedPrice();
             // Initialiser 10 tomme entries for SelectedServices og Complexities
             for (int i = 0; i < 10; i++)
             {
@@ -202,7 +228,10 @@ namespace CarlssonsWPF.ViewModel
                 complexity.PropertyChanged += (s, e) =>
                 {
                     if (e.PropertyName == nameof(ComplexityEntry.Value))
+                    {
+                        OnPropertyChanged(nameof(complexity));
                         UpdateEstimatedPrice();
+                    }
                 };
                 Complexities.Add(complexity);
 
@@ -210,46 +239,32 @@ namespace CarlssonsWPF.ViewModel
                 selected.PropertyChanged += (s, e) =>
                 {
                     if (e.PropertyName == nameof(SelectedServiceEntry.Service))
-                        UpdateEstimatedPrice();
+                        OnPropertyChanged(nameof(selected));
                 };
                 SelectedServices.Add(selected);
             }
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
             SelectedProject = new Project();
+            SelectedProject.Contract = new Contract();
 
-
+            //Complexities.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
 
-
-#if DEBUG
-            CaseNumber = "2022_02_02";
-            Address = "Trævej 42";
-            Scope = 3;
-            ProjectPostalCode = "2100";
-            DeadlineInput = "24/03/96";
-            OfferSentInput = "24/03/96";
-            OfferApprovedInput = "24/03/96";
-            PaidInput = "24/03/96";
-            Price = 23000;
-#endif
         }
 
+       
         private void UpdateEstimatedPrice()
         {
-            if (Scope == null) return;
-
             int totalComplexity = 0;
-
-            for (int i = 0; i < Complexities.Count; i++)
+            foreach (var complexity in Complexities)
             {
-                var complexityEntry = Complexities[i];
-                if (complexityEntry?.Value != null)
-                    totalComplexity += complexityEntry.Value.Value;
+                totalComplexity += complexity.Value;
             }
 
-            EstimatedPrice = Scope.Value * totalComplexity * P;
+            EstimatedPrice = Scope * totalComplexity * P;
+            System.Diagnostics.Debug.WriteLine($"Calculation: {Scope} * {totalComplexity} * {P} = {EstimatedPrice}");
         }
 
         private void Complexity_PropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -270,15 +285,21 @@ namespace CarlssonsWPF.ViewModel
                     return;
                 }
 
-                int scopeValue = Scope ?? 0;
 
+                //int scopeValue = Scope;
                 var servicesWithComplexity = SelectedServices.Select((selectedService, index) =>
                 {
                     if (selectedService?.Service == null) return null;
 
                     int complexity = 0;
-                    if (index < Complexities.Count && Complexities[index].Value.HasValue)
-                        complexity = Complexities[index].Value.Value;
+                    if (index < Complexities.Count)
+                    {
+                        int? complexityValue = Complexities[index].Value; // Assuming Value is nullable
+                        if (complexityValue.HasValue)
+                        {
+                            complexity = complexityValue.Value;
+                        }
+                    }
 
                     return new ServiceEntry
                     {
@@ -293,15 +314,15 @@ namespace CarlssonsWPF.ViewModel
                 SelectedProject.CaseNumber = CaseNumber;
                 SelectedProject.ProjectAddress = Address;
                 SelectedProject.ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null;
-                SelectedProject.Scope = scopeValue;
+                SelectedProject.Scope = Scope;
                 SelectedProject.EstimatedPrice = EstimatedPrice;
-                SelectedProject.Price = Price;
+                SelectedProject.Contract.Price = Price;
                 SelectedProject.LastModified = DateTime.Now;
-                SelectedProject.Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity);
+                SelectedProject.Services = new List<ServiceEntry>(servicesWithComplexity);
                 SelectedProject.Deadline = Deadline;
-                SelectedProject.OfferSent = OfferSent;
-                SelectedProject.OfferApproved = OfferApproved;
-                SelectedProject.Paid = Paid;
+                SelectedProject.Contract.OfferSent = OfferSent;
+                SelectedProject.Contract.OfferApproved = OfferApproved;
+                SelectedProject.Contract.Paid = Paid;
 
                 _projectRepository.Add(SelectedProject);
                 Projects.Add(SelectedProject);
