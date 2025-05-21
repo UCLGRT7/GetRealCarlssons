@@ -235,7 +235,7 @@
                 <!-- Estimated Price -->
                 <TextBlock Text="Anslaaet pris:" Grid.Row="15" Grid.Column="0" Style="{StaticResource TitleToLeft}" />
                 <TextBox Grid.Row="15" Grid.Column="1"
-         Text="{Binding EstimatedPrice, UpdateSourceTrigger=PropertyChanged}"
+         Text="{Binding EstimatedPrice, StringFormat={}{0:N0}, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
          Style="{StaticResource TextBoxCentered}" />
 
                 <!-- Pris -->

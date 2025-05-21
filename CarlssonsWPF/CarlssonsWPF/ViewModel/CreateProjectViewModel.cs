@@ -27,6 +27,7 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
+        public ObservableCollection<ComplexityEntry> Complexities { get; set; } = new ObservableCollection<ComplexityEntry>();
 
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
@@ -198,7 +199,7 @@ namespace CarlssonsWPF.ViewModel
         public int EstimatedPrice
         {
             get => _estimatedPrice;
-            private set
+            set
             {
                 if (_estimatedPrice != value)
                 {
@@ -358,7 +359,7 @@ namespace CarlssonsWPF.ViewModel
                     Paid = Paid
                 };
 
-<<<<<<< HEAD
+
                 // 🛠 GEM projektet
                 _projectRepository.Add(newProject);
                 Projects.Add(newProject); // Hvis du ønsker det vist med det samme
@@ -377,10 +378,10 @@ namespace CarlssonsWPF.ViewModel
                 SelectedProject.Contract.OfferSent = OfferSent;
                 SelectedProject.Contract.OfferApproved = OfferApproved;
                 SelectedProject.Contract.Paid = Paid;
-=======
+
                 // Naviger videre
                 NavigateToViewProject?.Invoke(newProject);
->>>>>>> parent of 24065dc (Implemented Status + various fixes.)
+
 
                 var contract = new Contract
                 {

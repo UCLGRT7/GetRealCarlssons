@@ -12,6 +12,7 @@ public class ComplexityEntry : INotifyPropertyChanged
             if (_value != value)
             {
                 _value = value;
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(Value));
             }
         }
