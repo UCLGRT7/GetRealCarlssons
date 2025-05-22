@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "InvoiceNumber": 0,
+    "OfferSent": null,
+    "Paid": null,
+    "OfferApproved": null,
+    "Price": 0,
+    "Invoice": null,
+    "CaseNumber": null
+  }
+]

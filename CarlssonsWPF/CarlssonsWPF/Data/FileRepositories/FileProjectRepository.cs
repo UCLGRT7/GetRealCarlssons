@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
@@ -62,7 +63,14 @@ namespace CarlssonsWPF.Data.FileRepositories
                     if (!string.IsNullOrWhiteSpace(jsonContent))
                     {
                         projects = JsonSerializer.Deserialize<List<Project>>(jsonContent) ?? new List<Project>();
+
+                        // Init input-felter baseret på DateTime?-felter
+                        foreach (var project in projects)
+                        {
+                            project.InitFromModel();
+                        }
                     }
+
                 }
             }
             catch (Exception ex)
@@ -91,23 +99,15 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public void Add(Project project)
         {
-            // If project already exists, update it instead
-            if (GetByCaseNumber(project.CaseNumber) != null)
-            {
-                Update(project);
-                return;
-            }
-
             try
             {
-                // Get all existing projects
                 var projects = GetAll().ToList();
 
-                // Add the new project
                 project.LastModified = DateTime.Now;
+                System.Diagnostics.Debug.WriteLine("💾 Gemmer projekt:");
+                System.Diagnostics.Debug.WriteLine(JsonSerializer.Serialize(projects));
                 projects.Add(project);
 
-                // Save all projects back to file
                 SaveProjectsToFile(projects);
             }
             catch (Exception ex)
@@ -116,13 +116,15 @@ namespace CarlssonsWPF.Data.FileRepositories
             }
         }
 
+
+
         public void Update(Project project)
         {
             // Get all projects
             var projects = GetAll().ToList();
 
             // Find the index of the project to update
-            var existingIndex = projects.FindIndex(p => p.CaseNumber == project.CaseNumber);
+            var existingIndex = projects.FindIndex(p => p.Id == project.Id);
 
             // Update the project if found
             if (existingIndex != -1)
@@ -158,6 +160,7 @@ namespace CarlssonsWPF.Data.FileRepositories
 
                 // Serialize the project list to JSON
                 string jsonString = JsonSerializer.Serialize(projects, options);
+                System.Diagnostics.Debug.WriteLine($"🔍 Gemmer JSON:\n{jsonString}");
 
                 // Write to file
                 File.WriteAllText(FilePath, jsonString);
@@ -167,5 +170,6 @@ namespace CarlssonsWPF.Data.FileRepositories
                 Console.WriteLine($"Error saving projects: {ex.Message}");
             }
         }
+
     }
 }

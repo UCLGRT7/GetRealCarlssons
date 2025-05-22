@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace CarlssonsWPF.Service
+namespace CarlssonsWPF.FileService
 {
     public static class FileService
     {

@@ -1,198 +1,381 @@
 [
   {
-    "CaseNumber": "2022_01_02",
-    "ProjectAddress": "testvej",
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-10",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Alex Holmbo",
-    "Status": "Done",
-    "LastModified": "2025-05-09T14:35:29.7613435+02:00",
+    "Id": "6aa07304-65e9-4728-b680-a4b65c4ad2ad",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": null,
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "213123",
+    "Status": "Igang",
+    "LastModified": "2025-05-22T04:32:14.1298634+02:00",
     "OfferSent": null,
     "OfferApproved": null,
-    "Paid": null
+    "Paid": null,
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
   },
   {
-    "CaseNumber": "2022_02_02",
-    "ProjectAddress": "Tr\u00E6vej 42",
-    "ProjectPostalCode": 2100,
+    "Id": "cc40fcff-1c51-4797-801a-dfcf97d579dc",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "213123",
+    "Status": null,
+    "LastModified": "2025-05-22T04:33:05.4025215+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "ebe669cf-3df0-45cf-bb32-ab076b813bee",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": null,
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "213123",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T04:36:18.7221647+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "69f638ea-9e98-4ffd-b64f-ea9a1f2b3334",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "AlexTest",
+    "Status": null,
+    "LastModified": "2025-05-22T04:40:03.9170766+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "b7278a96-26f2-43ce-817c-12c3638adc4d",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "AlexTest",
+    "Status": null,
+    "LastModified": "2025-05-22T04:42:47.7621393+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "7b26fe3d-5233-4cb0-84d2-cbda5491cdf4",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "123456",
+    "ProjectAddress": "123456",
+    "ProjectPostalCode": 5200,
     "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
-    "Price": 23000,
+    "Price": 150,
     "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-19T22:06:42.3510275+02:00",
+    "CustomerName": "Alex",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T04:44:53.9646401+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
-    "Paid": "1996-03-24"
+    "Paid": "1996-03-24",
+    "Invoice": "1234",
+    "Services": [
+      {
+        "Id": 10,
+        "Name": " ",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
-    "CaseNumber": "2022_03_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
+    "Id": "bb2902b5-f711-49a6-9ec2-6f33f69e5aa8",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "123",
+    "ProjectAddress": "123",
+    "ProjectPostalCode": 5200,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 900,
     "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_04_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_05_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_06_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_07_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_08_02",
-    "ProjectAddress": null,
-    "ProjectPostalCode": 0,
-    "Deadline": "2025-05-13",
-    "EstimatedPrice": 0,
-    "Price": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "OfferSent": null,
-    "OfferApproved": null,
-    "Paid": null
-  },
-  {
-    "CaseNumber": "2022_09_02",
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T14:35:29.7609625+02:00",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
-  },
-  {
-    "CaseNumber": "2022_10_02",
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T14:35:29.7609625+02:00",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson",
-    "Status": "Igangv\u00E6rende",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "Services": null
-  },
-  {
-    "CaseNumber": "240396_01_01",
-    "ProjectAddress": "Niels Steensens Vej 11, 5200",
-    "Deadline": "2025-05-15T00:00:00+02:00",
-    "EstimatedPrice": 3000,
-    "Scope": 3,
-    "CustomerName": null,
+    "Scope": 9,
+    "CustomerName": "213123",
     "Status": null,
-    "LastModified": "2025-05-15T14:08:25.0141389+02:00",
-    "Services": null
+    "LastModified": "2025-05-22T04:45:14.7809432+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
   },
   {
-    "CaseNumber": "2022_01_01",
-    "ProjectAddress": "Niels vej 7",
-    "Deadline": "2025-05-15T00:00:00+02:00",
-    "EstimatedPrice": 4500,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:47:05.4788401+02:00",
-    "Services": null
-  },
-  {
-    "CaseNumber": "2204_01_01",
-    "ProjectAddress": "niels vej 7",
-    "Deadline": "2025-05-15T00:00:00+02:00",
-    "EstimatedPrice": 3000,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:26:25.3132149+02:00",
-    "Services": null
-  },
-  {
-    "CaseNumber": "2022_02_02",
-    "ProjectAddress": "nielsvej 7",
-    "Deadline": "2025-05-15T00:00:00+02:00",
-    "EstimatedPrice": 4500,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:53:35.5672029+02:00",
-    "Services": null
-  },
-  {
+    "Id": "003861db-4035-4711-a8ef-b591de898efb",
+    "OfferSentInput": "",
     "CaseNumber": null,
-    "ProjectAddress": "Nielsvej 7",
-    "Deadline": "2025-05-15T00:00:00+02:00",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
     "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": null,
+    "CustomerName": "Valdemar",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T04:45:32.5996446+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "5a33f72b-9df4-4898-be9a-1a4b8baed919",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "Test5",
+    "ProjectAddress": "Vej5",
+    "ProjectPostalCode": 5200,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "AlexTest",
+    "Status": "Forsinket",
+    "LastModified": "2025-05-22T04:46:49.9382942+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "555",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "7c9ea030-8c29-4e6c-aef6-3061e4980e75",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Valdemar",
     "Status": null,
-    "LastModified": "2025-05-15T14:54:03.4052993+02:00",
-    "Services": null
+    "LastModified": "2025-05-22T04:47:26.4747723+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "06b21691-277d-49c0-83d9-b1aaca8f33bc",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Alex",
+    "Status": null,
+    "LastModified": "2025-05-22T04:52:48.7056557+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "56eff122-bb53-4f9c-a43d-06aa04766dc2",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel Kargaard R\u00F8rlund",
+    "Status": null,
+    "LastModified": "2025-05-22T04:56:11.5634775+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "6c8017f6-8d65-49eb-844c-ddfa4cd06f0c",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel Kargaard R\u00F8rlund",
+    "Status": null,
+    "LastModified": "2025-05-22T05:03:27.6072269+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 0
+      }
+    ]
   }
 ]

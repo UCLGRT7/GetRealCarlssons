@@ -40,7 +40,7 @@ namespace CarlssonsWPF.Model
                         CustomerName = project.CustomerName,
                         OfferSentDate = contract?.OfferSent,
                         Deadline = project.Deadline,
-                        OfferConfirmed = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
+                        OfferApproved = contract != null && contract.OfferApproved.HasValue ? "Yes" : "No",
                         IsPaymentRecieved = contract != null && contract.Paid.HasValue ? "Yes" : "No"
                     };
 
@@ -74,7 +74,7 @@ namespace CarlssonsWPF.Model
                             CustomerName = project.CustomerName,
                             OfferSentDate = contract.OfferSent,
                             DaysPassed = (int)timeSinceOffer.TotalDays,
-                            OfferConfirmed = contract.OfferApproved.HasValue ? "Yes" : "No",
+                            OfferApproved = contract.OfferApproved.HasValue ? "Yes" : "No",
                             IsPaymentRecieved = contract.Paid.HasValue ? "Yes" : "No"
                         };
 

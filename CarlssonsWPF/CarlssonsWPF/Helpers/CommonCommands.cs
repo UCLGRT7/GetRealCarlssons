@@ -7,73 +7,55 @@ using System.Windows.Navigation;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
 
-namespace CarlssonsWPF.Helpers
+namespace CarlssonsWPF.Helpers;
+
+public static class CommonCommands
 {
-    public static class CommonCommands
+    public static ICommand CancelAndGoBackCommand { get; } = new RelayCommand(ExecuteCancel);
+
+    public static ICommand GoBack => new RelayCommand(ExecuteGoBack);
+
+
+    private static void ExecuteGoBack(object parameter)
     {
-        public static ICommand GoBack { get; } = new RelayCommand(ExecuteGoBack);
-        public static ICommand Create { get; } = new RelayCommand(ExecuteCreate);
+        System.Diagnostics.Debug.WriteLine($"PARAM: {parameter?.GetType().Name}");
 
-        private static void ExecuteGoBack(object parameter)
+        if (parameter is Frame frame)
         {
-            if (parameter is FrameworkElement fe)
-            {
-                var navService = NavigationService.GetNavigationService(fe);
+            System.Diagnostics.Debug.WriteLine($"CanGoBack: {frame.CanGoBack}");
 
-                if (navService != null && navService.CanGoBack)
+            if (frame.CanGoBack)
+            {
+                frame.GoBack();
+
+                if (frame.Content is Page newPage && newPage.DataContext is IReloadableViewModel vm)
                 {
-                    navService.GoBack();
+                    vm.LoadData();
                 }
             }
         }
-
-        private static void ExecuteCreate(object parameter)
+        else
         {
-            var frame = Application.Current.MainWindow?.FindName("MainFrame") as Frame;
+            System.Diagnostics.Debug.WriteLine("Parameter is not a Frame");
+        }
+    }
 
-            switch (parameter)
+                        break;
+                    }
+
+    private static void ExecuteCancel(object parameter)
+    {
+        if (parameter is FrameworkElement fe)
+        {
+            var navService = NavigationService.GetNavigationService(fe);
+
+            if (navService != null && navService.CanGoBack)
             {
-                case CreateProjectViewModel projectVm:
-                    {
-                        projectVm.CreateProject();
-                        var latestProject = projectVm.projects.LastOrDefault();
-                        if (latestProject == null)
-                        {
-                            MessageBox.Show("Projekt blev ikke oprettet korrekt.");
-                            return;
-                        }
-
-                        if (frame != null)
-                        {
-                            var view = new Views.Projekt.ViewProjectView(frame, latestProject);
-                            frame.Navigate(view);
-                        }
-
-                        break;
-                    }
-
-                case AddCustomerViewModel customerVm:
-                    {
-                        customerVm.AddCustomer();
-                        var latestCustomer = customerVm.customers.LastOrDefault();
-                        if (latestCustomer == null)
-                        {
-                            MessageBox.Show("Kunde blev ikke oprettet korrekt.");
-                            return;
-                        }
-
-                        if (frame != null)
-                        {
-                            var view = new Views.Kunde.CustomerSpecPage(frame, latestCustomer);
-                            frame.Navigate(view);
-                        }
-
-                        break;
-                    }
-
-                default:
-                    MessageBox.Show("Ugyldig ViewModel – kun CreateProjectViewModel eller AddCustomerViewModel understøttes.");
-                    break;
+                navService.GoBack();
+            }
+            else
+            {
+                Window.GetWindow(fe)?.Close();
             }
         }
 

@@ -50,25 +50,16 @@
     "Address": "Niels Steensens Vej, 2, 2 tv",
     "Email": "ValdemarKongen@Brobyggeri.dk",
     "PhoneNumber": 12345678,
-    "PostalCode": 5200,
-    "City": "Holstebro"
+    "PostalCode": 8000,
+    "City": "AA"
   },
   {
-    "Id": "55e319d2-80e1-4f11-9135-51c84071fefd",
-    "Name": null,
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
-  },
-  {
-    "Id": "9e541b58-801c-4e0f-b9a6-a4874fbcc346",
-    "Name": null,
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
+    "Id": "bb8ef3c6-50fd-49ba-a382-cd579d830d76",
+    "Name": "AlexTest",
+    "Address": "AlexTest",
+    "Email": "Test@test.dk",
+    "PhoneNumber": 12345678,
+    "PostalCode": 2900,
+    "City": "TestBY"
   }
 ]

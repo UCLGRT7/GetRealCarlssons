@@ -180,7 +180,7 @@ namespace CarlssonsWPF.ViewModel
                     ProjectWithContractInfo.Add(new ProjectWithContractInfoDatagrid
                     {
                         CaseNumber = project.CaseNumber,
-                        Deadline = project.Deadline,
+                        Deadline = project.Deadline ?? DateTime.MinValue,
                         Status = project.Status,
                         Price = contract?.Price ?? 0
                     });

@@ -9,12 +9,12 @@ namespace CarlssonsWPF.ViewModel.IRepositories
 {
     public interface IServiceRepository 
     {
-        Services GetById(int id);
-        IEnumerable<Services> GetAll();
-        IEnumerable<Services> GetByServiceEntry(string serviceEntry);
-        IEnumerable<Services> GetByComplexity(int complexity);
-        void Add(Services service);
-        void Update(Services service);
+        ServiceEntry GetById(int id);
+        IEnumerable<ServiceEntry> GetAll();
+        IEnumerable<ServiceEntry> GetByServiceEntry(string serviceEntry);
+        IEnumerable<ServiceEntry> GetByComplexity(int complexity);
+        void Add(ServiceEntry service);
+        void Update(ServiceEntry service);
         void Delete(int id);
         void SaveAllOnExit();
 

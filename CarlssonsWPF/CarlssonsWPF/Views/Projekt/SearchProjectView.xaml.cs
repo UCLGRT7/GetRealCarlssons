@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Dialogs;
+
 
 namespace CarlssonsWPF.Views.Projekt
 {
@@ -30,6 +32,12 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             _searchProjectViewModel = new SearchProjectViewModel();
             DataContext = _searchProjectViewModel;
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (_frame?.CanGoBack == true)
+                _frame.GoBack();
         }
     }
 }

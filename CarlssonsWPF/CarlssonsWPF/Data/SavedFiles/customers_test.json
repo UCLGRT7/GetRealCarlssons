@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "Id": "56ad71b7-2fbb-4fb7-bd4d-1ccf000c9314",
+    "Name": "asd",
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  },
+  {
+    "Id": "077f1516-2fb4-4d6c-aa28-d89f476509e5",
+    "Name": "Daniel",
+    "Address": null,
+    "Email": null,
+    "PhoneNumber": 0,
+    "PostalCode": 0,
+    "City": null
+  },
+  {
+    "Id": "9c9a3838-f34f-42a7-9734-9e3041a6a04e",
+    "Name": "ValdemarTesteren",
+    "Address": "Niels Vej 7",
+    "Email": "Outlashed@Gmail.com",
+    "PhoneNumber": 40853503,
+    "PostalCode": 5200,
+    "City": "Odense"
+  }
+]

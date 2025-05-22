@@ -12,13 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Helpers;
+using System.IO;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Dialogs;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for CreateProjectView.xaml
-    /// </summary>
+    /// <summary>  
+    /// Interaction logic for TestPage.xaml  
+    /// </summary>  
     public partial class CreateProjectView : Page
     {
         private CreateProjectViewModel _createProjectViewModel;
@@ -27,58 +31,27 @@ namespace CarlssonsWPF.Views.Projekt
         public CreateProjectView(Frame frame)
         {
             InitializeComponent();
+            _createProjectViewModel = new CreateProjectViewModel();
+            DataContext = _createProjectViewModel;
+            _frame = frame;
 
-            var viewModel = new CreateProjectViewModel();
-
-            // 🔁 Navigation fra ViewModel til View
-            viewModel.NavigateToViewProject = project =>
+            // Navigation callback fra ViewModel  
+            _createProjectViewModel.NavigateToViewProject = project =>
             {
-                var viewPage = new ViewProjectView(project);
+                project.CustomerName = _createProjectViewModel.SelectedCustomer?.Name;
+                project.Deadline = _createProjectViewModel.Deadline;
+                project.OfferSent = _createProjectViewModel.OfferSent;
+                project.OfferApproved = _createProjectViewModel.OfferApproved;
+                project.Paid = _createProjectViewModel.Paid;
+
+                var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
             };
-
-            DataContext = viewModel;
-            _frame = frame;
         }
 
         private void AfsendtFelt_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
-
-        private void DatoFormatter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var tb = sender as TextBox;
-            if (tb == null) return;
-
-            var raw = new string(tb.Text.Where(char.IsDigit).ToArray());
-
-            if (raw.Length >= 6)
-            {
-                string dag = raw.Substring(0, 2);
-                string måned = raw.Substring(2, 2);
-                string år = raw.Length == 8 ? raw.Substring(6, 2) : raw.Substring(4, 2);
-                tb.Text = $"{dag}/{måned}/{år}";
-                tb.CaretIndex = tb.Text.Length;
-            }
-        }
-
-
-        private void Opret_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TilbudGodkendtDato_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            
-        }
-
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
         {
@@ -98,7 +71,59 @@ namespace CarlssonsWPF.Views.Projekt
             }
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void TilbudGodkendtDato_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+        }
+
+        private void TilbudGodkendtDato_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationHelper.ExecuteGoBack();
+        }
+
+        private void CancelCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService != null && this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack(); // Går tilbage til forrige visning  
+            }
+            else
+            {
+                // Hvis der ikke er navigation, lukker vi hele vinduet (f.eks. hvis det blev vist i Window)  
+                Window.GetWindow(this)?.Close();
+            }
+
+        }
+
+        private void ServiceMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ServiceMenuDialog();
+            dialog.ShowDialog();
+
+            // Genindlæs ydelser fra fil
+            _createProjectViewModel.Services.Clear();
+            var path = System.IO.Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory[..AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin")],
+                "Data", "SavedFiles", "services.json"
+            );
+            if (File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                var reloaded = System.Text.Json.JsonSerializer.Deserialize<List<ServiceEntry>>(json) ?? new();
+                foreach (var s in reloaded)
+                    _createProjectViewModel.Services.Add(s);
+            }
+        }
+
 
 
     }
 }
+

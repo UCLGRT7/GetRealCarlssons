@@ -16,6 +16,9 @@ namespace CarlssonsWPF.Model
         public DateTime? Paid { get; set; }
         public DateTime? OfferApproved { get; set; }
         public double Price { get; set; }
+
+        public string? Invoice { get; set; }
+
         public string CaseNumber { get; set; } // Reference to Project
 
 

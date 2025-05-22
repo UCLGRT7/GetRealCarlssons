@@ -42,5 +42,10 @@ namespace CarlssonsWPF.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void ReloadProjects()
+        {
+            CombinedProjects = _projectViewService.GetCombinedProjectModels();
+        }
+
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Data.FileRepositories;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Kunde;
 
@@ -20,8 +22,13 @@ namespace CarlssonsWPF.Views.Projekt
 
     public partial class ProjektMainWindow : Page
     {
+
+
         private ProjektMainPageViewModel _projektMainPageViewModel;
+
         private Frame _frame;
+
+
 
         public ProjektMainWindow(Frame frame) 
         {
@@ -29,12 +36,26 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             _projektMainPageViewModel = new ProjektMainPageViewModel();
             DataContext = _projektMainPageViewModel;
+
+            this.IsVisibleChanged += ProjektMainWindow_IsVisibleChanged;
+
+
         }
+
 
         private void startPage_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new StartPage(_frame));
         }
+
+        private void ProjektMainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible && _projektMainPageViewModel != null)
+            {
+                _projektMainPageViewModel.ReloadProjects();
+            }
+        }
+
 
         private void customer_Click(object sender, RoutedEventArgs e)
         {
@@ -55,5 +76,26 @@ namespace CarlssonsWPF.Views.Projekt
         {
             _frame.Navigate(new CreateProjectView(_frame));
         }
+        private void ProjectDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dataGrid = sender as DataGrid;
+            if (dataGrid?.SelectedItem is CombinedProjectData combined)
+            {
+            
+                var projectRepo = new FileProjectRepository();
+                var fullProject = projectRepo.GetByCaseNumber(combined.CaseNumber);
+
+                if (fullProject != null)
+                {
+                    _frame.Navigate(new ViewProjectView(_frame, fullProject));
+                }
+                else
+                {
+                    MessageBox.Show("Kunne ikke finde det valgte projekt.");
+                }
+            }
+        }
+
+
     }
 }

@@ -19,8 +19,10 @@ namespace CarlssonsWPF.Data.FileRepositories
 #if DEBUG
         private static string servicesFilePath = Path.Combine(subFolder, "services_test.json");
 #else
+
         private static string servicesFilePath = Path.Combine(subFolder, "services.json");
 #endif
+
 
         public string FilePath { get; set; }
 
@@ -43,14 +45,14 @@ namespace CarlssonsWPF.Data.FileRepositories
             }
         }
 
-        public Services GetById(int id)
+        public ServiceEntry GetById(int id)
         {
             return GetAll().FirstOrDefault(s => s.Id == id);
         }
 
-        public IEnumerable<Services> GetAll()
+        public IEnumerable<ServiceEntry> GetAll()
         {
-            List<Services> services = new List<Services>();
+            List<ServiceEntry> services = new List<ServiceEntry>();
 
             try
             {
@@ -61,7 +63,7 @@ namespace CarlssonsWPF.Data.FileRepositories
                     // If the file isn't empty, deserialize it
                     if (!string.IsNullOrWhiteSpace(jsonContent))
                     {
-                        services = JsonSerializer.Deserialize<List<Services>>(jsonContent) ?? new List<Services>();
+                        services = JsonSerializer.Deserialize<List<ServiceEntry>>(jsonContent) ?? new List<ServiceEntry>();
                     }
                 }
             }
@@ -73,17 +75,17 @@ namespace CarlssonsWPF.Data.FileRepositories
             return services;
         }
 
-        public IEnumerable<Services> GetByServiceType(string serviceType)
+        public IEnumerable<ServiceEntry> GetByServiceEntry(string serviceEntry)
         {
             return GetAll().Where(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public IEnumerable<Services> GetByComplexity(int complexity)
+        public IEnumerable<ServiceEntry> GetByComplexity(int complexity)
         {
             return GetAll().Where(s => s.Complexity == complexity);
         }
 
-        public void Add(Services service)
+        public void Add(ServiceEntry service)
         {
             // If service already exists, update it instead
             if (GetById(service.Id) != null)
@@ -109,7 +111,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             }
         }
 
-        public void Update(Services service)
+        public void Update(ServiceEntry service)
         {
             // Get all services
             var services = GetAll().ToList();
@@ -138,7 +140,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             SaveServicesToFile(services);
         }
 
-        private void SaveServicesToFile(IEnumerable<Services> services)
+        private void SaveServicesToFile(IEnumerable<ServiceEntry> services)
         {
             try
             {
