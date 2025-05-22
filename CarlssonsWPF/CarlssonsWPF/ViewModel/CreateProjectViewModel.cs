@@ -101,6 +101,11 @@ namespace CarlssonsWPF.ViewModel
             {
                 _selectedProject = value;
                 OnPropertyChanged();
+
+                DeadlineInput = _selectedProject?.Deadline?.ToString("dd/MM/yy") ?? "";
+                OfferSentInput = _selectedProject?.OfferSent?.ToString("dd/MM/yy") ?? "";
+                OfferApprovedInput = _selectedProject?.OfferApproved?.ToString("dd/MM/yy") ?? "";
+                PaidInput = _selectedProject?.Paid?.ToString("dd/MM/yy") ?? "";
             }
         }
 

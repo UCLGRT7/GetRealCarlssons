@@ -103,7 +103,7 @@
 
 
     <Grid Margin="10,0,0,0">
-        <GroupBox HorizontalAlignment="Center" Margin="175,0,475,350" Width="310" Height="250" Style="{StaticResource GroupBoxNoHole}">
+        <GroupBox x:Name="ProjectInfo" HorizontalAlignment="Center" Margin="0,0,550,400" Width="310" Height="250" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="LeftGrid" Height="240" Width="300">
                 <Grid.RowDefinitions>
                     <!-- Project Information Header-->
@@ -360,7 +360,7 @@
 
 
 
-        <GroupBox Margin="175,200,475,0" Width="310" Height="220" Style="{StaticResource GroupBoxNoHole}">
+        <GroupBox x:Name="Finances" Margin="0,200,550,0" Width="310" Height="220" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="BottomLeftGrid" Width="300">
                 <Grid.RowDefinitions>
                     <!-- Header -->
@@ -384,8 +384,8 @@
                     <ColumnDefinition Width="190"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Økonomi header -->
-                <TextBlock Text="Økonomi" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <!-- Finance Header -->
+                <TextBlock Text="Finans" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontWeight="Bold"/>
 
                 <!-- Tilbud afsendt -->
                 <TextBlock Text="Tilbud afsendt:" Grid.Row="1" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
@@ -554,7 +554,8 @@
 
 
 
-        <GroupBox HorizontalAlignment="Center" Margin="800,0,0,0" Width="350" Height="450" Style="{StaticResource GroupBoxNoHole}">
+        <!-- Right GroupBox: Ydelser -->
+        <GroupBox x:Name="Services" HorizontalAlignment="Center" Margin="500,0,0,100" Width="350" Height="450" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="RightGrid" Width="340" Margin="0,-5,0,-5">
                 <Grid.RowDefinitions>
                     <!-- 1: Header-->
@@ -568,17 +569,17 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="264"/>
                     <!-- Ydelser -->
                     <!-- Spacer -->
-                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="76"/>
                     <!-- Kompleksitet -->
                 </Grid.ColumnDefinitions>
 
 
                 <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,0"/>
                 <!-- Header -->
-                <TextBlock Text="Kompleksitet" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Height="22" Margin="0,0,-15,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="Kompleksitet" Grid.Row="1"  VerticalAlignment="Center" Height="22" HorizontalAlignment="Center" Width="68" Grid.Column="1"/>
 
                 <!-- Ydelser + Kompleksitet -->
                 <ItemsControl ItemsSource="{Binding SelectedProject.Services}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,-15,0">
@@ -616,7 +617,7 @@
                                                             <DataTemplate>
                                                                 <TextBlock
                                     Text="{Binding Service.Name}"
-                                    Style="{StaticResource TextBlockView}" Margin="0,1,0,0" Width="230"/>
+                                    Style="{StaticResource TextBlockView}" Margin="0,1,0,0" Width="240"/>
                                                             </DataTemplate>
                                                         </Setter.Value>
                                                     </Setter>

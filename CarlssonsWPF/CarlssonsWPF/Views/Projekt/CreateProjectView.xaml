@@ -140,7 +140,7 @@
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Address, Mode=TwoWay}" Style="{StaticResource TextBoxCentered}"/>
 
                 <TextBlock Text="Deadline:" Grid.Row="4" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding DeadlineInput, Mode=TwoWay}" Style="{StaticResource DateTextBoxStyle}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding DeadlineInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DateTextBoxStyle}" />
 
                 <TextBlock Text="Postnummer:" Grid.Row="5" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <TextBox Grid.Row="5" Grid.Column="1"
@@ -230,25 +230,23 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="264"/>
                     <!-- Ydelser -->
                     <!-- Spacer -->
-                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="76"/>
                     <!-- Kompleksitet -->
                 </Grid.ColumnDefinitions>
 
-
-                <TextBlock Text="Ydelser" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,0"/>
                 <!-- Header -->
-                <TextBlock Text="Kompleksitet" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Height="22" Margin="0,0,-15,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="Ydelser" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,0" Width="40"/>
+                <TextBlock Text="Kompleksitet" Grid.Row="1"  VerticalAlignment="Center" Height="22" HorizontalAlignment="Center" Width="68" Grid.Column="1"/>
 
                 <ItemsControl Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding SelectedServices}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="20,0,0,6">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="230"/>
-                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="264"/>
                                     <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
 
@@ -256,7 +254,7 @@
                                           ItemsSource="{Binding DataContext.Services, RelativeSource={RelativeSource AncestorType=Page}}"
                                           DisplayMemberPath="Name"
                                           SelectedValue="{Binding Service, Mode=TwoWay}"
-                                          Style="{StaticResource ComboBoxEdit}"/>
+                                          Style="{StaticResource ComboBoxEdit}" Width="240"/>
 
                                 <TextBox Grid.Column="2" Text="{Binding Complexity, Mode=TwoWay}" Width="30" HorizontalContentAlignment="Center" Height="25" Style="{StaticResource TextBoxCentered}"/>
                             </Grid>
@@ -264,7 +262,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
-                <Button Content="Ydelsesmenu" Click="ServiceMenuButton_Click" Style="{StaticResource Button}" Grid.Row="3" Grid.ColumnSpan="2" FontSize="12" FontWeight="Normal" Height="25" Width="75" HorizontalAlignment="Center" Margin="0,40,0,0"/>
+                <Button Content="Ydelsesmenu" Click="ServiceMenuButton_Click" Style="{StaticResource Button}" Grid.Row="3" FontSize="12" FontWeight="Normal" Height="NaN" Width="75" HorizontalAlignment="Left" Margin="125,46,0,6"/>
             </Grid>
         </GroupBox>
         <!-- Knapper -->
