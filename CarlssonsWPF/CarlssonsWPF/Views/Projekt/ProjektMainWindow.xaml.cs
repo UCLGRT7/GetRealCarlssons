@@ -22,8 +22,13 @@ namespace CarlssonsWPF.Views.Projekt
 
     public partial class ProjektMainWindow : Page
     {
+
+
         private ProjektMainPageViewModel _projektMainPageViewModel;
+
         private Frame _frame;
+
+
 
         public ProjektMainWindow(Frame frame) 
         {
@@ -31,12 +36,26 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             _projektMainPageViewModel = new ProjektMainPageViewModel();
             DataContext = _projektMainPageViewModel;
+
+            this.IsVisibleChanged += ProjektMainWindow_IsVisibleChanged;
+
+
         }
+
 
         private void startPage_Click(object sender, RoutedEventArgs e)
         {
             _frame.Navigate(new StartPage(_frame));
         }
+
+        private void ProjektMainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible && _projektMainPageViewModel != null)
+            {
+                _projektMainPageViewModel.ReloadProjects();
+            }
+        }
+
 
         private void customer_Click(object sender, RoutedEventArgs e)
         {
@@ -76,6 +95,7 @@ namespace CarlssonsWPF.Views.Projekt
                 }
             }
         }
+
 
     }
 }

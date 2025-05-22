@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ using CarlssonsWPF.Model;
 using CarlssonsWPF.Helpers;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Projekt;
+using CarlssonsWPF.Views.Dialogs;
 
 namespace CarlssonsWPF.Views.Projekt
 {
@@ -25,13 +27,18 @@ namespace CarlssonsWPF.Views.Projekt
     public partial class ViewProjectView : Page
     {
 
+        private ViewProjectViewModel _viewProjectViewModel;
+
+
         private Frame _frame;
 
         public ViewProjectView(Frame frame, Project selectedProject, ServiceEntry selectedService = null)
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = new ViewProjectViewModel(selectedProject, selectedService);
+            _viewProjectViewModel = new ViewProjectViewModel(selectedProject, selectedService);
+            DataContext = _viewProjectViewModel;
+
         }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
@@ -54,9 +61,52 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (_frame?.CanGoBack == true)
-                _frame.GoBack();
+            NavigateBackToProjectMain();
         }
+
+
+        private void ServiceMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ServiceMenuDialog();
+            dialog.ShowDialog();
+
+            // Genindlæs ydelser fra fil
+            _viewProjectViewModel.Services.Clear();
+            var path = System.IO.Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory[..AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin")],
+                "Data", "SavedFiles", "services.json"
+            );
+            if (File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                var reloaded = System.Text.Json.JsonSerializer.Deserialize<List<ServiceEntry>>(json) ?? new();
+                foreach (var s in reloaded)
+                    _viewProjectViewModel.Services.Add(s);
+            }
+        }
+
+
+        private void NavigateBackToProjectMain()
+        {
+            var projektMainWindow = new ProjektMainWindow(_frame);
+            _frame.Navigated += Frame_Navigated;
+            _frame.Navigate(projektMainWindow);
+        }
+
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+            if (e.Content is ProjektMainWindow projektMainWindow &&
+                projektMainWindow.DataContext is ProjektMainPageViewModel vm)
+            {
+                vm.ReloadProjects();
+            }
+
+            ((Frame)sender).Navigated -= Frame_Navigated;
+        }
+
+
+
+
 
     }
 }

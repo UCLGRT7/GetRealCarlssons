@@ -48,5 +48,25 @@
     "Id": 8,
     "Name": "Udarbejdelse af rapport",
     "Complexity": 0
+  },
+  {
+    "Id": 9,
+    "Name": "Beregning af Bj\u00E6lke",
+    "Complexity": 0
+  },
+  {
+    "Id": 15,
+    "Name": "999",
+    "Complexity": 0
+  },
+  {
+    "Id": 16,
+    "Name": "113",
+    "Complexity": 0
+  },
+  {
+    "Id": 17,
+    "Name": "777",
+    "Complexity": 0
   }
 ]

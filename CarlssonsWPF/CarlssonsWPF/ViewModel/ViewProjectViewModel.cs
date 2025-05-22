@@ -21,10 +21,12 @@ namespace CarlssonsWPF.ViewModel
         private readonly IServiceRepository _serviceRepository;
 
 
-        public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
-        public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
+        public ObservableCollection<Customer> Customers { get; set; } = new();
+        public ObservableCollection<Project> Projects { get; set; } = new();
+        public ObservableCollection<Contract> Contracts { get; set; } = new();
+        public ObservableCollection<ServiceEntry> Services { get; set; } = new();
+
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Forsinket", "Igang", "Færdig", "Afventer" };
 
         public void LoadData()
         {
@@ -95,7 +97,7 @@ namespace CarlssonsWPF.ViewModel
 
             SelectedProject = selectedProject ?? throw new System.ArgumentNullException(nameof(selectedProject));
             var savedCustomerName = SelectedProject.CustomerName;
-            InitFromModel();
+            SelectedProject.InitFromModel();
             SelectedProject.CustomerName = savedCustomerName;
             SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == SelectedProject.CustomerName);
 
@@ -162,7 +164,11 @@ namespace CarlssonsWPF.ViewModel
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
                     if (match != null)
                     {
+                        // match er ServiceEntry, så vi kopierer navn og ID
                         entry.Name = match.Name;
+                        entry.Id = match.Id;
+
+                        // Hvis du stadig bruger 'Service' som reference (eksempelvis for visning)
                         entry.Service = new Service
                         {
                             Id = match.Id,

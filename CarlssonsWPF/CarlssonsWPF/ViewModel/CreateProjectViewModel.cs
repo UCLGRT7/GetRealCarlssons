@@ -32,6 +32,8 @@ namespace CarlssonsWPF.ViewModel
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
 
+        public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Afventer", "Igang", "Færdig", "Forsinket" };
+
 
 
         public class SelectedServiceEntry : INotifyPropertyChanged
@@ -81,10 +83,10 @@ namespace CarlssonsWPF.ViewModel
                     CommonCommands.AddServiceEntry(serviceRepository, name);
                 }
                 else
-                {
+        {
                     MessageBox.Show("Navn kan ikke være tomt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-            }
+        }
         });
 
 
@@ -127,6 +129,13 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
+        private string? _deadlineInput;
+        public string? DeadlineInput
+        {
+            get => _deadlineInput;
+            set { _deadlineInput = value; OnPropertyChanged(); Deadline = TryParseToDate(value); }
+        }
+
         private string? _caseNumber;
         public string? CaseNumber
         {
@@ -141,6 +150,17 @@ namespace CarlssonsWPF.ViewModel
             set { _address = value; OnPropertyChanged(); }
         }
 
+        private int? _scope;
+        public int? Scope
+        {
+            get => _scope;
+            set
+            {
+                _scope = value; OnPropertyChanged();
+                OnPropertyChanged(); UpdateEstimatedPrice();
+            }
+
+        }
 
         private string? _projectPostalCode;
         public string? ProjectPostalCode
@@ -222,8 +242,8 @@ namespace CarlssonsWPF.ViewModel
                     UpdateEstimatedPrice(); // Recalculate when scope changes
                 }
             }
-        }    
-        
+        }
+
 
         private int _complexity;
         public int Complexity
@@ -296,6 +316,8 @@ namespace CarlssonsWPF.ViewModel
        
         private void UpdateEstimatedPrice()
         {
+            if (Scope == null) return;
+
             int totalComplexity = 0;
             foreach (var complexity in Complexities)
             {
@@ -324,10 +346,11 @@ namespace CarlssonsWPF.ViewModel
                     return;
                 }
 
+                int scopeValue = Scope ?? 0;
 
                 //int scopeValue = Scope;
                 var servicesWithComplexity = SelectedServices.Select((selectedService, index) =>
-                {
+    {
                     if (selectedService?.Service == null) return null;
 
                     int complexity = 0;
@@ -340,6 +363,7 @@ namespace CarlssonsWPF.ViewModel
                         }
                     }
 
+                System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
                 // ✅ Brug SelectedProject direkte
                 var newProject = new Project
                 {
@@ -349,8 +373,10 @@ namespace CarlssonsWPF.ViewModel
                     ProjectAddress = Address,
                     ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
                     Scope = Scope ?? 0,
+                    Status = SelectedProject.Status,
                     EstimatedPrice = EstimatedPrice,
                     Price = Price,
+                    Invoice = Invoice,
                     LastModified = DateTime.Now,
                     Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity),
                     Deadline = Deadline,
@@ -361,6 +387,8 @@ namespace CarlssonsWPF.ViewModel
 
 
                 // 🛠 GEM projektet
+                MessageBox.Show("✅ Add() bliver kaldt");
+
                 _projectRepository.Add(newProject);
                 Projects.Add(newProject); // Hvis du ønsker det vist med det samme
 
@@ -389,6 +417,7 @@ namespace CarlssonsWPF.ViewModel
                     OfferSent = OfferSent,
                     OfferApproved = OfferApproved,
                     Paid = Paid,
+                    Invoice = Invoice,
                     Price = Price
                 };
 

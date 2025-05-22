@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Dialogs;
+
 
 namespace CarlssonsWPF.Views.Projekt
 {

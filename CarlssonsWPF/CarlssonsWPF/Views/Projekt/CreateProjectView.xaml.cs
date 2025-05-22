@@ -13,7 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarlssonsWPF.Helpers;
+using System.IO;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Dialogs;
 
 namespace CarlssonsWPF.Views.Projekt
 {
@@ -37,9 +40,9 @@ namespace CarlssonsWPF.Views.Projekt
             {
                 project.CustomerName = _createProjectViewModel.SelectedCustomer?.Name;
                 project.Deadline = _createProjectViewModel.Deadline;
-                project.Contract.OfferSent = _createProjectViewModel.OfferSent;
-                project.Contract.OfferSent = _createProjectViewModel.OfferApproved;
-                project.Contract.Paid = _createProjectViewModel.Paid;
+                project.OfferSent = _createProjectViewModel.OfferSent;
+                project.OfferApproved = _createProjectViewModel.OfferApproved;
+                project.Paid = _createProjectViewModel.Paid;
 
                 var viewPage = new ViewProjectView(_frame, project);
                 NavigationService?.Navigate(viewPage);
@@ -82,8 +85,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (_frame.CanGoBack)
-                _frame.GoBack();
+            NavigationHelper.ExecuteGoBack();
         }
 
         private void CancelCreate_Click(object sender, RoutedEventArgs e)
@@ -99,6 +101,29 @@ namespace CarlssonsWPF.Views.Projekt
             }
 
         }
+
+        private void ServiceMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ServiceMenuDialog();
+            dialog.ShowDialog();
+
+            // Genindlæs ydelser fra fil
+            _createProjectViewModel.Services.Clear();
+            var path = System.IO.Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory[..AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin")],
+                "Data", "SavedFiles", "services.json"
+            );
+            if (File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                var reloaded = System.Text.Json.JsonSerializer.Deserialize<List<ServiceEntry>>(json) ?? new();
+                foreach (var s in reloaded)
+                    _createProjectViewModel.Services.Add(s);
+            }
+        }
+
+
+
     }
 }
 

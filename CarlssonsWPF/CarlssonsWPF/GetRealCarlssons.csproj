@@ -10,7 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="Data\SavedFiles\services.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

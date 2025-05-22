@@ -1,29 +1,127 @@
 [
   {
-    "CaseNumber": "2022_01_02",
-    "ProjectAddress": "testvej",
-    "Deadline": "2025-10-05T00:00:00",
+    "Id": "73c70ef9-ab84-4918-b185-b771372b7cac",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "1992_02_01",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 36,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T02:26:54.6609465+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 3
+      },
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "4741da18-3ffc-426a-b219-4a17d6df64dd",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_2222",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Alex Holmbo",
-    "Status": "Done",
-    "LastModified": "2025-05-09T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T18:51:10.3467444+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "574ef074-0195-4e84-988e-f5723b57a1f5",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
-    "EstimatedPrice": 1800,
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
     "Scope": 3,
-    "CustomerName": "Daniel blomst",
+    "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T22:10:45.8274358+02:00",
-    "ProjectPostalCode": 2100
+    "LastModified": "2025-05-20T18:52:18.0480319+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "962a417a-afc1-45c4-885b-126f9c9c058f",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -37,17 +135,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "f5fb0809-8c65-44ed-8b23-7242bdff4819",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -61,17 +160,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "adfbc188-dfff-439c-ab75-f04b499a7167",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -85,17 +185,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "7c342a5a-4651-4232-b05f-6d488fb397e4",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -109,17 +210,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "b92285ce-284e-4f93-9c6c-eef6711be8d1",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "13371337",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -133,29 +235,88 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 2,
         "Name": "Beregning af tagkonstruktion",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "7a22e9b8-a2f8-40f4-b038-45e726f8aed1",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": null,
     "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "ProjectPostalCode": null,
+    "Deadline": null,
     "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T02:28:22.4448329+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": null,
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "f2c0105d-2abe-46e5-9878-71d12cb6edae",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -169,40 +330,142 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "99f7f282-b3e0-4958-a0a0-c98aed6aa422",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": null,
     "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:03:38.3261912+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
-    "CaseNumber": "2022_05_02",
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "Id": "6d86bf4c-0d90-4c12-912d-74ca78aad7a4",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:03:55.2827684+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "ce7d5feb-b295-4545-a977-ee74dab4f928",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:03:55.3228886+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
   },
   {
     "Id": "732ffb1e-fea8-4d29-a2eb-6035bf997b40",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -216,6 +479,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
@@ -242,23 +506,30 @@
         "Name": " ",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "e7774559-dd9d-4070-a8ce-271562f35bc2",
+    "OfferSentInput": "",
     "CaseNumber": null,
     "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "ProjectPostalCode": null,
+    "Deadline": null,
     "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:08:12.6444627+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
   },
   {
     "Id": "11c08f56-d03c-42e7-beaf-66656a55c732",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -272,6 +543,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
@@ -283,23 +555,30 @@
         "Name": "Beregning af tagkonstruktion",
         "Complexity": 2
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "bf8650e7-6f32-4af5-990b-e92d4b6a1967",
+    "OfferSentInput": "",
     "CaseNumber": null,
     "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "ProjectPostalCode": null,
+    "Deadline": null,
     "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:09:46.4723336+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
   },
   {
     "Id": "92bfbea5-b512-42fb-a633-ce9201645c05",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -313,6 +592,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
@@ -339,102 +619,194 @@
         "Name": "Beregning af s\u00F8jle",
         "Complexity": 3
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "665e4f31-e21a-4f04-a2aa-5bf979d9577a",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": null,
     "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "CaseNumber": "2022_09_02",
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson Alex Holmbo",
-    "Status": "WIP",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "Id": "9f1d59d0-82a5-4c89-955b-979f14eaea77",
-    "CaseNumber": null,
-    "ProjectAddress": null,
-    "Deadline": "2025-05-13T00:00:00",
-    "EstimatedPrice": 0,
-    "Scope": 0,
-    "CustomerName": "Valdemar Carlsson",
-    "Status": "Igangv\u00E6rende",
-    "LastModified": "2025-05-13T14:35:29.7613435+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "CaseNumber": "240396_01_01",
-    "ProjectAddress": "Niels Steensens Vej 11, 5200",
-    "Deadline": "2025-05-15T00:00:00",
-    "EstimatedPrice": 3000,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:08:25.0141389+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "CaseNumber": "2022_01_01",
-    "ProjectAddress": "Niels vej 7",
-    "Deadline": "2025-05-15T00:00:00",
-    "EstimatedPrice": 4500,
-    "Scope": 3,
-    "CustomerName": "Daniel",
-    "Status": null,
-    "LastModified": "2025-05-15T14:47:05.4788401+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "CaseNumber": "2204_01_01",
-    "ProjectAddress": "niels vej 7",
-    "Deadline": "2025-05-15T00:00:00",
-    "EstimatedPrice": 3000,
-    "Scope": 3,
-    "CustomerName": null,
-    "Status": null,
-    "LastModified": "2025-05-15T14:26:25.3132149+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "Id": "12794a6e-04dc-40d8-8049-93975f1b58ee",
-    "CaseNumber": "2022_02_02",
-    "ProjectAddress": "nielsvej 7",
-    "Deadline": "2025-05-15T00:00:00",
-    "EstimatedPrice": 4500,
-    "Scope": 3,
-    "CustomerName": "Daniel",
-    "Status": null,
-    "LastModified": "2025-05-15T14:53:35.5672029+02:00",
-    "ProjectPostalCode": 0
-  },
-  {
-    "Id": "ae7d5163-4798-4d7a-9def-61045eea661f",
-    "CaseNumber": null,
-    "ProjectAddress": null,
-    "Deadline": "2025-05-16T00:00:00",
-    "EstimatedPrice": 0,
+    "Price": 0,
     "Scope": 0,
     "CustomerName": "Daniel",
     "Status": null,
-    "LastModified": "2025-05-20T19:22:33.2242454+02:00",
+    "LastModified": "2025-05-20T19:15:39.7197736+02:00",
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "0d6dcc7b-dc13-4249-b5f2-bb7845ae4040",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 2700,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:16.2328236+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 2
+      },
+      {
+        "Id": 1,
+        "Name": "Beregning af bj\u00E6lke",
+        "Complexity": 3
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 3
+      }
+    ]
+  },
+  {
+    "Id": "9f1d59d0-82a5-4c89-955b-979f14eaea77",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:16.3005145+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "8b896464-730d-497c-a376-1f95e375ac50",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 2700,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:29.7621999+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 2
+      },
+      {
+        "Id": 1,
+        "Name": "Beregning af bj\u00E6lke",
+        "Complexity": 3
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 3
+      }
+    ]
+  },
+  {
+    "Id": "9f1d59d0-82a5-4c89-955b-979f14eaea77",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:29.8122418+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 0,
@@ -486,11 +858,182 @@
         "Name": null,
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
+  },
+  {
+    "Id": "1cbb3a2a-a650-44cf-97d2-5f1ab469c14a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:36.0163519+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "5a7cec95-f60d-4560-bce9-2f60472431c2",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:20:36.0716729+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "751fce79-f335-42f2-94c3-a725d0c6a9ec",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:21:55.4402646+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "19e340bf-4184-4b7a-a6b0-8af09ca3a8b6",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:21:55.5070053+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "12794a6e-04dc-40d8-8049-93975f1b58ee",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:22:27.4658701+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "ae7d5163-4798-4d7a-9def-61045eea661f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:22:33.2242454+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "90e164ce-5385-4061-a051-95e2690c67a7",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -500,50 +1043,227 @@
     "Scope": 3,
     "CustomerName": "Daniel",
     "Status": null,
-    "LastModified": "2025-05-16T20:29:06.9110062+02:00",
-    "ProjectPostalCode": null
+    "LastModified": "2025-05-20T19:22:39.8780474+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
   },
   {
-    "CaseNumber": "22_02_02",
-    "ProjectAddress": "Niels 7",
-    "Deadline": "2025-05-16T00:00:00",
+    "Id": "ae7d5163-4798-4d7a-9def-61045eea661f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-20T19:22:39.9450533+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "606ed7a8-3aee-4ed1-8eb6-5bfa17fad837",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 900,
+    "Price": 23000,
     "Scope": 3,
     "CustomerName": "Daniel",
     "Status": null,
-<<<<<<< HEAD
-    "LastModified": "2025-05-16T20:57:03.5270976+02:00",
-    "ProjectPostalCode": 5200
+    "LastModified": "2025-05-20T19:26:08.4668115+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 3
+      }
+    ]
   },
   {
-    "CaseNumber": "2402_02_02",
-    "ProjectAddress": "Niels 7",
-    "Deadline": "2025-05-17T00:00:00",
-    "EstimatedPrice": 150000,
+    "Id": "1ac1a895-b6c9-4a3c-9a02-c5ecf2497259",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-20T19:51:32.465637+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "fde5a3fa-01ed-4fff-ab1f-d397a793948f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Yallaby",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Forsinket",
+    "LastModified": "2025-05-20T19:52:11.3654352+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "a4c09ae4-e485-4b75-8d6c-3d2b7b250808",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 2100,
+    "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-17T07:08:24.7823493+02:00",
-    "ProjectPostalCode": 5200
+    "LastModified": "2025-05-20T19:53:17.1492042+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Beregning af bj\u00E6lke",
+        "Complexity": 2
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 4
+      }
+    ]
   },
   {
     "Id": "d934af5b-5f51-42b2-8fd6-46b8282f5f8d",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
+    "Price": 23000,
     "Scope": 3,
-    "CustomerName": "Daniel blomst",
-    "Status": null,
-    "LastModified": "2025-05-19T22:35:13.8840652+02:00",
-    "ProjectPostalCode": 2100
+    "CustomerName": "Daniel",
+    "Status": "Igang",
+    "LastModified": "2025-05-20T19:54:10.3100182+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "af046948-e8de-4fac-84b2-d037c91521ff",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
     "EstimatedPrice": 0,
+    "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": "Igang",
@@ -554,6 +1274,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 2,
@@ -566,11 +1287,11 @@
         "Name": "Beregning af mur",
         "Complexity": 0
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "1799c4c2-77fd-405d-9fe7-36efa64021b0",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -584,6 +1305,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
@@ -600,11 +1322,11 @@
         "Name": "Registrering",
         "Complexity": 1
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "e40e8186-c332-4b56-b0fe-1145347164ef",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -618,17 +1340,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 1
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "99a8035a-4a66-43ae-a7d1-09a7f968e76d",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -642,17 +1365,18 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
+    "Invoice": null,
     "Services": [
       {
         "Id": 1,
         "Name": "Registrering",
         "Complexity": 1
       }
-    ],
-    "OfferSentInput": "24/03/96"
+    ]
   },
   {
     "Id": "fcda5e76-df0a-46e1-bd21-c0a1e2c7c872",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
     "ProjectPostalCode": 2100,
@@ -662,58 +1386,3131 @@
     "Scope": 3,
     "CustomerName": "Daniel",
     "Status": null,
-    "LastModified": "2025-05-19T22:34:31.729912+02:00",
-    "ProjectPostalCode": 2100
+    "LastModified": "2025-05-20T20:04:49.6605117+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
   },
   {
     "Id": "550c6ca5-23f7-4bd8-ab31-7fe917f0a0b3",
+    "OfferSentInput": "24/03/96",
     "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
-    "EstimatedPrice": 0,
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
     "Scope": 3,
     "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-19T22:55:09.9867082+02:00",
-    "ProjectPostalCode": 2100
+    "LastModified": "2025-05-20T20:06:45.9394756+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
-    "CaseNumber": "2022_02_0111",
+    "Id": "0dbaa1db-7108-4875-9638-1fc4b70474a0",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
     "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
-    "EstimatedPrice": 600,
-    "Scope": 5,
-    "CustomerName": "Alex",
-    "Status": null,
-    "LastModified": "2025-05-20T20:51:54.0506537+02:00",
-    "ProjectPostalCode": 2100
-  },
-  {
-    "CaseNumber": "2022_02_02222",
-    "ProjectAddress": "Tr\u00E6vej 42",
-    "Deadline": "1996-03-24T00:00:00",
-    "EstimatedPrice": 600,
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 900,
+    "Price": 23000,
     "Scope": 3,
-    "CustomerName": "Alex",
+    "CustomerName": "asd",
     "Status": null,
-    "LastModified": "2025-05-20T20:52:27.5653902+02:00",
-    "ProjectPostalCode": 2100
-  },
-  {
-    "CaseNumber": "2025_04_02",
-    "ProjectAddress": "TestVej",
-    "Deadline": "2025-04-24T00:00:00",
-    "EstimatedPrice": 5400,
-    "Scope": 3,
-    "CustomerName": "AlexTest",
-    "Status": null,
-    "LastModified": "2025-05-20T20:56:19.3877401+02:00",
-    "ProjectPostalCode": 2900
-=======
+    "LastModified": "2025-05-21T19:55:04.0247141+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
         "Complexity": 3
       }
-    ],
-    "OfferSentInput": "24/03/96"
->>>>>>> parent of 24065dc (Implemented Status + various fixes.)
+    ]
+  },
+  {
+    "Id": "d6e569fa-8104-4d8c-bcd6-312eeb31b78f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T20:46:15.2970999+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "973b3bbd-39ae-475b-8415-782039e9976f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T21:33:44.7504703+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "eeec44cb-d791-478d-ac31-73895422156e",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T21:33:57.7803682+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "2cc0cb9e-0e1e-42ab-be0d-114d28ff92e9",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T21:34:22.4718605+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "5fc01acf-b93f-4c61-9dff-e319364a9abc",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T21:35:30.3980185+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "3ab9f15b-2c24-4a99-84a4-725d2b85d296",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T21:40:32.7090886+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "96240040-1153-43a2-a861-76a019890fb5",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T22:03:28.6576816+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "53945726-8b26-4363-8212-aab9082dbb2a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 6900,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-21T22:08:36.6930088+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 23
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 3,
+        "Name": "Beregning af s\u00F8jle",
+        "Complexity": 0
+      },
+      {
+        "Id": 7,
+        "Name": "Beregning af energiramme",
+        "Complexity": 0
+      },
+      {
+        "Id": 5,
+        "Name": "Beregning af fundament",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
+        "Complexity": 0
+      },
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
+        "Complexity": 0
+      },
+      {
+        "Id": 5,
+        "Name": "Beregning af fundament",
+        "Complexity": 0
+      },
+      {
+        "Id": 8,
+        "Name": "Udarbejdelse af rapport",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "7d9db9c3-492c-4b0d-8840-d4c10ac975bf",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 1500000,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-21T22:30:25.4240506+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "0328b6e5-1d69-4492-8be8-6cc3d9918078",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-21T22:36:44.1686058+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 0
+      },
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "1076c0f6-07f0-4866-a92f-0420e70d79a0",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T22:40:55.4664852+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "2910dbf6-632a-4796-a88d-f1aedaec41ad",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-21T22:51:58.0299279+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "e611ba9f-5502-4933-8425-26e11dd94a26",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-21T23:03:30.7039004+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "e8fe057c-4a4f-49c1-8072-4a0e5e680110",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 900,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Igang",
+    "LastModified": "2025-05-21T23:05:21.5811313+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "629ce56e-0e45-4916-8b5a-b40e7b230448",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 900,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Igang",
+    "LastModified": "2025-05-21T23:08:09.6782195+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "77306eea-38a1-4250-b70e-85c025abf5d1",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Igang",
+    "LastModified": "2025-05-21T23:09:39.8208243+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "24b924a1-94c0-485e-9540-1c9befba014f",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-21T23:23:00.1970995+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "5d3dda23-62ea-47f0-93b7-133a68e4b7ef",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T23:37:41.2177223+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "497252d8-8fbc-44ad-8f81-70a62f3dab35",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T23:42:17.548078+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "804007a9-f87b-4464-8630-2f279dd34307",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": "Igang",
+    "LastModified": "2025-05-21T23:43:56.3366149+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "3e94ef0f-d09f-4ed4-bf2d-6a54a6d04d8e",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "S",
+    "ProjectAddress": "P",
+    "ProjectPostalCode": null,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T23:47:05.8419047+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "6f5d8706-4d38-4f7b-af46-8426d59a4289",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "S",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-21T23:58:43.2653193+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "f335ad80-e7c9-4efe-8d6d-38d46647c576",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Igang",
+    "LastModified": "2025-05-22T00:00:59.4331928+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "02e66372-c79f-4318-bfe8-bdca978c37c7",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T00:02:04.4420753+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 6,
+        "Name": "Beregning af Varmetransmissionstab",
+        "Complexity": 0
+      },
+      {
+        "Id": 5,
+        "Name": "Beregning af fundament",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "73e32e10-e9fa-4366-9812-0ffa9bace427",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:06:20.6398153+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 4,
+        "Name": "Beregning af mur",
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "ef201cc6-e8b4-4dc0-b110-4a1bc3e0bc78",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:08:32.6472746+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "2865a33e-c073-44f6-8b3d-6bf881656c78",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:08:57.3458223+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "88d6d268-a0e1-4a7d-afa8-86705f67910d",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:10:39.916101+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "81b1f662-75ad-454f-acba-4fb20de5e56d",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 3000,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:19:17.4036674+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "275a0366-7bcb-4a64-9d73-c63f07c036b6",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 3000,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:21:17.5783052+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "846a04dd-1ab0-4604-a421-9e00c515f763",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:21:55.5139638+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "bf6dd7ae-d6c3-4933-9f28-f544b485ac24",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:22:45.0398628+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "e1362ad5-1658-4191-829f-f0db4e91f5a1",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:24:27.7239199+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "1b186035-c3cd-4e81-8e4a-9a833976a9a5",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:27:15.8564343+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "fc567fae-9e34-4fde-922c-50db2f0a1631",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:27:31.4563936+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "6e6aba71-c40a-41a3-a17a-9c86e774ea53",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:27:35.5406889+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "38b7e276-f5e1-4a66-895a-3b6599ded2ea",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:27:51.0003938+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "48d1e546-87c0-4861-853d-90749b61a543",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:37:24.8281477+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "f00b9085-c8a3-4699-86e3-3554b7d56d87",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:41:05.4267132+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "e8b29e8e-4abe-45e3-b9e8-e19e089553f3",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:41:14.2696662+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "e36f8781-0041-414a-9c29-38f6552f77ff",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T01:41:30.0964171+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "01ca8c3f-122e-4473-9661-0508696fc792",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:41:43.6995645+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "5b4e4326-6cbc-414e-af1d-676ce0dc1b45",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:43:12.8313324+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "6033c49d-5817-466f-bae8-aa98bf247b8a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:43:22.4959163+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "0c629c0b-2fa9-436f-9b12-e21ddede857c",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:44:40.6499538+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "76b953be-2381-4e75-aaf5-73d479a3ccd8",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:46:12.9908614+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "2357db99-f22d-4718-89a6-3944f23e5c7a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 4,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:48:54.2632032+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "328d5083-d7db-4a51-8b78-bb40d515bdc0",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:49:17.6682372+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "df9edac0-5e53-454a-a62e-e6d57c3ed4eb",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 9600,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T01:51:22.4292951+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 11
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 11
+      }
+    ]
+  },
+  {
+    "Id": "fa1c4379-fdc7-4bdc-ab8e-00ff684fff20",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:56:23.017396+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "a7d9b6fd-15b2-4de0-a9f5-b3e52331fadc",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T01:57:25.7418687+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "f9428a5e-2b43-464a-849d-8995430b24b5",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Forsinket",
+    "LastModified": "2025-05-22T01:59:02.3243221+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123123",
+    "Services": []
+  },
+  {
+    "Id": "c633fd03-20ca-4a3e-9137-b03ee60e6e23",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T01:59:43.4345654+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "Valdemar",
+    "Services": []
+  },
+  {
+    "Id": "9028cc4b-1518-48a6-b368-a380a2301d9a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T02:02:12.5347232+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "1337",
+    "Services": [
+      {
+        "Id": 2,
+        "Name": "Beregning af tagkonstruktion",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "2f6f7d94-eb57-4a41-a68f-190ab09a2be7",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 69000,
+    "Price": 0,
+    "Scope": 69,
+    "CustomerName": "Daniel",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T02:04:43.92209+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "123456789",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "01db8a3d-87d1-4b95-979e-e922fa9d22d0",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "Daniel",
+    "Status": "Forsinket",
+    "LastModified": "2025-05-22T02:05:37.8566943+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "dc464844-fd56-40aa-9053-a6c60003c040",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 3000,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:23:37.2958261+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "122314",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "8e0f5d9c-0f9e-403a-8874-9ae4572f7f35",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "2022_02_02",
+    "ProjectAddress": "Tr\u00E6vej 42",
+    "ProjectPostalCode": 2100,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 23000,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:27:19.9551932+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "85fd5656-f7d5-4f7c-945a-e854996dac63",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:28:11.2694792+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "ad4b5605-e9ed-408e-bdbc-6ad4c63a287a",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 3000,
+    "Price": 0,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T02:29:09.195357+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "123456789",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "a572777f-d940-4f8a-a34a-48f5209160ae",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 2400,
+    "Price": 0,
+    "Scope": 6,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T02:38:42.2837048+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "6666",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "0e1e1d83-7afc-42e5-ac9d-db1885ffde89",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 2400,
+    "Price": 0,
+    "Scope": 6,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T02:39:06.7309298+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "6666",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      },
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "ceafed08-9654-44af-a27c-3bb13181c009",
+    "OfferSentInput": "",
+    "CaseNumber": "666",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T02:39:25.8620647+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 10,
+        "Name": " ",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "10c68a90-a784-499a-9799-b2dbff93fcdb",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T02:40:07.5648109+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 10,
+        "Name": " ",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "8276baab-3fcd-45d9-b062-1e18585d50cf",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T02:40:56.4973396+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "7a8fcaea-ead2-47e8-93fd-77e38915a374",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:42:18.6378852+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "bba1ea82-c8c5-459b-a2fb-7dbd4d0ac09c",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:44:14.4900543+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "cfe47f46-3148-4678-9fe1-18149cf3d6d8",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:45:19.8175037+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "79f815c2-f89c-4587-bdf2-7262e215d826",
+    "OfferSentInput": "",
+    "CaseNumber": null,
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:45:41.8721866+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "1ebe9dba-874c-4dd1-bc30-8f492e31e012",
+    "OfferSentInput": "",
+    "CaseNumber": "112233",
+    "ProjectAddress": "112233",
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 300,
+    "Price": 0,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:48:24.426732+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "12345",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "955f6e69-eba3-46db-92fd-ac9bfc0cb4e9",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T02:55:11.1969682+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "cab55d6f-69ab-4ece-9c59-60aa3e46bad5",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": null,
+    "Deadline": null,
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "asd",
+    "Status": null,
+    "LastModified": "2025-05-22T02:57:06.3293639+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "cb9c1aae-667a-4b0c-83f6-d733ba1f21d8",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "1",
+    "ProjectAddress": null,
+    "ProjectPostalCode": 1,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "asd",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T03:02:56.9691444+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "1859da39-1267-4701-be61-e5f3439ac910",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "ValdemarTesteren",
+    "Status": null,
+    "LastModified": "2025-05-22T03:03:50.22947+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "1",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "1f6fa6c7-4dfe-4c62-bf7d-7f4a905c340c",
+    "OfferSentInput": "",
+    "CaseNumber": "1",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T03:06:50.2505048+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": null,
+    "Services": []
+  },
+  {
+    "Id": "115dd166-132e-4dbf-a8f4-ad7b3ddfa523",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "1996_02_02",
+    "ProjectAddress": "SenTest 7",
+    "ProjectPostalCode": 5200,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 0,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T03:07:35.4913618+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123456789",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "1921e899-b770-4990-b06e-fc21c0d83b52",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "SenTest",
+    "ProjectAddress": "SenTest",
+    "ProjectPostalCode": 3,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 300,
+    "Price": 0,
+    "Scope": 3,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T03:09:34.0475875+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "1234",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "3beb9e41-268a-47cb-b2cb-a6d346da5f5a",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "Test1",
+    "ProjectAddress": "Test1",
+    "ProjectPostalCode": 5200,
+    "Deadline": "2036-09-24",
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "F\u00E6rdig",
+    "LastModified": "2025-05-22T03:13:26.1227938+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123",
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "fac0704b-9c60-470a-8d61-daa0e2525450",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "Test2",
+    "ProjectAddress": "Vej1",
+    "ProjectPostalCode": 1,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "ValdemarTesteren",
+    "Status": "Afventer",
+    "LastModified": "2025-05-22T03:19:28.1589105+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": "123",
+    "Services": []
+  },
+  {
+    "Id": "d0a7697f-53e5-4c29-96c9-d371fa972a6c",
+    "OfferSentInput": "24/03/96",
+    "CaseNumber": "Test3",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": "1996-03-24",
+    "EstimatedPrice": 100,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "asd",
+    "Status": "Igang",
+    "LastModified": "2025-05-22T03:21:37.6134452+02:00",
+    "OfferSent": "1996-03-24",
+    "OfferApproved": "1996-03-24",
+    "Paid": "1996-03-24",
+    "Invoice": null,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 1
+      }
+    ]
+  },
+  {
+    "Id": "855c111a-f4a4-4011-962b-87e4d8730660",
+    "OfferSentInput": "",
+    "CaseNumber": "Test4",
+    "ProjectAddress": "1",
+    "ProjectPostalCode": 1,
+    "Deadline": null,
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 1,
+    "CustomerName": "Daniel",
+    "Status": null,
+    "LastModified": "2025-05-22T03:24:23.336884+02:00",
+    "OfferSent": null,
+    "OfferApproved": null,
+    "Paid": null,
+    "Invoice": "1",
+    "Services": []
   }
 ]

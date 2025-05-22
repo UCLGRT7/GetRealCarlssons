@@ -16,5 +16,14 @@
     "PhoneNumber": 0,
     "PostalCode": 0,
     "City": null
+  },
+  {
+    "Id": "9c9a3838-f34f-42a7-9734-9e3041a6a04e",
+    "Name": "ValdemarTesteren",
+    "Address": "Niels Vej 7",
+    "Email": "Outlashed@Gmail.com",
+    "PhoneNumber": 40853503,
+    "PostalCode": 5200,
+    "City": "Odense"
   }
 ]

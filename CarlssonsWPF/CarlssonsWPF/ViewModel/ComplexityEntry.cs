@@ -3,8 +3,8 @@ using System.Runtime.CompilerServices;
 
 public class ComplexityEntry : INotifyPropertyChanged
 {
-    private int _value;
-    public int Value
+    private int? _value;
+    public int? Value
     {
         get => _value;
         set

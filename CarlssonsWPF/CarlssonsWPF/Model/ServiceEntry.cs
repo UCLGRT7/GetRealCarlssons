@@ -43,7 +43,18 @@ namespace CarlssonsWPF.Model
         public string Name { get; set; }
 
         // Komplexitet af servicen
-        public int Complexity { get; set; }
+        public int Complexity
+        {
+            get => _complexity;
+            set
+            {
+                if (_complexity != value)
+                {
+                    _complexity = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
