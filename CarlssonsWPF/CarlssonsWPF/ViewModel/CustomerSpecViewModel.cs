@@ -148,23 +148,12 @@ namespace CarlssonsWPF.ViewModel
 
             }
 
-            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
 
         public void ShowCustomerProjects()
         {
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
-
-            //int count = customerProjects?.Count() ?? 0;
-
-            //MessageBox.Show(
-            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
-            //  "Projektstatus",
-            //  MessageBoxButton.OK,
-            //  MessageBoxImage.Information
-            //);
 
             ProjectWithContractInfo.Clear(); 
 

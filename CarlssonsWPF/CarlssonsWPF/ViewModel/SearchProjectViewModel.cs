@@ -8,10 +8,12 @@ using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views;
 using CarlssonsWPF.Views.Projekt;
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class SearchProjectViewModel : BaseViewModel
+    public class SearchProjectViewModel : INotifyPropertyChanged
     {
         public string CaseNumber { get; set; }
         public string Address { get; set; }
@@ -39,6 +41,7 @@ namespace CarlssonsWPF.ViewModel
             //OpenProjectCommand = new RelayCommand(OpenSelectedProject);
         }
 
+
         private void Cancel()
         {
             throw new NotImplementedException();
@@ -55,5 +58,9 @@ namespace CarlssonsWPF.ViewModel
         //        view.Show();
         //    }
         //}
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

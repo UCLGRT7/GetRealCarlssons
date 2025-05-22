@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,13 +14,12 @@ using System.IO;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class CreateProjectViewModel : BaseViewModel, INotifyPropertyChanged
+    public class CreateProjectViewModel : INotifyPropertyChanged
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
-        private ObservableCollection<ComplexityEntry> _complexityEntry;
 
         public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
@@ -63,17 +63,10 @@ namespace CarlssonsWPF.ViewModel
                 // Opdater CustomerName med kun kundens navn som string
                 if (SelectedProject != null && _customer != null)
                 {
-                    System.Diagnostics.Debug.WriteLine($"SelectedCustomer: {_customer.Name}"); // Debug: udskriv det valgte kundenavn
-
                     // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
+                }
 
-                    System.Diagnostics.Debug.WriteLine($"Updated CustomerName: {SelectedProject.CustomerName}"); // Debug: udskriv den opdaterede CustomerName
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
-                }
             }
         }
 
@@ -186,22 +179,6 @@ namespace CarlssonsWPF.ViewModel
                 }
             }
         }    
-        
-
-        private int _complexity;
-        public int Complexity
-        {
-            get => _complexity;
-            set
-            {
-                if (_complexity != value)
-                {
-                    _complexity = value;
-                    OnPropertyChanged(nameof(_complexity));
-                    UpdateEstimatedPrice(); // Recalculate when scope changes
-                }
-            }
-        }
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -248,7 +225,6 @@ namespace CarlssonsWPF.ViewModel
             SelectedProject = new Project();
             SelectedProject.Contract = new Contract();
 
-            //Complexities.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
 
@@ -267,11 +243,6 @@ namespace CarlssonsWPF.ViewModel
             System.Diagnostics.Debug.WriteLine($"Calculation: {Scope} * {totalComplexity} * {P} = {EstimatedPrice}");
         }
 
-        private void Complexity_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(ComplexityEntry.Value))
-                UpdateEstimatedPrice();
-        }
 
         public void CreateProject()
         {

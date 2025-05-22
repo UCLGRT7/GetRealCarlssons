@@ -19,8 +19,6 @@ namespace CarlssonsWPF.ViewModel
         private readonly ProjectViewService _projectViewService;
         private ObservableCollection<CombinedProjectData> _combinedProjectData;
 
-        //public ObservableCollection<CombinedProjectData> CombinedData { get; set; } = new ObservableCollection<CombinedProjectData>();
-
         public ProjektMainPageViewModel()
         {
             _projectViewService = new ProjectViewService();
