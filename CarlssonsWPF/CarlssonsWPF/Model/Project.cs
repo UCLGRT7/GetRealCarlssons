@@ -12,11 +12,10 @@ namespace CarlssonsWPF.Model
 {
     public class Project : INotifyPropertyChanged
     {
-        private Contract contract;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        
+
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -39,52 +38,60 @@ namespace CarlssonsWPF.Model
             }
         }
 
-        
+
         private string? _caseNumber;
-        [JsonPropertyOrder(1)]  public string? CaseNumber
+        [JsonPropertyOrder(1)]
+        public string? CaseNumber
         {
             get => _caseNumber;
             set { _caseNumber = value; OnPropertyChanged(); }
         }
         private string? _projectAddress;
-        [JsonPropertyOrder(2)]  public string? ProjectAddress
+        [JsonPropertyOrder(2)]
+        public string? ProjectAddress
         {
             get => _projectAddress;
             set { _projectAddress = value; OnPropertyChanged(); }
         }
         private int? _projectPostalCode;
-        [JsonPropertyOrder(3)]  public int? ProjectPostalCode
+        [JsonPropertyOrder(3)]
+        public int? ProjectPostalCode
         {
             get => _projectPostalCode;
             set { _projectPostalCode = value; OnPropertyChanged(); }
         }
         private DateTime? _deadline;
         [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-        [JsonPropertyOrder(4)]  public DateTime? Deadline
+        [JsonPropertyOrder(4)]
+        public DateTime? Deadline
         {
             get => _deadline;
             set { _deadline = value; OnPropertyChanged(); }
         }
         private double _estimatedPrice;
-        [JsonPropertyOrder(5)]  public double EstimatedPrice
+        [JsonPropertyOrder(5)]
+        public double EstimatedPrice
         {
             get => _estimatedPrice;
             set { _estimatedPrice = value; OnPropertyChanged(); }
         }
         private double _price;
-        [JsonPropertyOrder(6)]  public double Price
+        [JsonPropertyOrder(6)]
+        public double Price
         {
             get => _price;
             set { _price = value; OnPropertyChanged(); }
         }
         private int _scope;
-        [JsonPropertyOrder(7)]  public int Scope
+        [JsonPropertyOrder(7)]
+        public int Scope
         {
             get => _scope;
             set { _scope = value; OnPropertyChanged(); }
         }
         private string? _customerName;
-        [JsonPropertyOrder(8)]  public string? CustomerName
+        [JsonPropertyOrder(8)]
+        public string? CustomerName
         {
             get => _customerName;
             set
@@ -95,20 +102,23 @@ namespace CarlssonsWPF.Model
             }
         }
         private string? _status;
-        [JsonPropertyOrder(9)]  public string? Status
+        [JsonPropertyOrder(9)]
+        public string? Status
         {
             get => _status;
             set { _status = value; OnPropertyChanged(); }
         }
         private DateTime _lastModified;
-        [JsonPropertyOrder(10)] public DateTime LastModified
+        [JsonPropertyOrder(10)]
+        public DateTime LastModified
         {
             get => _lastModified;
             set { _lastModified = value; OnPropertyChanged(); }
         }
         private DateTime? _offerSent;
         [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-        [JsonPropertyOrder(11)] public DateTime? OfferSent
+        [JsonPropertyOrder(11)]
+        public DateTime? OfferSent
         {
             get => _offerSent;
             set { _offerSent = value; OnPropertyChanged(); }
@@ -116,20 +126,23 @@ namespace CarlssonsWPF.Model
 
         private DateTime? _offerApproved;
         [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-        [JsonPropertyOrder(12)] public DateTime? OfferApproved
+        [JsonPropertyOrder(12)]
+        public DateTime? OfferApproved
         {
             get => _offerApproved;
             set { _offerApproved = value; OnPropertyChanged(); }
         }
         private DateTime? _paid;
         [JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-        [JsonPropertyOrder(13)] public DateTime? Paid
+        [JsonPropertyOrder(13)]
+        public DateTime? Paid
         {
             get => _paid;
             set { _paid = value; OnPropertyChanged(); }
         }
         [JsonPropertyOrder(14)] public string? Invoice { get; set; }
-        [JsonPropertyOrder(15)] public ObservableCollection<ServiceEntry> Services
+        [JsonPropertyOrder(15)]
+        public ObservableCollection<ServiceEntry> Services
         {
             get => _services ??= new ObservableCollection<ServiceEntry>();
             set
@@ -143,7 +156,7 @@ namespace CarlssonsWPF.Model
         [JsonIgnore]
         private ObservableCollection<ServiceEntry>? _services;
 
-         private string? _deadlineInput;
+        private string? _deadlineInput;
         [JsonIgnore]
         public string? DeadlineInput
         {
@@ -163,7 +176,6 @@ namespace CarlssonsWPF.Model
             }
         }
 
-        private string? _deadlineInput;
         [JsonIgnore]
         private string? _offerSentInput;
         public string? OfferSentInput
@@ -186,7 +198,7 @@ namespace CarlssonsWPF.Model
         }
 
 
-        
+
         private string? _offerApprovedInput;
         [JsonIgnore]
         public string? OfferApprovedInput
@@ -207,7 +219,7 @@ namespace CarlssonsWPF.Model
             }
         }
 
-        
+
         private string? _paidInput;
         [JsonIgnore]
         public string? PaidInput
@@ -284,104 +296,7 @@ namespace CarlssonsWPF.Model
                 else if (!(Services is ObservableCollection<ServiceEntry>))
                     Services = new ObservableCollection<ServiceEntry>(Services);
             }
-
         }
-//private string? _caseNumber;
-//public string? CaseNumber
-//{
-//    get => _caseNumber;
-//    set { _caseNumber = value; OnPropertyChanged(); }
-//}
-//private string? _projectAddress;
-//public string? ProjectAddress
-//{
-//    get => _projectAddress;
-//    set { _projectAddress = value; OnPropertyChanged(); }
-//}
-//private int? _projectPostalCode;
-//public int? ProjectPostalCode
-//{
-//    get => _projectPostalCode;
-//    set { _projectPostalCode = value; OnPropertyChanged(); }
-//}
-//private DateTime? _deadline;
-//[JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-//public DateTime? Deadline
-//{
-//    get => _deadline;
-//    set { _deadline = value; OnPropertyChanged(); }
-//}
-//private double _estimatedPrice;
-//public double EstimatedPrice
-//{
-//    get => _estimatedPrice;
-//    set { _estimatedPrice = value; OnPropertyChanged(); }
-//}
-//private double _price;
-//public double Price
-//{
-//    get => _price;
-//    set { _price = value; OnPropertyChanged(); }
-//}
-
-//private int _scope;
-//public int Scope
-//{
-//    get => _scope;
-//    set { _scope = value; OnPropertyChanged(); }
-//}
-//private string? _customerName;
-//public string? CustomerName
-//{
-//    get => _customerName;
-//    set
-//    {
-//        _customerName = value;
-//        System.Diagnostics.Debug.WriteLine($"CustomerName set to: {value}"); // Debug: udskriv den nye værdi
-//        OnPropertyChanged();
-//    }
-//}
-
-//private string? _status;
-//public string? Status
-//{
-//    get => _status;
-//    set { _status = value; OnPropertyChanged(); }
-//}
-//private DateTime _lastModified;
-//public DateTime LastModified
-//{
-//    get => _lastModified;
-//    set { _lastModified = value; OnPropertyChanged(); }
-//}
-
-
-//private DateTime? _offerSent;
-//[JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-//public DateTime? OfferSent
-//{
-//    get => _offerSent;
-//    set { _offerSent = value; OnPropertyChanged(); }
-//}
-
-//private DateTime? _offerApproved;
-//[JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-//public DateTime? OfferApproved
-//{
-//    get => _offerApproved;
-//    set { _offerApproved = value; OnPropertyChanged(); }
-//}
-
-
-//private DateTime? _paid;
-//[JsonConverter(typeof(CarlssonsWPF.Helpers.DateOnlyConverter))]
-//public DateTime? Paid
-//{
-//    get => _paid;
-//    set { _paid = value; OnPropertyChanged(); }
-//}
-
-
 
     }
 

@@ -5,7 +5,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using CarlssonsWPF.Dialogs;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
@@ -65,7 +64,7 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged();
             }
         }
-      
+
 
 
         public ICommand ToggleEditCommand { get; }
@@ -228,61 +227,6 @@ namespace CarlssonsWPF.ViewModel
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
-
-        public string? PaidInput
-        {
-            get => SelectedProject?.Contract?.Paid?.ToString("dd/MM/yy") ?? "";
-
-            set
-            {
-                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
-                {
-                    SelectedProject.Contract.Paid = result;
-                    OnPropertyChanged(nameof(SelectedProject));
-                }
-            }
-        }
-
-        public string? DeadlineInput
-        {
-            get => SelectedProject.Deadline?.ToString("dd/MM/yy") ?? "";
-            set
-            {
-                if (DateTime.TryParse(value, out var result) && SelectedProject != null)
-                {
-                    SelectedProject.Deadline = result; // Corrected to use SelectedProject.Deadline
-                    OnPropertyChanged(nameof(SelectedProject));
-                }
-            }
-        }
-
-        public string? OfferSentInput
-        {
-            get => SelectedProject.Contract.OfferSent?.ToString("dd/MM/yy") ?? "";
-            set
-            {
-                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
-                {
-                    SelectedProject.Contract.OfferSent = result;
-                    OnPropertyChanged(nameof(SelectedProject));
-                }
-            }
-        }
-
-        public string? OfferApprovedInput
-        {
-            get => SelectedProject.Contract.OfferApproved?.ToString("dd/MM/yy") ?? "";
-            set
-            {
-                if (DateTime.TryParse(value, out var result) && SelectedProject?.Contract != null)
-                {
-                    SelectedProject.Contract.OfferApproved = result;
-                    OnPropertyChanged(nameof(SelectedProject));
-                }
-            }
-        }
 
 
     }

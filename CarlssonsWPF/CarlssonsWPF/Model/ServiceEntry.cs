@@ -58,7 +58,7 @@ namespace CarlssonsWPF.Model
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
-       
+
         private Service? _service;
         [JsonIgnore]
         public Service? Service

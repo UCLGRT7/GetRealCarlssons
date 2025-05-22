@@ -8,10 +8,8 @@ using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using CarlssonsWPF.Dialogs;
 using System.Text.Json;
 using System.IO;
-using CarlssonsWPF.Helpers;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -21,13 +19,11 @@ namespace CarlssonsWPF.ViewModel
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
         private readonly IServiceRepository _serviceRepository;
-        private ObservableCollection<ComplexityEntry> _complexityEntry;
 
         public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
-        public ObservableCollection<ComplexityEntry> Complexities { get; set; } = new ObservableCollection<ComplexityEntry>();
 
         // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
@@ -64,35 +60,14 @@ namespace CarlssonsWPF.ViewModel
 
         public ICommand CancelCommand { get; }
 
-        public string NewServiceName { get; set; }
-
-        public ICommand AddServiceEntry => new RelayCommand(() =>
-        {
-            // Vis dialog
-            var dialog = new InputDialog();
-            bool? result = dialog.ShowDialog();
-
-            // Hvis bruger trykker OK
-            if (result == true)
-            {
-                string name = dialog.ResponseText;
-
-                // Tjek at navnet ikke er tomt
-                if (!string.IsNullOrWhiteSpace(name))
-                {
-                    CommonCommands.AddServiceEntry(serviceRepository, name);
-                }
-                else
-        {
-                    MessageBox.Show("Navn kan ikke være tomt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-        }
-        });
-
-
-
-
         private Customer _customer;
+
+        private string? _invoice;
+        public string? Invoice
+        {
+            get => _invoice;
+            set { _invoice = value; OnPropertyChanged(); }
+        }
         public Customer SelectedCustomer
         {
             get => _customer;
@@ -104,7 +79,7 @@ namespace CarlssonsWPF.ViewModel
                 // Opdater CustomerName med kun kundens navn som string
                 if (SelectedProject != null && _customer != null)
                 {
-                   
+
 
                     // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
@@ -215,8 +190,8 @@ namespace CarlssonsWPF.ViewModel
         }
 
         private const int P = 100;
-        private int _estimatedPrice;
-        public int EstimatedPrice
+        private double _estimatedPrice;
+        public double EstimatedPrice
         {
             get => _estimatedPrice;
             set
@@ -224,41 +199,11 @@ namespace CarlssonsWPF.ViewModel
                 if (_estimatedPrice != value)
                 {
                     _estimatedPrice = value;
-                    OnPropertyChanged(nameof(EstimatedPrice));
+                    OnPropertyChanged();
                 }
             }
         }
 
-        private int _scope;
-        public int Scope
-        {
-            get => _scope;
-            set
-            {
-                if (_scope != value)
-                {
-                    _scope = value;
-                    OnPropertyChanged(nameof(_scope));
-                    UpdateEstimatedPrice(); // Recalculate when scope changes
-                }
-            }
-        }
-
-
-        private int _complexity;
-        public int Complexity
-        {
-            get => _complexity;
-            set
-            {
-                if (_complexity != value)
-                {
-                    _complexity = value;
-                    OnPropertyChanged(nameof(_complexity));
-                    UpdateEstimatedPrice(); // Recalculate when scope changes
-                }
-            }
-        }
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -271,33 +216,23 @@ namespace CarlssonsWPF.ViewModel
 
             CancelCommand = new RelayCommand(OnCancel);
 
-
             foreach (var customer in _customerRepository.GetAll()) Customers.Add(customer);
             foreach (var project in _projectRepository.GetAll()) Projects.Add(project);
             foreach (var contract in _contractRepository.GetAll()) Contracts.Add(contract);
             foreach (var service in _serviceRepository.GetAll()) Services.Add(service);
 
-            UpdateEstimatedPrice();
             // Initialiser 10 tomme entries for SelectedServices og Complexities
             for (int i = 0; i < 10; i++)
             {
-                var complexity = new ComplexityEntry();
-                complexity.PropertyChanged += (s, e) =>
-                {
-                    if (e.PropertyName == nameof(ComplexityEntry.Value))
-                    {
-                        OnPropertyChanged(nameof(complexity));
-                        UpdateEstimatedPrice();
-                    }
-                };
-                Complexities.Add(complexity);
-
                 var selected = new SelectedServiceEntry();
 
                 selected.PropertyChanged += (s, e) =>
                 {
-                    if (e.PropertyName == nameof(SelectedServiceEntry.Service))
-                        OnPropertyChanged(nameof(selected));
+                    if (e.PropertyName == nameof(SelectedServiceEntry.Service) ||
+                        e.PropertyName == nameof(SelectedServiceEntry.Complexity))
+                    {
+                        UpdateEstimatedPrice();
+                    }
                 };
 
                 SelectedServices.Add(selected);
@@ -305,27 +240,25 @@ namespace CarlssonsWPF.ViewModel
 
             CreateProjectCommand = new RelayCommand(_ => CreateProject());
             SelectedProject = new Project();
-            SelectedProject.Contract = new Contract();
 
-            //Complexities.CollectionChanged += (s, e) => UpdateEstimatedPrice();
+
             Services.CollectionChanged += (s, e) => UpdateEstimatedPrice();
             SelectedServices.CollectionChanged += (s, e) => UpdateEstimatedPrice();
-
         }
 
-       
         private void UpdateEstimatedPrice()
         {
             if (Scope == null) return;
 
             int totalComplexity = 0;
-            foreach (var complexity in Complexities)
+
+            foreach (var service in SelectedServices)
             {
-                totalComplexity += complexity.Value;
+                if (service.Complexity.HasValue)
+                    totalComplexity += service.Complexity.Value;
             }
 
-            EstimatedPrice = Scope * totalComplexity * P;
-            System.Diagnostics.Debug.WriteLine($"Calculation: {Scope} * {totalComplexity} * {P} = {EstimatedPrice}");
+            EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
         private void Complexity_PropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -348,20 +281,15 @@ namespace CarlssonsWPF.ViewModel
 
                 int scopeValue = Scope ?? 0;
 
-                //int scopeValue = Scope;
-                var servicesWithComplexity = SelectedServices.Select((selectedService, index) =>
+                var servicesWithComplexity = SelectedServices
+    .Where(s => s?.Service != null)
+    .Select(s => new ServiceEntry
     {
-                    if (selectedService?.Service == null) return null;
+        Id = s.Service.Id,
+        Name = s.Service.Name,
+        Complexity = s.Complexity ?? 0
 
-                    int complexity = 0;
-                    if (index < Complexities.Count)
-                    {
-                        int? complexityValue = Complexities[index].Value; // Assuming Value is nullable
-                        if (complexityValue.HasValue)
-                        {
-                            complexity = complexityValue.Value;
-                        }
-                    }
+    });
 
                 System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
                 // ✅ Brug SelectedProject direkte
@@ -385,27 +313,13 @@ namespace CarlssonsWPF.ViewModel
                     Paid = Paid
                 };
 
-
                 // 🛠 GEM projektet
                 MessageBox.Show("✅ Add() bliver kaldt");
 
                 _projectRepository.Add(newProject);
-                Projects.Add(newProject); // Hvis du ønsker det vist med det samme
+                MessageBox.Show("📁 Add() i FileProjectRepository rammes");
 
-                // ✅ Brug SelectedProject direkte
-                SelectedProject.CustomerName = SelectedCustomer?.Name?.Trim();
-                SelectedProject.CaseNumber = CaseNumber;
-                SelectedProject.ProjectAddress = Address;
-                SelectedProject.ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null;
-                SelectedProject.Scope = Scope;
-                SelectedProject.EstimatedPrice = EstimatedPrice;
-                SelectedProject.Contract.Price = Price;
-                SelectedProject.LastModified = DateTime.Now;
-                SelectedProject.Services = new List<ServiceEntry>(servicesWithComplexity);
-                SelectedProject.Deadline = Deadline;
-                SelectedProject.Contract.OfferSent = OfferSent;
-                SelectedProject.Contract.OfferApproved = OfferApproved;
-                SelectedProject.Contract.Paid = Paid;
+                Projects.Add(newProject); // Hvis du ønsker det vist med det samme
 
                 // Naviger videre
                 NavigateToViewProject?.Invoke(newProject);
@@ -457,12 +371,7 @@ namespace CarlssonsWPF.ViewModel
             // Navigering eller ryd logik
         }
 
-        private string? _deadlineInput;
-        public string? DeadlineInput
-        {
-            get => _deadlineInput;
-            set { _deadlineInput = value; OnPropertyChanged(); Deadline = TryParseToDate(value); }
-        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
