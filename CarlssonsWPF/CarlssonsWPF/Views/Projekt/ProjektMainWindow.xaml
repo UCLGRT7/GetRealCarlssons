@@ -8,9 +8,9 @@
      d:DesignHeight="720" d:DesignWidth="1280"
      Title="ProjektMainWindow">
 
-    <Grid Margin="10" ShowGridLines="True">
+    <Grid Margin="10" >
 
-        <Grid ShowGridLines="True">
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -33,7 +33,7 @@
 
             </Grid>
 
-            <Grid Grid.Row="2" ShowGridLines="True">
+            <Grid Grid.Row="2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
