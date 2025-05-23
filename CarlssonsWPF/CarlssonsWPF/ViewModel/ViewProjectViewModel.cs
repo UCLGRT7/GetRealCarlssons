@@ -211,7 +211,7 @@ namespace CarlssonsWPF.ViewModel
         {
             if (IsEditing)
             {
-                // 🔁 Opdater alle ServiceEntry-felter ud fra Id
+                // Opdater alle ServiceEntry-felter ud fra Id
                 foreach (var entry in SelectedProject.Services)
                 {
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
@@ -242,7 +242,7 @@ namespace CarlssonsWPF.ViewModel
                     // Gem kontrakten
                     _contractRepository.Update(contract);
 
-                    // Opdater Contracts ObservableCollection, hvis du har brug for det i UI
+                    // Opdater Contracts ObservableCollection
                     var index = Contracts.IndexOf(contract);
                     if (index >= 0)
                     {
@@ -252,7 +252,7 @@ namespace CarlssonsWPF.ViewModel
                 }
                 else
                 {
-                    // Hvis der ikke findes en kontrakt, kan du evt. oprette en ny her
+                    
                 }
             
 

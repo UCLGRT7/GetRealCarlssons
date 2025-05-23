@@ -168,35 +168,10 @@
                 </ContentControl>
 
                 <!-- Sagsnummer -->
-                <TextBlock Text="Sagsnummer:" Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
-                <ContentControl Grid.Row="2" Grid.Column="1" Content="{Binding SelectedProject}">
-                    <ContentControl.Style>
-                        <Style TargetType="ContentControl">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsEditing}" Value="True">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <TextBox Text="{Binding CaseNumber, UpdateSourceTrigger=PropertyChanged}" 
-                                                         Style="{StaticResource TextBoxCentered}"/>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsEditing}" Value="False">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding DataContext.SelectedProject.CaseNumber, RelativeSource={RelativeSource AncestorType=Page}}" Margin="3,4,0,0" 
-                                                                  Style="{StaticResource TextBlockView}"/>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ContentControl.Style>
-                </ContentControl>
+                <TextBlock Text="{Binding SelectedProject.CaseNumber}" 
+                                         Grid.Row="2" 
+                                         Grid.Column="1" 
+                                         Style="{StaticResource TextBlockView}" />
 
                 <!-- Adresse -->
                 <TextBlock Text="Projekt Adresse:" Grid.Row="3" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
