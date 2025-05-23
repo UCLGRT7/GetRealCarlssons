@@ -20,19 +20,19 @@
         <TextBlock Text="Søg projekt" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
         <Grid Grid.Row="1">
-        <ScrollViewer>
+        <ScrollViewer >
             <StackPanel Margin="20">
                 <TextBlock Text="Sagsnummer:" />
-                <TextBox Text="{Binding CaseNumber}" />
+                <TextBox Text="{Binding CaseNumber}" HorizontalAlignment="Left" Width="260"/>
 
                 <TextBlock Text="Projekt Addresse:" />
-                <TextBox Text="{Binding ProjectAddress}" />
+                <TextBox Text="{Binding ProjectAddress}" HorizontalAlignment="Left" Width="260"/>
 
                 <TextBlock Text="Deadline:" />
-                <TextBox Text="{Binding Deadline}" />
+                <TextBox Text="{Binding Deadline}" HorizontalAlignment="Left" Width="260"/>
 
                 <TextBlock Text="Omfang:" />
-                <TextBox Text="{Binding Scope}" />
+                <TextBox Text="{Binding Scope}" HorizontalAlignment="Left" Width="260"/>
 
                 <TextBlock Text="Ydelser (navn og kompleks):" Margin="0,10,0,0"/>
                 <ItemsControl ItemsSource="{Binding Services}">
@@ -61,7 +61,7 @@
                           SelectedItem="{Binding SelectedProject, Mode=TwoWay}"
                           AutoGenerateColumns="False" 
                           Margin="0,10,0,10"
-                          BorderThickness="0"
+                          BorderThickness="1"
                           Background="White"
                           Foreground="Black"
                           CanUserAddRows="False"
