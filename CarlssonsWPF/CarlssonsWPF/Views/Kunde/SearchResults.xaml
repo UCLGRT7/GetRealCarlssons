@@ -9,7 +9,7 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="SearchResults">
 
-    <Grid Background="#f0f0f0">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="250*"/>
@@ -17,7 +17,7 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Søgte Kunder" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
+        <TextBlock Text="Søgte kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
         <DataGrid Grid.Row="1"
           ItemsSource="{Binding Customers}"
