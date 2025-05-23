@@ -51,7 +51,6 @@
           CanUserResizeRows="False"
           CanUserResizeColumns="False"
           CanUserReorderColumns="False"
-          CanUserSortColumns="False"
           HeadersVisibility="Column"
           Background="White"
           MinRowHeight="35"
