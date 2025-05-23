@@ -5,7 +5,6 @@
     "Paid": "2025-04-13T14:35:29.763447+02:00",
     "OfferApproved": "2025-04-13T14:35:29.763447+02:00",
     "Price": 5000,
-    "Invoice": null,
     "CaseNumber": "1234"
   },
   {
@@ -14,16 +13,30 @@
     "Paid": null,
     "OfferApproved": null,
     "Price": 7500,
-    "Invoice": null,
     "CaseNumber": "2022_01_02"
   },
   {
     "InvoiceNumber": 0,
-    "OfferSent": "1996-03-24T00:00:00",
-    "Paid": "1996-03-24T00:00:00",
-    "OfferApproved": "1996-03-24T00:00:00",
-    "Price": 23000,
-    "Invoice": null,
-    "CaseNumber": "2022_02_02"
+    "OfferSent": "1997-03-09T00:00:00",
+    "Paid": null,
+    "OfferApproved": "1997-03-09T00:00:00",
+    "Price": 0,
+    "CaseNumber": "Test1231"
+  },
+  {
+    "InvoiceNumber": 98989,
+    "OfferSent": "1997-03-09T00:00:00",
+    "Paid": null,
+    "OfferApproved": "1997-03-09T00:00:00",
+    "Price": 0,
+    "CaseNumber": "Test sagsnummer"
+  },
+  {
+    "InvoiceNumber": 90397,
+    "OfferSent": "1997-03-09T00:00:00",
+    "Paid": null,
+    "OfferApproved": "1997-03-09T00:00:00",
+    "Price": 0,
+    "CaseNumber": "Test sagsnummer 2"
   }
 ]

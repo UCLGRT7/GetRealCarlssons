@@ -139,7 +139,7 @@ namespace CarlssonsWPF.Model
             get => _paid;
             set { _paid = value; OnPropertyChanged(); }
         }
-        [JsonPropertyOrder(14)] public string? Invoice { get; set; }
+        [JsonPropertyOrder(14)] public int? InvoiceNumber { get; set; }
         [JsonPropertyOrder(15)]
         public ObservableCollection<ServiceEntry> Services
         {

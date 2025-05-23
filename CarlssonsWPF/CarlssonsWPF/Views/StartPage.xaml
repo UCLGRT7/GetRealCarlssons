@@ -30,7 +30,7 @@
         </Grid>
 
         <DataGrid Grid.Row="2"
-          ItemsSource="{Binding Reminders14DaysExeededDatas}"
+          ItemsSource="{Binding Reminders14DaysExeededDatasView}"
           AutoGenerateColumns="False"
           Margin="0,10,0,10"
           CanUserAddRows="False"

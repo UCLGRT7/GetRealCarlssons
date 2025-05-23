@@ -64,12 +64,13 @@ namespace CarlssonsWPF.ViewModel
 
         private Customer _customer;
 
-        private string? _invoice;
-        public string? Invoice
+        private int _invoiceNumber;
+        public int InvoiceNumber
         {
-            get => _invoice;
-            set { _invoice = value; OnPropertyChanged(); }
+            get => _invoiceNumber;
+            set { _invoiceNumber = value; OnPropertyChanged(); }
         }
+      
         public Customer SelectedCustomer
         {
             get => _customer;
@@ -308,7 +309,7 @@ namespace CarlssonsWPF.ViewModel
                     Status = SelectedProject.Status,
                     EstimatedPrice = EstimatedPrice,
                     Price = Price,
-                    Invoice = Invoice,
+                    InvoiceNumber = InvoiceNumber,
                     LastModified = DateTime.Now,
                     Services = new ObservableCollection<ServiceEntry>(servicesWithComplexity),
                     Deadline = Deadline,
@@ -331,7 +332,7 @@ namespace CarlssonsWPF.ViewModel
                     OfferSent = OfferSent,
                     OfferApproved = OfferApproved,
                     Paid = Paid,
-                    Invoice = Invoice,
+                    InvoiceNumber = InvoiceNumber,
                     Price = Price
                 };
 

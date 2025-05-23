@@ -206,7 +206,7 @@
                 <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedProject.Price, Mode=TwoWay}" Style="{StaticResource TextBoxCentered}"/>
 
                 <TextBlock Text="Faktura:" Grid.Row="5" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
-                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Invoice, Mode=TwoWay}" Style="{StaticResource TextBoxCentered}"/>
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding InvoiceNumber, Mode=TwoWay}" Style="{StaticResource TextBoxCentered}"/>
 
 
 
