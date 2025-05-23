@@ -6,14 +6,17 @@
     <RootNamespace>GetRealCarlssons</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Dialogs\**" />
+    <EmbeddedResource Remove="Dialogs\**" />
+    <None Remove="Dialogs\**" />
+    <Page Remove="Dialogs\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Data\SavedFiles\services.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dialogs\" />
   </ItemGroup>
 </Project>
