@@ -269,7 +269,6 @@ namespace CarlssonsWPF.ViewModel
             {
                 SelectedProject.EstimatedPrice = calculatedPrice;
             }
-            System.Diagnostics.Debug.WriteLine($"EstimatedPrice calculation: {Scope} * {totalComplexity} * {P} = {EstimatedPrice}");
         }
 
 
