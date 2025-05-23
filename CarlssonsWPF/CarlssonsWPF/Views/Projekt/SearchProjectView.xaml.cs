@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for SearchProjectView.xaml
-    /// </summary>
+ 
     public partial class SearchProjectView : Page
     {
         private SearchProjectViewModel _searchProjectViewModel;
