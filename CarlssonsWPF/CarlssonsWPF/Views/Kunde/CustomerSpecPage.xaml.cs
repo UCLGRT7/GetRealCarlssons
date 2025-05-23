@@ -1,13 +1,17 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.ViewModel.IRepositories;
+using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    // Interaction logic for CustomerSpecPage.xaml
+
     public partial class CustomerSpecPage : Page
     {
+        public IProjectRepository _projectRepository;
         private Frame _frame;
         public CustomerSpecPage(Frame frame, Customer selectedCustomer)
         {
@@ -22,5 +26,25 @@ namespace CarlssonsWPF.Views.Kunde
 
         }
 
+        private void CustomerSpecDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CustomerSpecDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CustomerSpecDataGrid.SelectedItem is ProjectWithContractInfoDatagrid selectedProjectInfo)
+            {
+                // Get the actual Project from the repository using the CaseNumber
+                if (DataContext is CustomerSpecViewModel viewModel)
+                {
+                    var project = viewModel.ProjectRepository.GetByCaseNumber(selectedProjectInfo.CaseNumber);
+                    if (project != null)
+                    {
+                        _frame.Navigate(new ViewProjectView(_frame, project));
+                    }
+                }
+            }
+        }
     }
 }

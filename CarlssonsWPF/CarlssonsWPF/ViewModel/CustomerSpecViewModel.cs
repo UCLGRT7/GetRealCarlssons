@@ -12,7 +12,7 @@ namespace CarlssonsWPF.ViewModel
     class CustomerSpecViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        public IProjectRepository ProjectRepository => _projectRepository;
         public Customer SelectedCustomer { get; set; }
         public int SelectedCustomerIndex { get; set; }
 
