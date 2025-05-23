@@ -48,7 +48,7 @@
           AlternationCount="2"
           MinRowHeight="35">
 
-            <!-- ✅ Styling -->
+            <!-- Styling -->
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="White"/>
@@ -97,7 +97,7 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
 
-            <!-- ✅ Kolonner -->
+            <!-- Kolonner -->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" />
                 <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />

@@ -8,7 +8,6 @@
         <GroupBox Header="Administrer ydelser" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid Margin="10">
 
-
                 <Grid.RowDefinitions>
                     <!-- 0: Add -->
                     <RowDefinition Height="75"/>

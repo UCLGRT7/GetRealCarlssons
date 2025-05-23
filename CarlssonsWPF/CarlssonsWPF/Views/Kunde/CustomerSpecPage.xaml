@@ -30,8 +30,6 @@
                 
             </Grid.ColumnDefinitions>
 
-
-
             <Grid Grid.Column="1" Margin="0 0 5 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -103,7 +101,7 @@
           SelectionMode="Single"
           AlternationCount="2">
 
-                <!-- ✅ Række- og celle-styling -->
+                <!-- Række- og celle-styling -->
                 <DataGrid.Resources>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Background" Value="White"/>
@@ -141,14 +139,14 @@
                     </Style>
                 </DataGrid.Resources>
 
-                <!-- ✅ Kolonneoverskrifter -->
+                <!-- Kolonneoverskrifter -->
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="FontSize" Value="20"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
 
-                
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="210" FontSize="16" CanUserResize="True" />
                     <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="275" FontSize="16" />
@@ -156,11 +154,9 @@
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="150" FontSize="16" />
                 </DataGrid.Columns>
             </DataGrid>
-
-
         </Grid>
 
-    <Grid Grid.Row="4">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -178,10 +174,6 @@
 
             <Button Content="Gem" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Command="{Binding UpdateCustomerCommand}" Grid.Column="2"/>
         </Grid>
-
-
-
-
 
     </Grid>
 </Page>

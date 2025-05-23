@@ -1,9 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.ViewModel.IRepositories;
-using System.ComponentModel;
 
 namespace CarlssonsWPF
 {

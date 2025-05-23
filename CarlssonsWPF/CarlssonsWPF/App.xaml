@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:CarlssonsWPF.Helpers"
              StartupUri="Views/MainWindow.xaml">
 
-
     <Application.Resources>
 
         <!-- Tekst -->
@@ -38,7 +37,5 @@
             <Setter Property="Background" Value="White"/>
         </Style>
         
-        
-
     </Application.Resources>
 </Application>
