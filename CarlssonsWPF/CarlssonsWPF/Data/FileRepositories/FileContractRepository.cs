@@ -140,7 +140,9 @@ namespace CarlssonsWPF.Data.FileRepositories
                 // Configure JSON serialization options
                 var options = new JsonSerializerOptions
                 {
-                    WriteIndented = true // Makes the JSON file more readable
+                    WriteIndented = true, // Makes the JSON file more readable
+                    DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.Never,
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
                 };
 
                 // Serialize the contract list to JSON
