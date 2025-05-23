@@ -11,6 +11,7 @@ namespace CarlssonsWPF.Model
     {
         private Project project;
 
+        public Guid Id { get; set; } = Guid.NewGuid();
         public int InvoiceNumber { get; set; }
         public DateTime? OfferSent { get; set; }
         public DateTime? Paid { get; set; }
@@ -37,6 +38,7 @@ namespace CarlssonsWPF.Model
                 throw new FormatException("Invalid contract data format");
             return new Contract
             {
+                Id = parts[0] != null ? Guid.Parse(parts[0]) : Guid.NewGuid(),
                 InvoiceNumber = int.Parse(parts[0]),
                 OfferSent = DateTime.Parse(parts[1]),
                 Paid = DateTime.Parse(parts[2]),

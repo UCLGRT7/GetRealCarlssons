@@ -102,7 +102,7 @@ namespace CarlssonsWPF.ViewModel
             SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == SelectedProject.CustomerName);
 
 
-
+            //SaveContractCommand = new RelayCommand(_ => SaveContractChanges(), _ => SelectedContract != null);
 
 
             if (selectedService != null)
@@ -148,7 +148,65 @@ namespace CarlssonsWPF.ViewModel
 
 
         }
+        private int _invoiceNumber;
+        public int InvoiceNumber
+        {
+            get => _invoiceNumber;
+            set
+            {
+                if (_invoiceNumber != value)
+                {
+                    _invoiceNumber = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _offerApprovedInput;
+        public string OfferApprovedInput
+        {
+            get => _offerApprovedInput;
+            set
+            {
+                if (_offerApprovedInput != value)
+                {
+                    _offerApprovedInput = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _offerSentInput;
+        public string OfferSentInput
+        {
+            get => _offerSentInput;
+            set
+            {
+                if (_offerSentInput != value)
+                {
+                    _offerSentInput = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _paidInput;
+        public string PaidInput
+        {
+            get => _paidInput;
+            set
+            {
+                if (_paidInput != value)
+                {
+                    _paidInput = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
+        private DateTime? ParseDate(string input)
+        {
+            if (DateTime.TryParse(input, out var date))
+                return date;
+            return null;
+        }
         private void ToggleEdit()
         {
             if (IsEditing)
@@ -171,9 +229,35 @@ namespace CarlssonsWPF.ViewModel
                         };
                     }
                 }
+                var contract = _contractRepository.GetByProjectId(SelectedProject.CaseNumber).FirstOrDefault();
+                if (contract != null)
+                {
+                    // Opdater kontraktens felter baseret på UI bindingsfelter
+                    contract.InvoiceNumber = InvoiceNumber;
+                    contract.OfferSent = ParseDate(OfferSentInput);
+                    contract.OfferApproved = ParseDate(OfferApprovedInput);
+                    contract.Paid = ParseDate(PaidInput);
+                    contract.Price = SelectedProject.Price;
 
-                // ⏱ Opdater sidste redigeringstidspunkt
-                SelectedProject.LastModified = DateTime.Now;
+                    // Gem kontrakten
+                    _contractRepository.Update(contract);
+
+                    // Opdater Contracts ObservableCollection, hvis du har brug for det i UI
+                    var index = Contracts.IndexOf(contract);
+                    if (index >= 0)
+                    {
+                        Contracts[index] = contract;
+                        OnPropertyChanged(nameof(Contracts));
+                    }
+                }
+                else
+                {
+                    // Hvis der ikke findes en kontrakt, kan du evt. oprette en ny her
+                }
+            
+
+            // ⏱ Opdater sidste redigeringstidspunkt
+            SelectedProject.LastModified = DateTime.Now;
 
                 // 💾 Gem ændringer til fil
                 _projectRepository.Update(SelectedProject);
@@ -191,7 +275,7 @@ namespace CarlssonsWPF.ViewModel
             // 🔔 Notificér UI
             OnPropertyChanged(nameof(SelectedProject));
         }
-
+       
 
         private void CancelEdit()
         {

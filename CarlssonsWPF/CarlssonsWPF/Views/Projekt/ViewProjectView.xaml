@@ -495,7 +495,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding Invoice, UpdateSourceTrigger=PropertyChanged}"
+                                                <TextBox Text="{Binding InvoiceNumber, UpdateSourceTrigger=PropertyChanged}"
                                                          Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
@@ -505,7 +505,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Invoice}"
+                                                <TextBlock Text="{Binding InvoiceNumber}"
                                                            Style="{StaticResource TextBlockView}" Margin="3,4,0,0"/>
                                             </DataTemplate>
                                         </Setter.Value>

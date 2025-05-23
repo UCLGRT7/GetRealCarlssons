@@ -1,5 +1,6 @@
 [
   {
+    "Id": "6cee93d3-f3f0-4041-b8a9-f7b1101b088f",
     "InvoiceNumber": 1234,
     "OfferSent": "2025-05-01T20:39:57.4730729+02:00",
     "Paid": "2025-04-13T14:35:29.763447+02:00",
@@ -8,6 +9,7 @@
     "CaseNumber": "1234"
   },
   {
+    "Id": "4158bdd6-d2da-44b6-9721-89f92ceb4850",
     "InvoiceNumber": 123,
     "OfferSent": "2025-04-13T14:35:29.763447+02:00",
     "Paid": null,
@@ -16,6 +18,7 @@
     "CaseNumber": "2022_01_02"
   },
   {
+    "Id": "aab48b03-b7ea-40a3-b068-980f883624fa",
     "InvoiceNumber": 0,
     "OfferSent": "1997-03-09T00:00:00",
     "Paid": null,
@@ -24,6 +27,7 @@
     "CaseNumber": "Test1231"
   },
   {
+    "Id": "cd5538d6-a5ca-4ce0-83d7-6b7431ce3a56",
     "InvoiceNumber": 98989,
     "OfferSent": "1997-03-09T00:00:00",
     "Paid": null,
@@ -32,11 +36,30 @@
     "CaseNumber": "Test sagsnummer"
   },
   {
+    "Id": "c2b0396f-af77-4025-8a02-f6da9c222699",
     "InvoiceNumber": 90397,
     "OfferSent": "1997-03-09T00:00:00",
     "Paid": null,
     "OfferApproved": "1997-03-09T00:00:00",
     "Price": 0,
     "CaseNumber": "Test sagsnummer 2"
+  },
+  {
+    "Id": "264cb08f-5b8a-44cc-b030-254e5b81ed8e",
+    "InvoiceNumber": 0,
+    "OfferSent": null,
+    "Paid": null,
+    "OfferApproved": null,
+    "Price": 0,
+    "CaseNumber": "Test guid 2"
+  },
+  {
+    "Id": "3de9cf68-7023-4bec-a557-087fb20ce919",
+    "InvoiceNumber": 0,
+    "OfferSent": null,
+    "Paid": null,
+    "OfferApproved": null,
+    "Price": 0,
+    "CaseNumber": "guid test 4"
   }
 ]
