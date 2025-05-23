@@ -6,55 +6,61 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.Helpers;
 
-namespace CarlssonsWPF.Helpers;
-
-public static class CommonCommands
+namespace CarlssonsWPF.Helpers
 {
-    public static ICommand CancelAndGoBackCommand { get; } = new RelayCommand(ExecuteCancel);
-
-    public static ICommand GoBack => new RelayCommand(ExecuteGoBack);
 
 
-    private static void ExecuteGoBack(object parameter)
+
+    public static class CommonCommands
     {
-        System.Diagnostics.Debug.WriteLine($"PARAM: {parameter?.GetType().Name}");
+        private static readonly ICommand cancelAndGoBackCommand = new RelayCommand(ExecuteCancel);
 
-        if (parameter is Frame frame)
+        public static ICommand CancelAndGoBackCommand => cancelAndGoBackCommand;
+        public static ICommand GoBack => new RelayCommand(ExecuteGoBack);
+
+
+        private static void ExecuteGoBack(object? parameter)
         {
-            System.Diagnostics.Debug.WriteLine($"CanGoBack: {frame.CanGoBack}");
+            System.Diagnostics.Debug.WriteLine($"PARAM: {parameter?.GetType().Name}");
 
-            if (frame.CanGoBack)
+            if (parameter is Frame frame)
             {
-                frame.GoBack();
+                System.Diagnostics.Debug.WriteLine($"CanGoBack: {frame.CanGoBack}");
 
-                if (frame.Content is Page newPage && newPage.DataContext is IReloadableViewModel vm)
+                if (frame.CanGoBack)
                 {
-                    vm.LoadData();
+                    frame.GoBack();
+
+                    if (frame.Content is Page newPage && newPage.DataContext is IReloadableViewModel vm)
+                    {
+                        vm.LoadData();
+                    }
                 }
-            }
-        }
-        else
-        {
-            System.Diagnostics.Debug.WriteLine("Parameter is not a Frame");
-        }
-    }
-
-    private static void ExecuteCancel(object parameter)
-    {
-        if (parameter is FrameworkElement fe)
-        {
-            var navService = NavigationService.GetNavigationService(fe);
-
-            if (navService != null && navService.CanGoBack)
-            {
-                navService.GoBack();
             }
             else
             {
-                Window.GetWindow(fe)?.Close();
+                System.Diagnostics.Debug.WriteLine("Parameter is not a Frame");
             }
         }
 
+        private static void ExecuteCancel(object? parameter)
+        {
+            if (parameter is FrameworkElement fe)
+            {
+                var navService = NavigationService.GetNavigationService(fe);
+
+                if (navService != null && navService.CanGoBack)
+                {
+                    navService.GoBack();
+                }
+                else
+                {
+                    Window.GetWindow(fe)?.Close();
+                }
+            }
+
+        }
     }
 }

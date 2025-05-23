@@ -12,49 +12,12 @@ namespace CarlssonsWPF.Model
     {
         public static List<Service> AvailableServices { get; set; } = new List<Service>();
 
-        private int _complexity;
-
-        // Id for service (fra tidligere Service.cs)
-        private int _id;
-        public int Id
-        {
-            get => _id;
-            set
-            {
-                if (_id != value)
-                {
-                    _id = value;
-
-                    // Find matchende service fra den globale liste og opdater
-                    var service = AvailableServices.FirstOrDefault(s => s.Id == _id);
-                    if (service != null)
-                    {
-                        Name = service.Name;
-                        Service = service;
-                    }
-
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        // Navn på servicen
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string? Name { get; set; }
 
         // Komplexitet af servicen
-        public int Complexity
-        {
-            get => _complexity;
-            set
-            {
-                if (_complexity != value)
-                {
-                    _complexity = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public int Complexity { get; set; }
+
 
         // Optional reference til en Service, hvis det er nødvendigt
         // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
@@ -72,7 +35,6 @@ namespace CarlssonsWPF.Model
                     Name = _service.Name; // <-- Dette sikrer korrekt navngivning
                     Id = _service.Id;     // (valgfrit, men sikrer konsistens)
                 }
-                OnPropertyChanged();
             }
         }
 

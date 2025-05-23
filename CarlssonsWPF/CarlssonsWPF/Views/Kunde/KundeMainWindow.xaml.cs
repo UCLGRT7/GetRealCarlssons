@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Helpers;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 
@@ -21,6 +22,7 @@ namespace CarlssonsWPF.Views.Kunde
 
     public partial class KundeMainWindow : Page
     {
+        public ICommand BackCommand => CommonCommands.CancelAndGoBackCommand;
         private CustomerViewModel customerViewModel;
         private AddCustomerViewModel addCustomerViewModel;
 
@@ -68,7 +70,7 @@ namespace CarlssonsWPF.Views.Kunde
         }
         private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (CustomerDataGrid.SelectedItem is Customer selectedCustomer)
+            if (this.CustomerDataGrid.SelectedItem is Customer selectedCustomer)
             {
                 _frame.Navigate(new CustomerSpecPage(_frame, selectedCustomer));
             }

@@ -19,83 +19,6 @@
 
         <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
-        <!--<DataGrid Grid.Row="1"
-          Name="CustomerDataGrid"
-          Margin="0,10,0,10"
-          VerticalAlignment="Stretch"
-          ItemsSource="{Binding customers}"
-          IsReadOnly="True"
-          CanUserSortColumns="True"
-          AutoGenerateColumns="False"
-          MouseDoubleClick="CustomerDataGrid_MouseDoubleClick">
-          
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
-                <DataGridTextColumn Header="Post nr" Binding="{Binding PostalCode}" Width="80" FontSize="16" />
-                <DataGridTextColumn Header="By" Binding="{Binding City}" Width="150" FontSize="16" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100" FontSize="16" />
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="300" FontSize="16" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <DataGrid Grid.Row="1" ItemsSource="{Binding customers}" AutoGenerateColumns="False" 
-                  Name="CustomerDataGrid"
-                  MouseDoubleClick="CustomerDataGrid_MouseDoubleClick"
- Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
-                <DataGridTextColumn Header="Post nr" Binding="{Binding PostalCode}" Width="80" FontSize="16" />
-                <DataGridTextColumn Header="By" Binding="{Binding City}" Width="150" FontSize="16" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100" FontSize="16" />
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="300" FontSize="16" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <DataGrid Grid.Row="1" ItemsSource="{Binding customers}" AutoGenerateColumns="False" 
-                  Name="CustomerDataGrid"
-                  MouseDoubleClick="CustomerDataGrid_MouseDoubleClick"
- Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
-                <DataGridTextColumn Header="Post nr" Binding="{Binding PostalCode}" Width="80" FontSize="16" />
-                <DataGridTextColumn Header="By" Binding="{Binding City}" Width="150" FontSize="16" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100" FontSize="16" />
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="300" FontSize="16" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <DataGrid Grid.Row="1" ItemsSource="{Binding customers}" AutoGenerateColumns="False" 
-                  Name="CustomerDataGrid"
-                  MouseDoubleClick="CustomerDataGrid_MouseDoubleClick"
- Margin="0,10,0,10" CanUserAddRows="False" HorizontalAlignment="Center" GridLinesVisibility="None" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" AlternatingRowBackground="#F0F0F0F0" AlternationCount="1" CanUserSortColumns="False" Background="White" MinRowHeight="35" IsReadOnly="True">
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Navn" Binding="{Binding Name}" Width="210" FontSize="16" CanUserResize="True" />
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" Width="275" FontSize="16" />
-                <DataGridTextColumn Header="Post nr" Binding="{Binding PostalCode}" Width="80" FontSize="16" />
-                <DataGridTextColumn Header="By" Binding="{Binding City}" Width="150" FontSize="16" />
-                <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100" FontSize="16" />
-                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="300" FontSize="16" />
-            </DataGrid.Columns>
-        </DataGrid>-->
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding customers}"
                   AutoGenerateColumns="False" 
@@ -202,7 +125,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Tilbage"
-        Command="{x:Static helpers:CommonCommands.CancelAndGoBackCommand}"
+        Command="{Binding BackCommand, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"
         HorizontalAlignment="Stretch"
         Grid.Column="1"

@@ -19,6 +19,7 @@ namespace CarlssonsWPF.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public Customer SelectedCustomer { get; set; }
+        public int SelectedCustomerIndex { get; set; }
 
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;

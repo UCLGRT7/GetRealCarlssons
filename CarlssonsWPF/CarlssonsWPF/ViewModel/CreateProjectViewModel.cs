@@ -85,13 +85,13 @@ namespace CarlssonsWPF.ViewModel
                     SelectedProject.CustomerName = _customer.Name?.Trim();
                 }
 
-                }
+                
                 else
                 {
                     System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
 
                 }
-                }
+                
             }
         }
 
@@ -132,18 +132,6 @@ namespace CarlssonsWPF.ViewModel
         {
             get => _address;
             set { _address = value; OnPropertyChanged(); }
-        }
-
-        private int? _scope;
-        public int? Scope
-        {
-            get => _scope;
-            set
-            {
-                _scope = value; OnPropertyChanged();
-                OnPropertyChanged(); UpdateEstimatedPrice();
-            }
-
         }
 
         private string? _projectPostalCode;
@@ -211,6 +199,7 @@ namespace CarlssonsWPF.ViewModel
                     OnPropertyChanged();
                 }
             }
+        }
         private int _scope;
         public int Scope
         {
@@ -226,7 +215,6 @@ namespace CarlssonsWPF.ViewModel
             }
         }    
 
-        }
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -271,8 +259,6 @@ namespace CarlssonsWPF.ViewModel
 
         private void UpdateEstimatedPrice()
         {
-            if (Scope == null) return;
-
             int totalComplexity = 0;
 
             foreach (var service in SelectedServices)
@@ -281,7 +267,7 @@ namespace CarlssonsWPF.ViewModel
                     totalComplexity += service.Complexity.Value;
             }
 
-            EstimatedPrice = Scope.Value * totalComplexity * P;
+            EstimatedPrice = Scope * totalComplexity * P;
         }
 
 
@@ -297,7 +283,7 @@ namespace CarlssonsWPF.ViewModel
                     return;
                 }
 
-                int scopeValue = Scope ?? 0;
+                int scopeValue = Scope;
 
                 var servicesWithComplexity = SelectedServices
     .Where(s => s?.Service != null)
@@ -318,7 +304,7 @@ namespace CarlssonsWPF.ViewModel
                     CaseNumber = CaseNumber,
                     ProjectAddress = Address,
                     ProjectPostalCode = int.TryParse(ProjectPostalCode, out int pc) ? pc : (int?)null,
-                    Scope = Scope ?? 0,
+                    Scope = Scope,
                     Status = SelectedProject.Status,
                     EstimatedPrice = EstimatedPrice,
                     Price = Price,
