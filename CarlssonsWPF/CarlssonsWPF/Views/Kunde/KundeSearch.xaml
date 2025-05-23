@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="310" Stroke="Black" StrokeThickness="1" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1"/>
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="310" Stroke="LightSlateGray" Opacity="0.4" StrokeThickness="1" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1"/>
 
             <Grid  Grid.Row="1" Grid.Column="1" >
                 <Grid.RowDefinitions>
