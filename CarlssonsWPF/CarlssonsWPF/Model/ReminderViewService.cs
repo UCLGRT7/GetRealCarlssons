@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
 using System.Collections.ObjectModel;
@@ -85,6 +82,4 @@ namespace CarlssonsWPF.Model
             return exceededList;
         }
     }
-
-
 }

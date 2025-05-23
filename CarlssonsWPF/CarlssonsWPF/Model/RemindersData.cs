@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
 {
@@ -17,10 +13,6 @@ namespace CarlssonsWPF.Model
         public string OfferApproved { get; set; }
         public string IsPaymentRecieved { get; set; }
         public int DaysPassed { get; set; }
-
-
-
-
 
     }
 }

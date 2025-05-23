@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 
 namespace CarlssonsWPF.Model
@@ -14,13 +11,7 @@ namespace CarlssonsWPF.Model
 
         public int Id { get; set; }
         public string? Name { get; set; }
-
-        // Komplexitet af servicen
         public int Complexity { get; set; }
-
-
-        // Optional reference til en Service, hvis det er nødvendigt
-        // Hvis du ikke længere behøver 'Service', kan du fjerne dette felt
 
         private Service? _service;
         [JsonIgnore]
@@ -32,8 +23,8 @@ namespace CarlssonsWPF.Model
                 _service = value;
                 if (_service != null)
                 {
-                    Name = _service.Name; // <-- Dette sikrer korrekt navngivning
-                    Id = _service.Id;     // (valgfrit, men sikrer konsistens)
+                    Name = _service.Name; 
+                    Id = _service.Id;     
                 }
             }
         }

@@ -12,7 +12,4 @@ public class CombinedProjectData
     public string OfferApproved { get; set; }
     public string IsPaymentRecieved { get; set; }
 
-
-
-
 }
