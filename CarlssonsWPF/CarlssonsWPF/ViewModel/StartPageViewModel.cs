@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
@@ -19,7 +20,24 @@ namespace CarlssonsWPF.ViewModel
         public StartPageViewModel()
         {
             _reminderViewService = new ReminderViewService();
-            Reminders14DaysExeededDatas = _reminderViewService.GetExeededby14Days();
+            var reminders = _reminderViewService.GetExeededby14Days();
+            Reminders14DaysExeededDatasView = CollectionViewSource.GetDefaultView(reminders);
+
+            // Sorter efter DaysPassed ved opstart
+            Reminders14DaysExeededDatasView.SortDescriptions.Clear();
+            Reminders14DaysExeededDatasView.SortDescriptions.Add(
+                new SortDescription(nameof(RemindersData.DaysPassed), ListSortDirection.Descending));
+
+        }
+        private ICollectionView _reminders14DaysExeededDatasView;
+        public ICollectionView Reminders14DaysExeededDatasView
+        {
+            get => _reminders14DaysExeededDatasView;
+            set
+            {
+                _reminders14DaysExeededDatasView = value;
+                OnPropertyChanged(nameof(Reminders14DaysExeededDatasView));
+            }
         }
 
         public ObservableCollection<RemindersData> Reminders14DaysExeededDatas
