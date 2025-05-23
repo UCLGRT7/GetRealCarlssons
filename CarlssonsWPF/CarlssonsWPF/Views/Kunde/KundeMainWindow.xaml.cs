@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Helpers;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
@@ -68,11 +70,22 @@ namespace CarlssonsWPF.Views.Kunde
                 }), System.Windows.Threading.DispatcherPriority.Background);
             }
         }
+
+
         private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (this.CustomerDataGrid.SelectedItem is Customer selectedCustomer)
+            // Get the DataGrid that was clicked, not a row
+            var row = sender as DataGridRow;
+
+            if (row?.DataContext is Customer selectedCustomer && !string.IsNullOrEmpty(selectedCustomer.Name))
             {
-                _frame.Navigate(new CustomerSpecPage(_frame, selectedCustomer));
+                var customerRepo = new FileCustomerRepository();
+                var fullCustomer = customerRepo.GetByName(selectedCustomer.Name);
+
+                if (fullCustomer != null)
+                {
+                    _frame.Navigate(new CustomerSpecPage(_frame, selectedCustomer));
+                }
             }
         }
 

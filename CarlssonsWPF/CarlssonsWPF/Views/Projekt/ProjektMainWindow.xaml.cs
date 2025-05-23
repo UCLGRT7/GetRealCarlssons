@@ -76,12 +76,13 @@ namespace CarlssonsWPF.Views.Projekt
         {
             _frame.Navigate(new CreateProjectView(_frame));
         }
+
         private void ProjectDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var dataGrid = sender as DataGrid;
-            if (dataGrid?.SelectedItem is CombinedProjectData combined)
+            // Get the row that was clicked
+            var row = sender as DataGridRow;
+            if (row?.DataContext is CombinedProjectData combined && !string.IsNullOrEmpty(combined.CaseNumber))
             {
-            
                 var projectRepo = new FileProjectRepository();
                 var fullProject = projectRepo.GetByCaseNumber(combined.CaseNumber);
 
@@ -89,13 +90,12 @@ namespace CarlssonsWPF.Views.Projekt
                 {
                     _frame.Navigate(new ViewProjectView(_frame, fullProject));
                 }
-                else
-                {
-                    MessageBox.Show("Kunne ikke finde det valgte projekt.");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Kunne ikke finde det valgte projekt", "Validering", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-
 
     }
 }

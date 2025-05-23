@@ -58,8 +58,8 @@
           IsReadOnly="True"
           SelectionUnit="FullRow"
           SelectionMode="Single"
-          AlternationCount="2"
-          MouseDoubleClick="ProjectDataGrid_MouseDoubleClick">
+          AlternationCount="2">
+
 
                     <DataGrid.Resources>
                         <!-- ✅ Række-style: grå/hvid og blå markering -->
@@ -67,6 +67,8 @@
                             <Setter Property="Background" Value="White"/>
                             <Setter Property="FontSize" Value="16"/>
                             <Setter Property="Foreground" Value="Black"/>
+                            <EventSetter Event="MouseDoubleClick" Handler="ProjectDataGrid_MouseDoubleClick"/>
+
                             <Style.Triggers>
                                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                                     <Setter Property="Background" Value="#F0F0F0F0"/>
