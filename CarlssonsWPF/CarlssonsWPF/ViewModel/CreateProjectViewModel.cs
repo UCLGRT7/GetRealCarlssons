@@ -260,7 +260,16 @@ namespace CarlssonsWPF.ViewModel
                     totalComplexity += service.Complexity.Value;
             }
 
-            EstimatedPrice = Scope * totalComplexity * P;
+            // Update both EstimatedPrice properties
+            double calculatedPrice = Scope * totalComplexity * P;
+            EstimatedPrice = calculatedPrice;
+
+            // Update the SelectedProject's EstimatedPrice as well since that's what's bound in XAML
+            if (SelectedProject != null)
+            {
+                SelectedProject.EstimatedPrice = calculatedPrice;
+            }
+            System.Diagnostics.Debug.WriteLine($"EstimatedPrice calculation: {Scope} * {totalComplexity} * {P} = {EstimatedPrice}");
         }
 
 
