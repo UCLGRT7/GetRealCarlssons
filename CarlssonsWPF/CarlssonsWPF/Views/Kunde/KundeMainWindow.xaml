@@ -125,8 +125,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Tilbage"
-        Command="{Binding BackCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"
+        Click="HomescreenButton_Click"
         HorizontalAlignment="Stretch"
         Grid.Column="1"
         Margin="10"
