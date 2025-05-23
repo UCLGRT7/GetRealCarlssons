@@ -15,8 +15,6 @@ namespace CarlssonsWPF.Model
         public int PostalCode { get; set; }
         public string City { get; set; }
 
-        [JsonIgnore]
-        public List<Project> Projects { get; set; } = new List<Project>();
 
         public override string ToString()
         {

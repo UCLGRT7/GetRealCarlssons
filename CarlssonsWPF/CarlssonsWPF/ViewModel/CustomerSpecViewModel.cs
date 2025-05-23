@@ -21,10 +21,6 @@ namespace CarlssonsWPF.ViewModel
         private readonly IContractRepository _contractRepository;
 
 
-        public ObservableCollection<Customer> ustomers { get; set; } = new();
-        public ObservableCollection<Project> projects { get; set; } = new();
-        public ObservableCollection<Contract> contracts { get; set; } = new();
-
         public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
 
 

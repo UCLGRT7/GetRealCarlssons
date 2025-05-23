@@ -11,8 +11,7 @@ namespace CarlssonsWPF.ViewModel
     {
        
         private readonly ICustomerRepository _customerRepository;
-        private readonly IProjectRepository _projectRepository;
-        private readonly IContractRepository _contractRepository;
+    
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
      
@@ -89,8 +88,6 @@ namespace CarlssonsWPF.ViewModel
         public AddCustomerViewModel()
         {
             _customerRepository = new FileCustomerRepository();
-            _projectRepository = new FileProjectRepository();
-            _contractRepository = new FileContractRepository();
 
             // Indlæs eksisterende kunder
             foreach (var customer in _customerRepository.GetAll())
