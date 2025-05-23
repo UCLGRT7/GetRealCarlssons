@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 
@@ -45,9 +46,14 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void ResultListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             if (ResultListBox.SelectedItem is Project selectedProject)
             {
                 _frame.Navigate(new ViewProjectView(_frame, selectedProject));
+            }
+            else
+            {
+                MessageBox.Show("Kunne ikke finde det valgte projekt", "Validering", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
