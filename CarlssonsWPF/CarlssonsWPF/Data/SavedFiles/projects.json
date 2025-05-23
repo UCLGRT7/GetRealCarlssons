@@ -108,7 +108,7 @@
   },
   {
     "Id": "7b26fe3d-5233-4cb0-84d2-cbda5491cdf4",
-    "OfferSentInput": "24/03/96",
+    "OfferSentInput": "24-03-96",
     "CaseNumber": "123456",
     "ProjectAddress": "123456",
     "ProjectPostalCode": 5200,
@@ -178,7 +178,7 @@
   },
   {
     "Id": "bb2902b5-f711-49a6-9ec2-6f33f69e5aa8",
-    "OfferSentInput": "24/03/96",
+    "OfferSentInput": "24-03-96",
     "CaseNumber": "123",
     "ProjectAddress": "123",
     "ProjectPostalCode": 5200,
@@ -228,7 +228,7 @@
   },
   {
     "Id": "5a33f72b-9df4-4898-be9a-1a4b8baed919",
-    "OfferSentInput": "24/03/96",
+    "OfferSentInput": "24-03-96",
     "CaseNumber": "Test5",
     "ProjectAddress": "Vej5",
     "ProjectPostalCode": 5200,
@@ -380,7 +380,7 @@
   },
   {
     "Id": "92bb2a4f-6fb2-4423-baae-9841f6f19fd2",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "123123123",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -450,7 +450,7 @@
   },
   {
     "Id": "9aec4f21-3cf5-4e62-ad25-5565af7d1fce",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "Test1231",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -469,7 +469,7 @@
   },
   {
     "Id": "920c104d-5623-4313-8ec3-b8def5eef704",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "Test sagsnummer",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -488,7 +488,7 @@
   },
   {
     "Id": "31fc1116-ed44-46fa-a08d-d3a5ecec03fc",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "Test sagsnummer 2",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -507,7 +507,7 @@
   },
   {
     "Id": "165993d5-aca6-40a6-87bf-964f4dc6cf5b",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "Test guid 1 ",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -526,7 +526,7 @@
   },
   {
     "Id": "302a68c8-14a1-409d-a17e-b4ee184b5063",
-    "OfferSentInput": "09/03/98",
+    "OfferSentInput": "09-03-98",
     "CaseNumber": "Test guid 2",
     "ProjectAddress": "salling",
     "ProjectPostalCode": 2323,
@@ -596,7 +596,7 @@
   },
   {
     "Id": "36224a8c-58a3-406f-ade4-27e9ad8eaf29",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "guid test 3",
     "ProjectAddress": null,
     "ProjectPostalCode": null,
@@ -615,7 +615,7 @@
   },
   {
     "Id": "ecca171a-db90-47f3-b5fe-c8f46fddf326",
-    "OfferSentInput": "09/03/97",
+    "OfferSentInput": "09-03-97",
     "CaseNumber": "guid test 4",
     "ProjectAddress": null,
     "ProjectPostalCode": null,

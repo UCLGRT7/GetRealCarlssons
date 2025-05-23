@@ -102,8 +102,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}" Width="*" />
                 <DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" Width="*" />
-                <DataGridTextColumn Header="Tilbud sendt" Binding="{Binding OfferSentDate}" Width="*" />
-                <DataGridTextColumn Header="Dage" Binding="{Binding DaysPassed, StringFormat={}{0:D2}}" Width="*" />
+                <DataGridTextColumn Header="Tilbud sendt" Binding="{Binding OfferSentDate, StringFormat=\{0:d\}}" Width="*" />
+                <DataGridTextColumn Header="Dage" Binding="{Binding DaysPassed, StringFormat=\{0:d\}}" Width="*" />
                 <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferApproved}" Width="*" />
                 <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*" />
             </DataGrid.Columns>

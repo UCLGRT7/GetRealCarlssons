@@ -213,7 +213,7 @@ namespace CarlssonsWPF.ViewModel
                 }
             }
         }
-        private int _scope;
+        private int _scope = 1;
 
         private GroupBox? _projectInfo;
         public int Scope
