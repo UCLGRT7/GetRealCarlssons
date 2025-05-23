@@ -18,12 +18,6 @@ namespace CarlssonsWPF.Views.Kunde
             _frame = frame;
             Customers = customers;
             DataContext = this;
-            //MessageBox.Show($"Antal kunder fundet: {customers.Count}");
-        }
-
-        private void KundeSearch_Click(object sender, RoutedEventArgs e)
-        {
-            //_frame.Navigate(new KundeSearch(_frame));
         }
 
         private void SearchCustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
