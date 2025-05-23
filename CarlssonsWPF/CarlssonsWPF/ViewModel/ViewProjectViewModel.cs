@@ -1,4 +1,5 @@
-﻿using CarlssonsWPF.Data.FileRepositories;
+﻿using System;
+using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using System;

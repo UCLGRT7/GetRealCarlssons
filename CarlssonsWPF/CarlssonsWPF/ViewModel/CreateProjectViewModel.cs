@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,7 +15,7 @@ using System.IO;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class CreateProjectViewModel : BaseViewModel, INotifyPropertyChanged
+    public class CreateProjectViewModel : INotifyPropertyChanged
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
@@ -80,14 +81,16 @@ namespace CarlssonsWPF.ViewModel
                 // Opdater CustomerName med kun kundens navn som string
                 if (SelectedProject != null && _customer != null)
                 {
-
-
                     // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
+                }
 
                 }
                 else
                 {
+                    System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
+
+                }
                 }
             }
         }
@@ -208,8 +211,22 @@ namespace CarlssonsWPF.ViewModel
                     OnPropertyChanged();
                 }
             }
-        }
+        private int _scope;
+        public int Scope
+        {
+            get => _scope;
+            set
+            {
+                if (_scope != value)
+                {
+                    _scope = value;
+                    OnPropertyChanged(nameof(_scope));
+                    UpdateEstimatedPrice(); // Recalculate when scope changes
+                }
+            }
+        }    
 
+        }
 
         public Action<Project>? NavigateToViewProject { get; set; }
 
@@ -267,11 +284,6 @@ namespace CarlssonsWPF.ViewModel
             EstimatedPrice = Scope.Value * totalComplexity * P;
         }
 
-        private void Complexity_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(ComplexityEntry.Value))
-                UpdateEstimatedPrice();
-        }
 
         public void CreateProject()
         {

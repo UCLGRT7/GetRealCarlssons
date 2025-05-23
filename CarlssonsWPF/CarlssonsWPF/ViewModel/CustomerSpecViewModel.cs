@@ -160,15 +160,6 @@ namespace CarlssonsWPF.ViewModel
         {
             var customerProjects = _projectRepository.GetByCustomerId(SelectedCustomer.Name.ToString());
 
-            //int count = customerProjects?.Count() ?? 0;
-
-            //MessageBox.Show(
-            //  $"Der blev fundet {count} projekt(er) for kunden: {SelectedCustomer.Name}",
-            //  "Projektstatus",
-            //  MessageBoxButton.OK,
-            //  MessageBoxImage.Information
-            //);
-
             ProjectWithContractInfo.Clear(); 
 
             if (customerProjects != null)

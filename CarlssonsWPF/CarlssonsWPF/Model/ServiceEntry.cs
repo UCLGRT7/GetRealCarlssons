@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace CarlssonsWPF.Model
 {
     // ServiceEntry er nu den centrale model, der indeholder både serviceinformationer og kompleksitet
-    public class ServiceEntry : INotifyPropertyChanged
+    public class ServiceEntry
     {
         public static List<Service> AvailableServices { get; set; } = new List<Service>();
 
@@ -96,11 +96,6 @@ namespace CarlssonsWPF.Model
                 Complexity = int.Parse(parts[2])
             };
         }
-
-        // INotifyPropertyChanged implementering for at give besked om ændringer
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     // Klasse til at gemme service-informationer
