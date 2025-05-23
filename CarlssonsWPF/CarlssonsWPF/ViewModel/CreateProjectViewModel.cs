@@ -12,6 +12,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.IO;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -53,6 +55,28 @@ namespace CarlssonsWPF.ViewModel
             public event PropertyChangedEventHandler? PropertyChanged;
             protected void OnPropertyChanged([CallerMemberName] string? name = null)
                 => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public static class VisualTreeHelperExtensions
+        {
+            public static IEnumerable<T> FindVisualChildren<T>(DependencyObject parent) where T : DependencyObject
+            {
+                if (parent == null) yield break;
+
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+                {
+                    var child = VisualTreeHelper.GetChild(parent, i);
+                    if (child is T typedChild)
+                    {
+                        yield return typedChild;
+                    }
+
+                    foreach (var descendant in FindVisualChildren<T>(child))
+                    {
+                        yield return descendant;
+                    }
+                }
+            }
         }
 
 
@@ -195,6 +219,12 @@ namespace CarlssonsWPF.ViewModel
             }
         }
         private int _scope;
+        // The error CS0103 indicates that 'ProjectInfo' is not defined in the current context.
+        // To fix this, you need to ensure that 'ProjectInfo' is declared and accessible in the current class.
+        // If 'ProjectInfo' is a UI element, it should be defined in the corresponding XAML file and properly linked to the code-behind or ViewModel.
+        // Below is a possible fix assuming 'ProjectInfo' is a property or field that was missing.
+
+        private GroupBox? _projectInfo;
         public int Scope
         {
             get => _scope;
@@ -211,6 +241,15 @@ namespace CarlssonsWPF.ViewModel
 
 
         public Action<Project>? NavigateToViewProject { get; set; }
+        public GroupBox? ProjectInfo
+        {
+            get => _projectInfo;
+            set
+            {
+                _projectInfo = value;
+                OnPropertyChanged();
+            }
+        }
 
         public CreateProjectViewModel()
         {
@@ -218,6 +257,17 @@ namespace CarlssonsWPF.ViewModel
             _projectRepository = new FileProjectRepository();
             _contractRepository = new FileContractRepository();
             _serviceRepository = new FileServiceRepository();
+
+            Customers.Clear();
+            Projects.Clear();
+            Contracts.Clear();
+            Services.Clear();
+            SelectedServices.Clear();
+
+            // Update the line causing the error to use the new helper method.
+            var serviceComboBoxes = VisualTreeHelperExtensions.FindVisualChildren<ComboBox>(ProjectInfo).ToList();
+            foreach (var comboBox in serviceComboBoxes)
+                comboBox.Items.Clear();
 
             CancelCommand = new RelayCommand(OnCancel);
 

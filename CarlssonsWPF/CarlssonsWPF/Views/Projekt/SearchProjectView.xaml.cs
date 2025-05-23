@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarlssonsWPF.Helpers;
+using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.Views.Dialogs;
 
@@ -39,5 +41,35 @@ namespace CarlssonsWPF.Views.Projekt
             if (_frame?.CanGoBack == true)
                 _frame.GoBack();
         }
+
+        private void SearchProject_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is SearchProjectViewModel searchProjectViewModel)
+            {
+                searchProjectViewModel.SearchProject();
+
+                // Let the view model handle populating the collections
+                // No need to manually update SearchResults here
+
+                if (!searchProjectViewModel.SearchResults.Any())
+                {
+                    MessageBox.Show("Ingen projekter fundet");
+                }
+            }
+        }
+
+        private void ResultListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ResultListBox.SelectedItem is Project selectedProject)
+            {
+                _frame.Navigate(new ViewProjectView(_frame, selectedProject));
+            }
+        }
+
+        private void ResultListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
+

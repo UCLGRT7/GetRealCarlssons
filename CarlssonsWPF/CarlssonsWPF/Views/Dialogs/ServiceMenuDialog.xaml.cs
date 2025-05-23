@@ -32,6 +32,7 @@ namespace CarlssonsWPF.Views.Dialogs
             {
                 string json = File.ReadAllText(filePath);
                 services = JsonSerializer.Deserialize<List<ServiceEntry>>(json) ?? new();
+                ServiceComboBox.ItemsSource = null;
                 ServiceComboBox.ItemsSource = services;
                 ServiceComboBox.SelectedIndex = -1;
             }
@@ -97,6 +98,7 @@ namespace CarlssonsWPF.Views.Dialogs
 
         private void RefreshComboBox()
         {
+            
             ServiceComboBox.ItemsSource = null;
             ServiceComboBox.ItemsSource = services;
             ServiceComboBox.SelectedIndex = -1;

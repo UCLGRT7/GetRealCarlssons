@@ -18,7 +18,6 @@
 
         <TextBlock Text="Kunder" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
-        
 
         <Grid Grid.Row="1" >
             <Grid.RowDefinitions>
@@ -31,6 +30,8 @@
                 <ColumnDefinition Width="*" MinWidth="500"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="310" Stroke="LightSlateGray" Opacity="0.4" StrokeThickness="1" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1"/>
 
             <Grid  Grid.Row="1" Grid.Column="1" >
                 <Grid.RowDefinitions>
@@ -51,27 +52,27 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!--<GroupBox x:Name="KundeSearch" HorizontalAlignment="Center" Margin="0,0,550,400" Width="310" Height="250" Style="{StaticResource GroupBoxNoHole}">-->
-                    <!--Navn-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="Navn" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-                    <!--Adresse-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="Adresse" Text="{Binding Address,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <!--Postnummer-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="Postnummer" Text="{Binding PostalCode,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-                    <!--By-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="By" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-                    <!--Tlfnummer-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="Tlfnummer" Text="{Binding PhoneNumber,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
-                    <!--E-mail-->
-                    <TextBlock HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
-                    <TextBox x:Name="Email" Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
 
+                <!--Navn-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Navn" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--Adresse-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Adresse" Text="{Binding Address,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--Postnummer-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Postnummer" Text="{Binding PostalCode,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--By-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="By" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="By" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--Tlfnummer-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Tlfnummer" Text="{Binding PhoneNumber,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+                <!--E-mail-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Center" Margin="0,12.5,0,12.5"/>
+                <TextBox x:Name="Email" Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
             </Grid>
+
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
