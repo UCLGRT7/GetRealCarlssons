@@ -2,7 +2,6 @@
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -67,7 +66,6 @@ namespace CarlssonsWPF.ViewModel
         }
 
 
-
         public ICommand ToggleEditCommand { get; }
         public ICommand CancelCommand { get; }
 
@@ -102,19 +100,15 @@ namespace CarlssonsWPF.ViewModel
             SelectedProject.Customer = Customers.FirstOrDefault(c => c.Name == SelectedProject.CustomerName);
 
 
-            //SaveContractCommand = new RelayCommand(_ => SaveContractChanges(), _ => SelectedContract != null);
-
-
             if (selectedService != null)
             {
                 var existingService = Services.FirstOrDefault(s => s.Id == selectedService.Id);
                 if (existingService != null)
                 {
-                    SelectedProject.Services.Add(existingService); // Tilføj den valgte service til projektet
+                    SelectedProject.Services.Add(existingService);
                 }
             }
 
-            // Sørg for at der altid er 10 service-entries
             while (SelectedProject.Services.Count < 10)
             {
                 SelectedProject.Services.Add(new ServiceEntry());
@@ -140,12 +134,7 @@ namespace CarlssonsWPF.ViewModel
             AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
             RemoveServiceCommand = new RelayCommand(RemoveService);
             ToggleEditCommand = new RelayCommand(ToggleEdit);
-            //CancelEditCommand = new RelayCommand(CancelEdit);
-
-            {
-                CancelCommand = new RelayCommand(OnCancel); // eller noget lignende
-            }
-
+            
 
         }
         private int _invoiceNumber;
@@ -211,17 +200,15 @@ namespace CarlssonsWPF.ViewModel
         {
             if (IsEditing)
             {
-                // 🔁 Opdater alle ServiceEntry-felter ud fra Id
+                // Opdater alle ServiceEntry-felter ud fra Id
                 foreach (var entry in SelectedProject.Services)
                 {
                     var match = Services.FirstOrDefault(s => s.Id == entry.Id);
                     if (match != null)
                     {
-                        // match er ServiceEntry, så vi kopierer navn og ID
                         entry.Name = match.Name;
                         entry.Id = match.Id;
 
-                        // Hvis du stadig bruger 'Service' som reference (eksempelvis for visning)
                         entry.Service = new Service
                         {
                             Id = match.Id,
@@ -242,7 +229,7 @@ namespace CarlssonsWPF.ViewModel
                     // Gem kontrakten
                     _contractRepository.Update(contract);
 
-                    // Opdater Contracts ObservableCollection, hvis du har brug for det i UI
+                    // Opdater Contracts ObservableCollection
                     var index = Contracts.IndexOf(contract);
                     if (index >= 0)
                     {
@@ -250,38 +237,28 @@ namespace CarlssonsWPF.ViewModel
                         OnPropertyChanged(nameof(Contracts));
                     }
                 }
-                else
-                {
-                    // Hvis der ikke findes en kontrakt, kan du evt. oprette en ny her
-                }
             
 
-            // ⏱ Opdater sidste redigeringstidspunkt
+            // Opdater sidste redigeringstidspunkt
             SelectedProject.LastModified = DateTime.Now;
 
-                // 💾 Gem ændringer til fil
+                // Gem ændringer til fil
                 _projectRepository.Update(SelectedProject);
             }
 
-            // Sørg for at der altid er 10 linjer i Services
+            // 10 linjer i Services
             while (SelectedProject.Services.Count < 10)
             {
                 SelectedProject.Services.Add(new ServiceEntry());
             }
 
-            // 🔁 Skift redigeringstilstand
+            // Skift redigeringstilstand
             IsEditing = !IsEditing;
 
-            // 🔔 Notificér UI
+            // Notificér UI
             OnPropertyChanged(nameof(SelectedProject));
         }
-       
-
-        private void CancelEdit()
-        {
-            IsEditing = false;
-            OnPropertyChanged(nameof(SelectedProject));
-        }
+     
 
         private void AddService()
         {
@@ -291,7 +268,6 @@ namespace CarlssonsWPF.ViewModel
 
                 OnPropertyChanged(nameof(SelectedProject));
             }
-
 
         }
 
@@ -307,7 +283,6 @@ namespace CarlssonsWPF.ViewModel
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
 
     }
 

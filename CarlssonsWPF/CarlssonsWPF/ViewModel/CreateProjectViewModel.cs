@@ -7,11 +7,8 @@ using System.Windows.Input;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
-using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text.Json;
-using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -29,8 +26,8 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> Contracts { get; set; } = new ObservableCollection<Contract>();
         public ObservableCollection<ServiceEntry> Services { get; set; } = new ObservableCollection<ServiceEntry>();
 
-        // Her er den korrekte ObservableCollection af SelectedServiceEntry
         public ObservableCollection<SelectedServiceEntry> SelectedServices { get; set; } = new ObservableCollection<SelectedServiceEntry>();
+
 
         public ObservableCollection<string> StatusOptions { get; } = new ObservableCollection<string> { "Afventer", "Igang", "Færdig", "Forsinket" };
 
@@ -103,16 +100,14 @@ namespace CarlssonsWPF.ViewModel
                 _customer = value;
                 OnPropertyChanged();
 
-                // Opdater CustomerName med kun kundens navn som string
+              
                 if (SelectedProject != null && _customer != null)
                 {
-                    // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
                 }
                 
             }
         }
-
 
 
         private Project _selectedProject;
@@ -219,10 +214,6 @@ namespace CarlssonsWPF.ViewModel
             }
         }
         private int _scope;
-        // The error CS0103 indicates that 'ProjectInfo' is not defined in the current context.
-        // To fix this, you need to ensure that 'ProjectInfo' is declared and accessible in the current class.
-        // If 'ProjectInfo' is a UI element, it should be defined in the corresponding XAML file and properly linked to the code-behind or ViewModel.
-        // Below is a possible fix assuming 'ProjectInfo' is a property or field that was missing.
 
         private GroupBox? _projectInfo;
         public int Scope
@@ -269,8 +260,7 @@ namespace CarlssonsWPF.ViewModel
             foreach (var comboBox in serviceComboBoxes)
                 comboBox.Items.Clear();
 
-            CancelCommand = new RelayCommand(OnCancel);
-
+           
             foreach (var customer in _customerRepository.GetAll()) Customers.Add(customer);
             foreach (var project in _projectRepository.GetAll()) Projects.Add(project);
             foreach (var contract in _contractRepository.GetAll()) Contracts.Add(contract);
@@ -338,16 +328,15 @@ namespace CarlssonsWPF.ViewModel
                 int scopeValue = Scope;
 
                 var servicesWithComplexity = SelectedServices
-    .Where(s => s?.Service != null)
-    .Select(s => new ServiceEntry
-    {
-        Id = s.Service.Id,
-        Name = s.Service.Name,
-        Complexity = s.Complexity ?? 0
+                    .Where(s => s?.Service != null)
+                    .Select(s => new ServiceEntry
+                    {
+                        Id = s.Service.Id,
+                        Name = s.Service.Name,
+                        Complexity = s.Complexity ?? 0
 
-    });
+                    });
 
-                // ✅ Brug SelectedProject direkte
                 var newProject = new Project
                 {
                     Id = Guid.NewGuid(),
@@ -370,11 +359,9 @@ namespace CarlssonsWPF.ViewModel
 
                 _projectRepository.Add(newProject);
 
-                Projects.Add(newProject); // Hvis du ønsker det vist med det samme
+                Projects.Add(newProject); 
 
-                // Naviger videre
-                NavigateToViewProject?.Invoke(newProject);
-
+               
 
                 var contract = new Contract
                 {
@@ -389,6 +376,7 @@ namespace CarlssonsWPF.ViewModel
                 _contractRepository.Add(contract);
                 Contracts.Add(contract);
 
+                NavigateToViewProject?.Invoke(newProject);
                 MessageBox.Show("Projektet er oprettet!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -416,12 +404,6 @@ namespace CarlssonsWPF.ViewModel
 
             return null;
         }
-
-        private void OnCancel()
-        {
-            // Navigering eller ryd logik
-        }
-
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

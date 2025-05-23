@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
@@ -15,15 +9,13 @@ namespace CarlssonsWPF.ViewModel
 {
     class AddCustomerViewModel : INotifyPropertyChanged
     {
-        public Customer SelectedCustomer { get; set; }
-
+       
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IContractRepository _contractRepository;
 
         public ObservableCollection<Customer> customers { get; set; } = new ObservableCollection<Customer>();
-        public ObservableCollection<Project> projects { get; set; } = new ObservableCollection<Project>();
-        public ObservableCollection<Contract> contracts { get; set; } = new ObservableCollection<Contract>();
+     
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -128,8 +120,8 @@ namespace CarlssonsWPF.ViewModel
                 Email = Email
             };
 
-            _customerRepository.Add(customer); // Gem til fil
-            customers.Add(customer);           // Vis i UI
+            _customerRepository.Add(customer); 
+            customers.Add(customer);           
 
             MessageBox.Show($"Kunde '{customer.Name}' tilføjet.", "Success");
         }

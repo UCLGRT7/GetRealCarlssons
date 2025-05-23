@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 using CarlssonsWPF.Data.FileRepositories;
-using System.Windows;
-using System.Windows.Navigation;
 
 
 namespace CarlssonsWPF.ViewModel
@@ -31,7 +26,6 @@ namespace CarlssonsWPF.ViewModel
         public ObservableCollection<Contract> contracts { get; set; } = new();
 
         public ObservableCollection<ProjectWithContractInfoDatagrid> ProjectWithContractInfo { get; set; } = new();
-
 
 
         protected void OnPropertyChanged(string propertyName)
@@ -112,7 +106,6 @@ namespace CarlssonsWPF.ViewModel
             _contractRepository = new FileContractRepository();
 
 
-
             SelectedCustomer = selectedCustomer;
             SelectedCustomerIndex = _customerRepository.GetAll().ToList().IndexOf(selectedCustomer);
 
@@ -147,15 +140,6 @@ namespace CarlssonsWPF.ViewModel
 
             }
         }
-
-            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-
-        
-
-            //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-
-        
-
 
         public void ShowCustomerProjects()
         {

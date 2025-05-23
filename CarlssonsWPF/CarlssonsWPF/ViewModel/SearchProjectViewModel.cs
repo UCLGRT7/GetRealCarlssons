@@ -1,18 +1,14 @@
 
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.ViewModel;
-using CarlssonsWPF.Views;
-using CarlssonsWPF.Views.Projekt;
-using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using CarlssonsWPF.Helpers;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.ViewModel.IRepositories;
+using System.Collections.Generic;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -61,18 +57,6 @@ namespace CarlssonsWPF.ViewModel
             NavigationHelper.ExecuteGoBack();
         }
 
-        //private void OpenSelectedProject()
-        //{
-        //    if (SelectedProject != null)
-        //    {
-        //        var view = new ViewProjectView
-        //        {
-        //            DataContext = new ViewProjectViewModel(SelectedProject)
-        //        };
-        //        view.Show();
-        //    }
-        //}
-
         public string? CaseNumber
         {
             get => _caseNumber;
@@ -109,10 +93,6 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged(nameof(Scope));
             }
         }
-
-
-
-
         public void SearchProject()
         {
             var filtered = allProjects.Where(project =>
