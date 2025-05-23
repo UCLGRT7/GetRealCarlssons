@@ -97,7 +97,6 @@ namespace CarlssonsWPF.Model
             set
             {
                 _customerName = value;
-                System.Diagnostics.Debug.WriteLine($"CustomerName set to: {value}"); // Debug: udskriv den nye værdi
                 OnPropertyChanged();
             }
         }

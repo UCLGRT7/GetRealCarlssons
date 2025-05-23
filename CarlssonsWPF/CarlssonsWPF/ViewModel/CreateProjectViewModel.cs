@@ -84,13 +84,6 @@ namespace CarlssonsWPF.ViewModel
                     // Opdater SelectedProject.CustomerName med kundens navn som string
                     SelectedProject.CustomerName = _customer.Name?.Trim();
                 }
-
-                
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("SelectedCustomer is null"); // Debug: hvis SelectedCustomer er null
-
-                }
                 
             }
         }
@@ -295,7 +288,6 @@ namespace CarlssonsWPF.ViewModel
 
     });
 
-                System.Diagnostics.Debug.WriteLine($"🧪 SelectedProject.Status = {SelectedProject.Status}");
                 // ✅ Brug SelectedProject direkte
                 var newProject = new Project
                 {

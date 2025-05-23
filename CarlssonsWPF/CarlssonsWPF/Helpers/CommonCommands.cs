@@ -23,11 +23,9 @@ namespace CarlssonsWPF.Helpers
 
         private static void ExecuteGoBack(object? parameter)
         {
-            System.Diagnostics.Debug.WriteLine($"PARAM: {parameter?.GetType().Name}");
 
             if (parameter is Frame frame)
             {
-                System.Diagnostics.Debug.WriteLine($"CanGoBack: {frame.CanGoBack}");
 
                 if (frame.CanGoBack)
                 {
@@ -41,7 +39,7 @@ namespace CarlssonsWPF.Helpers
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Parameter is not a Frame");
+                
             }
         }
 

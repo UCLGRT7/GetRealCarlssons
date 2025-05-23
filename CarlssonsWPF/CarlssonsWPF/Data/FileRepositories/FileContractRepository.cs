@@ -18,11 +18,9 @@ namespace CarlssonsWPF.Data.FileRepositories
         private static string folder = Path.Combine(projectPath, "Data");
         private static string subFolder = Path.Combine(folder, "SavedFiles");
 
-#if DEBUG
-        private static string contractFilePath = Path.Combine(subFolder, "contracts_test.json");
-#else
+
         private static string contractFilePath = Path.Combine(subFolder, "contracts.json");
-#endif
+
         public string FilePath { get; set; }
 
 

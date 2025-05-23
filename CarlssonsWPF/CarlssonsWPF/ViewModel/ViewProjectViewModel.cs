@@ -137,11 +137,6 @@ namespace CarlssonsWPF.ViewModel
                 }
             }
 
-            // Debug
-            System.Diagnostics.Debug.WriteLine($"Services count: {SelectedProject.Services.Count}");
-            foreach (var s in SelectedProject.Services)
-                System.Diagnostics.Debug.WriteLine($"Service: {s.Name}, Complexity: {s.Complexity}");
-
             AddServiceCommand = new RelayCommand(_ => AddService(), _ => SelectedProject.Services.Count < 10);
             RemoveServiceCommand = new RelayCommand(RemoveService);
             ToggleEditCommand = new RelayCommand(ToggleEdit);
