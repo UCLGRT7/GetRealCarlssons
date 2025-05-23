@@ -9,7 +9,7 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="KundeMainWindow">
 
-    <Grid Margin="10" ShowGridLines="True">
+    <Grid Margin="10" ShowGridLines="False">
         <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -32,7 +32,7 @@
                   CanUserResizeRows="False"
                   CanUserResizeColumns="False"
                   CanUserReorderColumns="False"
-                  CanUserSortColumns="False"
+                  CanUserSortColumns="True"
                   HeadersVisibility="Column"
                   AlternationCount="2"
                   Background="White"

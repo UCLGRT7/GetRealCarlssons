@@ -9,7 +9,7 @@
       Title="StartPage">
 
 
-    <Grid Margin="10,10,10,10" ShowGridLines="True">
+    <Grid Margin="10,10,10,10" ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

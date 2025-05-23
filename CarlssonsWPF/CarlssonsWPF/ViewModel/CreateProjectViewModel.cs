@@ -309,11 +309,7 @@ namespace CarlssonsWPF.ViewModel
                     Paid = Paid
                 };
 
-                // 🛠 GEM projektet
-                MessageBox.Show("✅ Add() bliver kaldt");
-
                 _projectRepository.Add(newProject);
-                MessageBox.Show("📁 Add() i FileProjectRepository rammes");
 
                 Projects.Add(newProject); // Hvis du ønsker det vist med det samme
 

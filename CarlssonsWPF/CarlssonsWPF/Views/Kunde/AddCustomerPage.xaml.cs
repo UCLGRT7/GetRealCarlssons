@@ -47,6 +47,11 @@ namespace CarlssonsWPF.Views.Kunde
 
         private void AddCustomerAndGoToSpec_click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Du skal udfylde navn for at oprette en kunde.", "Manglende navn", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             _addCustomerViewModel.AddCustomer(); // kald metoden direkte
 
             var addedCustomer = _addCustomerViewModel.customers.Last();
