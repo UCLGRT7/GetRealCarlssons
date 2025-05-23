@@ -10,6 +10,7 @@ using CarlssonsWPF.Views.Projekt;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CarlssonsWPF.Helpers;
 
 namespace CarlssonsWPF.ViewModel
 {
@@ -36,15 +37,14 @@ namespace CarlssonsWPF.ViewModel
                 Services.Add(new ServiceEntry());
             }
 
-            //SearchCommand = new RelayCommand(Search);
             CancelCommand = new RelayCommand(Cancel);
-            //OpenProjectCommand = new RelayCommand(OpenSelectedProject);
+
         }
 
 
         private void Cancel()
         {
-            throw new NotImplementedException();
+            NavigationHelper.ExecuteGoBack();
         }
 
         //private void OpenSelectedProject()
