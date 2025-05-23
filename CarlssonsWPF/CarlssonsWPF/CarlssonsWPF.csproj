@@ -14,4 +14,10 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\SavedFiles\contracts.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
