@@ -1,18 +1,18 @@
 [
   {
     "Id": "89346b03-84e5-4de5-ae55-cd1081acc55c",
-    "Name": "213123",
-    "Address": "3323",
-    "Email": "3",
-    "PhoneNumber": 2322,
-    "PostalCode": 2323,
-    "City": "3"
+    "Name": "Yvonne Sejr",
+    "Address": "Solv\u00E6nget 3",
+    "Email": "Yvonne@Sejr.dk",
+    "PhoneNumber": 55948371,
+    "PostalCode": 5200,
+    "City": "Odense"
   },
   {
     "Id": "c4bf0d6b-a7a6-48c7-a03a-caadc89b1815",
     "Name": "Daniel blomsten",
-    "Address": "Sallingvej",
-    "Email": "Dni",
+    "Address": "Sallingvej 1",
+    "Email": "DanielTest@Gmail.com",
     "PhoneNumber": 29023323,
     "PostalCode": 1233,
     "City": "Vanl\u00F8se"
@@ -21,72 +21,18 @@
     "Id": "2dd6bcb8-244c-49d5-91aa-4580dd762ef7",
     "Name": "Alex Holmbo",
     "Address": "Borgmester Christiansens Gade 2,tv",
-    "Email": "dwadawdawdawawdwadadawdawdawdawdaw",
-    "PhoneNumber": 0,
+    "Email": "AlexTest@Gmail.com",
+    "PhoneNumber": 95834681,
     "PostalCode": 8000,
     "City": "Skaftelevg\u00E5rdshuse"
   },
   {
     "Id": "9e9f0ec1-4718-469d-995c-1d5487b3c62c",
     "Name": "Daniel Kargaard R\u00F8rlund",
-    "Address": "Salling",
+    "Address": "Sallingsten 7",
     "Email": "Daniel@hotmail.com",
     "PhoneNumber": 12312312,
     "PostalCode": 2720,
     "City": "vanl\u00F8se"
-  },
-  {
-    "Id": "c2382104-a4a5-4357-83ae-d90539d05dcf",
-    "Name": "Alex",
-    "Address": "1234",
-    "Email": "1234",
-    "PhoneNumber": 1234,
-    "PostalCode": 1234,
-    "City": "1234"
-  },
-  {
-    "Id": "4d36ecfb-72a9-45e0-8a73-e1a82413ba11",
-    "Name": "Valdemar Carlsson Alex",
-    "Address": "Niels Steensens Vej, 2, 2 tv",
-    "Email": "ValdemarKongen@Brobyggeri.dk",
-    "PhoneNumber": 12345678,
-    "PostalCode": 8000,
-    "City": "AA"
-  },
-  {
-    "Id": "bb8ef3c6-50fd-49ba-a382-cd579d830d76",
-    "Name": "AlexTest",
-    "Address": "AlexTest",
-    "Email": "Test@test.dk",
-    "PhoneNumber": 12345678,
-    "PostalCode": 2900,
-    "City": "TestBY"
-  },
-  {
-    "Id": "437b589e-f47e-4767-93b1-496fba12c384",
-    "Name": "dawd",
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
-  },
-  {
-    "Id": "cebfeff1-0060-4d01-be1a-2fa94e7bfa24",
-    "Name": "dan",
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
-  },
-  {
-    "Id": "06d3f776-50e2-49bc-a565-0b2f3f382d8e",
-    "Name": "das",
-    "Address": null,
-    "Email": null,
-    "PhoneNumber": 0,
-    "PostalCode": 0,
-    "City": null
   }
 ]

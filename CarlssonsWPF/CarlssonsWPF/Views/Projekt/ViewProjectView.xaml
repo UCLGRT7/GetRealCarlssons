@@ -63,8 +63,7 @@
         <Style x:Key="Button" TargetType="Button">
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="50"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="15,0,15,0"/>
         </Style>
 
