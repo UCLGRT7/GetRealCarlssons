@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 
@@ -118,9 +116,7 @@ namespace CarlssonsWPF.Data.FileRepositories
 
         public void Delete(int invoiceNumber)
         {
-            // Note: Interface specifies invoiceNumber, but Customer uses Name as ID.
-            // Assuming this is a typo in the interface; not implementing as it doesn't align with Customer's identifier.
-            throw new NotImplementedException("Delete by invoiceNumber is not applicable for Customer. Use Name instead.");
+            // missing implementation
         }
 
         public void Delete(string name)

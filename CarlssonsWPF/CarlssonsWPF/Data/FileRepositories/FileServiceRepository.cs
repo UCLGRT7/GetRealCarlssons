@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 
@@ -17,7 +15,6 @@ namespace CarlssonsWPF.Data.FileRepositories
         private static string subFolder = Path.Combine(folder, "SavedFiles");
 
         private static string servicesFilePath = Path.Combine(subFolder, "services.json");
-
 
 
         public string FilePath { get; set; }
