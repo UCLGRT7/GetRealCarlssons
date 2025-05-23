@@ -1,17 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using CarlssonsWPF.ViewModel;
-using CarlssonsWPF.Model;
-using CarlssonsWPF.Helpers;
 
 namespace CarlssonsWPF.Helpers
 {
-
-
 
     public static class CommonCommands
     {
