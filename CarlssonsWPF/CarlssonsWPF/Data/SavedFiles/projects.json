@@ -15,7 +15,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": "1",
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 1,
@@ -40,7 +40,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -59,7 +59,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": "1",
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 1,
@@ -84,7 +84,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -103,7 +103,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -122,7 +122,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "Invoice": "1234",
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 10,
@@ -192,7 +192,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "Invoice": "123",
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 1,
@@ -217,7 +217,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 1,
@@ -242,7 +242,7 @@
     "OfferSent": "1996-03-24",
     "OfferApproved": "1996-03-24",
     "Paid": "1996-03-24",
-    "Invoice": "555",
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 1,
@@ -312,7 +312,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -331,7 +331,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -350,7 +350,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": []
   },
   {
@@ -369,7 +369,7 @@
     "OfferSent": null,
     "OfferApproved": null,
     "Paid": null,
-    "Invoice": null,
+    "InvoiceNumber": null,
     "Services": [
       {
         "Id": 6,
@@ -377,5 +377,81 @@
         "Complexity": 0
       }
     ]
+  },
+  {
+    "Id": "92bb2a4f-6fb2-4423-baae-9841f6f19fd2",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "123123123",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel Kargaard R\u00F8rlund",
+    "Status": null,
+    "LastModified": "2025-05-23T14:10:25.2027368+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 0,
+    "Services": []
+  },
+  {
+    "Id": "9aec4f21-3cf5-4e62-ad25-5565af7d1fce",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "Test1231",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Alex",
+    "Status": null,
+    "LastModified": "2025-05-23T14:11:02.6587962+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 0,
+    "Services": []
+  },
+  {
+    "Id": "920c104d-5623-4313-8ec3-b8def5eef704",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "Test sagsnummer",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Alex",
+    "Status": null,
+    "LastModified": "2025-05-23T14:13:43.8634258+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 98989,
+    "Services": []
+  },
+  {
+    "Id": "31fc1116-ed44-46fa-a08d-d3a5ecec03fc",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "Test sagsnummer 2",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "AlexTest",
+    "Status": null,
+    "LastModified": "2025-05-23T14:14:42.6146912+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 90397,
+    "Services": []
   }
 ]

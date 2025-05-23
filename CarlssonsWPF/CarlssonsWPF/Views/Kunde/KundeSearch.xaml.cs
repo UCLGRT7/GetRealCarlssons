@@ -45,7 +45,7 @@ namespace CarlssonsWPF.Views.Kunde
                 }
                 else
                 {
-                    MessageBox.Show("Ingen kunder fundet.");
+                    //MessageBox.Show("Ingen kunder fundet.");
                 }
             }
         }
