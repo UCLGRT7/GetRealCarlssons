@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
 {
@@ -273,10 +270,6 @@ namespace CarlssonsWPF.Model
             // Brug Input-properties til at sikre korrekt visning
             project.DeadlineInput = project.Deadline?.ToString("dd/MM/yy") ?? "";
 
-            // Hvis du tilføjer flere datoer i filen senere, gør ligesom ovenfor:
-            // project.OfferSent = ...
-            // project.OfferSentInput = ...
-
             return project;
         }
         public void InitFromModel()
@@ -285,9 +278,6 @@ namespace CarlssonsWPF.Model
             OfferSentInput = OfferSent?.ToString("dd/MM/yy") ?? "";
             OfferApprovedInput = OfferApproved?.ToString("dd/MM/yy") ?? "";
             PaidInput = Paid?.ToString("dd/MM/yy") ?? "";
-
-            // Services er allerede ObservableCollection takket være property, men hvis du har en Liste et andet sted,
-            // kan du konvertere sådan her:
 
             {
                 if (Services == null)

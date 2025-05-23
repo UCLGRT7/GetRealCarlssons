@@ -11,7 +11,7 @@
       Title="CreateProjectView">
 
     <Page.Resources>
-        <!--  Shared Box Styling -->
+        <!-- Shared Box styling -->
         <Style x:Key="BaseBoxStyle" TargetType="FrameworkElement">
             <Setter Property="Height" Value="25"/>
             <Setter Property="Width" Value="190"/>
@@ -19,15 +19,14 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
 
-        <!--  TEXT INPUT -->
+        <!-- Text input -->
         <Style x:Key="TextBoxCentered" TargetType="TextBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Height" Value="25"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="0"/>
         </Style>
 
-
-        <!--  ComboBox INPUT -->
+        <!-- ComboBox input -->
         <Style x:Key="ComboBoxEdit" TargetType="ComboBox" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="190"/>
             <Setter Property="Height" Value="25"/>
@@ -35,7 +34,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
-        <!--  TEXT VIEW -->
+        <!-- Text view -->
         <Style x:Key="TextBlockView" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="190"/>
             <Setter Property="Height" Value="25"/>
@@ -46,7 +45,7 @@
             <Setter Property="Margin" Value="0"/>
         </Style>
 
-        <!--  Titles -->
+        <!-- Titles -->
         <Style x:Key="TitleToLeft" TargetType="TextBlock" BasedOn="{StaticResource BaseBoxStyle}">
             <Setter Property="Width" Value="90"/>
             <Setter Property="Margin" Value="0,10,10,0"/>
@@ -65,12 +64,12 @@
             <Setter Property="Margin" Value="15,0,15,0"/>
         </Style>
 
-        <!--  DateTextBoxStyle -->
+        <!-- DateTextBoxStyle -->
         <Style x:Key="DateTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxCentered}">
             <EventSetter Event="PreviewTextInput" Handler="DateAutoFormatter"/>
         </Style>
 
-        <!-- GroupboxNoHole-->
+        <!-- GroupboxNoHole -->
         <Style x:Key="GroupBoxNoHole" TargetType="GroupBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -96,9 +95,6 @@
     </Page.Resources>
 
 
-
-
-
     <Grid Margin="10,0,0,0">
         <GroupBox x:Name="ProjectInfo" HorizontalAlignment="Center" Margin="0,0,550,400" Width="310" Height="250" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="LeftGrid" Height="240" Width="300">
@@ -117,7 +113,6 @@
                     <RowDefinition Height="30"/>
                     <!-- Omfang -->
                     <RowDefinition Height="30"/>
-
                     <!-- Status -->
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
@@ -127,7 +122,7 @@
                     <ColumnDefinition Width="280"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Kunde info-->
+                <!-- Kunde info -->
                 <TextBlock Text="Projekt Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Margin="0,0,81,0" HorizontalAlignment="Center"/>
 
                 <TextBlock Text="Navn:" Grid.Row="1" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
@@ -161,10 +156,7 @@
           SelectedItem="{Binding SelectedProject.Status, Mode=TwoWay}"
           Style="{StaticResource ComboBoxEdit}" />
 
-
-
             </Grid>
-
         </GroupBox>
 
         <GroupBox x:Name="Finances" Margin="0,200,550,0" Width="310" Height="220" Style="{StaticResource GroupBoxNoHole}">
@@ -207,8 +199,6 @@
 
                 <TextBlock Text="Faktura:" Grid.Row="5" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding InvoiceNumber, Mode=TwoWay}" Style="{StaticResource TextBoxCentered}"/>
-
-
 
                 <TextBlock Text="Betalt:" Grid.Row="6" Grid.Column="0" Style="{StaticResource TitleToLeft}"/>
                 <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding PaidInput, Mode=TwoWay}" Style="{StaticResource DateTextBoxStyle}"/>
@@ -265,6 +255,7 @@
                 <Button Content="Ydelsesmenu" Click="ServiceMenuButton_Click" Style="{StaticResource Button}" Grid.Row="3" FontSize="12" FontWeight="Normal" Height="NaN" Width="75" HorizontalAlignment="Left" Margin="125,46,0,6"/>
             </Grid>
         </GroupBox>
+
         <!-- Knapper -->
         <GroupBox x:Name="Buttons" Width="400" Height="80" Margin="0,550,0,0" Style="{StaticResource GroupBoxNoHole}">
             <StackPanel Orientation="Horizontal"

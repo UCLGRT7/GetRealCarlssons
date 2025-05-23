@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
@@ -98,8 +96,6 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged(nameof(City));
             }
         }
-
-
         public void SearchCustomer()
         {
             var filtered = allCustomers.Where(customer =>

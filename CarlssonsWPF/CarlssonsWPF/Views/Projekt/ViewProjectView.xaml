@@ -99,9 +99,6 @@
     </Page.Resources>
 
 
-
-
-
     <Grid Margin="10,0,0,0">
         <GroupBox x:Name="ProjectInfo" HorizontalAlignment="Center" Margin="0,0,550,400" Width="310" Height="250" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="LeftGrid" Height="240" Width="300">
@@ -120,7 +117,6 @@
                     <RowDefinition Height="30"/>
                     <!-- Omfang -->
                     <RowDefinition Height="30"/>
-
                     <!-- Status -->
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
@@ -358,8 +354,6 @@
         </GroupBox>
 
 
-
-
         <GroupBox x:Name="Finances" Margin="0,200,550,0" Width="310" Height="220" Style="{StaticResource GroupBoxNoHole}">
             <Grid x:Name="BottomLeftGrid" Width="300">
                 <Grid.RowDefinitions>
@@ -495,7 +489,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBox Text="{Binding Invoice, UpdateSourceTrigger=PropertyChanged}"
+                                                <TextBox Text="{Binding InvoiceNumber, UpdateSourceTrigger=PropertyChanged}"
                                                          Style="{StaticResource TextBoxCentered}"/>
                                             </DataTemplate>
                                         </Setter.Value>
@@ -505,7 +499,7 @@
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Invoice}"
+                                                <TextBlock Text="{Binding InvoiceNumber}"
                                                            Style="{StaticResource TextBlockView}" Margin="3,4,0,0"/>
                                             </DataTemplate>
                                         </Setter.Value>
@@ -548,10 +542,6 @@
                 </ContentControl>
             </Grid>
         </GroupBox>
-
-
-
-
 
 
         <!-- Right GroupBox: Ydelser -->
@@ -674,9 +664,6 @@
                 Width="75"/>
             </Grid>
         </GroupBox>
-
-
-
 
 
         <!-- Knapper -->

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
 
@@ -110,7 +108,7 @@ namespace CarlssonsWPF.Data.FileRepositories
             var contracts = GetAll().ToList();
 
             // Find the index of the contract to update
-            var existingIndex = contracts.FindIndex(c => c.InvoiceNumber == contract.InvoiceNumber);
+            var existingIndex = contracts.FindIndex(c => c.Id == contract.Id);
 
             // Update the contract if found
             if (existingIndex != -1)
@@ -140,7 +138,9 @@ namespace CarlssonsWPF.Data.FileRepositories
                 // Configure JSON serialization options
                 var options = new JsonSerializerOptions
                 {
-                    WriteIndented = true // Makes the JSON file more readable
+                    WriteIndented = true, // Makes the JSON file more readable
+                    DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.Never,
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
                 };
 
                 // Serialize the contract list to JSON

@@ -390,12 +390,63 @@
     "Scope": 0,
     "CustomerName": "Daniel Kargaard R\u00F8rlund",
     "Status": null,
-    "LastModified": "2025-05-23T14:10:25.2027368+02:00",
+    "LastModified": "2025-05-23T15:47:10.0257636+02:00",
     "OfferSent": "1997-03-09",
     "OfferApproved": "1997-03-09",
     "Paid": null,
     "InvoiceNumber": 0,
-    "Services": []
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   },
   {
     "Id": "9aec4f21-3cf5-4e62-ad25-5565af7d1fce",
@@ -453,5 +504,183 @@
     "Paid": null,
     "InvoiceNumber": 90397,
     "Services": []
+  },
+  {
+    "Id": "165993d5-aca6-40a6-87bf-964f4dc6cf5b",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "Test guid 1 ",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel Kargaard R\u00F8rlund",
+    "Status": null,
+    "LastModified": "2025-05-23T15:38:49.795335+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 123,
+    "Services": []
+  },
+  {
+    "Id": "302a68c8-14a1-409d-a17e-b4ee184b5063",
+    "OfferSentInput": "09-03-98",
+    "CaseNumber": "Test guid 2",
+    "ProjectAddress": "salling",
+    "ProjectPostalCode": 2323,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 3,
+    "CustomerName": "Alex Holmbo",
+    "Status": "Igang",
+    "LastModified": "2025-05-23T16:00:39.1397204+02:00",
+    "OfferSent": "1998-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": "2024-05-23",
+    "InvoiceNumber": 1234567,
+    "Services": [
+      {
+        "Id": 1,
+        "Name": "Registrering",
+        "Complexity": 3
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
+  },
+  {
+    "Id": "36224a8c-58a3-406f-ade4-27e9ad8eaf29",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "guid test 3",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Daniel blomsten",
+    "Status": null,
+    "LastModified": "2025-05-23T16:01:11.7673465+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 0,
+    "Services": []
+  },
+  {
+    "Id": "ecca171a-db90-47f3-b5fe-c8f46fddf326",
+    "OfferSentInput": "09-03-97",
+    "CaseNumber": "guid test 4",
+    "ProjectAddress": null,
+    "ProjectPostalCode": null,
+    "Deadline": "1997-03-09",
+    "EstimatedPrice": 0,
+    "Price": 0,
+    "Scope": 0,
+    "CustomerName": "Alex Holmbo",
+    "Status": null,
+    "LastModified": "2025-05-23T16:01:55.8157323+02:00",
+    "OfferSent": "1997-03-09",
+    "OfferApproved": "1997-03-09",
+    "Paid": null,
+    "InvoiceNumber": 1998,
+    "Services": [
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      },
+      {
+        "Id": 0,
+        "Name": null,
+        "Complexity": 0
+      }
+    ]
   }
 ]

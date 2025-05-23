@@ -40,7 +40,7 @@
           SelectionMode="Single"
           AlternationCount="2">
 
-            <!-- ✅ Række- og celle-styling -->
+            <!-- Række- og celle-styling -->
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="White"/>
@@ -111,7 +111,6 @@
             <Button Content="Tilbage" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="BackFromSearchResults_Click" Grid.Column="1"/>
 
         </Grid>
-
 
     </Grid>
 </Page>

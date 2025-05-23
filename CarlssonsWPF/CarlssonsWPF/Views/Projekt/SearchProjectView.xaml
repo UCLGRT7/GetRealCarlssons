@@ -157,13 +157,12 @@ Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                     Height="50"
                     Margin="10"
                     Grid.Column="1"/>
-             <Button Content="Tilbage til start"
+            <Button Content="Tilbage til start"
                      Click="GoBack_Click"        
                      Command="{Binding CancelCommand}" Width="150"
                      Height="50"
                      Margin="10"
                      Grid.Column="2"/>
-
         </Grid>
 
     </Grid>

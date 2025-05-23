@@ -68,7 +68,6 @@
                     </Style.Triggers>
                 </Style>
 
-
                 <!-- Celle-styling: Fjern fokusramme -->
                 <Style TargetType="DataGridCell">
                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -131,9 +130,6 @@
         Margin="10"
         MinWidth="150"
         MinHeight="50"/>
-
-
-
         </Grid>
     </Grid>
 </Page>

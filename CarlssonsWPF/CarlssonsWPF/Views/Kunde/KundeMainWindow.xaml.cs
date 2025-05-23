@@ -1,26 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Helpers;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel;
-using CarlssonsWPF.Views.Projekt;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    
 
     public partial class KundeMainWindow : Page
     {
@@ -36,7 +25,6 @@ namespace CarlssonsWPF.Views.Kunde
             addCustomerViewModel = new AddCustomerViewModel();
             DataContext = addCustomerViewModel;
         }
-
 
         private void HomescreenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -70,7 +58,6 @@ namespace CarlssonsWPF.Views.Kunde
                 }), System.Windows.Threading.DispatcherPriority.Background);
             }
         }
-
 
         private void CustomerDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
