@@ -40,9 +40,6 @@ public static class CommonCommands
         }
     }
 
-                        break;
-                    }
-
     private static void ExecuteCancel(object parameter)
     {
         if (parameter is FrameworkElement fe)

@@ -149,11 +149,11 @@ namespace CarlssonsWPF.ViewModel
 
             //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
-        }
+        
 
             //var result = MessageBox.Show($"Kunden '{SelectedCustomer.Name}' er opdateret!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
-        }
+        
 
 
         public void ShowCustomerProjects()
