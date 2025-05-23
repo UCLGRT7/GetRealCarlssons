@@ -33,7 +33,7 @@
                   CanUserResizeRows="False"
                   CanUserResizeColumns="False"
                   CanUserReorderColumns="False"
-                  CanUserSortColumns="False"
+                  CanUserSortColumns="True"
                   HeadersVisibility="Column"
                   AlternationCount="2"
                   Background="White"
