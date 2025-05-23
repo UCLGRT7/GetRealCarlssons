@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using CarlssonsWPF.Data.FileRepositories;
 using CarlssonsWPF.Model;
 using CarlssonsWPF.ViewModel.IRepositories;
@@ -102,9 +96,6 @@ namespace CarlssonsWPF.ViewModel
                 OnPropertyChanged(nameof(City));
             }
         }
-
-      
-
 
         protected void OnPropertyChanged(string propertyName)
         {

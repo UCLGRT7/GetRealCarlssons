@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace CarlssonsWPF.Model
 {
@@ -18,8 +15,6 @@ namespace CarlssonsWPF.Model
         public int PostalCode { get; set; }
         public string City { get; set; }
 
-        [JsonIgnore]
-        public List<Project> Projects { get; set; } = new List<Project>();
 
         public override string ToString()
         {

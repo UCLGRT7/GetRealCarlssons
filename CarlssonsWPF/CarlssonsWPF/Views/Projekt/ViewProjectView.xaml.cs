@@ -1,34 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.Helpers;
 using CarlssonsWPF.ViewModel;
-using CarlssonsWPF.Views.Projekt;
 using CarlssonsWPF.Views.Dialogs;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    /// <summary>
-    /// Interaction logic for ViewProjectView.xaml
-    /// </summary>
+
+    // Interaction logic for ViewProjectView.xaml
     public partial class ViewProjectView : Page
     {
 
         private ViewProjectViewModel _viewProjectViewModel;
-
 
         private Frame _frame;
 
@@ -38,7 +26,6 @@ namespace CarlssonsWPF.Views.Projekt
             _frame = frame;
             _viewProjectViewModel = new ViewProjectViewModel(selectedProject, selectedService);
             DataContext = _viewProjectViewModel;
-
         }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
@@ -103,10 +90,6 @@ namespace CarlssonsWPF.Views.Projekt
 
             ((Frame)sender).Navigated -= Frame_Navigated;
         }
-
-
-
-
 
     }
 }

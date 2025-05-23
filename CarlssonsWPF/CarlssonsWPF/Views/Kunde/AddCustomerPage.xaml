@@ -9,25 +9,24 @@
      d:DesignHeight="720" d:DesignWidth="1280"
      Title="AddCustomerPage">
 
-   <Grid Margin="10">
+    <Grid Margin="10">
 
-       <Grid.RowDefinitions>
-           <RowDefinition Height="Auto"/>
-           <RowDefinition Height="*"/>
-           <RowDefinition Height="Auto"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Tilføj kunde" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10" Grid.Row="0"/>
 
-       <Grid Grid.Row="1">
-           <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="*"/>
-               <ColumnDefinition Width="Auto"/>
-               <ColumnDefinition Width="*"/>
-           </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-
-           <Grid Grid.Column="0">
+            <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -42,9 +41,9 @@
                 <TextBlock Text="By:" FontSize="16" Margin="0,50,10,0" TextAlignment="Right" Grid.Row="3"/>
                 <TextBlock Text="Tlf Nummer:" FontSize="16" Margin="0,50,10,0" TextAlignment="Right" Grid.Row="4"/>
                 <TextBlock Text="E-Mail:" FontSize="16" Margin="0,50,10,0" TextAlignment="Right" Grid.Row="5"/>
-           </Grid>
+            </Grid>
 
-           <Grid Grid.Column="1">
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -60,10 +59,10 @@
                 <TextBox Name="CityTextBox" Text="{Binding City}" Padding="0,-3,0,0" FontSize="16" Margin="0,50,0,0" TextAlignment="Left" Width="300" Height="21.28" Grid.Row="3" HorizontalAlignment="Left" />
                 <TextBox Name="PhoneNumberTextBox" Text="{Binding PhoneNumber}" Padding="0,-3,0,0" FontSize="16" Margin="0,50,0,0" TextAlignment="Left" Width="300" Height="21.28" Grid.Row="4" HorizontalAlignment="Left" />
                 <TextBox Name="EmailTextBox" Text="{Binding Email}" Padding="0,-3,0,0" FontSize="16" Margin="0,50,0,0" TextAlignment="Left" Width="300" Height="21.28" Grid.Row="5" HorizontalAlignment="Left" />
-           </Grid>
-       </Grid>
+            </Grid>
+        </Grid>
 
-       <Grid Grid.Row="2">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -78,9 +77,8 @@
         MinWidth="150"
         MinHeight="50"/>
 
-
             <Button Content="Opret" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="AddCustomerAndGoToSpec_click" Grid.Column=" 2"/>
-       </Grid>
+        </Grid>
 
-   </Grid>
+    </Grid>
 </Page>

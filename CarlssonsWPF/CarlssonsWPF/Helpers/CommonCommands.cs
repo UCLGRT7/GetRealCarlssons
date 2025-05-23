@@ -7,8 +7,6 @@ using CarlssonsWPF.ViewModel;
 namespace CarlssonsWPF.Helpers
 {
 
-
-
     public static class CommonCommands
     {
         private static readonly ICommand cancelAndGoBackCommand = new RelayCommand(ExecuteCancel);

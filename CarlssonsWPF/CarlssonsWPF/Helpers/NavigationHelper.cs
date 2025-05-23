@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using CarlssonsWPF.Helpers;
 using CarlssonsWPF.Views;
 
 namespace CarlssonsWPF.Helpers

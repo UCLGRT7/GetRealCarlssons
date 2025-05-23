@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using CarlssonsWPF.Model;
-using CarlssonsWPF.ViewModel;
 using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.Data.FileRepositories
@@ -110,8 +107,6 @@ namespace CarlssonsWPF.Data.FileRepositories
                 Console.WriteLine($"Error adding project: {ex.Message}");
             }
         }
-
-
 
         public void Update(Project project)
         {
