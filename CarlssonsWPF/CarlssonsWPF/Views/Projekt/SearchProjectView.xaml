@@ -87,8 +87,8 @@
                     <DataGridTextColumn Header="Projekt adresse" Binding="{Binding ProjectAddress}" Width="*"/>
                     <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline, StringFormat=\{0:d\}}" Width="*"/>
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
-                    <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferApproved}" Width="*"/>
-                    <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved}" Width="*"/>
+                    <DataGridTextColumn Header="Godkendt" Binding="{Binding OfferApproved, StringFormat=\{0:d\}}" Width="*"/>
+                    <DataGridTextColumn Header="Betalt" Binding="{Binding IsPaymentRecieved, StringFormat=\{0:d\}}" Width="*"/>
 
                 </DataGrid.Columns>
 
