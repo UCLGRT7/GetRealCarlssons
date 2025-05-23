@@ -237,6 +237,10 @@ namespace CarlssonsWPF.ViewModel
                         OnPropertyChanged(nameof(Contracts));
                     }
                 }
+                else
+                {
+                    // Hvis der ikke findes en kontrakt, kan du evt. oprette en ny her
+                }
             
 
             // Opdater sidste redigeringstidspunkt
