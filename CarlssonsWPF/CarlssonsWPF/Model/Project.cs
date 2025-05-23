@@ -29,7 +29,6 @@ namespace CarlssonsWPF.Model
                 _customer = value;
                 OnPropertyChanged();
 
-                // 👇 Sørg for at CustomerName opdateres
                 if (_customer != null)
                     CustomerName = _customer.Name;
             }

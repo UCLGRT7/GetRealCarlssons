@@ -11,14 +11,14 @@ namespace CarlssonsWPF.Views.Projekt
  
     public partial class SearchProjectView : Page
     {
-        private SearchProjectViewModel _searchProjectViewModel;
+        private SearchProjectVM _searchProjectViewModel;
         private Frame _frame;
 
         public SearchProjectView(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            _searchProjectViewModel = new SearchProjectViewModel();
+            _searchProjectViewModel = new SearchProjectVM();
             DataContext = _searchProjectViewModel;
         }
 
@@ -30,7 +30,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void SearchProject_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is SearchProjectViewModel searchProjectViewModel)
+            if (DataContext is SearchProjectVM searchProjectViewModel)
             {
                 searchProjectViewModel.SearchProject();
 

@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Kunde\KundeSearch.xaml.cs">
+    <Compile Update="Views\Kunde\CustomerSearch.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

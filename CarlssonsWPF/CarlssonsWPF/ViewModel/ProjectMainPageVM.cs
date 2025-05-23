@@ -5,12 +5,12 @@ using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class ProjektMainPageViewModel
+    public class ProjectMainPageVM : INotifyPropertyChanged
     {
         private readonly ProjectViewService _projectViewService;
         private ObservableCollection<CombinedProjectData> _combinedProjectData;
 
-        public ProjektMainPageViewModel()
+        public ProjectMainPageVM()
         {
             _projectViewService = new ProjectViewService();
             CombinedProjects = _projectViewService.GetCombinedProjectModels();

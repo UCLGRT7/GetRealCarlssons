@@ -14,7 +14,7 @@ using System.Windows.Media;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class CreateProjectViewModel : INotifyPropertyChanged
+    public class CreateProjectVM : INotifyPropertyChanged
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IProjectRepository _projectRepository;
@@ -242,7 +242,7 @@ namespace CarlssonsWPF.ViewModel
             }
         }
 
-        public CreateProjectViewModel()
+        public CreateProjectVM()
         {
             _customerRepository = new FileCustomerRepository();
             _projectRepository = new FileProjectRepository();

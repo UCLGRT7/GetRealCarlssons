@@ -4,12 +4,12 @@ using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class RemindersViewModel
+    public class RemindersVM : INotifyPropertyChanged
     {
         private readonly ReminderViewService _reminderViewService;
         private ObservableCollection<RemindersData> _remindersData;
 
-        public RemindersViewModel()
+        public RemindersVM()
         {
             _reminderViewService = new ReminderViewService();
             RemindersDatas = _reminderViewService.GetRemindersData();

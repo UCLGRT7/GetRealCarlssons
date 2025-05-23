@@ -11,18 +11,18 @@ using CarlssonsWPF.ViewModel;
 namespace CarlssonsWPF.Views.Kunde
 {
 
-    public partial class KundeMainWindow : Page
+    public partial class CustomerMainPage : Page
     {
         public ICommand BackCommand => CommonCommands.CancelAndGoBackCommand;
-        private CustomerViewModel customerViewModel;
-        private AddCustomerViewModel addCustomerViewModel;
+        private CustomerVM customerViewModel;
+        private AddCustomerVM addCustomerViewModel;
 
         private Frame _frame;
-        public KundeMainWindow(Frame frame)
+        public CustomerMainPage(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            addCustomerViewModel = new AddCustomerViewModel();
+            addCustomerViewModel = new AddCustomerVM();
             DataContext = addCustomerViewModel;
         }
 
@@ -36,7 +36,7 @@ namespace CarlssonsWPF.Views.Kunde
         }
         private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new KundeSearch(_frame));
+            _frame.Navigate(new CustomerSearch(_frame));
         }
         private void CustomerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {

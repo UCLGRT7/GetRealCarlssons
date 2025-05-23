@@ -17,12 +17,12 @@ namespace CarlssonsWPF.Views.Kunde
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = new CustomerSpecViewModel(selectedCustomer);
+            DataContext = new CustomerSpecVM(selectedCustomer);
 
         }
         private void BackFromCustomerSpec_click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new KundeMainWindow(_frame));
+            _frame.Navigate(new CustomerMainPage(_frame));
 
         }
 
@@ -36,7 +36,7 @@ namespace CarlssonsWPF.Views.Kunde
             if (CustomerSpecDataGrid.SelectedItem is ProjectWithContractInfoDatagrid selectedProjectInfo)
             {
                 // Get the actual Project from the repository using the CaseNumber
-                if (DataContext is CustomerSpecViewModel viewModel)
+                if (DataContext is CustomerSpecVM viewModel)
                 {
                     var project = viewModel.ProjectRepository.GetByCaseNumber(selectedProjectInfo.CaseNumber);
                     if (project != null)

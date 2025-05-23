@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 using CarlssonsWPF.Model;
+using CarlssonsWPF.Helpers;
 using CarlssonsWPF.ViewModel;
+using CarlssonsWPF.Views.Projekt;
 using CarlssonsWPF.Views.Dialogs;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-
-    // Interaction logic for ViewProjectView.xaml
+    /// <summary>
+    /// Interaction logic for ViewProjectView.xaml
+    /// </summary>
     public partial class ViewProjectView : Page
     {
 
-        private ViewProjectViewModel _viewProjectViewModel;
+        private ViewProjectVM _viewProjectViewModel;
+
 
         private Frame _frame;
 
@@ -24,8 +36,9 @@ namespace CarlssonsWPF.Views.Projekt
         {
             InitializeComponent();
             _frame = frame;
-            _viewProjectViewModel = new ViewProjectViewModel(selectedProject, selectedService);
+            _viewProjectViewModel = new ViewProjectVM(selectedProject, selectedService);
             DataContext = _viewProjectViewModel;
+
         }
 
         private void DateAutoFormatter(object sender, TextCompositionEventArgs e)
@@ -75,21 +88,25 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void NavigateBackToProjectMain()
         {
-            var projektMainWindow = new ProjektMainWindow(_frame);
+            var projektMainWindow = new ProjectMainWindow(_frame);
             _frame.Navigated += Frame_Navigated;
             _frame.Navigate(projektMainWindow);
         }
 
         private void Frame_Navigated(object sender, NavigationEventArgs e)
         {
-            if (e.Content is ProjektMainWindow projektMainWindow &&
-                projektMainWindow.DataContext is ProjektMainPageViewModel vm)
+            if (e.Content is ProjectMainWindow projektMainWindow &&
+                projektMainWindow.DataContext is ProjectMainPageVM vm)
             {
                 vm.ReloadProjects();
             }
 
             ((Frame)sender).Navigated -= Frame_Navigated;
         }
+
+
+
+
 
     }
 }

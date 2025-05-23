@@ -14,25 +14,25 @@ namespace CarlssonsWPF.Views
     {
   
         private Frame _frame;
-        private StartPageViewModel _viewModel;
+        private StartPageVM _viewModel;
         public StartPage(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            _viewModel = new StartPageViewModel();
+            _viewModel = new StartPageVM();
             DataContext = _viewModel;
         }
         private void project_Click(object sender, RoutedEventArgs e)
         {
 
-            _frame.Navigate(new ProjektMainWindow(_frame));
+            _frame.Navigate(new ProjectMainWindow(_frame));
 
         }
 
         private void customer_Click(object sender, RoutedEventArgs e)
         {
 
-            _frame.Navigate(new KundeMainWindow(_frame));
+            _frame.Navigate(new CustomerMainPage(_frame));
         }
 
         private void reminder_Click(object sender, RoutedEventArgs e)

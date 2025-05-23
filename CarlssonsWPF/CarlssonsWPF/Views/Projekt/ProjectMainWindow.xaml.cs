@@ -7,19 +7,19 @@ using CarlssonsWPF.Views.Kunde;
 
 namespace CarlssonsWPF.Views.Projekt
 {
-    public partial class ProjektMainWindow : Page
+    public partial class ProjectMainWindow : Page
     {
 
-        private ProjektMainPageViewModel _projektMainPageViewModel;
+        private ProjectMainPageVM _projektMainPageViewModel;
 
         private Frame _frame;
 
 
-        public ProjektMainWindow(Frame frame) 
+        public ProjectMainWindow(Frame frame) 
         {
             InitializeComponent();
             _frame = frame;
-            _projektMainPageViewModel = new ProjektMainPageViewModel();
+            _projektMainPageViewModel = new ProjectMainPageVM();
             DataContext = _projektMainPageViewModel;
 
             this.IsVisibleChanged += ProjektMainWindow_IsVisibleChanged;
@@ -42,7 +42,7 @@ namespace CarlssonsWPF.Views.Projekt
 
         private void customer_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new KundeMainWindow(_frame));
+            _frame.Navigate(new CustomerMainPage(_frame));
         }
 
         private void reminders_Click(object sender, RoutedEventArgs e)

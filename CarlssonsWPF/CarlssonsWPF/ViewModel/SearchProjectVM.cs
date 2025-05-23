@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class SearchProjectViewModel : INotifyPropertyChanged
+    public class SearchProjectVM : INotifyPropertyChanged
     {
         private string? _caseNumber;
         private string? _projectAdress;
@@ -32,7 +32,7 @@ namespace CarlssonsWPF.ViewModel
         public ICommand CancelCommand { get; set; }
         public ICommand OpenProjectCommand { get; set; }
 
-        public SearchProjectViewModel()
+        public SearchProjectVM()
         {
             for (int i = 0; i < 5; i++)
             {

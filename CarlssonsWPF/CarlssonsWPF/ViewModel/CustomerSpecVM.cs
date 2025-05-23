@@ -9,7 +9,7 @@ using CarlssonsWPF.Data.FileRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-    class CustomerSpecViewModel : INotifyPropertyChanged
+    class CustomerSpecVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public IProjectRepository ProjectRepository => _projectRepository;
@@ -95,7 +95,7 @@ namespace CarlssonsWPF.ViewModel
 
 
 
-        public CustomerSpecViewModel(Customer selectedCustomer)
+        public CustomerSpecVM(Customer selectedCustomer)
         {
             _customerRepository = new FileCustomerRepository();
             _projectRepository = new FileProjectRepository();

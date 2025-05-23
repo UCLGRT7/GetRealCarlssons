@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class ViewProjectViewModel : INotifyPropertyChanged, IReloadableViewModel
+    public class ViewProjectVM : INotifyPropertyChanged, IReloadableViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -76,7 +76,7 @@ namespace CarlssonsWPF.ViewModel
         public ICommand AddServiceCommand { get; }
         public ICommand RemoveServiceCommand { get; }
 
-        public ViewProjectViewModel(Project selectedProject, ServiceEntry selectedService)
+        public ViewProjectVM(Project selectedProject, ServiceEntry selectedService)
         {
             _customerRepository = new FileCustomerRepository();
             _projectRepository = new FileProjectRepository();

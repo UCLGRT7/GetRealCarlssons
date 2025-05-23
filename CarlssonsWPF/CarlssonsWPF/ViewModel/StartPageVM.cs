@@ -5,12 +5,12 @@ using CarlssonsWPF.Model;
 
 namespace CarlssonsWPF.ViewModel
 {
-    public class StartPageViewModel
+    public class StartPageVM : INotifyPropertyChanged
     {
         private readonly ReminderViewService _reminderViewService;
         private ObservableCollection<RemindersData> _reminders14DaysExeededData;
 
-        public StartPageViewModel()
+        public StartPageVM()
         {
             _reminderViewService = new ReminderViewService();
             var reminders = _reminderViewService.GetExeededby14Days();

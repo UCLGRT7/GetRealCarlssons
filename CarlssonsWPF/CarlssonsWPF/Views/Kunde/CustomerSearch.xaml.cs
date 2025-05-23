@@ -5,20 +5,20 @@ using CarlssonsWPF.ViewModel;
 
 namespace CarlssonsWPF.Views.Kunde
 {
-    public partial class KundeSearch : Page
+    public partial class CustomerSearch : Page
     {
         private Frame _frame;
 
-        public KundeSearch(Frame frame)
+        public CustomerSearch(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            DataContext = new KundeSearchViewModel();
+            DataContext = new CustomerSearchVM();
         }
 
         private void KundeSearch_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is KundeSearchViewModel viewModel)
+            if (DataContext is CustomerSearchVM viewModel)
             {
                 viewModel.SearchCustomer();
 
@@ -37,7 +37,7 @@ namespace CarlssonsWPF.Views.Kunde
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Navigate(new KundeMainWindow(_frame));
+            _frame.Navigate(new CustomerMainPage(_frame));
         }
     }
 }

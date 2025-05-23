@@ -9,7 +9,7 @@ using CarlssonsWPF.ViewModel.IRepositories;
 
 namespace CarlssonsWPF.ViewModel
 {
-    class KundeSearchViewModel : INotifyPropertyChanged
+    class CustomerSearchVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -25,7 +25,7 @@ namespace CarlssonsWPF.ViewModel
 
         public RelayCommand SearchCommand { get; }
 
-        public KundeSearchViewModel()
+        public CustomerSearchVM()
         {
             _customerRepository = new FileCustomerRepository();
             allCustomers = _customerRepository.GetAll().ToList();
